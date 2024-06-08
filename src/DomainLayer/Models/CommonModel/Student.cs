@@ -5,11 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using DomainLayer.Models.CommonModel;
 
-namespace DomainLayer.StudentModel
+namespace DomainLayer.Models.CommonModel
 {
-    class StudentPersonalInfoModel : PersonalInfoModel, IStudentPersonalInfoModel
+    public interface IStudentModel
+    {
+        string SrCode { get; set; }
+    }
+
+    class StudentModel : IStudentModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Sr Code must not be empty!")]
         [StringLength(8, MinimumLength = 8, ErrorMessage = "Sr Code must be 8 characters!")]

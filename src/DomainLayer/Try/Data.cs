@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLayer.Models.StudentModel
+namespace DomainLayer.Try
 {
-    class StudentAcademicInfoModel
+    public partial class Data
     {
+        public Data() 
+        {
+            this.setname();
+        }
     }
 }
