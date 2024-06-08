@@ -36,8 +36,8 @@ namespace DomainLayer.Models.PersonalInfo
         }
         public string EmergencyContactName 
         { 
-            get => throw new NotImplementedException(); 
-            set => throw new NotImplementedException(); }
+            get => _personalInfoModel.EmergencyContactName;
+            set => _personalInfoModel.EmergencyContactName = value; }
         public string EmergencyContactNumber { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string FirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Gender { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
