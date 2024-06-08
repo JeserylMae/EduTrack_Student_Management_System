@@ -42,16 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AcademicInfoModel\StudentAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\AcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\IAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\IPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\PersonalInfoModel.cs" />
-    <Compile Include="Models\InstructorModel\IInstructorPersonalInfoModel.cs" />
-    <Compile Include="Models\InstructorModel\InstructorAcademicInfoModel.cs" />
-    <Compile Include="Models\InstructorModel\InstructorPersonalInfoModel.cs" />
-    <Compile Include="Models\PersonalInfo\StudentPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\Student.cs" />
+    <Compile Include="Models\DerivedModel\EdutrackUserModel.cs" />
+    <Compile Include="Models\DerivedModel\StudentAttendanceInfoModel.cs" />
+    <Compile Include="Models\DerivedModel\StudentGradeInfoModel.cs" />
+    <Compile Include="Models\DerivedModel\StudentSharedInfoModel.cs" />
+    <Compile Include="Models\InformationModel\AcademicModel\CourseInfoModel.cs" />
+    <Compile Include="Models\InformationModel\AcademicModel\InstructorAcademicInfoModel.cs" />
+    <Compile Include="Models\InformationModel\AcademicModel\StudentAcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\AcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\IAcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\DistinctModel\InstructorPropertyModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\IPersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\PersonalInfoModel.cs" />
+    <Compile Include="Models\InformationModel\PersonalModel\InstructorPersonalInfoModel.cs" />
+    <Compile Include="Models\InformationModel\PersonalModel\StudentPersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\DistinctModel\StudentPropertyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

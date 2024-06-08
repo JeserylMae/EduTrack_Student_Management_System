@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLayer.Models.CommonModel
+namespace DomainLayer.Models.CommonModel.BaseModel
 {
     class AcademicInfoModel : IAcademicInfoModel
     {

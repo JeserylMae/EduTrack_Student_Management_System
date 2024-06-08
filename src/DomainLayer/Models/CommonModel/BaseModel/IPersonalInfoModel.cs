@@ -1,6 +1,7 @@
-﻿using System;
+﻿
+using System;
 
-namespace DomainLayer.Models.CommonModel
+namespace DomainLayer.Models.CommonModel.BaseModel
 {
     public interface IPersonalInfoModel
     {

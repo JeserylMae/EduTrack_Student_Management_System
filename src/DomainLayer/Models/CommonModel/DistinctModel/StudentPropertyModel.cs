@@ -6,14 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace DomainLayer.Models.CommonModel
+namespace DomainLayer.Models.CommonModel.DistinctModel
 {
-    public interface IStudentModel
+    public interface IStudentPropertyModel
     {
         string SrCode { get; set; }
     }
 
-    class StudentModel : IStudentModel
+    class StudentPropertyModel : IStudentPropertyModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Sr Code must not be empty!")]
         [StringLength(8, MinimumLength = 8, ErrorMessage = "Sr Code must be 8 characters!")]

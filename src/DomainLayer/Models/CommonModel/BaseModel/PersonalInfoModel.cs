@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace DomainLayer.Models.CommonModel
+namespace DomainLayer.Models.CommonModel.BaseModel
 {
     class PersonalInfoModel : IPersonalInfoModel
     {

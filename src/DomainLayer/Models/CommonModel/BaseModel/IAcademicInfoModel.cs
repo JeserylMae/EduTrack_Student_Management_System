@@ -1,4 +1,5 @@
-﻿namespace DomainLayer.Models.CommonModel
+﻿
+namespace DomainLayer.Models.CommonModel.BaseModel
 {
     public interface IAcademicInfoModel
     {
