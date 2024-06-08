@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CommonModel\AcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\IAcademicInfoModel.cs" />
     <Compile Include="Models\CommonModel\IPersonalInfoModel.cs" />
     <Compile Include="Models\CommonModel\PersonalInfoModel.cs" />
     <Compile Include="Models\InstructorModel\IInstructorPersonalInfoModel.cs" />

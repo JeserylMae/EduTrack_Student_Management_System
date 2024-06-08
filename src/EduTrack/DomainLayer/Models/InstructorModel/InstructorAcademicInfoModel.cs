@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.InstructorModel
 {
-    public class InstructorAcademicInfoModel
+    class InstructorAcademicInfoModel
     {
     }
 }

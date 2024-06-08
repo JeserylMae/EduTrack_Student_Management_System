@@ -2,7 +2,7 @@
 
 namespace DomainLayer.Models.CommonModel
 {
-    interface IPersonalInfoModel
+    public interface IPersonalInfoModel
     {
         DateTime BirthDate { get; set; }
         string ContactNumber { get; set; }
