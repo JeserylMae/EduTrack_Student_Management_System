@@ -1,6 +1,7 @@
-﻿using DomainLayer.Models.CommonModels;
+﻿
+using DomainLayer.Models.CommonModel;
 
-namespace DomainLayer.Models.Instructors
+namespace DomainLayer.Models.InstructorModel
 {
     internal interface IInstructorPersonalInfoModel : IPersonalInfoModel
     {

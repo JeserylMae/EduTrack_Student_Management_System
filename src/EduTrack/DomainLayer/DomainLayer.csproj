@@ -42,15 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CommonModels\IPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModels\PersonalInfoModel.cs" />
-    <Compile Include="Models\Instructors\IInstructorPersonalInfoModel.cs" />
-    <Compile Include="Models\Instructors\InstructorAcademicInfoModel.cs" />
-    <Compile Include="Models\Instructors\InstructorPersonalInfoModel.cs" />
-    <Compile Include="Models\Student\IStudentPersonalInfoModel.cs" />
-    <Compile Include="Models\Student\StudentAcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\IPersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\PersonalInfoModel.cs" />
+    <Compile Include="Models\InstructorModel\IInstructorPersonalInfoModel.cs" />
+    <Compile Include="Models\InstructorModel\InstructorAcademicInfoModel.cs" />
+    <Compile Include="Models\InstructorModel\InstructorPersonalInfoModel.cs" />
+    <Compile Include="Models\StudentModel\IStudentPersonalInfoModel.cs" />
+    <Compile Include="Models\StudentModel\StudentAcademicInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Student\StudentPersonalInfoModel.cs" />
+    <Compile Include="Models\StudentModel\StudentPersonalInfoModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

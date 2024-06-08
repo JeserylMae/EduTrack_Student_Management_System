@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DomainLayer.Models.CommonModels
+namespace DomainLayer.Models.CommonModel
 {
     interface IPersonalInfoModel
     {

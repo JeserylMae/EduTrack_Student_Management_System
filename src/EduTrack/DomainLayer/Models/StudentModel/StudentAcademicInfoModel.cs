@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLayer.Models.Instructors
+namespace DomainLayer.Models.StudentModel
 {
-    public class InstructorAcademicInfoModel
+    public class StudentAcademicInfoModel
     {
     }
 }

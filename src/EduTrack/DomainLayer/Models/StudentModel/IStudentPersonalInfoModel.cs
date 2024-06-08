@@ -1,7 +1,7 @@
-﻿using System;
-using DomainLayer.Models.CommonModels;
+﻿
+using DomainLayer.Models.CommonModel;
 
-namespace DomainLayer.Student
+namespace DomainLayer.StudentModel
 {
     interface IStudentPersonalInfoModel : IPersonalInfoModel
     {
