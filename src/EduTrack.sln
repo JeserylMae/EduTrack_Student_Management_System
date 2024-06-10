@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{9CEF06A4-A158-4242-8962-09D3E68C8162}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer.Test", "ServiceLayer.Test\ServiceLayer.Test.csproj", "{58179EAC-0F39-46B4-9245-9380C13A7E4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9CEF06A4-A158-4242-8962-09D3E68C8162}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CEF06A4-A158-4242-8962-09D3E68C8162}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CEF06A4-A158-4242-8962-09D3E68C8162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58179EAC-0F39-46B4-9245-9380C13A7E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58179EAC-0F39-46B4-9245-9380C13A7E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58179EAC-0F39-46B4-9245-9380C13A7E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58179EAC-0F39-46B4-9245-9380C13A7E4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

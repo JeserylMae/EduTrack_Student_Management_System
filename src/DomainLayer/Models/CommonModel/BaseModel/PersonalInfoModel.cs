@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DomainLayer.Models.CommonModel.BaseModel
 {
-    class PersonalInfoModel : IPersonalInfoModel
+    public class PersonalInfoModel : IPersonalInfoModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Last Name must not be empty!")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Last name must be 2 - 50 characters!")]
@@ -41,7 +41,7 @@ namespace DomainLayer.Models.CommonModel.BaseModel
         public string Email { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Contact number must not be empty!")]
-        [RegularExpression(@"^\(?([0-9]{9})$", ErrorMessage = "Contact number must contain numbers only!")]
+        [RegularExpression(@"^\(?([0-9]{11})$", ErrorMessage = "Contact number must contain numbers only!")]
         public string ContactNumber { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Emergency contact name must not be empty!")]

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.CommonModel.BaseModel
 {
-    class AcademicInfoModel : IAcademicInfoModel
+    public class AcademicInfoModel : IAcademicInfoModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Year must not be empty!")]
         public string Year { get; set; }
