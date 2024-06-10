@@ -13,11 +13,11 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
     
     }
 
-    class InstructorPersonalInfoModel : PersonalInfoModel, IInstructorPersonalInfoModel
+    public class InstructorPersonalInfoModel : PersonalInfoModel, IInstructorPersonalInfoModel
     {
         public InstructorPersonalInfoModel()
         {
-            _instructorPropertyModel = new InstructorPersonalInfoModel();
+            _instructorPropertyModel = new InstructorPropertyModel();
         }
 
         public string InstructorID

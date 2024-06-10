@@ -14,7 +14,7 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
         
     }
 
-    class StudentPersonalInfoModel : PersonalInfoModel, IStudentPersonalInfoModel
+    public class StudentPersonalInfoModel : PersonalInfoModel, IStudentPersonalInfoModel
     {
         public StudentPersonalInfoModel() 
         { 

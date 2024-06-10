@@ -15,7 +15,7 @@ namespace DomainLayer.Models.InformationModel.AcademicModel
     
     }
 
-    class InstructorAcademicInfoModel : AcademicInfoModel, IInstructorAcademicInfoModel
+    public class InstructorAcademicInfoModel : AcademicInfoModel, IInstructorAcademicInfoModel
     {
         public InstructorAcademicInfoModel()
         {
