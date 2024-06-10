@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.TestingServices
 {
-    class ModelDataAnnotationCheck : IModelDataAnnotationCheck
+    public class ModelDataAnnotationCheck : IModelDataAnnotationCheck
     {
         public void ValidateModelDataAnnotation<TDomainModel>(TDomainModel model) where TDomainModel : class
         {
