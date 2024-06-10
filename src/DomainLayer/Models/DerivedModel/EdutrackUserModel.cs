@@ -18,12 +18,15 @@ namespace DomainLayer.Models.DerivedModel
 
     class EdutrackUserModel : IEdutrackUserModel
     {
-        private IPersonalInfoModel _personalModel = new PersonalInfoModel();
+        public EdutrackUserModel() 
+        {
+            _personalInfoModel = new PersonalInfoModel();
+        }
 
         public string Email
         {
-            get => _personalModel.Email;
-            set => _personalModel.Email = value; 
+            get => _personalInfoModel.Email;
+            set => _personalInfoModel.Email = value; 
         }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "User ID must not be empty!")]
@@ -33,5 +36,8 @@ namespace DomainLayer.Models.DerivedModel
         [DataType(DataType.Password)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password must not be empty!")]
         public string AccountPassword { get; set; }
+
+
+        private IPersonalInfoModel _personalInfoModel;
     }
 }

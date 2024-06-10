@@ -10,11 +10,17 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 {
-    public interface IInstructorAcademicInfoModel : IAcademicInfoModel, IInstructorPropertyModel { }
+    public interface IInstructorAcademicInfoModel : IAcademicInfoModel, IInstructorPropertyModel 
+    { 
+    
+    }
 
     class InstructorAcademicInfoModel : AcademicInfoModel, IInstructorAcademicInfoModel
     {
-        private IInstructorPropertyModel _instructorModel = new InstructorPropertyModel();
+        public InstructorAcademicInfoModel()
+        {
+            _instructorModel = new InstructorPropertyModel();
+        }
 
         public string InstructorID
         {
@@ -26,5 +32,8 @@ namespace DomainLayer.Models.InformationModel.AcademicModel
             get => _instructorModel.SpecializedDegree;
             set => _instructorModel.SpecializedDegree = value;
         }
+
+
+        private IInstructorPropertyModel _instructorModel;
     }
 }

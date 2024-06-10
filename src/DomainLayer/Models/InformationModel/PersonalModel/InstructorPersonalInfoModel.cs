@@ -8,21 +8,31 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.PersonalModel
 {
-    public interface IInstructorPersonalInfoModel : IInstructorPropertyModel, IPersonalInfoModel { }
+    public interface IInstructorPersonalInfoModel : IInstructorPropertyModel, IPersonalInfoModel 
+    { 
+    
+    }
 
     class InstructorPersonalInfoModel : PersonalInfoModel, IInstructorPersonalInfoModel
     {
-        private IInstructorPersonalInfoModel _instructorModel = new InstructorPersonalInfoModel();
+        public InstructorPersonalInfoModel()
+        {
+            _instructorPropertyModel = new InstructorPersonalInfoModel();
+        }
 
         public string InstructorID
         {
-            get => _instructorModel.InstructorID;
-            set => _instructorModel.InstructorID = value;
+            get => _instructorPropertyModel.InstructorID;
+            set => _instructorPropertyModel.InstructorID = value;
         }
+
         public string SpecializedDegree
         {
-            get => _instructorModel.SpecializedDegree;
-            set => _instructorModel.SpecializedDegree = value;
+            get => _instructorPropertyModel.SpecializedDegree;
+            set => _instructorPropertyModel.SpecializedDegree = value;
         }
+
+
+        private IInstructorPropertyModel _instructorPropertyModel;
     }
 }
