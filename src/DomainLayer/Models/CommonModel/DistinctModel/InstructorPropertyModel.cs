@@ -13,15 +13,14 @@ namespace DomainLayer.Models.CommonModel.DistinctModel
         string SpecializedDegree { get; set; }
     }
 
-    class InstructorPropertyModel : IInstructorPropertyModel
+    public class InstructorPropertyModel : IInstructorPropertyModel
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Intructor ID must not be empty!")]
-        [StringLength(10, MinimumLength = 10, ErrorMessage = "Instructor ID must be 10 characters!")]
-        [RegularExpression(@"^\(?([0-9]{2})[-. ]?([0-9]{5})$", ErrorMessage = "Instructor ID is not valid!")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Instructor ID must not be empty!")]
+        [RegularExpression(@"^[\d]{2}-[\d]{2}-[\d]{5}$", ErrorMessage = "Instructor ID is not valid!")]
         public string InstructorID { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Specialized degree must not be empty!")]
-        [StringLength(100, MinimumLength = 20, ErrorMessage = "Specialized degree must be at least 20 charaters!")]
+        [RegularExpression(@"[a-zA-X ]{10,50}")]
         public string SpecializedDegree { get; set; }
     }
 }
