@@ -1,4 +1,5 @@
-﻿using DomainLayer.Models.InformationModel.AcademicModel;
+﻿using DomainLayer.Models.CommonModel.BaseModel;
+using DomainLayer.Models.InformationModel.AcademicModel;
 using DomainLayer.Models.InformationModel.PersonalModel;
 using ServiceLayer.TestingServices;
 using System;
