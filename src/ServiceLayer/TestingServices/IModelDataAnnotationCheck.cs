@@ -1,4 +1,8 @@
-﻿namespace ServiceLayer.TestingServices
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace ServiceLayer.TestingServices
 {
     public interface IModelDataAnnotationCheck
     {
