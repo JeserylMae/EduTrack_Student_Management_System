@@ -10,7 +10,7 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 {
-    public interface IStudentAcademicInfoModel : IAcademicInfoModel, IStudentPropertyModel 
+    public interface IStudentAcademicInfoModel : IAcademicInfoModel 
     { 
     
     }
@@ -19,16 +19,16 @@ namespace DomainLayer.Models.InformationModel.AcademicModel
     {
         public StudentAcademicInfoModel()
         {
-            _studentModel = new StudentPropertyModel();
+            _studentPropertyModel = new StudentPropertyModel();
         }
 
-        public string SrCode
+        public StudentPropertyModel StudentPropertyModel
         {
-            get => _studentModel.SrCode;
-            set => _studentModel.SrCode = value;
+            get => (StudentPropertyModel)_studentPropertyModel;
+            set => _studentPropertyModel = value;
         }
 
 
-        private IStudentPropertyModel _studentModel;
+        private IStudentPropertyModel _studentPropertyModel;
     }
 }

@@ -1,4 +1,5 @@
 ﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +11,25 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 {
-    public interface IInstructorAcademicInfoModel : IAcademicInfoModel, IInstructorPropertyModel 
-    { 
-    
+    public interface IInstructorAcademicInfoModel : IAcademicInfoModel
+    {
+
     }
 
     public class InstructorAcademicInfoModel : AcademicInfoModel, IInstructorAcademicInfoModel
     {
         public InstructorAcademicInfoModel()
         {
-            _instructorModel = new InstructorPropertyModel();
+            _instructorPropertyModel = new InstructorPropertyModel();
         }
 
-        public string InstructorID
+        public InstructorPropertyModel InstructorPropertyModel
         {
-            get => _instructorModel.InstructorID;
-            set => _instructorModel.InstructorID = value;
-        }
-        public string SpecializedDegree
-        {
-            get => _instructorModel.SpecializedDegree;
-            set => _instructorModel.SpecializedDegree = value;
+            get => (InstructorPropertyModel)_instructorPropertyModel;
+            set => _instructorPropertyModel = value;
         }
 
 
-        private IInstructorPropertyModel _instructorModel;
+        private IInstructorPropertyModel _instructorPropertyModel;
     }
 }
