@@ -70,10 +70,10 @@ namespace ServiceLayer.Test
         public void ShouldNotThrowExceptionsForDefaultStudentPersonalInfoModel()
         {
             Exception exception = Record.Exception(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
-                                                    (_serviceLayerTestFixture.StudentPesonalInfoModel));
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
             Assert.Null(exception);
 
-            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPesonalInfoModel);
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
         }
 
         [Fact]
@@ -99,6 +99,182 @@ namespace ServiceLayer.Test
                                                     (_serviceLayerTestFixture.InstructorAcademicInfoModel));
 
             WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorAcademicInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidSpecializedDegreeInAcademicInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorAcademicInfoModel.InstructorPropertyModel.SpecializedDegree = "BSCS";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorAcademicInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorAcademicInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowAnExcpetionForInvalidNameInInstructorPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.LastName = "M0ntefalco_";
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.FirstName = "t";
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.MiddleName = "8";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidBDateInInstructorPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.BirthDate = null;
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidGenderInInstructorPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.Gender = "F";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidHomeAddressInInstructoPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.HomeAddress = "+09 Street Luzon";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidContactInfoInInstructorPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.ContactNumber = "45 565 24";
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.Email = "sefjkehre@email";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidEmergencyContantInfoInInstructorPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.EmergencyContactName = "Mother";
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.EmergencyContactNumber = "12345";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.InstructorPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.InstructorPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldTrhowExceptionForInvalidSrCodeInStudentAcademicInfoModel()
+        {
+            _serviceLayerTestFixture.StudentAcademicInfoModel.StudentPropertyModel.SrCode = "2345-67";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentAcademicInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentAcademicInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidStudentRecordInStudentAcademicInfoModel()
+        {
+            _serviceLayerTestFixture.StudentAcademicInfoModel.Year = "";
+            _serviceLayerTestFixture.StudentAcademicInfoModel.Semester = "";
+            _serviceLayerTestFixture.StudentAcademicInfoModel.Section = "";
+            _serviceLayerTestFixture.StudentAcademicInfoModel.Program = "";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentAcademicInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentAcademicInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidNameInStudentPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.StudentPersonalInfoModel.LastName = "kl";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.FirstName = "The8";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.MiddleName = "";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidBDateInStudentPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.StudentPersonalInfoModel.BirthDate = null;
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidGenderInStudentPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.StudentPersonalInfoModel.Gender = "M4le";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidHomeAddressInStudentPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.StudentPersonalInfoModel.HomeAddress = "San Pascual, Batangas +{}mff, Philippines";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionForInvalidContactInfoInStudentInfoModel()
+        {
+            _serviceLayerTestFixture.StudentPersonalInfoModel.Email = "dhafl;;.com";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.ContactNumber = "";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldExceptionForInvalidEmergencyInfoInStudentPersonalInfoModel()
+        {
+            _serviceLayerTestFixture.StudentPersonalInfoModel.EmergencyContactName = "Cl4udine N. Montefalco";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.EmergencyContactNumber = "-=327493228347432";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentPersonalInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
         }
 
         #endregion
@@ -133,7 +309,7 @@ namespace ServiceLayer.Test
 
         private void SetValidSamplesStudentAcademicInfoModel()
         {
-            _serviceLayerTestFixture.StudentAcademicInfoModel.StudentPropertyModel.SrCode = "22-9567";
+            _serviceLayerTestFixture.StudentAcademicInfoModel.StudentPropertyModel.SrCode = "22-95367";
             _serviceLayerTestFixture.StudentAcademicInfoModel.Section = "CS 2202";
             _serviceLayerTestFixture.StudentAcademicInfoModel.Year = "2";
             _serviceLayerTestFixture.StudentAcademicInfoModel.Program = "Bachelor of Science in Computer Science";
@@ -142,17 +318,17 @@ namespace ServiceLayer.Test
 
         private void SetValidSamplesStudentPersonalInfoModel()
         {
-            _serviceLayerTestFixture.StudentPesonalInfoModel.SrCode = "22-34563";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.LastName = "Montefalco";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.FirstName = "Azrael Ian";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.MiddleName = "Navarro";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.BirthDate = DateTime.Parse("2004-12-13");
-            _serviceLayerTestFixture.StudentPesonalInfoModel.Gender = "Female";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.HomeAddress = "Alegria, Cagayan De Oro";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.Email = "22-34563@edutrack.com";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.ContactNumber = "09234563423";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.EmergencyContactName = "Claudine Montefalco";
-            _serviceLayerTestFixture.StudentPesonalInfoModel.EmergencyContactNumber = "09345678945";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.StudentPropertyModel.SrCode = "22-34563";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.LastName = "Montefalco";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.FirstName = "Azrael Ian";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.MiddleName = "Navarro";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.BirthDate = DateTime.Parse("2004-12-13");
+            _serviceLayerTestFixture.StudentPersonalInfoModel.Gender = "Female";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.HomeAddress = "Alegria, Cagayan De Oro";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.Email = "22-34563@edutrack.com";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.ContactNumber = "09234563423";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.EmergencyContactName = "Claudine N. Montefalco";
+            _serviceLayerTestFixture.StudentPersonalInfoModel.EmergencyContactNumber = "09345678945";
         }
         #endregion
 
