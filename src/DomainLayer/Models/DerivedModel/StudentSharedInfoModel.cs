@@ -6,35 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainLayer.Models.InformationModel.AcademicModel;
 using DomainLayer.Models.CommonModel.BaseModel;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace DomainLayer.Models.DerivedModel
 {
-    public interface IStudentSharedInfoModel : IStudentPropertyModel 
+    public interface IStudentSharedInfoModel 
     {
+        string Name { get; }    
     
     }
 
-    class StudentSharedInfoModel : StudentPropertyModel, IStudentSharedInfoModel
+    public class StudentSharedInfoModel : IStudentSharedInfoModel
     {
-        public StudentSharedInfoModel() 
-        { 
-            _courseInfoModel = new CourseInfoModel();
-            _academicInfoModel = new AcademicInfoModel();  
-        } 
-
-        public string CourseCode
-        {
-            get => _courseInfoModel.CourseCode;
-            set => _courseInfoModel.CourseCode = value;
-        }
-        public string Section
-        {
-            get => _academicInfoModel.Section;
-            set => _academicInfoModel.Section = value;
-        }
-
-
-        private ICourseInfoModel _courseInfoModel;
-        private IAcademicInfoModel _academicInfoModel;
+        public string Name { get; }
     }
 }

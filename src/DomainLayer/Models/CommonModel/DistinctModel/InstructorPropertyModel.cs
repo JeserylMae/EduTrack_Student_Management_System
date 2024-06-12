@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.CommonModel.DistinctModel
 {
-    public interface IInstructorPropertyModel
-    {
-        string InstructorID { get; set; }
-        string SpecializedDegree { get; set; }
-    }
-
     public class InstructorPropertyModel : IInstructorPropertyModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Instructor ID must not be empty!")]

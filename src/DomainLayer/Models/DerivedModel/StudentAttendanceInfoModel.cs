@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.DerivedModel
 {
-    public interface IStudentAttendanceInfoModel : IStudentSharedInfoModel 
-    { 
-        DateTime AttendanceDate { get; set; }
-        string status { get; set; }
-    }
-
     class StudentAttendanceInfoModel : StudentSharedInfoModel, IStudentAttendanceInfoModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Attendance date is required!")]
@@ -23,3 +17,21 @@ namespace DomainLayer.Models.DerivedModel
         public string status { get; set; }
     }
 }
+
+/// *** ATTENDANCE ***
+/// SrCode
+/// Section
+/// CourseCode
+/// Date - U
+/// Academic Year
+/// Semester
+/// Status - U
+
+
+/// *** GRADE ***
+/// SrCode - ACAD
+/// Section - ACAD
+/// CourseCode - COURSE
+/// Academic Year - ACAD
+/// Semester - ACAD
+/// Grade - U

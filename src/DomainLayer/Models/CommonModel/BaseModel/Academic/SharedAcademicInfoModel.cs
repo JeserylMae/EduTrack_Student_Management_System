@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.CommonModel.BaseModel
 {
-    public class AcademicInfoModel : IAcademicInfoModel
+    public class SharedAcademicInfoModel : ISharedAcademicInfoModel
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Year must not be empty!")]
-        public string Year { get; set; }
-
         [Required(AllowEmptyStrings = false, ErrorMessage = "Section must not be empty!")]
         public string Section { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Program must not be empty!")]
-        public string Program { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Semester must not be empty!")]
         public string Semester { get; set; }

@@ -10,13 +10,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.DerivedModel
 {
-    public interface IEdutrackUserModel
-    {
-        string UserID { get; set; }
-        string AccountPassword { get; set; }
-    }
-
-    class EdutrackUserModel : IEdutrackUserModel
+    public class EdutrackUserModel : IEdutrackUserModel
     {
         public EdutrackUserModel() 
         {

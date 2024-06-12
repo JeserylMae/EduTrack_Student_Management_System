@@ -8,11 +8,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DomainLayer.Models.CommonModel.DistinctModel
 {
-    public interface IStudentPropertyModel
-    {
-        string SrCode { get; set; }
-    }
-
     public class StudentPropertyModel : IStudentPropertyModel
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Sr Code must not be empty!")]

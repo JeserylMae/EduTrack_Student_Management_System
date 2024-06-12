@@ -8,23 +8,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
-
 namespace DomainLayer.Models.CommonModel.BaseModel
 {
-    public class PersonalInfoModel : IPersonalInfoModel
+    public class PersonalInfoModel : SharedPersonalInfoModel, IPersonalInfoModel
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Last Name must not be empty!")]
-        [RegularExpression(@"^[a-zA-Z ]{2,30}$", ErrorMessage = "Last name must be 2 - 30 characters!")]
-        public string LastName { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "First name must not be empty!")]
-        [RegularExpression(@"^[a-zA-Z ]{2,30}$", ErrorMessage = "First name must be 2 - 30 characters!")]
-        public string FirstName { get; set; }
-
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Middle name must not be empty!")]
-        [RegularExpression(@"^[a-zA-Z ]{2,30}$", ErrorMessage = "Middle name must be 2 - 30 characters!")]
-        public string MiddleName { get; set; }
-
         [Required(AllowEmptyStrings = false, ErrorMessage = "Birth Date is required!")]
         [DataType(DataType.Date, ErrorMessage = "Enter a valid date!")]
         public DateTime? BirthDate { get; set; }
