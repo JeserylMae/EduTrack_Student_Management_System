@@ -10,5 +10,6 @@ namespace DomainLayer.Models.DerivedModel
     {
         string UserID { get; set; }
         string AccountPassword { get; set; }
+        string Email {  get; set; }
     }
 }

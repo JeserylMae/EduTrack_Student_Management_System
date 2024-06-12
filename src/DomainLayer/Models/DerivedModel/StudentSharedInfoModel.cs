@@ -11,14 +11,34 @@ using System.Reflection;
 
 namespace DomainLayer.Models.DerivedModel
 {
-    public interface IStudentSharedInfoModel 
+    public class StudentSharedInfoModel
     {
-        string Name { get; }    
-    
-    }
+        public StudentSharedInfoModel()
+        {
+            _studentPropertyModel = new StudentPropertyModel();
+            _sharedCourseInfoModel = new SharedCourseInfoModel();
+            _sharedAcademicInfoModel = new SharedAcademicInfoModel();
+        }
 
-    public class StudentSharedInfoModel : IStudentSharedInfoModel
-    {
-        public string Name { get; }
+        public StudentPropertyModel StudentPropertyModel
+        {
+            get => (StudentPropertyModel)_studentPropertyModel;
+            set => _studentPropertyModel = value;
+        }
+
+        public SharedCourseInfoModel SharedCourseInfoModel
+        {
+            get => (SharedCourseInfoModel)_sharedCourseInfoModel;
+        }
+
+        public SharedAcademicInfoModel SharedAcademicInfoModel
+        {
+            get => (SharedAcademicInfoModel)_sharedAcademicInfoModel;
+            set => _sharedAcademicInfoModel = value;
+        }
+
+        private IStudentPropertyModel _studentPropertyModel;
+        private ISharedCourseInfoModel _sharedCourseInfoModel;
+        private ISharedAcademicInfoModel _sharedAcademicInfoModel;
     }
 }
