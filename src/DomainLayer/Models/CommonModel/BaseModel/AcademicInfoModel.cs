@@ -20,5 +20,8 @@ namespace DomainLayer.Models.CommonModel.BaseModel
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Semester must not be empty!")]
         public string Semester { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Academic year must not be empty!")]
+        public string AcademicYear { get; set; }
     }
 }
