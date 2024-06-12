@@ -1,9 +1,45 @@
 ﻿/// 
 /// <summary>
-/// Code description here.
 /// 
-/// Please note to add code desription in every file where such documentation
-/// is necessary.
+/// The class `ServiceLayerValidationTest` contains methods for unit testing 
+/// of the models in the Domain Layer and the method `ValidateModelDataAnnotation`
+/// defined in the Service Layer. This class specifically contains the following
+/// methods/parts:
+///     1. Class Constructor.
+///     2. Region Validation Tests
+///     3. Region samples of Valid Data for Given Models.
+///     4. Method WriteExceptionTestResult.
+/// 
+/// Also, in order to perform unit testing, some visual studio packages are 
+/// required to be installed in the project/solution file `ServiceLayer.Test`.
+/// This project specifically used the following packages:
+///     1. xunit
+///     2. xunit.runner.visualstudio
+///     3. Newtonsoft.Json
+///     
+/// 1. Class Constructor
+///     This method has parameters ServiceLayerTestFixture and ITestOutputHelper
+/// which will be automatically assigned a value once the test begin. This
+/// constructor defines the models in the `ServiceLayerTestFixture` class
+/// by calling the methods in charge for setting the value of the properties 
+/// inside. 
+/// 
+/// 2. Region Validation Tests
+///     This part contains the methods which has the test cases about the properties
+/// of each classes in the Domain Layer. This part is essential in ensuring that
+/// the Data Annotations and Validations for each properties are working as it was
+/// expected to.
+/// 
+/// 3. Region Samples of Valid Data for Given Models.
+///     The methods in this region was called in the class constructor once the test
+/// begin. This is also used to avoid re-definition of the properties of the models
+/// in each Validation Test Methods.
+/// 
+/// 4. Method WriteExceptionTestResult
+///     This method's main function is to display the exceptions (if there are any)
+/// and the test results (whether passed or failed) on each test cases in the Test
+/// Explorer.
+/// 
 /// </summary>
 /// 
 
@@ -288,6 +324,7 @@ namespace ServiceLayer.Test
             _serviceLayerTestFixture.InstructorAcademicInfoModel.Year = "2";
             _serviceLayerTestFixture.InstructorAcademicInfoModel.Section = "CS 2202";
             _serviceLayerTestFixture.InstructorAcademicInfoModel.Semester = "2";
+            _serviceLayerTestFixture.InstructorAcademicInfoModel.AcademicYear = "2023-2024";
             _serviceLayerTestFixture.InstructorAcademicInfoModel.InstructorPropertyModel.SpecializedDegree = "Bachelor of Science in Computer Science";
         }
 
@@ -314,6 +351,7 @@ namespace ServiceLayer.Test
             _serviceLayerTestFixture.StudentAcademicInfoModel.Year = "2";
             _serviceLayerTestFixture.StudentAcademicInfoModel.Program = "Bachelor of Science in Computer Science";
             _serviceLayerTestFixture.StudentAcademicInfoModel.Semester = "2";
+            _serviceLayerTestFixture.StudentAcademicInfoModel.AcademicYear = "2023-2024";
         }
 
         private void SetValidSamplesStudentPersonalInfoModel()
