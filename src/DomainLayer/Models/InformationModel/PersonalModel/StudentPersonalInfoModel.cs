@@ -9,7 +9,7 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.PersonalModel
 {
-    public interface IStudentPersonalInfoModel : IStudentPropertyModel, IPersonalInfoModel 
+    public interface IStudentPersonalInfoModel : IPersonalInfoModel 
     { 
         
     }
@@ -21,11 +21,11 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
             _studentPropertyModel = new StudentPropertyModel();
         }
         
-        public string SrCode {
-            get => _studentPropertyModel.SrCode; 
-            set => _studentPropertyModel.SrCode = value;
+        public StudentPropertyModel StudentPropertyModel
+        {
+            get => (StudentPropertyModel)_studentPropertyModel;
+            set => _studentPropertyModel = value;
         }
-
 
         private IStudentPropertyModel _studentPropertyModel;
     }
