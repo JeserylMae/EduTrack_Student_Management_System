@@ -30,7 +30,7 @@ namespace ServiceLayer.Test
             get => (InstructorPersonalInfoModel)_instructorPersonalInfoModel; 
             set => _instructorPersonalInfoModel = value; 
         }
-        public StudentPersonalInfoModel StudentPesonalInfoModel
+        public StudentPersonalInfoModel StudentPersonalInfoModel
         {
             get => (StudentPersonalInfoModel)_studentPersonalInfoModel;
             set => _studentPersonalInfoModel = value;
