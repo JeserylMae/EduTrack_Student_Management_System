@@ -27,7 +27,7 @@ namespace DomainLayer.Models.CommonModel.BaseModel
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Birth Date is required!")]
         [DataType(DataType.Date, ErrorMessage = "Enter a valid date!")]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Gender must not be empty!")]
         [RegularExpression(@"^[a-zA-Z]{4,10}$", ErrorMessage = "Gender must be 4 - 10 characters!")]
@@ -47,7 +47,7 @@ namespace DomainLayer.Models.CommonModel.BaseModel
         public string ContactNumber { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Emergency contact name must not be empty!")]
-        [RegularExpression(@"^[a-zA-z, ]{10,100}$", ErrorMessage = "Emergency contact name must be 10 - 100 characters!")]
+        [RegularExpression(@"^[a-zA-z., ]{10,100}$", ErrorMessage = "Emergency contact name must be 10 - 100 characters!")]
         public string EmergencyContactName { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Emergency contact number must not be empty!")]

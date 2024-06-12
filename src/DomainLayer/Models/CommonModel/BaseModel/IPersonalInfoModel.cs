@@ -5,7 +5,7 @@ namespace DomainLayer.Models.CommonModel.BaseModel
 {
     public interface IPersonalInfoModel
     {
-        DateTime BirthDate { get; set; }
+        DateTime? BirthDate { get; set; }
         string ContactNumber { get; set; }
         string Email { get; set; }
         string EmergencyContactName { get; set; }
