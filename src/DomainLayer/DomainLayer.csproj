@@ -42,18 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedAcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedCourseInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Academic\SharedAcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Academic\SharedCourseInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Personal\ISharedPersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Personal\SharedPersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\DistinctModel\IInstructorPropertyModel.cs" />
+    <Compile Include="Models\CommonModel\DistinctModel\IStudentPropertyModel.cs" />
     <Compile Include="Models\DerivedModel\EdutrackUserModel.cs" />
+    <Compile Include="Models\DerivedModel\IEdutrackUserModel.cs" />
+    <Compile Include="Models\DerivedModel\IStudentAttendanceInfoModel.cs" />
+    <Compile Include="Models\DerivedModel\IStudentGradeInfoModel.cs" />
     <Compile Include="Models\DerivedModel\StudentAttendanceInfoModel.cs" />
     <Compile Include="Models\DerivedModel\StudentGradeInfoModel.cs" />
     <Compile Include="Models\DerivedModel\StudentSharedInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\CourseInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\InstructorAcademicInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\StudentAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\AcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\IAcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Academic\AcademicInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Academic\IAcademicInfoModel.cs" />
     <Compile Include="Models\CommonModel\DistinctModel\InstructorPropertyModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\IPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\PersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Personal\IPersonalInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Personal\PersonalInfoModel.cs" />
     <Compile Include="Models\InformationModel\PersonalModel\InstructorPersonalInfoModel.cs" />
     <Compile Include="Models\InformationModel\PersonalModel\StudentPersonalInfoModel.cs" />
     <Compile Include="Models\CommonModel\DistinctModel\StudentPropertyModel.cs" />
