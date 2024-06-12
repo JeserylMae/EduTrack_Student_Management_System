@@ -1,4 +1,4 @@
-﻿using DomainLayer.Models.CommonModel.BaseModel.Academic;
+﻿using DomainLayer.Models.CommonModel.BaseModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
