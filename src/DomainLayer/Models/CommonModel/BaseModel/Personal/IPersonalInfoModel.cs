@@ -12,6 +12,5 @@ namespace DomainLayer.Models.CommonModel.BaseModel
         string EmergencyContactNumber { get; set; }
         string Gender { get; set; }
         string HomeAddress { get; set; }
-        string SpecializedDegree { get; set; }
     }
 }

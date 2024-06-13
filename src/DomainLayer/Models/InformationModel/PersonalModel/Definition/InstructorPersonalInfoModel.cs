@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,9 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
             set => _instructorPropertyModel.InstructorID = value;
         }
 
-        public string SpecializedDegree
-        {
-            get => _instructorPropertyModel.SpecializedDegree;
-            set => _instructorPropertyModel.SpecializedDegree = value;
-        }
-
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Specialized degree must not be empty!")]
+        [RegularExpression(@"[a-zA-X ]{10,50}")]
+        public string SpecializedDegree { get; set; }
 
         private IInstructorPropertyModel _instructorPropertyModel;
     }

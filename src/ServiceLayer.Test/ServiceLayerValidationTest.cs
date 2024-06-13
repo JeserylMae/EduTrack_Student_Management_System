@@ -171,9 +171,9 @@ namespace ServiceLayer.Test
         }
 
         [Fact]
-        public void ShouldThrowExceptionForInvalidSpecializedDegreeInAcademicInfoModel()
+        public void ShouldThrowExceptionForInvalidCourseCodeInAcademicInfoModel()
         {
-            _serviceLayerTestFixture.InstructorAcademicInfoModel.InstructorPropertyModel.SpecializedDegree = "BSCS";
+            _serviceLayerTestFixture.InstructorAcademicInfoModel.SharedCourseInfoModel.CourseCode = "";
 
             Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
                                                     (_serviceLayerTestFixture.InstructorAcademicInfoModel));

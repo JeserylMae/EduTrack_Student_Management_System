@@ -10,6 +10,6 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
 {
     public interface IInstructorPersonalInfoModel : IInstructorPropertyModel, IPersonalInfoModel
     {
-
+        string SpecializedDegree { get; set; }
     }
 }
