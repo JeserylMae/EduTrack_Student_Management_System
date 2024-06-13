@@ -13,7 +13,7 @@ namespace DomainLayer.Models.DerivedModel
         [DataType(DataType.Date, ErrorMessage = "Enter a valid date!")]
         public DateTime? AttendanceDate { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z]{15}$", ErrorMessage = "Status must be less than 15 characters!")]
+        [RegularExpression(@"^[a-zA-Z]{4,15}$", ErrorMessage = "Status must be 4 to 15 characters only!")]
         public string Status { get; set; }
 
         #region Properties Inherited From StudentSharedInfoModel
