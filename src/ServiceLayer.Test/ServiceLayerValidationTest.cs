@@ -406,7 +406,7 @@ namespace ServiceLayer.Test
             _serviceLayerTestFixture.InstructorAcademicInfoModel.Section = "CS 2202";
             _serviceLayerTestFixture.InstructorAcademicInfoModel.Semester = "2";
             _serviceLayerTestFixture.InstructorAcademicInfoModel.AcademicYear = "2023-2024";
-            _serviceLayerTestFixture.InstructorAcademicInfoModel.InstructorPropertyModel.SpecializedDegree = "Bachelor of Science in Computer Science";
+            _serviceLayerTestFixture.InstructorAcademicInfoModel.SharedCourseInfoModel.CourseCode = "CS 221";
         }
 
         private void SetValidSamplesInstructorPersonalInfoModel()

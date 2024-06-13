@@ -16,6 +16,7 @@ namespace DomainLayer.Models.InformationModel.AcademicModel
         public InstructorAcademicInfoModel()
         {
             _instructorPropertyModel = new InstructorPropertyModel();
+            _sharedCourseInfoModel = new SharedCourseInfoModel();
         }
 
         public InstructorPropertyModel InstructorPropertyModel
@@ -23,8 +24,13 @@ namespace DomainLayer.Models.InformationModel.AcademicModel
             get => (InstructorPropertyModel)_instructorPropertyModel;
             set => _instructorPropertyModel = value;
         }
-
+        public SharedCourseInfoModel SharedCourseInfoModel
+        {
+            get => (SharedCourseInfoModel)_sharedCourseInfoModel;
+            set=> _sharedCourseInfoModel = value;
+        }
 
         private IInstructorPropertyModel _instructorPropertyModel;
+        private ISharedCourseInfoModel _sharedCourseInfoModel;
     }
 }

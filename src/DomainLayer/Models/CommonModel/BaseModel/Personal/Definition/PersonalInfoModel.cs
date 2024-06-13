@@ -40,6 +40,10 @@ namespace DomainLayer.Models.CommonModel.BaseModel
         [Required(AllowEmptyStrings = false, ErrorMessage = "Emergency contact number must not be empty!")]
         [RegularExpression(@"^[\d]{11}$", ErrorMessage = "Emergency contact number must contain numbers only with 11 digis!")]
         public string EmergencyContactNumber { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Specialized degree must not be empty!")]
+        [RegularExpression(@"[a-zA-X ]{10,50}")]
+        public string SpecializedDegree { get; set; }
     }
 }
 
