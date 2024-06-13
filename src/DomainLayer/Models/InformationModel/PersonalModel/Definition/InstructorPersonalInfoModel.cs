@@ -8,11 +8,6 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.PersonalModel
 {
-    public interface IInstructorPersonalInfoModel : IInstructorPropertyModel, IPersonalInfoModel 
-    { 
-    
-    }
-
     public class InstructorPersonalInfoModel : PersonalInfoModel, IInstructorPersonalInfoModel
     {
         public InstructorPersonalInfoModel()

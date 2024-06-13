@@ -10,11 +10,6 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 {
-    public interface IStudentAcademicInfoModel : IAcademicInfoModel 
-    { 
-    
-    }
-
     public class StudentAcademicInfoModel : AcademicInfoModel, IStudentAcademicInfoModel
     {
         public StudentAcademicInfoModel()

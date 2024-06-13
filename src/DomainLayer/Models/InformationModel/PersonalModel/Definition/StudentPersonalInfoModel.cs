@@ -9,11 +9,6 @@ using DomainLayer.Models.CommonModel.DistinctModel;
 
 namespace DomainLayer.Models.InformationModel.PersonalModel
 {
-    public interface IStudentPersonalInfoModel : IPersonalInfoModel 
-    { 
-        
-    }
-
     public class StudentPersonalInfoModel : PersonalInfoModel, IStudentPersonalInfoModel
     {
         public StudentPersonalInfoModel() 
