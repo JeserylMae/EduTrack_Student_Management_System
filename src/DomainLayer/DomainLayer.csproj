@@ -34,6 +34,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,8 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedAcademicInfoModel.cs" />
     <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedCourseInfoModel.cs" />
+    <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedAcademicInfoModel.cs" />
     <Compile Include="Models\CommonModel\BaseModel\Academic\SharedAcademicInfoModel.cs" />
     <Compile Include="Models\CommonModel\BaseModel\Academic\SharedCourseInfoModel.cs" />
     <Compile Include="Models\CommonModel\BaseModel\Personal\ISharedPersonalInfoModel.cs" />
