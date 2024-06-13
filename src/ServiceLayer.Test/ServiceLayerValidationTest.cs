@@ -67,6 +67,9 @@ namespace ServiceLayer.Test
             SetValidSamplesInstructorPersonalInfoModel();
             SetValidSamplesStudentAcademicInfoModel();
             SetValidSamplesStudentPersonalInfoModel();
+            SetValidSamplesEdutrackUserModel();
+            SetValidSamplesStudentAttendanceInfoModel();
+            SetValidSamplesStudentGradeInfoModel();
         }
 
 
@@ -110,6 +113,36 @@ namespace ServiceLayer.Test
             Assert.Null(exception);
 
             WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
+        }
+
+        [Fact]
+        public void ShouldNotThrowExceptionsForDefalutEdutrackUserModel()
+        {
+            Exception exception = Record.Exception(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.EdutrackUserModel));
+            Assert.Null(exception);
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.EdutrackUserModel);
+        }
+
+        [Fact]
+        public void ShouldNotthrowExceptionsForDefaultStudentAttendanceInfoModel()
+        {
+            Exception exception = Record.Exception(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentAttendanceInfoModel));
+            Assert.Null(exception); 
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentAttendanceInfoModel);
+        }
+
+        [Fact]
+        public void ShouldNotThrowExceptionsForDefaultStudentGradeInfoModel()
+        {
+            Exception exception = Record.Exception(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentGradeInfoModel));
+            Assert.Null(exception); 
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentGradeInfoModel);
         }
 
         [Fact]
@@ -313,6 +346,54 @@ namespace ServiceLayer.Test
             WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentPersonalInfoModel);
         }
 
+        [Fact]
+        public void ShouldThrowExceptionForInvalidEdutrackUserModel()
+        {
+            _serviceLayerTestFixture.EdutrackUserModel.UserID = "fhd-2324-324324";
+            _serviceLayerTestFixture.EdutrackUserModel.AccountPassword = "";
+            _serviceLayerTestFixture.EdutrackUserModel.Email = "34423dfsk.com";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.EdutrackUserModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.EdutrackUserModel);
+        }
+
+        [Fact]
+        public void ShouldThrowexceptionsForInvalidDateAndStatusInStudentAttendanceInfoModel()
+        {
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.Status = "P";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.AttendanceDate = null;
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentAttendanceInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentAttendanceInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionsForInvalidCodesInStudentAttendanceInfoModel()
+        {
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.SharedCourseInfoModel.CourseCode = "";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.StudentPropertyModel.SrCode = "";
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentAttendanceInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentAttendanceInfoModel);
+        }
+
+        [Fact]
+        public void ShouldThrowExceptionsForInvalidGradeInGradeInfoModel()
+        {
+            _serviceLayerTestFixture.StudentGradeInfoModel.Grade = Decimal.Parse("12.23");
+
+            Exception exception = Assert.Throws<ArgumentException>(testCode: () => _serviceLayerTestFixture.ModelDataAnnotationCheck.ValidateModelDataAnnotation
+                                                    (_serviceLayerTestFixture.StudentGradeInfoModel));
+
+            WriteExceptionTestResult(exception, _serviceLayerTestFixture.StudentGradeInfoModel);
+        }
+
         #endregion
 
 
@@ -368,6 +449,35 @@ namespace ServiceLayer.Test
             _serviceLayerTestFixture.StudentPersonalInfoModel.EmergencyContactName = "Claudine N. Montefalco";
             _serviceLayerTestFixture.StudentPersonalInfoModel.EmergencyContactNumber = "09345678945";
         }
+
+        private void SetValidSamplesEdutrackUserModel()
+        {
+            _serviceLayerTestFixture.EdutrackUserModel.UserID = "22-23456";
+            _serviceLayerTestFixture.EdutrackUserModel.AccountPassword = "22-23434";
+            _serviceLayerTestFixture.EdutrackUserModel.Email = "hsajfhdfs@edutrack.com";
+        }
+
+        private void SetValidSamplesStudentAttendanceInfoModel()
+        {
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.SharedCourseInfoModel.CourseCode = "CS 234";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.StudentPropertyModel.SrCode = "23-23345";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.SharedAcademicInfoModel.AcademicYear = "2023 - 2024";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.SharedAcademicInfoModel.Semester = "2";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.SharedAcademicInfoModel.Section = "CS 2202";
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.AttendanceDate = DateTime.Now;
+            _serviceLayerTestFixture.StudentAttendanceInfoModel.Status = "Present";
+        }
+
+        private void SetValidSamplesStudentGradeInfoModel()
+        {
+            _serviceLayerTestFixture.StudentGradeInfoModel.SharedCourseInfoModel.CourseCode = "Cs 221";
+            _serviceLayerTestFixture.StudentGradeInfoModel.StudentPropertyModel.SrCode = "22-03238";
+            _serviceLayerTestFixture.StudentGradeInfoModel.SharedAcademicInfoModel.Section = "CS 2202";
+            _serviceLayerTestFixture.StudentGradeInfoModel.SharedAcademicInfoModel.AcademicYear = "2023 -2024";
+            _serviceLayerTestFixture.StudentGradeInfoModel.SharedAcademicInfoModel.Semester = "2";
+            _serviceLayerTestFixture.StudentGradeInfoModel.Grade = Decimal.Parse("1.25");
+        }
+
         #endregion
 
 

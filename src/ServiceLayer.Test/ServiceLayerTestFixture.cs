@@ -1,4 +1,5 @@
 ﻿using DomainLayer.Models.CommonModel.BaseModel;
+using DomainLayer.Models.DerivedModel;
 using DomainLayer.Models.InformationModel.AcademicModel;
 using DomainLayer.Models.InformationModel.PersonalModel;
 using ServiceLayer.TestingServices;
@@ -20,6 +21,9 @@ namespace ServiceLayer.Test
             _instructorAcademicInfoModel = new InstructorAcademicInfoModel();
             _studentAcademicInfoModel = new StudentAcademicInfoModel();
             _modelDataAnnotationCheck = new ModelDataAnnotationCheck();
+            _edutrackUserModel = new EdutrackUserModel();
+            _studentAttendanceInfoModel = new StudentAttendanceInfoModel();
+            _studentGradeInfoModel = new StudentGradeInfoModel();
         }
 
 
@@ -50,6 +54,21 @@ namespace ServiceLayer.Test
             get => (ModelDataAnnotationCheck)_modelDataAnnotationCheck;
             set => _modelDataAnnotationCheck = value;
         }
+        public EdutrackUserModel EdutrackUserModel
+        {
+            get => (EdutrackUserModel)_edutrackUserModel;
+            set => _edutrackUserModel = value;
+        }
+        public StudentAttendanceInfoModel StudentAttendanceInfoModel
+        {
+            get => (StudentAttendanceInfoModel)_studentAttendanceInfoModel;
+            set => _studentAttendanceInfoModel = value;
+        }
+        public StudentGradeInfoModel StudentGradeInfoModel
+        {
+            get => (StudentGradeInfoModel)_studentGradeInfoModel;
+            set => _studentGradeInfoModel = value;
+        }
 
         #endregion
 
@@ -59,5 +78,8 @@ namespace ServiceLayer.Test
         private IInstructorAcademicInfoModel _instructorAcademicInfoModel;
         private IStudentAcademicInfoModel _studentAcademicInfoModel;
         private IModelDataAnnotationCheck _modelDataAnnotationCheck;
+        private IEdutrackUserModel _edutrackUserModel;
+        private IStudentAttendanceInfoModel _studentAttendanceInfoModel;
+        private IStudentGradeInfoModel _studentGradeInfoModel;
     }
 }
