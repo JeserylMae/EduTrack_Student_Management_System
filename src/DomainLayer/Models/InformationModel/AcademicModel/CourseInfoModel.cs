@@ -8,12 +8,6 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 {
-    public interface ICourseInfoModel : ISharedCourseInfoModel
-    {
-        string CourseName { get; set; }
-        int NumberOfUnits { get; set; }
-    }
-
     class CourseInfoModel : SharedCourseInfoModel, ICourseInfoModel
     { 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Course name must not be empty!")]
