@@ -411,7 +411,7 @@ namespace ServiceLayer.Test
 
         private void SetValidSamplesInstructorPersonalInfoModel()
         {
-            _serviceLayerTestFixture.InstructorPersonalInfoModel.InstructorID = "20-23-23423";
+            _serviceLayerTestFixture.InstructorPersonalInfoModel.InstructorPropertyModel.InstructorID = "20-23-23423";
             _serviceLayerTestFixture.InstructorPersonalInfoModel.LastName = "Montefalco";
             _serviceLayerTestFixture.InstructorPersonalInfoModel.FirstName = "Knoxx Gideon";
             _serviceLayerTestFixture.InstructorPersonalInfoModel.MiddleName = "Navarro";
