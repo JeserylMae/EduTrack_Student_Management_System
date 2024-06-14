@@ -17,7 +17,7 @@ namespace ServiceLayer.Services.ModelServices
         public void ValidateDataModel<TDomainModel>(TDomainModel model) where TDomainModel : class
         {
             _modelDataAnnotationCheck.ValidateModelDataAnnotation(model);
-        }
+        } 
 
 
         private IModelDataAnnotationCheck _modelDataAnnotationCheck;
