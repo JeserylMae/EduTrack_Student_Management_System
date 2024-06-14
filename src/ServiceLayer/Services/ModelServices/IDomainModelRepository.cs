@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Services.ModelServices
 {
-    public interface IModelRepositoryServices
+    public interface IDomainModelRepository
     {
         void Add<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class;
         void Update<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class;
@@ -15,3 +15,8 @@ namespace ServiceLayer.Services.ModelServices
         TDomainModel GetByID<TDomainModel>(string id) where TDomainModel : class;
     }
 }
+
+// this is placed in this project instead of placing it in the InfrastructureLayer
+// because ServiceLayer does not and should not have reference to the
+// InfrastructureLayer. Only InfrastrutureLayer should have reference to the 
+// ServiceLayer.
