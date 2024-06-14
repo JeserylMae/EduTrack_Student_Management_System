@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Mysqlx;
+using System.Diagnostics;
 
 namespace InfrastructureLayer.DataAccess.Repository.Model
 {
@@ -48,7 +50,7 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
         }
 
         
-        IEnumerable<TDomainModel> GetAll<TDomainModel>() where TDomainModel : class
+        public IEnumerable<TDomainModel> GetAll<TDomainModel>() where TDomainModel : class
         {
             List<TDomainModel> domainModelList = new List<TDomainModel>();
             DataAccessStatus dataAccessStatus = new DataAccessStatus();
@@ -80,11 +82,105 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
                     }
                 }
                 catch (MySqlException e)
-                { 
-                    dataAccessStatus.setValues()
+                {
+                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                               customMessage: "Unable to get Department Model list from the database.",
+                                               helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+            }
+            return domainModelList;
+        }
+
+        public TDomainModel GetByID<TDomainModel>(string id) where TDomainModel : class
+        {
+            StudentAcademicInfoModel studentAcademicInfoModel = new StudentAcademicInfoModel();
+            DataAccessStatus dataAccessStatus = new DataAccessStatus();
+            bool MatchingRecordFound = false;
+            string sql = "SELECT * FROM StudentAcademicInfoTbl WHERE SrCode = @SrCode";
+
+            using (MySqlConnection mysqlConnection = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    mysqlConnection.Open();
+                    
+                    using (MySqlCommand cmd = new MySqlCommand(sql, mysqlConnection))
+                    {
+                        cmd.CommandText = sql;
+                        cmd.Prepare();
+                        cmd.Parameters.Add(new MySqlParameter("@SrCode", id));
+
+                        using(MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            MatchingRecordFound = reader.HasRows;
+                            while(reader.Read())
+                            {
+                                studentAcademicInfoModel.StudentPropertyModel.SrCode = reader["SrCode"].ToString();
+                                studentAcademicInfoModel.Section = reader["ClassSection"].ToString();
+                                studentAcademicInfoModel.Semester = reader["Semester"].ToString();
+                                studentAcademicInfoModel.Year = reader["YearLevel"].ToString();
+                                studentAcademicInfoModel.AcademicYear = reader["AcademicYear"].ToString();
+                            }
+                        }
+                        mysqlConnection.Close();
+                    }
+                }
+                catch (MySqlException e)
+                {
+                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                               customMessage: "Unable to get Department Model for requested id from the database.",
+                                               helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+
+                if(!MatchingRecordFound)
+                {
+                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: string.Empty,
+                                               customMessage: "Unable to get Department Model list from the database. " +
+                                                              $"ID {id} does not exist in the database.",
+                                               helpLink: string.Empty, errorCode: 0, StackTrace: string.Empty);
+                    throw new DataAccessException(dataAccessStatus);
+                }
+            }
+            return studentAcademicInfoModel;
+        }
+
+        public void Add<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class
+        {
+            DataAccessStatus dataAccessStatus = new DataAccessStatus();
+
+            using (MySqlConnection mysqlConnection = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    mysqlConnection.Open();   
+                }
+                catch (MySqlException e) 
+                {
+                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                                customMessage: "Unable to add data from the database. Failed to open database.",
+                                                helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+
+                string mysqlQuery = "INSERT INTO StudentAcademicInfoTbl"
+                                  + "VALUES(@SrCode, @ClassSection, @Semester, @YearLevel, @AcademicYear)";
+
+                using (MySqlCommand cmd = new MySqlCommand(mysqlQuery, mysqlConnection))
+                {
+                    try
+                    {
+                        RecordExistsCheck(cmd, DomainDataModel, TypeOfExistenceCheck.DoesNotExistInTheDB, RequestType.Add);
+                    }
+                    catch(DataAccessException ex) 
+                    { 
+                        ex.CustomMessage = 
+                    }
                 }
             }
         }
+
 
         private string _connectionString;
     }
