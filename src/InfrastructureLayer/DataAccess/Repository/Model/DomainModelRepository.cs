@@ -62,6 +62,8 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
                     mysqlConnection.Open();
                     using (MySqlCommand cmd = new MySqlCommand(sql, mysqlConnection))
                     {
+
+                        // this should be inside another function and should be called using delegates.
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
