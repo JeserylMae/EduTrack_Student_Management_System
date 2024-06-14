@@ -1,4 +1,5 @@
 ﻿using DomainLayer.Models.CommonModel.BaseModel;
+using DomainLayer.Models.CommonModel.DistinctModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace DomainLayer.Models.InformationModel.AcademicModel
 {
     public interface IStudentAcademicInfoModel : IAcademicInfoModel
     {
-
+        StudentPropertyModel StudentPropertyModel { get; set; }
     }
 }

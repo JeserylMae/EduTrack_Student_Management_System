@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DomainLayer.Models.InformationModel.AcademicModel
+namespace DomainLayer.Models.DerivedModel
 {
-    public interface IInstructorAcademicInfoModel : IAcademicInfoModel
+    public interface IStudentSharedInfoModel
     {
-        InstructorPropertyModel InstructorPropertyModel { get; set; }
+        StudentPropertyModel StudentPropertyModel { get; set; }
         SharedCourseInfoModel SharedCourseInfoModel { get; set; }
+        SharedAcademicInfoModel SharedAcademicInfoModel { get; set; }
     }
 }

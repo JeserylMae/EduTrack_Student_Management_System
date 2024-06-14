@@ -11,34 +11,36 @@ using System.Reflection;
 
 namespace DomainLayer.Models.DerivedModel
 {
-    public class StudentSharedInfoModel
+    public class StudentSharedInfoModel : IStudentSharedInfoModel
     {
         public StudentSharedInfoModel()
         {
-            _studentPropertyModel = new StudentPropertyModel();
-            _sharedCourseInfoModel = new SharedCourseInfoModel();
-            _sharedAcademicInfoModel = new SharedAcademicInfoModel();
+            StudentPropertyModel = new StudentPropertyModel();
+            SharedCourseInfoModel = new SharedCourseInfoModel();
+            SharedAcademicInfoModel = new SharedAcademicInfoModel();
         }
 
         public StudentPropertyModel StudentPropertyModel
         {
-            get => (StudentPropertyModel)_studentPropertyModel;
-            set => _studentPropertyModel = value;
+            get => StudentPropertyModel;
+            set => StudentPropertyModel = value;
         }
 
         public SharedCourseInfoModel SharedCourseInfoModel
         {
-            get => (SharedCourseInfoModel)_sharedCourseInfoModel;
+            get => SharedCourseInfoModel;
+            set => SharedCourseInfoModel = value;
         }
 
         public SharedAcademicInfoModel SharedAcademicInfoModel
         {
-            get => (SharedAcademicInfoModel)_sharedAcademicInfoModel;
-            set => _sharedAcademicInfoModel = value;
+            get => SharedAcademicInfoModel;
+            set => SharedAcademicInfoModel = value;
         }
+       
 
-        private IStudentPropertyModel _studentPropertyModel;
-        private ISharedCourseInfoModel _sharedCourseInfoModel;
-        private ISharedAcademicInfoModel _sharedAcademicInfoModel;
+        //private IStudentPropertyModel _studentPropertyModel;
+        //private ISharedCourseInfoModel _sharedCourseInfoModel;
+        //private ISharedAcademicInfoModel _sharedAcademicInfoModel;
     }
 }

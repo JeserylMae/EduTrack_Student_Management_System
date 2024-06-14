@@ -59,6 +59,7 @@
     <Compile Include="Models\DerivedModel\Definition\StudentAttendanceInfoModel.cs" />
     <Compile Include="Models\DerivedModel\Definition\StudentGradeInfoModel.cs" />
     <Compile Include="Models\DerivedModel\Definition\StudentSharedInfoModel.cs" />
+    <Compile Include="Models\DerivedModel\IStudentSharedInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\Definition\CourseInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\Definition\InstructorAcademicInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\Definition\StudentAcademicInfoModel.cs" />

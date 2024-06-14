@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.DerivedModel
 {
-    public interface IStudentGradeInfoModel
+    public interface IStudentGradeInfoModel : IStudentSharedInfoModel
     {
         decimal Grade { get; set; }
     }

@@ -13,16 +13,14 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
     {
         public StudentPersonalInfoModel() 
         { 
-            _studentPropertyModel = new StudentPropertyModel();
+            StudentPropertyModel = new StudentPropertyModel();
         }
         
         public StudentPropertyModel StudentPropertyModel
         {
-            get => (StudentPropertyModel)_studentPropertyModel;
-            set => _studentPropertyModel = value;
+            get => StudentPropertyModel;
+            set => StudentPropertyModel = value;
         }
-
-        private IStudentPropertyModel _studentPropertyModel;
     }
 }
 

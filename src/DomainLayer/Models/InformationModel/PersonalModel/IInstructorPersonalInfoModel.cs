@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.InformationModel.PersonalModel
 {
-    public interface IInstructorPersonalInfoModel : IInstructorPropertyModel, IPersonalInfoModel
+    public interface IInstructorPersonalInfoModel : IPersonalInfoModel
     {
         string SpecializedDegree { get; set; }
+        InstructorPropertyModel InstructorPropertyModel { get; set; }
     }
 }

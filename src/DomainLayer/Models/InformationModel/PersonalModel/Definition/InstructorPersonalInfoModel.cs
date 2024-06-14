@@ -13,19 +13,17 @@ namespace DomainLayer.Models.InformationModel.PersonalModel
     {
         public InstructorPersonalInfoModel()
         {
-            _instructorPropertyModel = new InstructorPropertyModel();
+            InstructorPropertyModel = new InstructorPropertyModel();
         }
 
-        public string InstructorID
+        public InstructorPropertyModel InstructorPropertyModel 
         {
-            get => _instructorPropertyModel.InstructorID;
-            set => _instructorPropertyModel.InstructorID = value;
+            get => InstructorPropertyModel;
+            set => InstructorPropertyModel = value;
         }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Specialized degree must not be empty!")]
         [RegularExpression(@"[a-zA-X ]{10,50}")]
         public string SpecializedDegree { get; set; }
-
-        private IInstructorPropertyModel _instructorPropertyModel;
     }
 }
