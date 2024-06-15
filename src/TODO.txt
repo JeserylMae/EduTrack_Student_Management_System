@@ -3,3 +3,24 @@ TODO:
 1. Fixed all the classes in the Derived Model Folder. (All classes must utilized Polymorphism).
 2. Add additional Test Cases.
 3. Proceed to creating other services.
+
+
+[SERVICE LAYER]
+1. Create classes for each Domain Layer Models which are similar to the DomainModelServices.cs.
+@Example:
+
+
+// void Add<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class;
+public class StudentAcademicInfoServices
+{
+	private IDomainModelRepository _domainModelRepository = new DomainModelRepository();
+	private IModelDataAnnotationCheck _modelDataAnnotationCheck = new ModelDateAnnotationCheck();
+
+	public void Add(StudentAcademicInfoModel studentAcademicInfoModel){
+		_modelDataAnnotationCheck.ValidateModelDataAnnotation(studentAcademicInfoModel);
+		_domainModelRepository.Add(studentAcademicInfoModel);
+	}
+}
+
+
+[INFRASTRUCTURE LAYER]

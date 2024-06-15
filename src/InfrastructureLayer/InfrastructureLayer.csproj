@@ -93,7 +93,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\Repository\Model\DomainModelRepository.cs" />
+    <Compile Include="DataAccess\Repository\Access\AccessDefaultVariation.cs" />
+    <Compile Include="DataAccess\Repository\Database\DatabaseManager.cs" />
+    <Compile Include="DataAccess\Repository\Model\CourseInfoModelRepository.cs" />
+    <Compile Include="DataAccess\Repository\Model\IDomainModelRepository.cs" />
+    <Compile Include="DataAccess\Repository\Model\try\Class1.cs" />
+    <Compile Include="DataAccess\Repository\Model\try\DomainModelRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -108,10 +113,6 @@
     <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
       <Project>{7a8f521a-7f34-4a1c-813e-f98a11f7d612}</Project>
       <Name>DomainLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
-      <Project>{9cef06a4-a158-4242-8962-09d3e68c8162}</Project>
-      <Name>ServiceLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

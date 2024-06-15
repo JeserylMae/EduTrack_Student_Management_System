@@ -156,19 +156,19 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
         {
             DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
-            using (MySqlConnection mysqlConnection = new MySqlConnection(_connectionString))
-            {
-                try
-                {
-                    mysqlConnection.Open();   
-                }
-                catch (MySqlException e) 
-                {
-                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
-                                                customMessage: "Unable to add data from the database. Failed to open database.",
-                                                helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
-                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
-                }
+            //using (MySqlConnection mysqlConnection = new MySqlConnection(_connectionString))
+            //{
+                //try
+                //{
+                //    mysqlConnection.Open();   
+                //}
+                //catch (MySqlException e) 
+                //{
+                //    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                //                                customMessage: "Unable to add data from the database. Failed to open database.",
+                //                                helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                //    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                //}
 
                 string mysqlQuery = "INSERT INTO StudentAcademicInfoTbl"
                                   + "VALUES(@SrCode, @ClassSection, @Semester, @YearLevel, @AcademicYear)";
