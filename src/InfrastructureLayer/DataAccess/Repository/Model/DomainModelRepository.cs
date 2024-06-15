@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using Mysqlx;
 using System.Diagnostics;
+using System.Data;
+using System.Security.Cryptography;
+using System.Diagnostics.PerformanceData;
+using Org.BouncyCastle.Tls;
 
 namespace InfrastructureLayer.DataAccess.Repository.Model
 {
@@ -49,7 +53,7 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
             _connectionString = connectionString;
         }
 
-        
+
         public IEnumerable<TDomainModel> GetAll<TDomainModel>() where TDomainModel : class
         {
             List<TDomainModel> domainModelList = new List<TDomainModel>();
@@ -83,9 +87,11 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
                 }
                 catch (MySqlException e)
                 {
-                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
-                                               customMessage: "Unable to get Department Model list from the database.",
-                                               helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    //dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                    //                           customMessage: "Unable to get Department Model list from the database.",
+                    //                           helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    dataAccessStatus.SetValues(customMessage: "Unable to get Model List from the database.",
+                                               ex: e);
                     throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
                 }
             }
@@ -174,11 +180,241 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
                         RecordExistsCheck(cmd, DomainDataModel, TypeOfExistenceCheck.DoesNotExistInTheDB, RequestType.Add);
                     }
                     catch(DataAccessException ex) 
-                    { 
-                        ex.CustomMessage = 
+                    {
+                        ex.DataACcessStatus.CustomMessage = "Model cannot be added! Model already exists in the database.";
+                        ex.DataACcessStatus.ExceptionMessage = ex.Message;
+                        ex.DataACcessStatus.StackTrace = ex.StackTrace;
+                        throw ex;
                     }
+
+                    // This should be the DomainDataModel passed in the function;
+                    IStudentAcademicInfoModel student = new StudentAcademicInfoModel();
+
+                    cmd.CommandText = mysqlQuery;
+
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@SrCode", student.SrCode);
+                    cmd.Parameters.AddWithValue("@ClassSection", student.Section);
+                    cmd.Paramters.AddWithValue("@Semester", student.Semester);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e) 
+                    { 
+                        dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                                   customMessage: "Unable to add model.", helpLink: e.HelpLink, 
+                                                   errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                        throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                    }
+
+                    try
+                    {
+                        RecordExistsCheck(cmd, DomainDataModel, TypeOfExistenceCheck.DoesExistInTheDB, RequestType.ConfirmAdd);
+                    }
+                    catch (DataAccessException ex) 
+                    { 
+                        ex.DataACcessStatus.Status = "Error";
+                        ex.DataACcessStatus.OperationSucceeded = false;
+                        ex.DataACcessStatus.CustomMessage = "Failed to add model in the database after add operation is completed!";
+                        ex.DataACcessStatus.ExceptionMessage = ex.Message;
+                        ex.DataACcessStatus.StackTrace = ex.StackTrace;
+
+                        throw ex;
+                    }
+                    mysqlConnection.Close();
                 }
             }
+        }
+
+        public void Update<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class
+        {
+            int result = -1;
+            DataAccessStatus dataAccessStatus = new DataAccessStatus();
+
+            using(MySqlConnection mysqlConnection = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    mysqlConnection.Open();
+                }
+                catch (MySqlException e)
+                {
+                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                               customMessage: "Unable to update model. Could not open database connection!",
+                                               helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+
+                string updateQuery = "UPDATE StudentAcademicInfoModel "
+                                   + "SET ClassSection = @Section, "
+                                   + "YearLevel = @Year, "
+                                   + "AcademicYear = @AcademicYear, "
+                                   + "Semester = @Semester "
+                                   + "WHERE SrCode = @SrCode;";
+
+                using(MySqlCommand cmd = new MySqlCommand(string.Empty, mysqlConnection))
+                {
+                    try
+                    {
+                        RecordExistsCheck(cmd, DomainDataModel, TypeOfExistenceCheck.DoesExistInTheDB, RequestType.Update);
+                    }
+                    catch (DataAccessException ex) 
+                    {
+                        ex.DataACcessStatus.Status = "Error";
+                        ex.DataACcessStatus.CustomMessage = "Model cannot be updated because model does not exist in the database.";
+                        ex.DataACcessStatus.StackTrace = ex.StackTrace;
+
+                        throw ex;
+                    }
+
+                    cmd.CommandText = updateQuery;
+
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@Section", DomainDataModel.SrCode);
+                    cmd.Parameters.AddWithValue("@Year", DomainDataModel.Year);
+                    // add other parameters later.
+
+                    try
+                    {
+                        result = cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                               customMessage: "Unable to update model.", helpLink: e.HelpLink, 
+                                               errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                        throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                    }
+                }
+                mysqlConnection.Close();
+            }
+        }
+
+        public void Delete<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class
+        {
+            DataAccessStatus dataAccessStatus = new DataAccessStatus();
+
+            using (MySqlConnection mysqlConnection = new MySqlConnection(_connectionString))
+            {
+                try
+                {
+                    mysqlConnection.Open();
+                }
+                catch (MySqlException e)
+                {
+                    dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                           customMessage: "Unable to delete model. Could not open database connection!",
+                           helpLink: e.HelpLink, errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                    throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                }
+
+                string deleteQuery = "DELETE FROM StudentAcademicInfoModel WHERE SrCode = @SrCode;";
+
+                using (MySqlCommand cmd = new MySqlCommand(string.Empty, mysqlConnection))
+                {
+                    try
+                    {
+                        RecordExistsCheck(cmd, DomainDataModel, TypeOfExistenceCheck.DoesExistInTheDB, RequestType.Delete);
+                    }
+                    catch (DataAccessException ex)
+                    {
+                        ex.DataACcessStatus.CustomMessage = "Failed to delete model! Model does not exist in the database.";
+                        ex.DataACcessStatus.ExceptionMessage = ex.Message;
+                        ex.DataACcessStatus.StackTrace = ex.StackTrace;
+
+                        throw ex;
+                    }
+
+                    cmd.CommandText = deleteQuery;
+                    
+                    cmd.Prepare();
+                    cmd.Parameters.AddWithValue("@SrCode", DomainDataModel.SrCode);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (MySqlException e)
+                    {
+                        dataAccessStatus.SetValues(status: "Error", operationSucceeded: false, exceptionMessage: e.Message,
+                                                   customMessage: "Unable to delete model.", helpLink: e.HelpLink, 
+                                                   errorCode: e.ErrorCode, StackTrace: e.StackTrace);
+                        throw new DataAccessException(e.Message, e.InnerException, dataAccessStatus);
+                    }
+
+                    try
+                    {
+                        RecordExistsCheck(cmd, DomainDataModel, TypeOfExistenceCheck.DoesNotExistInTheDB, RequestType.Delete);
+                    }
+                    catch (DataAccessException ex)
+                    {
+                        ex.DataACcessStatus.Status = "Error";
+                        ex.DataACcessStatus.OperationSucceeded = false;
+                        ex.DataACcessStatus.CustomMessage = "Failed to delete model from the database!";
+                        ex.DataACcessStatus.ExceptionMessage = ex.Message;
+                        ex.DataACcessStatus.StackTrace= ex.StackTrace;
+
+                        throw ex;
+                    }
+                    mysqlConnection.Clone();
+                }
+            }
+        }
+
+        private bool RecordExistsCheck<TDomainModel>(MySqlCommand mysqlCommand, TDomainModel domainModel, TypeOfExistenceCheck typeOfExistencecheck,
+                                                     RequestType requestType)
+        {
+            Int32 countsOfRecordsFound = 0;
+            bool RecordExistsCheckPassed = true;
+
+            DataAccessStatus dataAccessStatus = new DataAccessStatus();
+
+            mysqlCommand.Prepare();
+
+            if ((requestType == RequestType.Add) || (requestType == RequestType.ConfirmAdd))
+            {
+                mysqlCommand.CommandText = "SELECT COUNT(*) FROM @tablename " +
+                                            "WHERE @domainName=@domainNameValue " +
+                                            "AND @domainContactNumber=@domainContactNumberValue";
+                mysqlCommand.Parameters.AddWithValue("@tablename", tablename);
+                mysqlCommand.Parameters.AddWithValue("@domainName", domainName);
+                // add the remaining later.
+            }
+            else if ((requestType == RequestType.Delete) || (requestType == RequestType.ConfirmDelete) || (requestType == RequestType.Update))
+            {
+                mysqlCommand.CommandText = "SELECT COUNT(*) FROM @tablename WHERE @domainId=@domainIDValue";
+                mysqlCommand.Parameters.AddWithValue("@tablename", tablename);
+                mysqlCommand.Parameters.AddWithValue("@domainID", domainID);
+                // add the remaining later.
+            }
+
+            try
+            {
+                countsOfRecordsFound = Convert.ToInt32(mysqlCommand.ExecuteScalar());
+            }
+            catch (MySqlException e)
+            {
+                string message = e.Message;
+                throw;
+            }
+
+            if ((typeOfExistencecheck == TypeOfExistenceCheck.DoesNotExistInTheDB) && (countsOfRecordsFound > 0))
+            {
+                dataAccessStatus.Status = "Error";
+                RecordExistsCheckPassed = false;
+
+                throw new DataAccessException(dataAccessStatus);
+            }
+            else if ((typeOfExistencecheck == TypeOfExistenceCheck.DoesExistInTheDB) && (countsOfRecordsFound == 0))
+            {
+                dataAccessStatus.Status = "Error";
+                RecordExistsCheckPassed = false;
+
+                throw new DataAccessException(dataAccessStatus);
+            }
+            return RecordExistsCheckPassed;
         }
 
 
