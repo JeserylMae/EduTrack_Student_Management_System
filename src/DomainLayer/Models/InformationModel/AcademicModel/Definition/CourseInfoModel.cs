@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 { 
-    class CourseInfoModel : SharedCourseInfoModel, ICourseInfoModel
+    public class CourseInfoModel : SharedCourseInfoModel, ICourseInfoModel
     { 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Course name must not be empty!")]
         public string CourseName { get; set; }
