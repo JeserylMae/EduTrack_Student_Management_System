@@ -14,6 +14,7 @@ namespace ServiceLayer.Services.ModelServices
         IEnumerable<TDomainModel> GetAll<TDomainModel>() where TDomainModel : class;
         TDomainModel GetByID<TDomainModel>(string id) where TDomainModel : class;
     }
+
 }
 
 // this is placed in this project instead of placing it in the InfrastructureLayer
