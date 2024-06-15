@@ -17,16 +17,15 @@ namespace CommonComponets
         public string StackTrace { get; set; }
 
 
-        public void SetValues(string status, bool operationSucceeded, string exceptionMessage, string customMessage, 
-                                string helpLink, int errorCode, string StackTrace)
+        public void SetValues(string customMessage, Exception ex)
         {
-            Status = status ?? string.Empty;
-            OperationSucceeded = operationSucceeded;
-            ExceptionMessage = exceptionMessage ?? string.Empty;
+            Status = "Error";
+            OperationSucceeded = false;
+            ExceptionMessage = ex.Message ?? string.Empty;
             CustomMessage = customMessage ?? string.Empty;
-            HelpLink = helpLink ?? string.Empty;
-            ErrorCode = errorCode;
-            StackTrace = StackTrace ?? string.Empty;
+            HelpLink = ex.HelpLink ?? string.Empty;
+            ErrorCode = 0;
+            StackTrace = ex.StackTrace ?? string.Empty;
         }
 
         public string GetFormattedValues()

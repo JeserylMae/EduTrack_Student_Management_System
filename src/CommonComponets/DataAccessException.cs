@@ -22,6 +22,11 @@ namespace CommonComponets
         {
             _dataAccessStatus = dataAccessStatus;
         }
+        public DataAccessStatus DataACcessStatus
+        {
+            get => _dataAccessStatus;
+            set => _dataAccessStatus = value;
+        }
 
 
         private DataAccessStatus _dataAccessStatus;
