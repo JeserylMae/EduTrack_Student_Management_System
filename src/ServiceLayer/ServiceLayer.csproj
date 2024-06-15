@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ModelServices\Definition\DomainModelServices.cs" />
-    <Compile Include="Services\ModelServices\IDomainModelRepository.cs" />
     <Compile Include="Services\ModelServices\IDomainModelServices.cs" />
     <Compile Include="TestingServices\IModelDataAnnotationCheck.cs" />
     <Compile Include="TestingServices\ModelDataAnnotationCheck.cs" />
@@ -53,6 +52,10 @@
     <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
       <Project>{7a8f521a-7f34-4a1c-813e-f98a11f7d612}</Project>
       <Name>DomainLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfrastructureLayer\InfrastructureLayer.csproj">
+      <Project>{8ef650a1-7434-4855-ba44-685885ab7f07}</Project>
+      <Name>InfrastructureLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
