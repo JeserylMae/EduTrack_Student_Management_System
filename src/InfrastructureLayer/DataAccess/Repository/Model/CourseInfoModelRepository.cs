@@ -18,24 +18,24 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
             {
                 modelQuery = "SELECT * FROM CourseInfoTbl";
             }
-									else if(requestType == AccessDefaultVariation.RequestType.Update)
-									{
-												modelQuery = "UPDATE CourseInfoTbl "
-																				+ "SET CourseName = @CourseName AND NumberOfUnits = @NumberOfUnits "
-																				+ "WHERE CourseCode = @CourseCode;";
-									}
-									else if(requestType == AccessDefaultVariation.RequestType.Delete)
-									{
-												modelQuery = "DELETE FROM CourseInfoTbl WHERE CourseCode = @CourseCode;";
-									}
-									else if(requestType == AccessDefaultVaration.RequestType.GetAll)
-									{
-												modelQuery = "SELECT * FROM CourseInfoTbl";
-									}
-									else if(requestType == AccessDefaultVariation.RequestType.GetId)
-									{
-												modelQuery = "SELECT ";
-									}
+	else if(requestType == AccessDefaultVariation.RequestType.Update)
+	{
+		modelQuery = "UPDATE CourseInfoTbl "
+										+ "SET CourseName = @CourseName AND NumberOfUnits = @NumberOfUnits "
+										+ "WHERE CourseCode = @CourseCode;";
+	}
+	else if(requestType == AccessDefaultVariation.RequestType.Delete)
+	{
+		modelQuery = "DELETE FROM CourseInfoTbl WHERE CourseCode = @CourseCode;";
+	}
+	else if(requestType == AccessDefaultVaration.RequestType.GetAll)
+	{
+		modelQuery = "SELECT * FROM CourseInfoTbl";
+	}
+	else if(requestType == AccessDefaultVariation.RequestType.GetId)
+	{
+		modelQuery = "SELECT ";
+	}
 
             return string.Empty;
         }
