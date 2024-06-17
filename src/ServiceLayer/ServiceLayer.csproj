@@ -49,6 +49,10 @@
     <Compile Include="TestingServices\ModelDataAnnotationCheck.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DomainLayer.Inner\DomainLayer.Inner.csproj">
+      <Project>{9794af89-dc5b-423a-b6be-439c26380df5}</Project>
+      <Name>DomainLayer.Inner</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
       <Project>{7a8f521a-7f34-4a1c-813e-f98a11f7d612}</Project>
       <Name>DomainLayer</Name>

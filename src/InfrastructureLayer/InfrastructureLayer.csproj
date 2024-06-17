@@ -97,15 +97,12 @@
     <Compile Include="Repository\Database\DatabaseManager.cs" />
     <Compile Include="Repository\ModelQuery\CourseInfoModelQuery.cs" />
     <Compile Include="Repository\ModelQuery\EdutrackUserModelQuery.cs" />
-    <Compile Include="Repository\ModelQuery\IDomainModelRepository.cs" />
+    <Compile Include="Repository\Database\IDomainModelRepository.cs" />
     <Compile Include="Repository\ModelQuery\StudentAcademicInfoModelQuery.cs" />
     <Compile Include="Repository\ModelQuery\StudentAttendanceInfoModelQuery.cs" />
     <Compile Include="Repository\ModelQuery\StudentGradeInfoTbl.cs" />
     <Compile Include="Repository\ModelQuery\StudentPersonalInfoModelQuery.cs" />
-    <Compile Include="Repository\ModelQuery\try\Class1.cs" />
-    <Compile Include="Repository\ModelQuery\try\DomainModelRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ModelQuery\try\Plan.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

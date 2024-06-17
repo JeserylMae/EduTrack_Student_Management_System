@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InfrastructureLayer.DataAccess.Repository.Model;
 using ServiceLayer.TestingServices;
-
+using InfrastructureLayer.Repository.Databasse;
 
 namespace ServiceLayer.Services.ModelServices
 {
