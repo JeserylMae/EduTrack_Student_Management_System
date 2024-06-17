@@ -33,8 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,8 +52,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\AppHelper\TopBarButtonHelper.cs" />
     <Compile Include="Views\EdutrackMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,10 +72,12 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\EdutrackMainForm.resx">
       <DependentUpon>EdutrackMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,6 +93,39 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\UserControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coollogo_com-72541028 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image 6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-solid 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SAKAY.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\servicestack 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Vector.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
