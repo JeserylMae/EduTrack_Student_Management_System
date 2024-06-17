@@ -10,10 +10,11 @@ namespace InfrastructureLayer.Repository.ModelQuery
 {
     internal class StudentAcademicInfoModelQuery
     {
-        internal static string ModelQueryGenerator(AccessDefaultVariation.RequestType requestType)
+        internal static string ModelQueryGenerator(AccessDefaultVariation.RequestType requestType,
+                                                   AccessDefaultVariation.RequestFrom requestFrom)
         {
             string modelQuery = string.Empty;
-
+           
             if (requestType == AccessDefaultVariation.RequestType.GetAll)
             {
                 modelQuery = "SELECT * FROM StudentAcademicInfoTbl";

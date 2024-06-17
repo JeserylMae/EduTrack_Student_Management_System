@@ -14,8 +14,11 @@ namespace InfrastructureLayer.Repository.ModelQuery
         {
             string modelQuery = string.Empty;
 
-            if (requestFrom == AccessDefaultVariation.RequestFrom.Student)
-                return modelQuery;
+            if ((requestFrom != AccessDefaultVariation.RequestFrom.Instructor) || (requestFrom != AccessDefaultVariation.RequestFrom.Student) ||
+                 (requestFrom != AccessDefaultVariation.RequestFrom.Admin))
+            { 
+                return modelQuery; 
+            }
 
             if (requestType == AccessDefaultVariation.RequestType.GetAll)
             {
