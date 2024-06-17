@@ -93,12 +93,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAccess\Repository\Access\AccessDefaultVariation.cs" />
-    <Compile Include="DataAccess\Repository\Database\DatabaseManager.cs" />
-    <Compile Include="DataAccess\Repository\Model\CourseInfoModelRepository.cs" />
-    <Compile Include="DataAccess\Repository\Model\IDomainModelRepository.cs" />
-    <Compile Include="DataAccess\Repository\Model\try\Class1.cs" />
-    <Compile Include="DataAccess\Repository\Model\try\DomainModelRepository.cs" />
+    <Compile Include="Repository\Access\AccessDefaultVariation.cs" />
+    <Compile Include="Repository\Database\DatabaseManager.cs" />
+    <Compile Include="Repository\ModelQuery\CourseInfoModelQuery.cs" />
+    <Compile Include="Repository\ModelQuery\EdutrackUserModelQuery.cs" />
+    <Compile Include="Repository\ModelQuery\IDomainModelRepository.cs" />
+    <Compile Include="Repository\ModelQuery\StudentAcademicInfoModelQuery.cs" />
+    <Compile Include="Repository\ModelQuery\StudentAttendanceInfoModelQuery.cs" />
+    <Compile Include="Repository\ModelQuery\StudentGradeInfoTbl.cs" />
+    <Compile Include="Repository\ModelQuery\StudentPersonalInfoModelQuery.cs" />
+    <Compile Include="Repository\ModelQuery\try\Class1.cs" />
+    <Compile Include="Repository\ModelQuery\try\DomainModelRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
