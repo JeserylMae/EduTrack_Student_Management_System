@@ -12,32 +12,32 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
     {
         public static string CourseInfoModelQueryGenerator(AccessDefaultVariation.RequestType requestType)
         {
-									string modelQuery = string.Empty;
+			string modelQuery = string.Empty;
 
-            if (requestType == AccessDefaultVariation.RequestType.Add)
+            if(requestType == AccessDefaultVaration.RequestType.GetAll)
+			{
+				modelQuery = "SELECT * FROM CourseInfoTbl";
+			}
+			else if(requestType == AccessDefaultVariation.RequestType.GetId)
+			{
+				modelQuery = "SELECT ";
+			}
+			else if (requestType == AccessDefaultVariation.RequestType.Add)
             {
                 modelQuery = "SELECT * FROM CourseInfoTbl";
             }
-	else if(requestType == AccessDefaultVariation.RequestType.Update)
-	{
-		modelQuery = "UPDATE CourseInfoTbl "
-										+ "SET CourseName = @CourseName AND NumberOfUnits = @NumberOfUnits "
-										+ "WHERE CourseCode = @CourseCode;";
-	}
-	else if(requestType == AccessDefaultVariation.RequestType.Delete)
-	{
-		modelQuery = "DELETE FROM CourseInfoTbl WHERE CourseCode = @CourseCode;";
-	}
-	else if(requestType == AccessDefaultVaration.RequestType.GetAll)
-	{
-		modelQuery = "SELECT * FROM CourseInfoTbl";
-	}
-	else if(requestType == AccessDefaultVariation.RequestType.GetId)
-	{
-		modelQuery = "SELECT ";
-	}
+			else if(requestType == AccessDefaultVariation.RequestType.Update)
+			{
+				modelQuery = "UPDATE CourseInfoTbl "
+						   + "SET CourseName = @CourseName AND NumberOfUnits = @NumberOfUnits "
+						   + "WHERE CourseCode = @CourseCode;";
+			}
+			else if(requestType == AccessDefaultVariation.RequestType.Delete)
+			{
+				modelQuery = "DELETE FROM CourseInfoTbl WHERE CourseCode = @CourseCode;";
+			}
 
-            return string.Empty;
+            return modelQuery;
         }
     }
 }
