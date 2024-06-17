@@ -18,9 +18,9 @@ namespace InfrastructureLayer.DataAccess.Repository.Model
 			{
 				modelQuery = "SELECT * FROM CourseInfoTbl";
 			}
-			else if(requestType == AccessDefaultVariation.RequestType.GetId)
+			else if(requestType == AccessDefaultVariation.RequestType.GetById)
 			{
-				modelQuery = "SELECT ";
+				modelQuery = "SELECT * FROM CourseInfoTbl WHERE SrCode = @SrCode";
 			}
 			else if (requestType == AccessDefaultVariation.RequestType.Add)
             {
