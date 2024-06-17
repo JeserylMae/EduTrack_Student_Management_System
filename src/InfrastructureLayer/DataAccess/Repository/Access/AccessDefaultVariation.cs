@@ -36,6 +36,8 @@ namespace InfrastructureLayer.DataAccess.Repository.Access
             Update,
             Read,
             Delete,
+            GetAll,
+            GetById,
             ConfirmAdd,
             ConfirmDelete
         }
