@@ -1,10 +1,7 @@
-﻿using DomainLayer.Models.CommonModel.BaseModel;
-using DomainLayer.Models.CommonModel.DistinctModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using DomainLayer.Inner.CommonModel.BaseModel;
+using DomainLayer.Inner.CommonModel.DistinctModel;
+
 
 namespace DomainLayer.Models.InformationModel.AcademicModel
 {

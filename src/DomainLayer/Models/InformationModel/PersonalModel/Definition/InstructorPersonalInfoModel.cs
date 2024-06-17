@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DomainLayer.Models.CommonModel.BaseModel;
-using DomainLayer.Models.CommonModel.DistinctModel;
+using DomainLayer.Inner.CommonModel.BaseModel;
+using DomainLayer.Inner.CommonModel.DistinctModel;
+
 
 namespace DomainLayer.Models.InformationModel.PersonalModel
 {

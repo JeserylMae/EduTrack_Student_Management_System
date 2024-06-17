@@ -44,40 +44,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedCourseInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Academic\ISharedAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Academic\Definition\SharedAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Academic\Definition\SharedCourseInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Personal\ISharedPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Personal\Definition\SharedPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\DistinctModel\IInstructorPropertyModel.cs" />
-    <Compile Include="Models\CommonModel\DistinctModel\IStudentPropertyModel.cs" />
     <Compile Include="Models\DerivedModel\Definition\EdutrackUserModel.cs" />
     <Compile Include="Models\DerivedModel\IEdutrackUserModel.cs" />
     <Compile Include="Models\DerivedModel\IStudentAttendanceInfoModel.cs" />
     <Compile Include="Models\DerivedModel\IStudentGradeInfoModel.cs" />
     <Compile Include="Models\DerivedModel\Definition\StudentAttendanceInfoModel.cs" />
     <Compile Include="Models\DerivedModel\Definition\StudentGradeInfoModel.cs" />
-    <Compile Include="Models\DerivedModel\Definition\StudentSharedInfoModel.cs" />
-    <Compile Include="Models\DerivedModel\IStudentSharedInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\Definition\CourseInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\Definition\InstructorAcademicInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\Definition\StudentAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Academic\Definition\AcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Academic\IAcademicInfoModel.cs" />
-    <Compile Include="Models\CommonModel\DistinctModel\Definition\InstructorPropertyModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Personal\IPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\BaseModel\Personal\Definition\PersonalInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\ICourseInfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\IInstructorAcademicinfoModel.cs" />
     <Compile Include="Models\InformationModel\AcademicModel\IStudentAcademicInfoModel.cs" />
     <Compile Include="Models\InformationModel\PersonalModel\Definition\InstructorPersonalInfoModel.cs" />
     <Compile Include="Models\InformationModel\PersonalModel\Definition\StudentPersonalInfoModel.cs" />
-    <Compile Include="Models\CommonModel\DistinctModel\Definition\StudentPropertyModel.cs" />
     <Compile Include="Models\InformationModel\PersonalModel\IInstructorPersonalInfoModel.cs" />
     <Compile Include="Models\InformationModel\PersonalModel\IStudentPersonalInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLayer.Inner\DomainLayer.Inner.csproj">
+      <Project>{9794af89-dc5b-423a-b6be-439c26380df5}</Project>
+      <Name>DomainLayer.Inner</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
