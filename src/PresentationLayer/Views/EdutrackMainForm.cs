@@ -1,4 +1,6 @@
-﻿using System;
+﻿//using PresentationLayer.Views.AppHelper;
+using PresentationLayer.Views.AppHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,35 +17,33 @@ namespace PresentationLayer
         public EdutrackMainForm()
         {
             InitializeComponent();
+            TopButtonFunction.IsAppMaximized = false;
         }
 
-        private void ExitAppButton_Click(object sender, EventArgs e)
+        public void FontIconButton(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
+            TopBarButtonHelper buttonHelper = new TopBarButtonHelper();
+            bool ShouldNotTriggerClick = false;
 
-        private void MaximizeAppButton_Click(object sender, EventArgs e)
-        {
-            if (IsAppMaximized)
+            if (!(sender is Button clickedButton))  return;
+            
+            switch (clickedButton.Name)
             {
-                this.ClientSize = new System.Drawing.Size(1280, 720);
-                this.CenterToScreen();
+                case "ExitAppButton":
+                    buttonHelper.TopBarButtonClicked += TopButtonFunction.ExitAppButton_Click;
+                    break;
+                case "MaximizeAppbutton":
+                    buttonHelper.TopBarButtonClicked += TopButtonFunction.MaximizeAppButton_Click;
+                    break;
+                case "MinimizeAppButton":
+                    buttonHelper.TopBarButtonClicked += TopButtonFunction.MinimizeAppButton_Click;
+                    break;
+                default:
+                    ShouldNotTriggerClick = true;
+                    break;
             }
-            else
-            {
-                this.Left = this.Top = 0;
-                this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                this.Height = Screen.PrimaryScreen.WorkingArea.Height; 
-                IsAppMaximized = true;
-            }
-        }
 
-        private void MinimizeAppButton_Click(object sender, EventArgs e)
-        {
-            if(this.WindowState != FormWindowState.Minimized)
-                this.WindowState = FormWindowState.Minimized;
-            else
-                this.WindowState= FormWindowState.Normal;
+            if (!ShouldNotTriggerClick) buttonHelper.Clicked(this);
         }
 
         private void EdutrackMainForm_MouseDown(object sender, MouseEventArgs e)
