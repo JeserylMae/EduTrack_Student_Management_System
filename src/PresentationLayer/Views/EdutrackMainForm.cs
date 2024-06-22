@@ -1,14 +1,10 @@
-﻿//using PresentationLayer.Views.AppHelper;
-using PresentationLayer.Views.AppHelper;
+﻿
+using PresentationLayer.Views.MainFormConfiguration;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace PresentationLayer
 {
@@ -17,12 +13,12 @@ namespace PresentationLayer
         public EdutrackMainForm()
         {
             InitializeComponent();
-            TopButtonFunction.IsAppMaximized = false;
+            TopBarButtonFunction.IsAppMaximized = false;
         }
 
         public void FontIconButton(object sender, EventArgs e)
         {
-            TopBarButtonHelper buttonHelper = new TopBarButtonHelper();
+            TopBarButtonFunction topBarButtonFunction = new TopBarButtonFunction();
             bool ShouldNotTriggerClick = false;
 
             if (!(sender is Button clickedButton))  return;
@@ -30,37 +26,38 @@ namespace PresentationLayer
             switch (clickedButton.Name)
             {
                 case "ExitAppButton":
-                    buttonHelper.TopBarButtonClicked += TopButtonFunction.ExitAppButton_Click;
+                    topBarButtonFunction.TopBarButtonClicked += TopBarButtonFunction.ExitAppButton_Click;
                     break;
                 case "MaximizeAppbutton":
-                    buttonHelper.TopBarButtonClicked += TopButtonFunction.MaximizeAppButton_Click;
+                    topBarButtonFunction.TopBarButtonClicked += TopBarButtonFunction.MaximizeAppButton_Click;
                     break;
                 case "MinimizeAppButton":
-                    buttonHelper.TopBarButtonClicked += TopButtonFunction.MinimizeAppButton_Click;
+                    topBarButtonFunction.TopBarButtonClicked += TopBarButtonFunction.MinimizeAppButton_Click;
                     break;
                 default:
                     ShouldNotTriggerClick = true;
                     break;
             }
 
-            if (!ShouldNotTriggerClick) buttonHelper.Clicked(this);
+            if (!ShouldNotTriggerClick) topBarButtonFunction.Clicked(this);
         }
 
-        private void EdutrackMainForm_MouseDown(object sender, MouseEventArgs e)
+        private void DragMainForm(object sender, MouseEventArgs e)
         {
-            mouseLocation = new Point(-e.X, -e.Y);
-        }
+            MainFormProperties mainFormProperties = new MainFormProperties();
 
-        private Point mouseLocation;
+            if (!(e.button is MouseButtons.Left)) return;
 
-        private void EdutrackMainForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
+            if (e.Clicks > 0)
             {
-                Point mousePose = Control.MousePosition;
-                mousePose.Offset(mouseLocation);
-                Location = mousePose;
+                mainFormProperties.MouseClicked += MainFormProperties.EdutrackMainForm_MouseDown;
             }
+            else
+            {
+                mainFormProperties.MouseClicked += MainFormProperties.EdutrackMainForm_MouseMove;
+            }
+
+            mainFormProperties.Clicked(this, e);
         }
     }
 }

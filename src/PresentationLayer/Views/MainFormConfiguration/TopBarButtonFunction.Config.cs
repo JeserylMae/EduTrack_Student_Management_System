@@ -3,9 +3,9 @@ using System;
 using System.Windows.Forms;
 
 
-namespace PresentationLayer.Views.AppHelper
+namespace PresentationLayer.Views.MainFormConfiguration
 {
-    internal static class TopButtonFunction
+    internal partial class TopBarButtonFunction
     {
         internal static void ExitAppButton_Click(Form form, object sender, EventArgs e)
         {
@@ -22,7 +22,7 @@ namespace PresentationLayer.Views.AppHelper
 
         internal static void MaximizeAppButton_Click(Form form, object sender, EventArgs e)
         {
-            if (TopButtonFunction.IsAppMaximized)
+            if (TopBarButtonFunction.IsAppMaximized)
             {
                 int height = 720, width = 1280;
                 form.ClientSize = new System.Drawing.Size(width, height);
@@ -35,7 +35,7 @@ namespace PresentationLayer.Views.AppHelper
                 form.Left = form.Top = 0;
                 form.Width = Screen.PrimaryScreen.WorkingArea.Width;
                 form.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                TopButtonFunction.IsAppMaximized = true;
+                TopBarButtonFunction.IsAppMaximized = true;
             }
         }
 

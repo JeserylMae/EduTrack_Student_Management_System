@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace PresentationLayer.Views.AppHelper
+namespace PresentationLayer.Views.MainFormConfiguration
 {
-    internal class TopBarButtonHelper
+    internal partial class TopBarButtonFunction
     {
-        public delegate void TopBarButtonEventHandler(Form form, object sender, EventArgs e);
+        internal delegate void TopBarButtonEventHandler(Form form, object sender, EventArgs e);
 
-        public event TopBarButtonEventHandler TopBarButtonClicked;
+        internal event TopBarButtonEventHandler TopBarButtonClicked;
 
         internal void Clicked(Form form)
         {
