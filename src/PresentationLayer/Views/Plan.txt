@@ -1,0 +1,10 @@
+﻿
+LOG-IN FORM
+
+** after the user hit LOGIN button. **
+1. Get the emailAddress from the textbox.
+2. search it in the database. 
+3. Verify whether the password entered is same as the saved password in the db.
+4. Get also the position of the user (whether she is a student, instructor, admin).
+5. Open the Home page for that certain position of the user.
+

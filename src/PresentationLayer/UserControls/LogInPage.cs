@@ -1,12 +1,5 @@
-﻿using PresentationLayer.Views.MainFormConfiguration;
+﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls
@@ -16,6 +9,22 @@ namespace PresentationLayer.UserControls
         public LogInPage()
         {
             InitializeComponent();
+        }
+
+        private void LogInButton_Click(object sender, EventArgs e)
+        {
+            // Declare a bool: UserExisting = false.
+            // Declare a string: UserPosition = string.Empty;
+            
+            // if user exists change the UserExisting to True in the methos VerifyUserExistence.
+            ////////// VerifyUserExistence(EmailAddressTextbox.Text, PasswordTextbox.Text);
+
+            ////////// InitializeUserHomePage();
+            // Contains if - else statements and the functions which invokes the method
+            // that initializes the home page for each positions.
+
+            // if user does not exist.
+            // instanciate new CustomMessageBox() form and display the error.
         }
     }
 }

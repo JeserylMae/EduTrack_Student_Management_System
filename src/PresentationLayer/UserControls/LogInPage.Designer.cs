@@ -30,14 +30,14 @@
         {
             this.RightPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PasswordTextbox = new System.Windows.Forms.MaskedTextBox();
+            this.EmailAddressTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Label1 = new System.Windows.Forms.Label();
+            this.LogInButton = new System.Windows.Forms.Button();
             this.RightPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -61,9 +61,9 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.PasswordTextbox);
+            this.panel1.Controls.Add(this.EmailAddressTextbox);
+            this.panel1.Controls.Add(this.LogInButton);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -74,40 +74,28 @@
             this.panel1.Size = new System.Drawing.Size(632, 536);
             this.panel1.TabIndex = 6;
             // 
-            // maskedTextBox1
+            // PasswordTextbox
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.maskedTextBox1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.maskedTextBox1.Location = new System.Drawing.Point(122, 333);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.PasswordChar = '•';
-            this.maskedTextBox1.Size = new System.Drawing.Size(443, 24);
-            this.maskedTextBox1.TabIndex = 7;
+            this.PasswordTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.PasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.PasswordTextbox.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextbox.ForeColor = System.Drawing.Color.Black;
+            this.PasswordTextbox.Location = new System.Drawing.Point(122, 334);
+            this.PasswordTextbox.Name = "PasswordTextbox";
+            this.PasswordTextbox.PasswordChar = '•';
+            this.PasswordTextbox.Size = new System.Drawing.Size(443, 24);
+            this.PasswordTextbox.TabIndex = 7;
             // 
-            // textBox1
+            // EmailAddressTextbox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(122, 226);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(443, 24);
-            this.textBox1.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
-            this.button1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(54, 445);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(195, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "LOGIN";
-            this.button1.UseVisualStyleBackColor = false;
+            this.EmailAddressTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.EmailAddressTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EmailAddressTextbox.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailAddressTextbox.ForeColor = System.Drawing.Color.Black;
+            this.EmailAddressTextbox.Location = new System.Drawing.Point(122, 226);
+            this.EmailAddressTextbox.Name = "EmailAddressTextbox";
+            this.EmailAddressTextbox.Size = new System.Drawing.Size(443, 24);
+            this.EmailAddressTextbox.TabIndex = 6;
             // 
             // label3
             // 
@@ -162,6 +150,22 @@
             this.Label1.TabIndex = 0;
             this.Label1.Text = "Welcome...";
             // 
+            // LogInButton
+            // 
+            this.LogInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
+            this.LogInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.LogInButton.FlatAppearance.BorderSize = 0;
+            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogInButton.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogInButton.ForeColor = System.Drawing.Color.White;
+            this.LogInButton.Location = new System.Drawing.Point(54, 445);
+            this.LogInButton.Name = "LogInButton";
+            this.LogInButton.Size = new System.Drawing.Size(195, 48);
+            this.LogInButton.TabIndex = 5;
+            this.LogInButton.Text = "LOGIN";
+            this.LogInButton.UseVisualStyleBackColor = false;
+            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            // 
             // LogInPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -191,9 +195,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox PasswordTextbox;
+        private System.Windows.Forms.TextBox EmailAddressTextbox;
+        private System.Windows.Forms.Button LogInButton;
     }
 }
