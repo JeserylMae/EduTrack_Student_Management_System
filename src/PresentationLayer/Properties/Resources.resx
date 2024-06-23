@@ -121,14 +121,17 @@
   <data name="coollogo_com_72541028_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\coollogo_com-72541028 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Group_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Group 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Group_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Group_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Group_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="image_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="image_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -144,9 +147,6 @@
   </data>
   <data name="SAKAY" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SAKAY.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="servicestack_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\servicestack 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
