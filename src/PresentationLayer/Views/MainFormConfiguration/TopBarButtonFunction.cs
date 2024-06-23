@@ -16,10 +16,7 @@ namespace PresentationLayer.Views.MainFormConfiguration
 
         protected virtual void OnTopBarButtonClicked(Form form) 
         {
-            if (TopBarButtonClicked != null) 
-            {
-                TopBarButtonClicked(form, this, EventArgs.Empty);
-            }
+            TopBarButtonClicked?.Invoke(form, this, EventArgs.Empty);
         }
     }
 }

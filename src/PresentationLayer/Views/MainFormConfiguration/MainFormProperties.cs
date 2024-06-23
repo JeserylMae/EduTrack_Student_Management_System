@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
+﻿
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,5 +19,13 @@ namespace PresentationLayer.Views.MainFormConfiguration
         {
             MouseClicked?.Invoke(form, this, mouseEventArgs);
         }
+
+        internal static void OnTopBarPanelCreated(Panel TopBarPanel)
+        {
+            if (TopBarPanel != null)
+                MainFormProperties.TopBarCreated.TrySetResult(true);
+        }
+
+        internal static TaskCompletionSource<bool> TopBarCreated = new TaskCompletionSource<bool>();
     }
 }

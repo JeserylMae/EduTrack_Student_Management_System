@@ -29,6 +29,7 @@ namespace PresentationLayer.Views.MainFormConfiguration
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.Top = (int)((Screen.PrimaryScreen.WorkingArea.Height / 2) - (height / 2));
                 form.Left = (int)((Screen.PrimaryScreen.WorkingArea.Width / 2) - (width / 2));
+                TopBarButtonFunction.IsAppMaximized = false;
             }
             else
             {
