@@ -32,31 +32,30 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.TopBarPanel = new System.Windows.Forms.Panel();
             this.EdutrackAppTitle = new System.Windows.Forms.Label();
             this.EdutrackAppIcon = new FontAwesome.Sharp.IconPictureBox();
             this.MaximizeAppbutton = new FontAwesome.Sharp.IconButton();
             this.MinimizeAppButton = new FontAwesome.Sharp.IconButton();
             this.ExitAppButton = new FontAwesome.Sharp.IconButton();
-            this.panel1.SuspendLayout();
+            this.AppPagesHolderPanel = new System.Windows.Forms.Panel();
+            this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EdutrackAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // TopBarPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
-            this.panel1.Controls.Add(this.EdutrackAppTitle);
-            this.panel1.Controls.Add(this.EdutrackAppIcon);
-            this.panel1.Controls.Add(this.MaximizeAppbutton);
-            this.panel1.Controls.Add(this.MinimizeAppButton);
-            this.panel1.Controls.Add(this.ExitAppButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1280, 32);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragMainForm);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DragMainForm);
+            this.TopBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
+            this.TopBarPanel.Controls.Add(this.EdutrackAppTitle);
+            this.TopBarPanel.Controls.Add(this.EdutrackAppIcon);
+            this.TopBarPanel.Controls.Add(this.MaximizeAppbutton);
+            this.TopBarPanel.Controls.Add(this.MinimizeAppButton);
+            this.TopBarPanel.Controls.Add(this.ExitAppButton);
+            this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
+            this.TopBarPanel.Name = "TopBarPanel";
+            this.TopBarPanel.Size = new System.Drawing.Size(1280, 32);
+            this.TopBarPanel.TabIndex = 0;
             // 
             // EdutrackAppTitle
             // 
@@ -97,7 +96,7 @@ namespace PresentationLayer
             this.MaximizeAppbutton.Size = new System.Drawing.Size(43, 26);
             this.MaximizeAppbutton.TabIndex = 2;
             this.MaximizeAppbutton.UseVisualStyleBackColor = true;
-            this.MaximizeAppbutton.Click += new System.EventHandler(this.FontIconButton);
+            this.MaximizeAppbutton.Click += new System.EventHandler(this.TopBarButton);
             // 
             // MinimizeAppButton
             // 
@@ -117,7 +116,7 @@ namespace PresentationLayer
             this.MinimizeAppButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.MinimizeAppButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MinimizeAppButton.UseVisualStyleBackColor = true;
-            this.MinimizeAppButton.Click += new System.EventHandler(this.FontIconButton);
+            this.MinimizeAppButton.Click += new System.EventHandler(this.TopBarButton);
             // 
             // ExitAppButton
             // 
@@ -134,19 +133,30 @@ namespace PresentationLayer
             this.ExitAppButton.Size = new System.Drawing.Size(43, 26);
             this.ExitAppButton.TabIndex = 0;
             this.ExitAppButton.UseVisualStyleBackColor = true;
-            this.ExitAppButton.Click += new System.EventHandler(this.FontIconButton);
+            this.ExitAppButton.Click += new System.EventHandler(this.TopBarButton);
+            // 
+            // AppPagesHolderPanel
+            // 
+            this.AppPagesHolderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AppPagesHolderPanel.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppPagesHolderPanel.ForeColor = System.Drawing.Color.White;
+            this.AppPagesHolderPanel.Location = new System.Drawing.Point(0, 32);
+            this.AppPagesHolderPanel.Name = "AppPagesHolderPanel";
+            this.AppPagesHolderPanel.Size = new System.Drawing.Size(1280, 688);
+            this.AppPagesHolderPanel.TabIndex = 1;
             // 
             // EdutrackMainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.AppPagesHolderPanel);
+            this.Controls.Add(this.TopBarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EdutrackMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.TopBarPanel.ResumeLayout(false);
+            this.TopBarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EdutrackAppIcon)).EndInit();
             this.ResumeLayout(false);
 
@@ -154,12 +164,13 @@ namespace PresentationLayer
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TopBarPanel;
         private FontAwesome.Sharp.IconButton ExitAppButton;
         private FontAwesome.Sharp.IconButton MaximizeAppbutton;
         private FontAwesome.Sharp.IconButton MinimizeAppButton;
         private FontAwesome.Sharp.IconPictureBox EdutrackAppIcon;
         private System.Windows.Forms.Label EdutrackAppTitle;
+        private System.Windows.Forms.Panel AppPagesHolderPanel;
     }
 }
 

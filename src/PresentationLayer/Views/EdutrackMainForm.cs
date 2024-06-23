@@ -1,10 +1,10 @@
 ﻿
+using PresentationLayer.UserControls;
 using PresentationLayer.Views.MainFormConfiguration;
 using System;
 using System.Drawing;
-
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace PresentationLayer
 {
@@ -14,9 +14,27 @@ namespace PresentationLayer
         {
             InitializeComponent();
             TopBarButtonFunction.IsAppMaximized = false;
+            MainFormProperties.OnTopBarPanelCreated(TopBarPanel);
+            _ = AppMainPanelEventSubscriber();
+            InitializeLogInPage();
         }
 
-        public void FontIconButton(object sender, EventArgs e)
+        private void AddNewUserControl(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            AppPagesHolderPanel.Controls.Clear();
+            AppPagesHolderPanel.Controls.Add(userControl);
+            userControl.BringToFront();
+            EdutrackMainForm.OpenedUserControl = userControl;
+        }
+
+        private void InitializeLogInPage()
+        {
+            LogInPage logInPage = new LogInPage();
+            AddNewUserControl(logInPage);
+        }
+
+        private void TopBarButton(object sender, EventArgs e)
         {
             TopBarButtonFunction topBarButtonFunction = new TopBarButtonFunction();
             bool ShouldNotTriggerClick = false;
@@ -42,22 +60,15 @@ namespace PresentationLayer
             if (!ShouldNotTriggerClick) topBarButtonFunction.Clicked(this);
         }
 
-        private void DragMainForm(object sender, MouseEventArgs e)
+        private async Task AppMainPanelEventSubscriber()
         {
-            MainFormProperties mainFormProperties = new MainFormProperties();
+            await MainFormProperties.TopBarCreated.Task;
 
-            if (!(e.button is MouseButtons.Left)) return;
-
-            if (e.Clicks > 0)
-            {
-                mainFormProperties.MouseClicked += MainFormProperties.EdutrackMainForm_MouseDown;
-            }
-            else
-            {
-                mainFormProperties.MouseClicked += MainFormProperties.EdutrackMainForm_MouseMove;
-            }
-
-            mainFormProperties.Clicked(this, e);
+            MainFormProperties.MainForm = this;
+            TopBarPanel.MouseDown += new MouseEventHandler(MainFormProperties.EdutrackMainForm_MouseDown);
+            TopBarPanel.MouseMove += new MouseEventHandler(MainFormProperties.EdutrackMainForm_MouseMove);
         }
+
+        internal static UserControl OpenedUserControl { get; set; }
     }
 }
