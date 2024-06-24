@@ -1,20 +1,18 @@
 ﻿
+using PresentationLayer.Presenters;
 using PresentationLayer.UserControls;
-using PresentationLayer.Views.MainFormConfiguration;
-using System;
-using System.Drawing;
-using System.Threading.Tasks;
+using PresentationLayer.Views;
 using System.Windows.Forms;
 
 namespace PresentationLayer
 {
-    public partial class EdutrackMainForm : Form
+    public partial class EdutrackMainForm : Form, IEdutrackMainForm
     {
         public EdutrackMainForm()
         {
             InitializeComponent();
-            TopBarButtonFunction.IsAppMaximized = false;
-            MainFormProperties.OnTopBarPanelCreated(TopBarPanel);
+            EdutrackMainFormPresenter.IsAppMaximized = false;
+            EdutrackMainFormPresenter.OnTopBarPanelCreated(TopBarPanel);
             _ = AppMainPanelEventSubscriber();
             InitializeLogInPage();
         }
@@ -34,7 +32,33 @@ namespace PresentationLayer
             AddNewUserControl(logInPage);
         }
 
+       
+        public event TopBarButtonEventHandler WindowExit
+        {
+            add { _topBarButtonEventHandler += value; }
+            remove { _topBarButtonEventHandler -= value; }
+        }
+        public event TopBarButtonEventHandler WindowMaximized
+        {
+            add { _topBarButtonEventHandler += value; }
+            remove { _topBarButtonEventHandler -= value; }
+        }
+        public event TopBarButtonEventHandler WindowMinimized
+        {
+            add { _topBarButtonEventHandler += value; }
+            remove { _topBarButtonEventHandler -= value; }
+        }
+        public event MouseClickedEventHandler MouseClicked
+        {
+            add { _mouseClickedEventHandler += value; }
+            remove { _mouseClickedEventHandler -= value; }
+        }
+        public static UserControl OpenedUserControl { get; set; }
 
-        internal static UserControl OpenedUserControl { get; set; }
+        //
+        // Variables
+        //
+        private TopBarButtonEventHandler _topBarButtonEventHandler;
+        private MouseClickedEventHandler _mouseClickedEventHandler;
     }
 }

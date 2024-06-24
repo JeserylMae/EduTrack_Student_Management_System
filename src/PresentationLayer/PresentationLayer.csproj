@@ -56,23 +56,22 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UserControls\LogInPage.cs">
+    <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
+    <Compile Include="Views\LogInPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\LogInPage.Designer.cs">
+	<Compile Include="Views\ILogInPage.cs">
+		<DependentUpon>LogInPage.cs</DependentUpon> 
+	</Compile>
+    <Compile Include="Views\LogInPage.Designer.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainFormConfiguration\MainFormProperties.cs" />
-    <Compile Include="Views\MainFormConfiguration\MainFormProperties.Config.cs">
-      <DependentUpon>MainFormProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainFormConfiguration\TopBarButtonFunction.cs" />
-    <Compile Include="Views\MainFormConfiguration\TopBarButtonFunction.Config.cs">
-      <DependentUpon>TopBarButtonFunction.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EdutrackMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+	<Compile Include="Views\IEdutrackMainForm.cs">
+		<DependentUpon>EdutrackMainForm.cs</DependentUpon>
+	</Compile>
     <Compile Include="Views\EdutrackMainForm.Designer.cs">
       <DependentUpon>EdutrackMainForm.cs</DependentUpon>
     </Compile>
@@ -92,7 +91,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\LogInPage.resx">
+    <EmbeddedResource Include="Views\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EdutrackMainForm.resx">
