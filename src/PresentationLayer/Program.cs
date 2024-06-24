@@ -1,7 +1,11 @@
-﻿using System;
+﻿using PresentationLayer.Presenters;
+using PresentationLayer.Views;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Windows.Forms;
 
 namespace PresentationLayer
@@ -16,7 +20,12 @@ namespace PresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EdutrackMainForm());
+            
+            string connectionString = WebConfigurationManager.ConnectionStrings["CONSTR.EDUTRACK"].ConnectionString;
+            IEdutrackMainForm edutrackMainForm = new EdutrackMainForm();
+            new EdutrackMainFormPresenter(edutrackMainForm, connectionString);
+
+            Application.Run((Form)edutrackMainForm);
         }
     }
 }

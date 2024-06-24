@@ -40,6 +40,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Activities" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Web" />
@@ -57,21 +58,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
+    <Compile Include="Presenters\LogInPagePresenter.cs" />
     <Compile Include="Views\LogInPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-	<Compile Include="Views\ILogInPage.cs">
-		<DependentUpon>LogInPage.cs</DependentUpon> 
-	</Compile>
+    <Compile Include="Views\ILogInPage.cs">
+      <DependentUpon>LogInPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\LogInPage.Designer.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EdutrackMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-	<Compile Include="Views\IEdutrackMainForm.cs">
-		<DependentUpon>EdutrackMainForm.cs</DependentUpon>
-	</Compile>
+    <Compile Include="Views\IEdutrackMainForm.cs">
+      <DependentUpon>EdutrackMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EdutrackMainForm.Designer.cs">
       <DependentUpon>EdutrackMainForm.cs</DependentUpon>
     </Compile>

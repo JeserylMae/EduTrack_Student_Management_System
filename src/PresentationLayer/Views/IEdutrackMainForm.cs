@@ -1,17 +1,26 @@
 ﻿
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace PresentationLayer.Views
 {
-    public delegate void TopBarButtonEventHandler(Form form, object sender, EventArgs e);
-    public delegate void MouseClickedEventHandler(Form form, object sender, MouseEventArgs e);
-
+ 
      interface IEdutrackMainForm
     {
-        event TopBarButtonEventHandler WindowExit;
-        event TopBarButtonEventHandler WindowMaximized;
-        event TopBarButtonEventHandler WindowMinimized;
-        event MouseClickedEventHandler MouseClicked;
+        int TopPosition     { get; set; }
+        int LeftPosition    { get; set; }
+        int FormWidth       { get; set; }
+        int FormHeight      { get; set; }
+        bool IsAppMaximized { get; set; }
+        Point WindowLocation      { get; set; }
+        FormWindowState FormWindowState     { get; set; }
+        FormStartPosition FormStartPosition { get; set; }
+
+        event EventHandler WindowExit;
+        event EventHandler WindowMaximized;
+        event EventHandler WindowMinimized;
+        event MouseEventHandler MouseMoved;
+        event MouseEventHandler MousePressed;
     }
 }

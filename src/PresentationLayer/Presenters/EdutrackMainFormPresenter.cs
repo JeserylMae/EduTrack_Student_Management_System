@@ -1,73 +1,83 @@
 ﻿
+using PresentationLayer.Views;
 using System;
 using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters
 {
     internal class EdutrackMainFormPresenter
     {
-        internal static void ExitAppButton_Click(Form form, object sender, EventArgs e)
+        public EdutrackMainFormPresenter(IEdutrackMainForm edutrackMainForm, string connectionString)
+        {
+            _edutrackMainForm = edutrackMainForm;
+            _connectionString = connectionString;
+
+            // Subscribe events.
+            _edutrackMainForm.WindowExit += ExitAppButton_Click; 
+            _edutrackMainForm.WindowMaximized += MaximizeAppButton_Click;
+            _edutrackMainForm.WindowMinimized += MinimizeAppButton_Click;
+            _edutrackMainForm.MouseMoved += EdutrackMainForm_MouseMove;
+            _edutrackMainForm.MousePressed += EdutrackMainForm_MouseDown;
+        }
+
+        private void _edutrackMainForm_WindowMinimized(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExitAppButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        internal static void MinimizeAppButton_Click(Form form, object sender, EventArgs e)
+        private void MinimizeAppButton_Click(object sender, EventArgs e)
         {
-            if (form.WindowState != FormWindowState.Minimized)
-                form.WindowState = FormWindowState.Minimized;
+            if (_edutrackMainForm.FormWindowState != FormWindowState.Minimized)
+                _edutrackMainForm.FormWindowState = FormWindowState.Minimized;
             else
-                form.WindowState = FormWindowState.Normal;
+                _edutrackMainForm.FormWindowState = FormWindowState.Normal;
         }
 
-        internal static void MaximizeAppButton_Click(Form form, object sender, EventArgs e)
+        private void MaximizeAppButton_Click(object sender, EventArgs e)
         {
-            if (EdutrackMainFormPresenter.IsAppMaximized)
+            if (_edutrackMainForm.IsAppMaximized)
             {
                 int height = 720, width = 1280;
-                form.ClientSize = new System.Drawing.Size(width, height);
-                form.StartPosition = FormStartPosition.CenterScreen;
-                form.Top = (int)((Screen.PrimaryScreen.WorkingArea.Height / 2) - (height / 2));
-                form.Left = (int)((Screen.PrimaryScreen.WorkingArea.Width / 2) - (width / 2));
-                EdutrackMainFormPresenter.IsAppMaximized = false;
+                _edutrackMainForm.FormWidth = width;
+                _edutrackMainForm.FormHeight = height;
+                _edutrackMainForm.FormStartPosition = FormStartPosition.CenterScreen;
+                _edutrackMainForm.TopPosition = (int)(   (Screen.PrimaryScreen.WorkingArea.Height / 2) - (height / 2));
+                _edutrackMainForm.LeftPosition = (int)((Screen.PrimaryScreen.WorkingArea.Width / 2) - (width / 2));
+                _edutrackMainForm.IsAppMaximized = false;
             }
             else
             {
-                form.Left = form.Top = 0;
-                form.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                form.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                EdutrackMainFormPresenter.IsAppMaximized = true;
+                _edutrackMainForm.LeftPosition = _edutrackMainForm.TopPosition = 0;
+                _edutrackMainForm.FormWidth = Screen.PrimaryScreen.WorkingArea.Width;
+                _edutrackMainForm.FormHeight = Screen.PrimaryScreen.WorkingArea.Height;
+                _edutrackMainForm.IsAppMaximized = true;
             }
         }
 
-        internal static void OnTopBarPanelCreated(Panel TopBarPanel)
+        private void EdutrackMainForm_MouseDown(object sender, MouseEventArgs e)
         {
-            if (TopBarPanel != null)
-                EdutrackMainFormPresenter.TopBarCreated.TrySetResult(true);
+            MouseLocation = new Point(-e.X, -e.Y);
         }
 
-        internal static void EdutrackMainForm_MouseDown(object sender, MouseEventArgs e)
-        {
-            EdutrackMainFormPresenter.MouseLocation = new Point(-e.X, -e.Y);
-        }
-
-        internal static void EdutrackMainForm_MouseMove(object sender, MouseEventArgs e)
+        private void EdutrackMainForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                Form form = EdutrackMainFormPresenter.MainForm;
                 Point mousePose = Control.MousePosition;
-                mousePose.Offset(EdutrackMainFormPresenter.MouseLocation);
-                form.Location = mousePose;
+                mousePose.Offset(MouseLocation);
+                _edutrackMainForm.WindowLocation = mousePose;
             }
         }
 
-        internal static Form MainForm { get; set; }
 
-        internal static Point MouseLocation;
-
-        internal static TaskCompletionSource<bool> TopBarCreated = new TaskCompletionSource<bool>();
-        internal static bool IsAppMaximized;
+        private string _connectionString;
+        private IEdutrackMainForm _edutrackMainForm;
+        internal Point MouseLocation;
     }
 }

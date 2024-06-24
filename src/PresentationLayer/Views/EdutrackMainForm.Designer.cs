@@ -93,7 +93,6 @@ namespace PresentationLayer
             this.MaximizeAppbutton.Size = new System.Drawing.Size(43, 26);
             this.MaximizeAppbutton.TabIndex = 2;
             this.MaximizeAppbutton.UseVisualStyleBackColor = true;
-            this.MaximizeAppbutton.Click += new System.EventHandler(this.MaximizedAppButton_Clicked);
             // 
             // MinimizeAppButton
             // 
@@ -113,7 +112,6 @@ namespace PresentationLayer
             this.MinimizeAppButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.MinimizeAppButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.MinimizeAppButton.UseVisualStyleBackColor = true;
-            this.MinimizeAppButton.Click += new System.EventHandler(this.MinimizedAppButton_Clicked);
             // 
             // ExitAppButton
             // 
@@ -130,7 +128,6 @@ namespace PresentationLayer
             this.ExitAppButton.Size = new System.Drawing.Size(43, 26);
             this.ExitAppButton.TabIndex = 0;
             this.ExitAppButton.UseVisualStyleBackColor = true;
-            this.ExitAppButton.Click += new System.EventHandler(this.ExitAppButton_Clicked);
             // 
             // AppPagesHolderPanel
             // 

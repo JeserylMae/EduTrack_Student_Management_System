@@ -23,6 +23,15 @@ namespace PresentationLayer.Views
 
         public event EventHandler LoggedIn;
 
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // Events
         //  public event EventHandler LoggedIn;
         // Please remember that the definition or the method to be invoked by this 
@@ -33,8 +42,8 @@ namespace PresentationLayer.Views
 
 
 
-        private void LogInButton_Click(object sender, EventArgs e)
-        {
+      //  private void LogInButton_Click(object sender, EventArgs e)
+      //  {
             
 
             // Declare a bool: UserExisting = false.
@@ -49,6 +58,6 @@ namespace PresentationLayer.Views
 
             // if user does not exist.
             // instanciate new CustomMessageBox() form and display the error.
-        }
+       // }
     }
 }

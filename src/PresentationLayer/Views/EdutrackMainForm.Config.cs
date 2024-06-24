@@ -1,5 +1,6 @@
 ﻿using PresentationLayer.Presenters;
 using System;
+using System.Runtime.Remoting.Channels;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -7,51 +8,26 @@ namespace PresentationLayer
 {
     partial class EdutrackMainForm
     {
-        private void Clicked(Form form)
+        internal void OnTopBarPanelCreated(Panel TopBarPanel)
         {
-            OnTopBarButtonClicked(form);
+            if (TopBarPanel != null)    TopBarCreated.TrySetResult(true);
         }
 
-        internal void Clicked(Form form, MouseEventArgs mouseEventArgs)
+        private async Task InitializeTopBarButtonSubscribers()
         {
-            OnMouseCliked(form, mouseEventArgs);
-        }
+            await TopBarCreated.Task;
 
-        protected virtual void OnTopBarButtonClicked(Form form)
-        {
-            _topBarButtonEventHandler?.Invoke(form, this, EventArgs.Empty);
-        }
-
-        protected virtual void OnMouseCliked(Form form, MouseEventArgs mouseEventArgs)
-        {
-            _mouseClickedEventHandler?.Invoke(form, this, mouseEventArgs);
-        }
-
-        private void ExitAppButton_Clicked(object sender, EventArgs e)
-        {
-            WindowExit += EdutrackMainFormPresenter.ExitAppButton_Click;
-            Clicked(this);
-        }
-        private void MaximizedAppButton_Clicked(object sender, EventArgs e)
-        {
-            WindowMaximized += EdutrackMainFormPresenter.MaximizeAppButton_Click;
-            Clicked(this);
-            WindowMaximized -= EdutrackMainFormPresenter.MaximizeAppButton_Click;
-        }
-        private void MinimizedAppButton_Clicked(object sender, EventArgs e)
-        {
-            WindowMinimized += EdutrackMainFormPresenter.MinimizeAppButton_Click;
-            Clicked(this);
-            WindowMinimized -= EdutrackMainFormPresenter.MinimizeAppButton_Click;
+            ExitAppButton.Click     += delegate { WindowExit?     .Invoke(this, EventArgs.Empty); };
+            MaximizeAppbutton.Click += delegate { WindowMaximized?.Invoke(this, EventArgs.Empty); };
+            MinimizeAppButton.Click += delegate { WindowMinimized?.Invoke(this, EventArgs.Empty); };
         }
 
         private async Task AppMainPanelEventSubscriber()
         {
-            await EdutrackMainFormPresenter.TopBarCreated.Task;
+            await TopBarCreated.Task;
 
-            EdutrackMainFormPresenter.MainForm = this;
-            TopBarPanel.MouseDown += new MouseEventHandler(EdutrackMainFormPresenter.EdutrackMainForm_MouseDown);
-            TopBarPanel.MouseMove += new MouseEventHandler(EdutrackMainFormPresenter.EdutrackMainForm_MouseMove);
+            TopBarPanel.MouseDown += (sender, e) => MousePressed?.Invoke(sender, e);
+            TopBarPanel.MouseMove += (sender, e) => MouseMoved?  .Invoke(sender, e);
         }
     }
 }

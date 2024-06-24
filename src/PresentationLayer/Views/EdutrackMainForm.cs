@@ -1,7 +1,8 @@
 ﻿
-using PresentationLayer.Presenters;
-using PresentationLayer.UserControls;
 using PresentationLayer.Views;
+using System;
+using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer
@@ -11,12 +12,19 @@ namespace PresentationLayer
         public EdutrackMainForm()
         {
             InitializeComponent();
-            EdutrackMainFormPresenter.IsAppMaximized = false;
-            EdutrackMainFormPresenter.OnTopBarPanelCreated(TopBarPanel);
+            IsAppMaximized = false;
+            
+            OnTopBarPanelCreated(TopBarPanel);
             _ = AppMainPanelEventSubscriber();
+            _ = InitializeTopBarButtonSubscribers();
+            
             InitializeLogInPage();
         }
 
+
+        // ######################################################
+        //                  CHANGE THIS PART
+        // ######################################################
         private void AddNewUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
@@ -31,34 +39,29 @@ namespace PresentationLayer
             LogInPage logInPage = new LogInPage();
             AddNewUserControl(logInPage);
         }
+        // ######################################################
+        //                      UNTIL HERE
+        // ######################################################
 
-       
-        public event TopBarButtonEventHandler WindowExit
-        {
-            add { _topBarButtonEventHandler += value; }
-            remove { _topBarButtonEventHandler -= value; }
-        }
-        public event TopBarButtonEventHandler WindowMaximized
-        {
-            add { _topBarButtonEventHandler += value; }
-            remove { _topBarButtonEventHandler -= value; }
-        }
-        public event TopBarButtonEventHandler WindowMinimized
-        {
-            add { _topBarButtonEventHandler += value; }
-            remove { _topBarButtonEventHandler -= value; }
-        }
-        public event MouseClickedEventHandler MouseClicked
-        {
-            add { _mouseClickedEventHandler += value; }
-            remove { _mouseClickedEventHandler -= value; }
-        }
+
+        public bool IsAppMaximized  { get;           set;                   }
+        public int TopPosition      { get => Top;    set => Top = value;    }
+        public int LeftPosition     { get => Left;   set => Left = value;   }
+        public int FormWidth        { get => Width;  set => Width = value;  }
+        public int FormHeight       { get => Height; set => Height = value; }
+        public Point WindowLocation { get => Location; set => Location = value; }
         public static UserControl OpenedUserControl { get; set; }
+        public FormStartPosition FormStartPosition  { get => StartPosition; set => StartPosition = value; }
+        public FormWindowState FormWindowState      { get => WindowState;   set => WindowState = value;   }
 
-        //
-        // Variables
-        //
-        private TopBarButtonEventHandler _topBarButtonEventHandler;
-        private MouseClickedEventHandler _mouseClickedEventHandler;
+
+        public event EventHandler WindowExit;
+        public event EventHandler WindowMaximized;
+        public event EventHandler WindowMinimized;
+        public event MouseEventHandler MouseMoved;
+        public event MouseEventHandler MousePressed;
+        
+
+        internal TaskCompletionSource<bool> TopBarCreated = new TaskCompletionSource<bool>();
     }
 }
