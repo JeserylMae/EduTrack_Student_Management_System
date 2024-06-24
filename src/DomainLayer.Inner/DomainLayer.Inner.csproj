@@ -42,22 +42,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonModel\BaseModel\Academic\Definition\AcademicInfoModel.cs" />
-    <Compile Include="CommonModel\BaseModel\Academic\Definition\SharedAcademicInfoModel.cs" />
-    <Compile Include="CommonModel\BaseModel\Academic\Definition\SharedCourseInfoModel.cs" />
     <Compile Include="CommonModel\BaseModel\Academic\IAcademicInfoModel.cs" />
+      <Compile Include="CommonModel\BaseModel\Academic\AcademicInfoModel.cs">
+        <DependentUpon>IAcademicInfoModel.cs</DependentUpon>
+      </Compile>
     <Compile Include="CommonModel\BaseModel\Academic\ISharedAcademicInfoModel.cs" />
+	  <Compile Include="CommonModel\BaseModel\Academic\SharedAcademicInfoModel.cs">
+		<DependentUpon>ISharedAcademicInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="CommonModel\BaseModel\Academic\ISharedCourseInfoModel.cs" />
-    <Compile Include="CommonModel\BaseModel\Personal\Definition\PersonalInfoModel.cs" />
-    <Compile Include="CommonModel\BaseModel\Personal\Definition\SharedPersonalInfoModel.cs" />
-    <Compile Include="CommonModel\BaseModel\Personal\IPersonalInfoModel.cs" />
+	  <Compile Include="CommonModel\BaseModel\Academic\SharedCourseInfoModel.cs">
+		  <DependentUpon>ISharedCourseInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="CommonModel\BaseModel\Personal\ISharedPersonalInfoModel.cs" />
-    <Compile Include="CommonModel\DistinctModel\Definition\InstructorPropertyModel.cs" />
-    <Compile Include="CommonModel\DistinctModel\Definition\StudentPropertyModel.cs" />
-    <Compile Include="CommonModel\DistinctModel\IInstructorPropertyModel.cs" />
+	  <Compile Include="CommonModel\BaseModel\Personal\SharedPersonalInfoModel.cs">
+		  <DependentUpon>ISharedPersonalInfoModel.cs</DependentUpon>
+	  </Compile>
+    <Compile Include="CommonModel\BaseModel\Personal\IPersonalInfoModel.cs" />
+	  <Compile Include="CommonModel\BaseModel\Personal\PersonalInfoModel.cs">
+		  <DependentUpon>IPersonalInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="CommonModel\DistinctModel\IStudentPropertyModel.cs" />
+	  <Compile Include="CommonModel\DistinctModel\StudentPropertyModel.cs">
+		  <DependentUpon>IStudentPropertyModel.cs</DependentUpon>
+	  </Compile>
+    <Compile Include="CommonModel\DistinctModel\IInstructorPropertyModel.cs" />
+	  <Compile Include="CommonModel\DistinctModel\InstructorPropertyModel.cs">
+		  <DependentUpon>IInstructorPropertyModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="CommonModel\BaseModel\Academic\IStudentSharedInfoModel.cs" />
-    <Compile Include="CommonModel\BaseModel\Academic\Definition\StudentSharedInfoModel.cs" />
+	  <Compile Include="CommonModel\BaseModel\Academic\StudentSharedInfoModel.cs">
+		  <DependentUpon>IStudentSharedInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

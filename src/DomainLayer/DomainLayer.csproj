@@ -44,22 +44,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\DerivedModel\Definition\EdutrackUserModel.cs" />
     <Compile Include="Models\DerivedModel\IEdutrackUserModel.cs" />
-    <Compile Include="Models\DerivedModel\IStudentAttendanceInfoModel.cs" />
+	  <Compile Include="Models\DerivedModel\EdutrackUserModel.cs">
+		  <DependentUpon>IEdutrackUserModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Models\DerivedModel\IStudentGradeInfoModel.cs" />
-    <Compile Include="Models\DerivedModel\Definition\StudentAttendanceInfoModel.cs" />
-    <Compile Include="Models\DerivedModel\Definition\StudentGradeInfoModel.cs" />
-    <Compile Include="Models\InformationModel\AcademicModel\Definition\CourseInfoModel.cs" />
-    <Compile Include="Models\InformationModel\AcademicModel\Definition\InstructorAcademicInfoModel.cs" />
-    <Compile Include="Models\InformationModel\AcademicModel\Definition\StudentAcademicInfoModel.cs" />
+	  <Compile Include="Models\DerivedModel\StudentGradeInfoModel.cs">
+		  <DependentUpon>IStudentGradeInfoModel.cs</DependentUpon>
+	  </Compile>
+    <Compile Include="Models\DerivedModel\IStudentAttendanceInfoModel.cs" />
+	  <Compile Include="Models\DerivedModel\StudentAttendanceInfoModel.cs">
+		  <DependentUpon>IStudentAttendanceInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Models\InformationModel\AcademicModel\ICourseInfoModel.cs" />
+	  <Compile Include="Models\InformationModel\AcademicModel\CourseInfoModel.cs">
+		  <DependentUpon>ICourseInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Models\InformationModel\AcademicModel\IInstructorAcademicinfoModel.cs" />
+	  <Compile Include="Models\InformationModel\AcademicModel\InstructorAcademicInfoModel.cs">
+		  <DependentUpon>IInstructorAcademicinfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Models\InformationModel\AcademicModel\IStudentAcademicInfoModel.cs" />
-    <Compile Include="Models\InformationModel\PersonalModel\Definition\InstructorPersonalInfoModel.cs" />
-    <Compile Include="Models\InformationModel\PersonalModel\Definition\StudentPersonalInfoModel.cs" />
+	  <Compile Include="Models\InformationModel\AcademicModel\StudentAcademicInfoModel.cs">
+		  <DependentUpon>IStudentAcademicInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Models\InformationModel\PersonalModel\IInstructorPersonalInfoModel.cs" />
+	  <Compile Include="Models\InformationModel\PersonalModel\InstructorPersonalInfoModel.cs">
+		  <DependentUpon>IInstructorPersonalInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Models\InformationModel\PersonalModel\IStudentPersonalInfoModel.cs" />
+	  <Compile Include="Models\InformationModel\PersonalModel\StudentPersonalInfoModel.cs">
+		  <DependentUpon>IStudentPersonalInfoModel.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
