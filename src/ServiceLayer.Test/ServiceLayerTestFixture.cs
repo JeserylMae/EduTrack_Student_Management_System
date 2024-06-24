@@ -1,4 +1,4 @@
-﻿using DomainLayer.Models.CommonModel.BaseModel;
+﻿using DomainLayer.Inner.CommonModel;
 using DomainLayer.Models.DerivedModel;
 using DomainLayer.Models.InformationModel.AcademicModel;
 using DomainLayer.Models.InformationModel.PersonalModel;
