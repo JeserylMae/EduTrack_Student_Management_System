@@ -59,6 +59,9 @@
   <ItemGroup>
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
+    <Compile Include="Views\LogInPage.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\LogInPage.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Views
@@ -9,9 +10,10 @@ namespace PresentationLayer.Views
         public LogInPage()
         {
             InitializeComponent();
+            OnLogInButtonCreated(LogInButton);
+            _ = InitializeButtonSubscriber();
         }
-
-        // Variable accessors.
+       
         public string GetEmailAddress 
         { 
             get => EmailAddressTextbox.Text; 
@@ -22,8 +24,7 @@ namespace PresentationLayer.Views
         }
 
         public event EventHandler LoggedIn;
-
-        
+        private TaskCompletionSource<bool> LogInButtonCreated = new TaskCompletionSource<bool>();
         
         
         
@@ -33,7 +34,7 @@ namespace PresentationLayer.Views
         
         
         // Events
-        //  public event EventHandler LoggedIn;
+        // public event EventHandler LoggedIn;
         // Please remember that the definition or the method to be invoked by this 
         // event should be placed in the presenters forlder.
         // file name should be `LogInPagePresenter`.
