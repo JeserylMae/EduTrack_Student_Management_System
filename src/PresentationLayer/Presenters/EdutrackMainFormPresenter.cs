@@ -8,22 +8,17 @@ namespace PresentationLayer.Presenters
 {
     internal class EdutrackMainFormPresenter
     {
-        public EdutrackMainFormPresenter(IEdutrackMainForm edutrackMainForm, string connectionString)
+        public EdutrackMainFormPresenter(IEdutrackMainForm edutrackMainForm)
         {
             _edutrackMainForm = edutrackMainForm;
-            _connectionString = connectionString;
 
-            // Subscribe events.
-            _edutrackMainForm.WindowExit += ExitAppButton_Click; 
+            _edutrackMainForm.WindowExit      += ExitAppButton_Click; 
             _edutrackMainForm.WindowMaximized += MaximizeAppButton_Click;
             _edutrackMainForm.WindowMinimized += MinimizeAppButton_Click;
-            _edutrackMainForm.MouseMoved += EdutrackMainForm_MouseMove;
-            _edutrackMainForm.MousePressed += EdutrackMainForm_MouseDown;
-        }
+            _edutrackMainForm.MouseMoved      += EdutrackMainForm_MouseMove;
+            _edutrackMainForm.MousePressed    += EdutrackMainForm_MouseDown;
 
-        private void _edutrackMainForm_WindowMinimized(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
+            _edutrackMainForm.UserControlPage = new LogInPage();
         }
 
         private void ExitAppButton_Click(object sender, EventArgs e)
@@ -44,18 +39,20 @@ namespace PresentationLayer.Presenters
             if (_edutrackMainForm.IsAppMaximized)
             {
                 int height = 720, width = 1280;
-                _edutrackMainForm.FormWidth = width;
-                _edutrackMainForm.FormHeight = height;
+
+                _edutrackMainForm.FormWidth         = width;
+                _edutrackMainForm.FormHeight        = height;
+                _edutrackMainForm.IsAppMaximized    = false;
                 _edutrackMainForm.FormStartPosition = FormStartPosition.CenterScreen;
-                _edutrackMainForm.TopPosition = (int)(   (Screen.PrimaryScreen.WorkingArea.Height / 2) - (height / 2));
-                _edutrackMainForm.LeftPosition = (int)((Screen.PrimaryScreen.WorkingArea.Width / 2) - (width / 2));
-                _edutrackMainForm.IsAppMaximized = false;
+                _edutrackMainForm.LeftPosition      = (int)((Screen.PrimaryScreen.WorkingArea.Width / 2) - (width / 2));
+                _edutrackMainForm.TopPosition       = (int)((Screen.PrimaryScreen.WorkingArea.Height / 2) - (height / 2));
             }
             else
             {
                 _edutrackMainForm.LeftPosition = _edutrackMainForm.TopPosition = 0;
-                _edutrackMainForm.FormWidth = Screen.PrimaryScreen.WorkingArea.Width;
-                _edutrackMainForm.FormHeight = Screen.PrimaryScreen.WorkingArea.Height;
+
+                _edutrackMainForm.FormWidth      = Screen.PrimaryScreen.WorkingArea.Width;
+                _edutrackMainForm.FormHeight     = Screen.PrimaryScreen.WorkingArea.Height;
                 _edutrackMainForm.IsAppMaximized = true;
             }
         }
@@ -70,13 +67,13 @@ namespace PresentationLayer.Presenters
             if (e.Button == MouseButtons.Left)
             {
                 Point mousePose = Control.MousePosition;
+
                 mousePose.Offset(MouseLocation);
                 _edutrackMainForm.WindowLocation = mousePose;
             }
         }
 
 
-        private string _connectionString;
         private IEdutrackMainForm _edutrackMainForm;
         internal Point MouseLocation;
     }
