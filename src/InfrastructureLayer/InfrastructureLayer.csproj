@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="Repository\Access\AccessDefaultVariation.cs" />
     <Compile Include="Repository\Database\DatabaseManager.cs" />
+    <Compile Include="Repository\Database\DomainModelRepository.cs" />
     <Compile Include="Repository\ModelQuery\CourseInfoModelQuery.cs" />
     <Compile Include="Repository\ModelQuery\EdutrackUserModelQuery.cs" />
     <Compile Include="Repository\Database\IDomainModelRepository.cs" />

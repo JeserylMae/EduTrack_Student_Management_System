@@ -14,7 +14,7 @@ namespace InfrastructureLayers.Repository.Database
             return ConfigurationManager.ConnectionStrings["CONSTR.EDUTRACK"].ConnectionString;
         }
 
-        internal static void DatabaseConnection(string connectionString)
+        internal static MySqlConnection DatabaseConnection(string connectionString)
         {
             DataAccessStatus dataAccessStatus = new DataAccessStatus();
 
@@ -28,6 +28,8 @@ namespace InfrastructureLayers.Repository.Database
             { 
                 MySqlConnection dbConnection = new MySqlConnection(connectionString);
                 dbConnection.Open();
+
+                return dbConnection;
             }
             catch (MySqlException e) 
             {

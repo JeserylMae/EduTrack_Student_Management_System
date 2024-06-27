@@ -10,7 +10,7 @@ namespace InfrastructureLayer.Repository.Databasse
         void Update<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class;
         void Delete<TDomainModel>(TDomainModel DomainDataModel) where TDomainModel : class;
         IEnumerable<TDomainModel> GetAll<TDomainModel>() where TDomainModel : class;
-        TDomainModel GetByID<TDomainModel>(string id) where TDomainModel : class;
+        void GetByID<TDomainModel>(ref TDomainModel domainModel, string id, string modelQuery) where TDomainModel : class;
     }
 
 }

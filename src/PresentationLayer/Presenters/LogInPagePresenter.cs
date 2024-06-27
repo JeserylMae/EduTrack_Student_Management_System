@@ -22,8 +22,8 @@ namespace PresentationLayer.Presenters
         {
             try
             {
-                EdutrackUserServices edutrackUserServices = new EdutrackUserServices();
-                IEnumerable<string> UserCredentials = edutrackUserServices.GetByID(_logInPage.GetEmailAddress);
+                //EdutrackUserServices edutrackUserServices = new EdutrackUserServices();
+                //IEnumerable<string> UserCredentials = edutrackUserServices.GetByID(_logInPage.GetEmailAddress);
             }
             catch (Exception ex) 
             {
