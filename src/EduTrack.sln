@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer.Inner", "Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{B1421440-8080-4B7B-8E81-2BC9AE961DBD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebService", "Repository\WebService.csproj", "{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebService.m", "Repository\WebService.m.csproj", "{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

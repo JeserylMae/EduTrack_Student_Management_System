@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace WebService.DbAccess
 {
-    public class SqlDataAccess
+    public class SqlDataAccess : ISqlDataAccess
     {
         public SqlDataAccess(IConfiguration config)
         {
@@ -17,6 +17,13 @@ namespace WebService.DbAccess
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connectionID));
 
             return await connection.QueryAsync<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task SaveData<T>(string storedProcedure, T parameters, string connectionID = "Default")
+        {
+            using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connectionID));
+
+            await connection.ExecuteAsync(storedProcedure, parameters, commandType: CommandType.StoredProcedure);
         }
 
         private IConfiguration _config;
