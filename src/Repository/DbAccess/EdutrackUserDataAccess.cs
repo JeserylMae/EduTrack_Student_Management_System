@@ -10,7 +10,7 @@ namespace WebService.DbAccess
         }
 
         public Task<IEnumerable<IEdutrackUserModel>> GetUsers() =>
-            _db.LoadData<IEdutrackUserModel, dynamic>("spUser_GetAll", new { });
+            _db.LoadData<IEdutrackUserModel, dynamic>("spEdutrackUsers_GetAll", new { });
 
         public async Task<IEdutrackUserModel?> GetUser(string UserId)
         {
