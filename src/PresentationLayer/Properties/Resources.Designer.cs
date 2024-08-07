@@ -103,6 +103,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Home_BG {
+            get {
+                object obj = ResourceManager.GetObject("Home_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_1 {
             get {
                 object obj = ResourceManager.GetObject("image_1", resourceCulture);
@@ -136,6 +146,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap image_6 {
             get {
                 object obj = ResourceManager.GetObject("image_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Login_left_image {
+            get {
+                object obj = ResourceManager.GetObject("Login_left_image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
