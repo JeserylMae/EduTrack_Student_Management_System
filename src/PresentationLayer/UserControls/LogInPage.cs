@@ -12,6 +12,7 @@ namespace PresentationLayer.UserControls
             InitializeComponent();
             OnLogInButtonCreated(LogInButton);
             _ = InitializeButtonSubscriber();
+            // Disable Maximize Button [put in the config file]
         }
        
         public string GetEmailAddress 
