@@ -59,12 +59,6 @@
   <ItemGroup>
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
-    <Compile Include="UserControls\LoginControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\LoginControl.Designer.cs">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\LogInPage.Config.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,9 +102,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UserControls\LoginControl.resx">
-      <DependentUpon>LoginControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +168,10 @@
     <None Include="Resources\Group 4.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Home_BG.bmp" />
+    <Content Include="Resources\Home_BG.png" />
+    <Content Include="Resources\Kids Playground Physics - Copy%401-1920x893.jpg" />
+    <Content Include="Resources\Login-left-image.png" />
     <Content Include="Views\Plan.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

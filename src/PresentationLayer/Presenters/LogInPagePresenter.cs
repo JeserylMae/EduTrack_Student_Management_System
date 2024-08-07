@@ -19,6 +19,7 @@ namespace PresentationLayer.Presenters
         {
             try
             {
+                // enable Maximize Button
                 //EdutrackUserServices edutrackUserServices = new EdutrackUserServices();
                 //IEnumerable<string> UserCredentials = edutrackUserServices.GetByID(_logInPage.GetEmailAddress);
             }
