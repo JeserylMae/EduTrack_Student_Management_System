@@ -17,8 +17,8 @@ namespace PresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            string connectionString = WebConfigurationManager.ConnectionStrings["CONSTR.EDUTRACK"].ConnectionString;
+
+            string connectionString = "";
             IEdutrackMainForm edutrackMainForm = new EdutrackMainForm();
 
             edutrackMainForm.ConnectionString = connectionString;
