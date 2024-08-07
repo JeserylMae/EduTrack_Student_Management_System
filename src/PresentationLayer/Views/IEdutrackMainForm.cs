@@ -3,7 +3,7 @@ using System;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace PresentationLayer
+namespace PresentationLayer.Views
 { 
     public interface IEdutrackMainForm
     {

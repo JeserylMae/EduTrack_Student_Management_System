@@ -1,5 +1,5 @@
 ﻿
-namespace PresentationLayer
+namespace PresentationLayer.Views
 {
     partial class EdutrackMainForm
     {

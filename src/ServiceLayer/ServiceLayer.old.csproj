@@ -54,13 +54,13 @@
       <Project>{9794af89-dc5b-423a-b6be-439c26380df5}</Project>
       <Name>DomainLayer.Inner</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+    <ProjectReference Include="..\DomainLayer\DomainLayer.old.csproj">
       <Project>{7a8f521a-7f34-4a1c-813e-f98a11f7d612}</Project>
-      <Name>DomainLayer</Name>
+      <Name>DomainLayer.old</Name>
     </ProjectReference>
-    <ProjectReference Include="..\InfrastructureLayer\InfrastructureLayer.csproj">
+    <ProjectReference Include="..\InfrastructureLayer\InfrastructureLayer.old.csproj">
       <Project>{8ef650a1-7434-4855-ba44-685885ab7f07}</Project>
-      <Name>InfrastructureLayer</Name>
+      <Name>InfrastructureLayer.old</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

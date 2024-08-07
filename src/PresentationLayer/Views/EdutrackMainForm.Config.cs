@@ -1,10 +1,9 @@
-﻿    using PresentationLayer.Presenters;
+﻿
 using System;
-using System.Runtime.Remoting.Channels;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace PresentationLayer.Views
 {
     partial class EdutrackMainForm
     {

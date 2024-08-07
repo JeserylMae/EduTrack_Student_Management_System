@@ -1,11 +1,10 @@
 ﻿
-using PresentationLayer.Views;
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace PresentationLayer.Views
 {
     public partial class EdutrackMainForm : Form, IEdutrackMainForm
     {

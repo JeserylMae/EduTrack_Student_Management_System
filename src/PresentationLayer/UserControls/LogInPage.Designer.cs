@@ -1,4 +1,4 @@
-﻿namespace PresentationLayer.Views
+﻿namespace PresentationLayer.UserControls
 {
     partial class LogInPage
     {

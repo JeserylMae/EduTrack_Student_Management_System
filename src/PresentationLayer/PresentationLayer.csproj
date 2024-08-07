@@ -59,16 +59,16 @@
   <ItemGroup>
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
-    <Compile Include="Views\LogInPage.Config.cs">
+    <Compile Include="UserControls\LogInPage.Config.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\LogInPage.cs">
+    <Compile Include="UserControls\LogInPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\ILogInPage.cs">
+    <Compile Include="UserControls\ILogInPage.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\LogInPage.Designer.cs">
+    <Compile Include="UserControls\LogInPage.Designer.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EdutrackMainForm.cs">
@@ -96,7 +96,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\LogInPage.resx">
+    <EmbeddedResource Include="UserControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EdutrackMainForm.resx">

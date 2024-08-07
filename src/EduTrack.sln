@@ -3,26 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{7A8F521A-7F34-4A1C-813E-F98A11F7D612}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer.old", "DomainLayer\DomainLayer.old.csproj", "{7A8F521A-7F34-4A1C-813E-F98A11F7D612}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{9CEF06A4-A158-4242-8962-09D3E68C8162}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer.old", "ServiceLayer\ServiceLayer.old.csproj", "{9CEF06A4-A158-4242-8962-09D3E68C8162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer.Test", "ServiceLayer.Test\ServiceLayer.Test.csproj", "{58179EAC-0F39-46B4-9245-9380C13A7E4A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer.Test.old", "ServiceLayer.Test\ServiceLayer.Test.old.csproj", "{58179EAC-0F39-46B4-9245-9380C13A7E4A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F236795-612B-4441-8B44-ECF082440CEE}"
 	ProjectSection(SolutionItems) = preProject
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureLayer.CommonComponets", "CommonComponets\InfrastructureLayer.CommonComponets.csproj", "{728554F8-ECE1-4833-914B-FF76AE444758}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureLayer.CommonComponets.old", "CommonComponets\InfrastructureLayer.CommonComponets.old.csproj", "{728554F8-ECE1-4833-914B-FF76AE444758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureLayer", "InfrastructureLayer\InfrastructureLayer.csproj", "{8EF650A1-7434-4855-BA44-685885AB7F07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureLayer.old", "InfrastructureLayer\InfrastructureLayer.old.csproj", "{8EF650A1-7434-4855-BA44-685885AB7F07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer.Inner", "DomainLayer.Inner\DomainLayer.Inner.csproj", "{9794AF89-DC5B-423A-B6BE-439C26380DF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{B1421440-8080-4B7B-8E81-2BC9AE961DBD}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebService.m", "Repository\WebService.m.csproj", "{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,10 +56,6 @@ Global
 		{B1421440-8080-4B7B-8E81-2BC9AE961DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1421440-8080-4B7B-8E81-2BC9AE961DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1421440-8080-4B7B-8E81-2BC9AE961DBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9D3556C-B9A4-4701-8F2D-4AF99803FA8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

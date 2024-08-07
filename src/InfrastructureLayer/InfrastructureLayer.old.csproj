@@ -110,13 +110,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CommonComponets\InfrastructureLayer.CommonComponets.csproj">
+    <ProjectReference Include="..\CommonComponets\InfrastructureLayer.CommonComponets.old.csproj">
       <Project>{728554f8-ece1-4833-914b-ff76ae444758}</Project>
-      <Name>InfrastructureLayer.CommonComponets</Name>
+      <Name>InfrastructureLayer.CommonComponets.old</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+    <ProjectReference Include="..\DomainLayer\DomainLayer.old.csproj">
       <Project>{7a8f521a-7f34-4a1c-813e-f98a11f7d612}</Project>
-      <Name>DomainLayer</Name>
+      <Name>DomainLayer.old</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer.Views
+namespace PresentationLayer.UserControls
 {
     public partial class LogInPage : UserControl, ILogInPage
     {
