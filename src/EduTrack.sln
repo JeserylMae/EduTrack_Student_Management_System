@@ -12,7 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "Presen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{ED47EB37-C8E5-4329-BFA6-2725751472BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureLayer", "InfrastructureLayer\InfrastructureLayer.csproj", "{1988BAD3-C23C-4018-841D-5D3F1D648148}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfrastructureLayer", "InfrastructureLayer\InfrastructureLayer.csproj", "{1988BAD3-C23C-4018-841D-5D3F1D648148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceLayer", "ServiceLayer\ServiceLayer.csproj", "{E399D3D5-9C5A-4F8E-BA6A-A8EB6887A8E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{1988BAD3-C23C-4018-841D-5D3F1D648148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1988BAD3-C23C-4018-841D-5D3F1D648148}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1988BAD3-C23C-4018-841D-5D3F1D648148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E399D3D5-9C5A-4F8E-BA6A-A8EB6887A8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E399D3D5-9C5A-4F8E-BA6A-A8EB6887A8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E399D3D5-9C5A-4F8E-BA6A-A8EB6887A8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E399D3D5-9C5A-4F8E-BA6A-A8EB6887A8E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
