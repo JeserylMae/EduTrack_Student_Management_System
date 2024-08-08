@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="DataModels\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebModels\ServerInfo.cs" />
+    <Compile Include="WebModels\ServerInfoModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
