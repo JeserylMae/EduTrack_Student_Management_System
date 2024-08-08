@@ -1,7 +1,7 @@
 ﻿
 namespace DomainLayer.WebModels
 {
-    public class ServerInfo
+    public class ServerInfoModel
     {
         public string UserId { get; set; }
         public string Localhost { get; set; }
