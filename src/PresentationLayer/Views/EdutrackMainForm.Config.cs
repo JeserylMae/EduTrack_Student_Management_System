@@ -7,6 +7,8 @@ namespace PresentationLayer.Views
 {
     partial class EdutrackMainForm
     {
+        private void RunServerForm() => _serverInfoForm.ShowForm();
+
         private void TerminateUserControl()
         {
             AppPagesHolderPanel.Controls.Clear();

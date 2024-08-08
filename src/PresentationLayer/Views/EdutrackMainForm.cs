@@ -8,14 +8,18 @@ namespace PresentationLayer.Views
 {
     public partial class EdutrackMainForm : Form, IEdutrackMainForm
     {
-        public EdutrackMainForm()
+        public EdutrackMainForm(IServerInfoForm serverInfoForm)
         {
             InitializeComponent();
             IsAppMaximized = false;
-            
+            _serverInfoForm = serverInfoForm;
+
             OnTopBarPanelCreated(TopBarPanel);
             _ = AppMainPanelEventSubscriber();
             _ = InitializeTopBarButtonSubscribers();
+
+            WindowState = FormWindowState.Minimized;
+            RunServerForm();
         }
 
         public UserControl UserControlPage
@@ -51,6 +55,7 @@ namespace PresentationLayer.Views
 
 
         private UserControl _userControl;
+        private IServerInfoForm _serverInfoForm;
         private TaskCompletionSource<bool> TopBarCreated = new TaskCompletionSource<bool>();
     }
 }
