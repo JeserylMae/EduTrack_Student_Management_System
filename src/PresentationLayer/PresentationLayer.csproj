@@ -169,10 +169,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Home_BG.bmp" />
+    <None Include="Resources\Group 5.png" />
     <Content Include="Resources\Home_BG.png" />
     <Content Include="Resources\Kids Playground Physics - Copy%401-1920x893.jpg" />
     <Content Include="Resources\Login-left-image.png" />
     <Content Include="Views\Plan.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+      <Project>{ed47eb37-c8e5-4329-bfa6-2725751472bd}</Project>
+      <Name>DomainLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

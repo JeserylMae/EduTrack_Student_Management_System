@@ -19,7 +19,8 @@ namespace PresentationLayer.Presenters
             _edutrackMainForm.MouseMoved      += EdutrackMainForm_MouseMove;
             _edutrackMainForm.MousePressed    += EdutrackMainForm_MouseDown;
 
-            _edutrackMainForm.UserControlPage = new LogInPage();
+            _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
+
         }
 
         private void ExitAppButton_Click(object sender, EventArgs e)

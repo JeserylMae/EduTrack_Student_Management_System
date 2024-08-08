@@ -41,6 +41,7 @@ namespace PresentationLayer.Views
         public static UserControl OpenedUserControl { get;                  set;                          }
         public FormStartPosition FormStartPosition  { get => StartPosition; set => StartPosition = value; }
         public FormWindowState FormWindowState      { get => WindowState;   set => WindowState = value;   }
+        public bool EnableMaximizeAppButton         { get => MaximizeAppbutton.Enabled; set => MaximizeAppbutton.Enabled = value; }
 
         public event EventHandler WindowExit;
         public event EventHandler WindowMaximized;

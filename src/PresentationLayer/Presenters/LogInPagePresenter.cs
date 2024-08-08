@@ -3,6 +3,7 @@ using System.Windows;
 using PresentationLayer.Views;
 using PresentationLayer.UserControls;
 
+
 namespace PresentationLayer.Presenters
 {
     public class LogInPagePresenter
@@ -11,15 +12,27 @@ namespace PresentationLayer.Presenters
         {
             _logInPage = logInPage;
             _edutrackMainForm = edutrackMainForm;
-
             _logInPage.LoggedIn += LogInButton_Clicked;
+            _edutrackMainForm.EnableMaximizeAppButton = false;
         }
 
         private void LogInButton_Clicked(object sender, EventArgs e) 
         {
             try
             {
-                // enable Maximize Button
+                string e_UserId          = _logInPage.GetUserId;
+                string e_EmailAddress    = _logInPage.GetEmailAddress;
+                string e_AccountPassword = _logInPage.GetPassword;
+
+                Console.WriteLine($"User ID: {e_UserId}");
+                Console.WriteLine($"Email Address: {e_EmailAddress}");
+                Console.WriteLine($"Password: {e_AccountPassword}");
+                
+                // position must be obtained from the db, if returned null then user is not yet registered.
+
+                // IUserModel user = new UserModel();
+
+                _edutrackMainForm.EnableMaximizeAppButton = true;
                 //EdutrackUserServices edutrackUserServices = new EdutrackUserServices();
                 //IEnumerable<string> UserCredentials = edutrackUserServices.GetByID(_logInPage.GetEmailAddress);
             }

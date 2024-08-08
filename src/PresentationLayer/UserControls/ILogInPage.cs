@@ -8,8 +8,10 @@ namespace PresentationLayer.UserControls
 {
     public interface ILogInPage
     {
+        string GetUserId       { get; }
+        string GetPassword     { get; }
         string GetEmailAddress { get; }
-        string GetPassword { get; }
+
         event EventHandler LoggedIn;
     }
 }
