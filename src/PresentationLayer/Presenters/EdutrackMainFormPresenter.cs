@@ -20,13 +20,10 @@ namespace PresentationLayer.Presenters
             _edutrackMainForm.MousePressed    += EdutrackMainForm_MouseDown;
 
             _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
-
         }
 
         private void ExitAppButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+            => Application.Exit();
 
         private void MinimizeAppButton_Click(object sender, EventArgs e)
         {
@@ -76,7 +73,7 @@ namespace PresentationLayer.Presenters
         }
 
 
-        private IEdutrackMainForm _edutrackMainForm;
         internal Point MouseLocation;
+        private IEdutrackMainForm _edutrackMainForm;
     }
 }
