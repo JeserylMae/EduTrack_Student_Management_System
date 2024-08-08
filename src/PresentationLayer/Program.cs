@@ -19,11 +19,15 @@ namespace PresentationLayer
             Application.SetCompatibleTextRenderingDefault(false);
 
             string connectionString = "";
-            IEdutrackMainForm edutrackMainForm = new EdutrackMainForm();
+            IServerInfoForm serverInfoForm = new ServerInfoForm();
+            IEdutrackMainForm edutrackMainForm = new EdutrackMainForm(serverInfoForm);
 
             edutrackMainForm.ConnectionString = connectionString;
+
+            new ServerInfoPresenter(serverInfoForm, edutrackMainForm);
             new EdutrackMainFormPresenter(edutrackMainForm);
 
+          //  Application.Run((Form)serverInfoForm);
             Application.Run((Form)edutrackMainForm);
         }
     }
