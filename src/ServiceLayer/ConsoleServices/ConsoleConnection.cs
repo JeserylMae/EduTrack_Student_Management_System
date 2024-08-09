@@ -9,95 +9,42 @@ namespace ServiceLayer
 {
     public class ConsoleConnection
     {
-        private static readonly HttpClient client = new HttpClient(); // Singleton instance for HttpClient
-
-        public bool IsDotNetInstalled()
+        public void GetExecuteWedAPIArguments()
         {
-            Process process = new Process();
-            bool isInstalled = false;
 
-            ConfigureProcessStartInfo(ref process, "dotnet", "--list-sdks");
-            process.Start();
-
-            string output = process.StandardOutput.ReadToEnd();
-            process.WaitForExit();
-
-            isInstalled = !string.IsNullOrWhiteSpace(output);
-            DisposeProcess(ref process);
-
-            return isInstalled;
         }
-
-        public async Task<string> DownloadDotNetInstallerAsync()
+        public static Process StartCommandPrompt()
         {
-            var config = ConfigBuilder();
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
 
-            string url = config["URL:DOTNET_INSTALLER"];
-            if (string.IsNullOrEmpty(url))
+            string cd = config["Commands:CHANGE_DIR"];
+            string execAPI = config["Commands:EXECUTE_WEB_API"];
+
+            string arguments = $"/k {cd}\\ && {execAPI}";
+            Console.WriteLine("arguments: " + arguments);
+
+
+            /// break here
+            /// ExecuteWebAPI()
+            if (cd != null)
             {
-                throw new InvalidOperationException("The URL for the .NET installer is not configured.");
+                var curr = Process.GetCurrentProcess();
+                curr.Kill();
+                curr.Close();
+                curr.Dispose();
             }
 
-            string tempFilePath = Path.GetTempFileName();
+            Process cmdProcess = new Process();
+            cmdProcess.StartInfo.FileName = "cmd.exe";
+            cmdProcess.StartInfo.Arguments = arguments;
+            cmdProcess.StartInfo.CreateNoWindow = false;
+            cmdProcess.StartInfo.UseShellExecute = true;
+            cmdProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            cmdProcess.Start();
 
-            bool IsSuccessfull = await SuccessfullHTTPRequestAsync(tempFilePath, url);
-
-            return IsSuccessfull ? tempFilePath : null;
-        }
-
-        public void InstallDotNet(string installerPath)
-        {
-            Process process = new Process();
-
-            try
-            {
-                ConfigureProcessStartInfo(ref process, installerPath, "/quiet");
-                process.Start();
-                process.WaitForExit();
-
-                Console.WriteLine(".NET SDK installation completed.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Failed to install .NET SDK: " + ex.Message);
-            }
-            finally
-            {
-                if (File.Exists(installerPath)) File.Delete(installerPath);
-                DisposeProcess(ref process);
-            }
-        }
-
-        private async Task<bool> SuccessfullHTTPRequestAsync(string tempFilePath, string url)
-        {
-            bool IsSuccessful;
-            HttpResponseMessage response = await client.GetAsync(url);
-
-            try
-            {
-                response.EnsureSuccessStatusCode();
-                using (var fs = new FileStream(tempFilePath, FileMode.Create, FileAccess.Write))
-                {
-                    await response.Content.CopyToAsync(fs);
-                }
-                IsSuccessful = true;
-            }
-            catch (HttpRequestException httpEx)
-            {
-                Console.WriteLine("HTTP request failed: " + httpEx.Message);
-                IsSuccessful = false;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                IsSuccessful = false;
-            }
-            finally
-            {
-                response?.Dispose();
-            }
-
-            return IsSuccessful;
+            return cmdProcess;
         }
 
         private void ConfigureProcessStartInfo(ref Process process,
