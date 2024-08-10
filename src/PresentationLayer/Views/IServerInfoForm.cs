@@ -7,17 +7,17 @@ namespace PresentationLayer.Views
     {
         void ShowForm();
         void CloseForm();
-        void ShowSslCaFileDialog();
-        void ShowSslKeyFileDialog();
-        void ShowSslCertFileDialog();
+        DialogResult ShowSslCaFileDialog();
+        DialogResult ShowSslKeyFileDialog();
+        DialogResult ShowSslCertFileDialog();
 
         string GetServerUserId      { get; }
         string GetServerPassword    { get; }
         string GetServerServerName  { get; }
-        string SetSslCaLabelText    { set; }
-        string SetSslKeyLabelText   { set; }
-        string SetSslCertLabelText  { set; }
         string SetFileDialogInitDir { set; }
+        string SslCaLabelText       { get; set; }
+        string SslKeyLabelText      { get; set; }
+        string SslCertLabelText     { get; set; }
         string GetSslCaFileDialogFileName   { get; }
         string GetSslKeyFileDialogFileName  { get; }
         string GetSslCertFileDialogFileName { get; }
