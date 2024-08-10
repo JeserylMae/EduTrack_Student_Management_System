@@ -196,6 +196,10 @@
       <Project>{ed47eb37-c8e5-4329-bfa6-2725751472bd}</Project>
       <Name>DomainLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
+      <Project>{e399d3d5-9c5a-4f8e-ba6a-a8eb6887a8e8}</Project>
+      <Name>ServiceLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
