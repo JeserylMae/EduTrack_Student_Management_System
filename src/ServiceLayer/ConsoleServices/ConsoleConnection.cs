@@ -1,19 +1,13 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
-using System.IO;
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ServiceLayer
 {
     public class ConsoleConnection
     {
-        public void GetExecuteWedAPIArguments()
-        {
-
-        }
-        public static Process StartCommandPrompt()
+        public void GetExecuteWedAPIArguments(ref Dictionary<string, string> info)
         {
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json")
@@ -25,10 +19,16 @@ namespace ServiceLayer
             string arguments = $"/k {cd}\\ && {execAPI}";
             Console.WriteLine("arguments: " + arguments);
 
+            info["args"] = arguments;
+            info["cd"] = cd;
+        }
 
-            /// break here
-            /// ExecuteWebAPI()
-            if (cd != null)
+        public Process ExecuteWebAPI()
+        {
+            Dictionary<string, string> Info = new Dictionary<string, string>();
+            GetExecuteWedAPIArguments (ref Info);
+
+            if (Info["cd"] != null)
             {
                 var curr = Process.GetCurrentProcess();
                 curr.Kill();
@@ -38,7 +38,7 @@ namespace ServiceLayer
 
             Process cmdProcess = new Process();
             cmdProcess.StartInfo.FileName = "cmd.exe";
-            cmdProcess.StartInfo.Arguments = arguments;
+            cmdProcess.StartInfo.Arguments = Info["arguments"];
             cmdProcess.StartInfo.CreateNoWindow = false;
             cmdProcess.StartInfo.UseShellExecute = true;
             cmdProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
