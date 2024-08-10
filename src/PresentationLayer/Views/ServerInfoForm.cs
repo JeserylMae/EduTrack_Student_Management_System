@@ -22,19 +22,32 @@ namespace PresentationLayer.Views
 
         public void ShowForm() => this.Show();
         public void CloseForm() => this.Close();
-        public void ShowSslCaFileDialog () => sslCaFileDialog.ShowDialog();
-        public void ShowSslKeyFileDialog () => sslKeyFileDialog.ShowDialog();
-        public void ShowSslCertFileDialog () => sslCertFileDialog.ShowDialog();
+        public DialogResult ShowSslCaFileDialog () => sslCaFileDialog.ShowDialog();
+        public DialogResult ShowSslKeyFileDialog () => sslKeyFileDialog.ShowDialog();
+        public DialogResult ShowSslCertFileDialog () => sslCertFileDialog.ShowDialog();
 
         public string GetServerUserId     { get => UserIdTextbox.Text;   }
         public string GetServerPassword   { get => PasswordTextbox.Text; }
         public string GetServerServerName { get => ServerTextbox.Text;   }
-        public string SetSslCaLabelText   { set => sslCaLabel.Text = value;   }
-        public string SetSslKeyLabelText  { set => sslKeyLabel.Text = value;  }
-        public string SetSslCertLabelText { set => sslCertLabel.Text = value; }
         public string GetSslCaFileDialogFileName   { get => sslCaFileDialog.FileName;   }
         public string GetSslKeyFileDialogFileName  { get => sslKeyFileDialog.FileName;  }
         public string GetSslCertFileDialogFileName { get => sslCertFileDialog.FileName; }
+        
+        public string SslCaLabelText   
+        { 
+                get => sslCaLabel.Text;
+                set => sslCaLabel.Text = value;   
+        }
+        public string SslKeyLabelText  
+        { 
+            get => sslKeyLabel.Text;
+            set => sslKeyLabel.Text = value;  
+        }
+        public string SslCertLabelText 
+        { 
+            get => sslCertLabel.Text;
+            set => sslCertLabel.Text = value; 
+        }
 
         public string SetFileDialogInitDir { 
             set
