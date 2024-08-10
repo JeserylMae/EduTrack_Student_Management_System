@@ -95,11 +95,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleServices\ConsoleConnection.cs" />
+    <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Settings\appsettings.json" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLayer\DomainLayer.csproj">
+      <Project>{ed47eb37-c8e5-4329-bfa6-2725751472bd}</Project>
+      <Name>DomainLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
