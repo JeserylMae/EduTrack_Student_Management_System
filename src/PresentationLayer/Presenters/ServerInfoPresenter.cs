@@ -2,6 +2,7 @@
 using PresentationLayer.Views;
 using ServiceLayer.Database;
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters
@@ -20,7 +21,7 @@ namespace PresentationLayer.Presenters
             _serverInfoForm.SslCertButtonClicked += SslCertDialogButton_Clicked;
         }
 
-        #region Button's Subcribers
+        #region Button Subcribers
 
         private void ExitAppButton_Clicked(object sender, EventArgs e) 
             => Application.Exit();
@@ -31,7 +32,6 @@ namespace PresentationLayer.Presenters
             AssignServerInfoFields(ref serverInfo);
 
             string connectionString = DatabaseConnection.GenerateConnectionString(ref serverInfo);
-
 
             // Function that validates whether the connection string can
             // successfully send request to the web api.
