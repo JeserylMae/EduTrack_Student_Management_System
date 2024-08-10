@@ -14,6 +14,9 @@ namespace PresentationLayer.Presenters
 
             _serverInfoForm.WindowExit          += ExitAppButton_Clicked;
             _serverInfoForm.SubmittedServerInfo += ServerInfoButton_Clicked;
+            _serverInfoForm.SslCaButtonClicked += SslCaDialogButton_Clicked;
+            _serverInfoForm.SslKeyButtonClicked += SslKeyDialogButton_Clicked;
+            _serverInfoForm.SslCertButtonClicked += SslCertDialogButton_Clicked;
         }
 
         private void ExitAppButton_Clicked(object sender, EventArgs e) 
@@ -28,10 +31,12 @@ namespace PresentationLayer.Presenters
         private void ServerInfoButton_Clicked(object sender, EventArgs e)
         {
             ServerInfoModel serverInfo = new ServerInfoModel();
-            serverInfo.UserId    = _serverInfoForm.GetServerUserId;
-            serverInfo.Localhost = _serverInfoForm.GetServerServerName;
-            serverInfo.Password  = _serverInfoForm.GetServerPassword;
-
+            serverInfo.UserId      = _serverInfoForm.GetServerUserId;
+            serverInfo.Localhost   = _serverInfoForm.GetServerServerName;
+            serverInfo.Password    = _serverInfoForm.GetServerPassword;
+            serverInfo.SslCaPath   = _serverInfoForm.SslCaLabelText;
+            serverInfo.SslKeyPath  = _serverInfoForm.SslKeyLabelText;
+            serverInfo.SslCertPath = _serverInfoForm.SslCertLabelText;
 
             // Function that validates whether the connection string can
             // successfully send request to the web api.
@@ -40,6 +45,24 @@ namespace PresentationLayer.Presenters
             // Only run this function when the web api connection is
             // successful.
             RunEdutrackForm();
+        }
+
+        private void SslCaDialogButton_Clicked(object sender, EventArgs e)
+        {
+            if (_serverInfoForm.ShowSslCaFileDialog() == DialogResult.OK)
+                _serverInfoForm.SslCaLabelText = _serverInfoForm.GetSslCaFileDialogFileName;
+        }
+
+        private void SslKeyDialogButton_Clicked(object sender, EventArgs e)
+        {
+            if (_serverInfoForm.ShowSslKeyFileDialog() == DialogResult.OK)
+                _serverInfoForm.SslKeyLabelText = _serverInfoForm.GetSslKeyFileDialogFileName;
+        }
+
+        private void SslCertDialogButton_Clicked(object sender, EventArgs e)
+        {
+            if (_serverInfoForm.ShowSslCertFileDialog() == DialogResult.OK)
+                _serverInfoForm.SslCertLabelText = _serverInfoForm.GetSslCertFileDialogFileName;
         }
         
         private IServerInfoForm _serverInfoForm;
