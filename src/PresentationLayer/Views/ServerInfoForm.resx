@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAYIAAAAbCAYAAABx5Ii2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAWBJREFUeF7t3cFtwjAYBlBG6AaMUjboCIzQEegVgsQIHQAiTsyRU8OxI3QEarsu
+        KhVVoSfS/z3pk+IQX/3FEZJHX9ynzEREJESmKSceUyYflwAE8JCS1/4it0K+AUAs+UtQTtkiABBT6QBF
+        ABCXIgAIThEABPe3ItjPN9O+2XQph5dm3eVx/QmAYbm+CGoJHPpl+7ZftM99077WQvDPI4Dhub4I+sUm
+        Lfzta/e0vcvjbrW9K2WwWHflAQCG5A9FkHcDzXpVh0UqglW+X4cADMd1RdAvd+NSBPP1qlx/Jo/L56Ld
+        uD4KwDBcXgSfb/2/JpVCnQLA7bumCM4s+j+kTgHg9ikCgOAUAUBwigAgOEUAEJwiAAju8iLYN+3s3KL/
+        Pfm5OgWA23d5EQDwLykCgOAUAUBwigAguNIBx1PsAQglnyNzPFjsMcXBMgBx5A1AXvtP5FbIWwQREfn/
+        maQko9E7q0XxLA6RE8oAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAYIAAAAbCAYAAABx5Ii2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAdVJREFUeF7t3cFtwjAYhmFG6QZ0A9ig3YBuwAgc29qhK3AvTjh0AEbg0sRwygiM
+        0PpPDSIKqeKbwe8jfWoV9b/6k21oRhcmLgtCCCFJZObSMneZ/v0KAEjAk4us/Q1pBXkAAEiLnARJmi0C
+        ACBNTQdQBACQLooAABJHEQBA4sKKYK+Lp1Llq0qb2uXnlFKvd5UyG/tuOh9HAgBEbXgRlMot9heL/z/Z
+        +hEAQPyGF8GVBb83fgQAEL+QIshbx0H9yWs/AgCI3/AiOCy/xjbLV1WWH68WgHtuVb46vBVjPwIAiF/A
+        jkCZeq/M3KpiYj9c9Hp6ymFZjOV5qfOFK4WjHwEAxC+gCLq7ANkZyHFRZ4fgRwAA8Qspgp4joU64IwCA
+        GzK8COzr5qFS+eb64u8idwTabOWIyI8AAOIXsCNQppYvjMllsNwLVJl5turzRX5+q82jPJc7BPk7PwIA
+        iF9AEXR3AXI/cErr2MiPAADiF1QE28vFvi+lNjs/AgCI3/AiEDYrZv6eoPXvJqzbFch3CPZ6zQtuAOC2
+        hBUBAODuUAQAkDiKAAASRxEAQOKaDji/xR4AkBT5gM/5hWJzFz7xAwDpkA2ArP0t0gqyRSCEEHL/mbo4
+        o9EvctEjq/5HmYkAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="sslCaFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="sslCertFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>156, 17</value>
+  </metadata>
+  <metadata name="sslKeyFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>295, 17</value>
+  </metadata>
 </root>
