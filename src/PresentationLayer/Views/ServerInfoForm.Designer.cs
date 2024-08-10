@@ -296,20 +296,20 @@
             // 
             this.PasswordTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.PasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PasswordTextbox.Font = new System.Drawing.Font("Candara", 11F);
-            this.PasswordTextbox.Location = new System.Drawing.Point(139, 165);
+            this.PasswordTextbox.Font = new System.Drawing.Font("Candara", 13F);
+            this.PasswordTextbox.Location = new System.Drawing.Point(139, 163);
             this.PasswordTextbox.Name = "PasswordTextbox";
-            this.PasswordTextbox.Size = new System.Drawing.Size(268, 18);
+            this.PasswordTextbox.Size = new System.Drawing.Size(268, 22);
             this.PasswordTextbox.TabIndex = 10;
             // 
             // ServerTextbox
             // 
             this.ServerTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.ServerTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ServerTextbox.Font = new System.Drawing.Font("Candara", 11F);
-            this.ServerTextbox.Location = new System.Drawing.Point(123, 126);
+            this.ServerTextbox.Font = new System.Drawing.Font("Candara", 13F);
+            this.ServerTextbox.Location = new System.Drawing.Point(123, 124);
             this.ServerTextbox.Name = "ServerTextbox";
-            this.ServerTextbox.Size = new System.Drawing.Size(284, 18);
+            this.ServerTextbox.Size = new System.Drawing.Size(284, 22);
             this.ServerTextbox.TabIndex = 9;
             // 
             // label4
@@ -349,10 +349,10 @@
             // 
             this.UserIdTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.UserIdTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.UserIdTextbox.Font = new System.Drawing.Font("Candara", 11F);
-            this.UserIdTextbox.Location = new System.Drawing.Point(129, 87);
+            this.UserIdTextbox.Font = new System.Drawing.Font("Candara", 13F);
+            this.UserIdTextbox.Location = new System.Drawing.Point(129, 85);
             this.UserIdTextbox.Name = "UserIdTextbox";
-            this.UserIdTextbox.Size = new System.Drawing.Size(278, 18);
+            this.UserIdTextbox.Size = new System.Drawing.Size(278, 22);
             this.UserIdTextbox.TabIndex = 5;
             // 
             // SubmitServerInfoButton
