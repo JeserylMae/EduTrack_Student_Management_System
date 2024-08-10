@@ -123,46 +123,6 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap image_1 {
-            get {
-                object obj = ResourceManager.GetObject("image_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap image_3 {
-            get {
-                object obj = ResourceManager.GetObject("image_3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap image_5 {
-            get {
-                object obj = ResourceManager.GetObject("image_5", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap image_6 {
-            get {
-                object obj = ResourceManager.GetObject("image_6", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Login_left_image {
             get {
                 object obj = ResourceManager.GetObject("Login_left_image", resourceCulture);
@@ -183,6 +143,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Password {
+            get {
+                object obj = ResourceManager.GetObject("Password", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rectangle_8 {
+            get {
+                object obj = ResourceManager.GetObject("Rectangle_8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SAKAY {
             get {
                 object obj = ResourceManager.GetObject("SAKAY", resourceCulture);
@@ -193,9 +173,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap service_info_password {
+        internal static System.Drawing.Bitmap ServerName {
             get {
-                object obj = ResourceManager.GetObject("service_info_password", resourceCulture);
+                object obj = ResourceManager.GetObject("ServerName", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,29 +183,9 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap service_info_server {
+        internal static System.Drawing.Bitmap UserId {
             get {
-                object obj = ResourceManager.GetObject("service_info_server", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap service_info_uid {
-            get {
-                object obj = ResourceManager.GetObject("service_info_uid", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Vector {
-            get {
-                object obj = ResourceManager.GetObject("Vector", resourceCulture);
+                object obj = ResourceManager.GetObject("UserId", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
