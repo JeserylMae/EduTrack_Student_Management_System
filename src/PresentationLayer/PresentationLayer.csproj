@@ -60,6 +60,11 @@
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
     <Compile Include="Presenters\ServerInfoPresenter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LogInPage.Config.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,14 +104,9 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UserControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,12 +175,20 @@
   <ItemGroup>
     <None Include="Resources\Home_BG.bmp" />
     <None Include="Resources\Group 5.png" />
+    <None Include="Resources\folder-open-regular.svg" />
     <Content Include="Resources\Home_BG.png" />
     <Content Include="Resources\Kids Playground Physics - Copy%401-1920x893.jpg" />
     <Content Include="Resources\Login-left-image.png" />
     <None Include="Resources\service-info-password.png" />
     <None Include="Resources\service-info-server.png" />
     <None Include="Resources\service-info-uid.png" />
+    <None Include="Resources\Password.png" />
+    <None Include="Resources\ServerName.png" />
+    <None Include="Resources\SSL CA.png" />
+    <None Include="Resources\SSL CERT.png" />
+    <None Include="Resources\SSL KEY.png" />
+    <None Include="Resources\UserId.png" />
+    <None Include="Resources\Rectangle 8.png" />
     <Content Include="Views\Plan.txt" />
   </ItemGroup>
   <ItemGroup>
