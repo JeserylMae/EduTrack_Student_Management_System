@@ -8,7 +8,7 @@ namespace ServiceLayer.Services
 {
     public class EndpointAuthentication
     {
-        public async Task CheckWebConnection()
+        public async Task<int> CheckWebConnection()
         {
             int attempts = 0;
             do
@@ -21,19 +21,20 @@ namespace ServiceLayer.Services
                 {
                     Thread.Sleep(1000);
                     attempts++;
+                    Console.WriteLine("Failed Connection.");
                 }
-                else { break; }
+                else { Console.WriteLine("Successful connection"); break; }
             }
             while (attempts < 15);
 
-            EvaluateWebConnection(attempts);
+            return attempts;
         }
 
         private async Task<bool> HealthCheckEndpoint()
         {
             using (HttpClient client = new HttpClient())
             {
-                Uri endpoint = new Uri("https://localhost:5393/api/Endpoint/Health");
+                Uri endpoint = new Uri("https://localhost:5176/api/Endpoint/Health");
                 HttpResponseMessage response = await client.GetAsync(endpoint);
 
                 if (response.IsSuccessStatusCode) { return true; }
@@ -42,19 +43,17 @@ namespace ServiceLayer.Services
         }
 
 
-        private void EvaluateWebConnection(int attempts)
+        public string EvaluateWebConnection(int attempts)
         {
             if (attempts < 15)
             {
-                string Message = "Web API connection is successful.";
-                Console.WriteLine(Message);
+                return "Web API connection is successful.";
             }
             else
             {
-                string Message = "ERROR: Failed to connect machine to web API. "
+                return "ERROR: Failed to connect machine to web API. "
                                + "Ensure that all submitted Web API Information "
                                + "are correct.";
-                Console.WriteLine(Message);
             }
         }
     }
