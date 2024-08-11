@@ -3,8 +3,13 @@ using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Threading;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace ServiceLayer
+
+namespace ServiceLayer.ConsoleServices
 {
     public class ConsoleConnection
     {
@@ -13,10 +18,11 @@ namespace ServiceLayer
             _configuration = configuration;
         }
 
-        public Process ExecuteWebAPI()
+
+        public Process ExecuteWebAPI(string connectionString)
         {
             Dictionary<string, string> Info = new Dictionary<string, string>();
-            GetExecuteWedAPIArguments (ref Info);
+            GetExecuteWedAPIArguments (ref Info, ref connectionString);
 
             Process cmdProcess = new Process();
             ConfigureProcessStartInfo(process: ref cmdProcess, fname: "cmd.exe", 
@@ -39,6 +45,55 @@ namespace ServiceLayer
             cmdProcess.Kill();
 
             DisplayFinishedTaskPath(Info["webPath"], ref cmdProcess);
+        }
+
+        public async Task CheckWebConnection()
+        {
+            int attempts = 0;
+            do
+            {
+                bool result;
+                try { result = await HealthCheckEndpoint(); }
+                catch (HttpRequestException) { result = false; }
+
+                if (!result)
+                {
+                    Thread.Sleep(1000);
+                    attempts++;
+                }
+                else { break; }
+            }
+            while (attempts < 15);
+
+            EvaluateWebConnection(attempts);
+        }
+
+        private void EvaluateWebConnection(int attempts)
+        {
+            if (attempts < 15)
+            {
+                string Message = "Web API connection is successful.";
+                Console.WriteLine(Message);
+            }
+            else
+            {
+                string Message = "ERROR: Failed to connect machine to web API. "
+                               + "Ensure that all submitted Web API Information "
+                               + "are correct.";
+                Console.WriteLine(Message);
+            }
+        }
+
+        private async Task<bool> HealthCheckEndpoint()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                Uri endpoint = new Uri("https://localhost:5176/api/User/health");
+                HttpResponseMessage response = await client.GetAsync(endpoint);
+
+                if (response.IsSuccessStatusCode) { return true; }
+            }
+            return false;
         }
 
         private void DisplayFinishedTaskPath(string webPath, ref Process process)
@@ -72,12 +127,13 @@ namespace ServiceLayer
             process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
         }
 
-        private void GetExecuteWedAPIArguments(ref Dictionary<string, string> info)
+        private void GetExecuteWedAPIArguments(ref Dictionary<string, string> info, 
+                                               ref string connectionString)
         {
             string cd      = _configuration["Commands:CHANGE_DIR"];
             string execAPI = _configuration["Commands:EXECUTE_WEB_API"];
 
-            string arguments = $"/k {cd}\\ && {execAPI}";
+            string arguments = $"/k {cd}\\ && {execAPI}={connectionString}";
             Console.WriteLine("arguments: " + arguments);
 
             info["args"] = arguments;
@@ -89,17 +145,6 @@ namespace ServiceLayer
             process.Close();
             process.Dispose();
         }
-
-        private IConfigurationRoot ConfigBuilder()
-        {
-            IConfigurationRoot config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                .Build();
-
-            return config;
-        }
-
 
         private readonly IConfiguration _configuration;
     }
