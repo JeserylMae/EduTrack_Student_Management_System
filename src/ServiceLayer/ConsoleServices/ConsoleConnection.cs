@@ -56,11 +56,8 @@ namespace ServiceLayer.ConsoleServices
 
         private void GetForceQuitArguments(ref Dictionary<string, string> info)
         {
-            string arguments = _configuration["Commands:TASKKILL_CMD"];
-            string webPath = _configuration["Projects:WEB_API_PATH"];
-
-            info["arguments"] = arguments;
-            info["webPath"] = webPath;
+            info["arguments"] = _configuration["Commands:TASKKILL_CMD"];
+            info["webPath"] = _configuration["Projects:WEB_API_PATH"];
         }
 
         private void ConfigureProcessStartInfo(ref Process process,

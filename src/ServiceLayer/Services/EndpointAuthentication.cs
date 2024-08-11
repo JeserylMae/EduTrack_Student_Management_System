@@ -21,9 +21,8 @@ namespace ServiceLayer.Services
                 {
                     Thread.Sleep(1000);
                     attempts++;
-                    Console.WriteLine("Failed Connection.");
                 }
-                else { Console.WriteLine("Successful connection"); break; }
+                else { break; }
             }
             while (attempts < 15);
 

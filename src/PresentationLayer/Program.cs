@@ -6,6 +6,14 @@ using PresentationLayer.Views;
 using PresentationLayer.Presenters;
 using ServiceLayer.ConsoleServices;
 
+///
+/// CREATE A METHOD WHICH AUTOMATICALLY ADDS THE secrets.json file 
+/// IN DEBUG OR RELEASE FOLDER.
+///
+/// tasklist | findstr "InfrastructureLayer.exe"
+/// tasklist | findstr "dotnet.exe"
+/// taskkill /IM InfrastructureLayer.exe /F && taskkill /IM dotnet.exe /F && taskkill /IM cmd.exe /F 
+
 namespace PresentationLayer
 {
     internal static class Program
