@@ -99,7 +99,11 @@ namespace PresentationLayer.Presenters
             {
                 EndpointAuthentication authentication = new EndpointAuthentication();
                 Process cmdProcess = _cmdConn.ExecuteWebAPI(connectionString);
-                await authentication.CheckWebConnection();
+                
+                int attempts = await authentication.CheckWebConnection();
+                string Message = authentication.EvaluateWebConnection(attempts);
+
+                MessageBox.Show(Message);
 
                 return cmdProcess;
             }
