@@ -1,20 +1,28 @@
 ﻿using DomainLayer.WebModels;
 using PresentationLayer.Views;
+using ServiceLayer.ConsoleServices;
 using ServiceLayer.Database;
 using System;
+using System.Configuration;
+using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters
 {
     internal class ServerInfoPresenter
     {
-        public ServerInfoPresenter(IServerInfoForm serverInfoForm, IEdutrackMainForm edutrackMainForm) 
+        public ServerInfoPresenter(IServerInfoForm serverInfoForm, IEdutrackMainForm edutrackMainForm,
+                                   AppSettings settings) 
         { 
+            _settings = settings;
             _serverInfoForm = serverInfoForm;
             _edutrackMainForm = edutrackMainForm;
+            _cmdConn = _settings.GetConsoleConnection();
 
             _serverInfoForm.WindowExit           += ExitAppButton_Clicked;
+            _edutrackMainForm.WindowExit         += ExitAppButton_Clicked;
             _serverInfoForm.SubmittedServerInfo  += ServerInfoButton_Clicked;
             _serverInfoForm.SslCaButtonClicked   += SslCaDialogButton_Clicked;
             _serverInfoForm.SslKeyButtonClicked  += SslKeyDialogButton_Clicked;
@@ -23,15 +31,20 @@ namespace PresentationLayer.Presenters
 
         #region Button Subcribers
 
-        private void ExitAppButton_Clicked(object sender, EventArgs e) 
-            => Application.Exit();
+        private void ExitAppButton_Clicked(object sender, EventArgs e)
+        {
+            _settings.DestroyWebAPIConnection(ref _cmdProcess, ref _cmdConn);
+            Application.Exit();
+        }
 
-        private void ServerInfoButton_Clicked(object sender, EventArgs e)
+        private async void ServerInfoButton_Clicked(object sender, EventArgs e)
         {
             ServerInfoModel serverInfo = new ServerInfoModel();
             AssignServerInfoFields(ref serverInfo);
 
             string connectionString = DatabaseConnection.GenerateConnectionString(ref serverInfo);
+            await InitializeWebAPI(connectionString);
+            _cmdProcess = await InitializeWebAPI(connectionString);
 
             // Function that validates whether the connection string can
             // successfully send request to the web api.
@@ -41,6 +54,7 @@ namespace PresentationLayer.Presenters
             // successful.
             RunEdutrackForm();
         }
+
 
         private void SslCaDialogButton_Clicked(object sender, EventArgs e)
         {
@@ -80,9 +94,23 @@ namespace PresentationLayer.Presenters
             serverInfo.SslCertPath = _serverInfoForm.SslCertLabelText;
         }
 
+        private async Task<Process> InitializeWebAPI(string connectionString)
+        {
+            if (_cmdConn != null)
+            {
+                Process cmdProcess = _cmdConn.ExecuteWebAPI(connectionString);
+                await _cmdConn.CheckWebConnection();
+
+                return cmdProcess;
+            }
+            else return null;
+        }
+
         #endregion
 
-
+        private Process _cmdProcess;
+        private AppSettings _settings;
+        private ConsoleConnection _cmdConn;
         private IServerInfoForm _serverInfoForm;
         private IEdutrackMainForm _edutrackMainForm;
     }
