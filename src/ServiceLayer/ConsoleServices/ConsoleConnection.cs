@@ -27,19 +27,22 @@ namespace ServiceLayer.ConsoleServices
             return cmdProcess;
         }
 
-        public void ForceQuit(Process cmdProcess)
+        public void ForceQuit()
         {
             Dictionary<string, string> Info = new Dictionary<string, string>();
             GetForceQuitArguments(ref Info);
 
             Console.WriteLine($"Args: {Info["arguments"]}");
+            //cmdProcess.StartInfo.Arguments = Info["arguments"];
 
-            cmdProcess.StartInfo.Arguments = Info["arguments"];
-            cmdProcess.Start();
-            cmdProcess.WaitForExit(2000);
-            cmdProcess.Kill();
+            Process process = new Process();
+            ConfigureProcessStartInfo(ref process, "cmd.exe", Info["arguments"]);
+            process.Start();
+            process.WaitForExit(2000);
+            
+            if (!process.HasExited) process.Kill();
 
-            DisplayFinishedTaskPath(Info["webPath"], ref cmdProcess);
+            DisplayFinishedTaskPath(Info["webPath"], ref process);
         }       
 
         private void DisplayFinishedTaskPath(string webPath, ref Process process)
@@ -53,11 +56,8 @@ namespace ServiceLayer.ConsoleServices
 
         private void GetForceQuitArguments(ref Dictionary<string, string> info)
         {
-            string taskKill = _configuration["Commands:TASKKILL_NAME"];
-            string webExe = _configuration["Projects:WEB_API_EXE"];
+            string arguments = _configuration["Commands:TASKKILL_CMD"];
             string webPath = _configuration["Projects:WEB_API_PATH"];
-
-            string arguments = $"/k {taskKill} {webExe} /F && {taskKill} cmd.exe";
 
             info["arguments"] = arguments;
             info["webPath"] = webPath;
@@ -79,10 +79,10 @@ namespace ServiceLayer.ConsoleServices
             string cd      = _configuration["Commands:CHANGE_DIR"];
             string execAPI = _configuration["Commands:EXECUTE_WEB_API"];
 
-            string arguments = $"/k {cd}\\ && {execAPI}={connectionString}";
+            string arguments = $"/k {cd}\\ && {execAPI}=\"{connectionString}\"";
             Console.WriteLine("arguments: " + arguments);
 
-            info["args"] = arguments;
+            info["arguments"] = arguments;
             info["cd"] = cd;
         }
 
