@@ -2,10 +2,9 @@
 using PresentationLayer.Views;
 using ServiceLayer.ConsoleServices;
 using ServiceLayer.Database;
+using ServiceLayer.Services;
 using System;
-using System.Configuration;
 using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -98,8 +97,9 @@ namespace PresentationLayer.Presenters
         {
             if (_cmdConn != null)
             {
+                EndpointAuthentication authentication = new EndpointAuthentication();
                 Process cmdProcess = _cmdConn.ExecuteWebAPI(connectionString);
-                await _cmdConn.CheckWebConnection();
+                await authentication.CheckWebConnection();
 
                 return cmdProcess;
             }
