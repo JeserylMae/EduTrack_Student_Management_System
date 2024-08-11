@@ -28,13 +28,14 @@ namespace PresentationLayer
             Application.SetCompatibleTextRenderingDefault(false);
 
             AppSettings appSettings = new AppSettings();
+            SplashScreen splashScreen = new SplashScreen();
             IServerInfoForm serverInfoForm = new ServerInfoForm();
             IEdutrackMainForm edutrackMainForm = new EdutrackMainForm(serverInfoForm);
 
-            new ServerInfoPresenter(serverInfoForm, edutrackMainForm, appSettings);
+            new ServerInfoPresenter(serverInfoForm, edutrackMainForm, splashScreen, appSettings);
             new EdutrackMainFormPresenter(edutrackMainForm);
 
-          //  Application.Run((Form)serverInfoForm);
+
             Application.Run((Form)edutrackMainForm);
         }
     }

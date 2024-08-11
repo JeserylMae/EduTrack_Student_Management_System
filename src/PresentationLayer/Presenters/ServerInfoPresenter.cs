@@ -5,6 +5,7 @@ using ServiceLayer.Database;
 using ServiceLayer.Services;
 using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,9 +14,10 @@ namespace PresentationLayer.Presenters
     internal class ServerInfoPresenter
     {
         public ServerInfoPresenter(IServerInfoForm serverInfoForm, IEdutrackMainForm edutrackMainForm,
-                                   AppSettings settings) 
+                                   SplashScreen splashScreen, AppSettings settings) 
         { 
             _settings = settings;
+            _splashScreen = splashScreen;
             _serverInfoForm = serverInfoForm;
             _edutrackMainForm = edutrackMainForm;
             _cmdConn = _settings.GetConsoleConnection();
@@ -42,7 +44,7 @@ namespace PresentationLayer.Presenters
             AssignServerInfoFields(ref serverInfo);
 
             string connectionString = DatabaseConnection.GenerateConnectionString(ref serverInfo);
-            await InitializeWebAPI(connectionString);
+            // InitializeWebAPI(connectionString);
             _cmdProcess = await InitializeWebAPI(connectionString);
 
             // Function that validates whether the connection string can
@@ -97,11 +99,15 @@ namespace PresentationLayer.Presenters
         {
             if (_cmdConn != null)
             {
+                _splashScreen.ShowForm();
+
                 EndpointAuthentication authentication = new EndpointAuthentication();
                 Process cmdProcess = _cmdConn.ExecuteWebAPI(connectionString);
-                
+                                
                 int attempts = await authentication.CheckWebConnection();
                 string Message = authentication.EvaluateWebConnection(attempts);
+                
+                if (!string.IsNullOrEmpty(Message)) _splashScreen.CloseForm();
 
                 MessageBox.Show(Message);
 
@@ -115,6 +121,7 @@ namespace PresentationLayer.Presenters
         private Process _cmdProcess;
         private AppSettings _settings;
         private ConsoleConnection _cmdConn;
+        private SplashScreen _splashScreen;
         private IServerInfoForm _serverInfoForm;
         private IEdutrackMainForm _edutrackMainForm;
     }

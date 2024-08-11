@@ -60,6 +60,7 @@
             this.sslCaFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.sslCertFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.sslKeyFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EdutrackAppIcon)).BeginInit();
             this.panel1.SuspendLayout();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopBarPanel
@@ -152,9 +154,9 @@
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(99, 43);
+            this.panel1.Location = new System.Drawing.Point(95, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(453, 386);
+            this.panel1.Size = new System.Drawing.Size(461, 389);
             this.panel1.TabIndex = 2;
             // 
             // sslCaLabel
@@ -425,13 +427,22 @@
             // 
             this.sslKeyFileDialog.FileName = "client-key.pem";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 32);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(650, 409);
+            this.panel2.TabIndex = 4;
+            // 
             // ServerInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
             this.ClientSize = new System.Drawing.Size(650, 441);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.TopBarPanel);
             this.Font = new System.Drawing.Font("Candara", 11.25F);
             this.ForeColor = System.Drawing.Color.White;
@@ -451,6 +462,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -488,5 +500,6 @@
         private System.Windows.Forms.OpenFileDialog sslCaFileDialog;
         private System.Windows.Forms.OpenFileDialog sslCertFileDialog;
         private System.Windows.Forms.OpenFileDialog sslKeyFileDialog;
+        private System.Windows.Forms.Panel panel2;
     }
 }
