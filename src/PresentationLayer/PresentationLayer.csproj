@@ -116,6 +116,7 @@
     <EmbeddedResource Include="Views\ServerInfoForm.resx">
       <DependentUpon>ServerInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\secrets.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,6 +127,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="secrets.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
