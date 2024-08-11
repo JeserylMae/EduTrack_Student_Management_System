@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Web.Configuration;
 using PresentationLayer.Views;
 using PresentationLayer.Presenters;
+using ServiceLayer.ConsoleServices;
 
 namespace PresentationLayer
 {
@@ -18,13 +19,11 @@ namespace PresentationLayer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            string connectionString = "";
+            AppSettings appSettings = new AppSettings();
             IServerInfoForm serverInfoForm = new ServerInfoForm();
             IEdutrackMainForm edutrackMainForm = new EdutrackMainForm(serverInfoForm);
 
-            edutrackMainForm.ConnectionString = connectionString;
-
-            new ServerInfoPresenter(serverInfoForm, edutrackMainForm);
+            new ServerInfoPresenter(serverInfoForm, edutrackMainForm, appSettings);
             new EdutrackMainFormPresenter(edutrackMainForm);
 
           //  Application.Run((Form)serverInfoForm);
