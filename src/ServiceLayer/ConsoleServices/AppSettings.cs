@@ -19,7 +19,6 @@ namespace ServiceLayer.ConsoleServices
                 .AddJsonFile("secrets.json")
                 .Build();
 
-
         public ConsoleConnection GetConsoleConnection()
         {
             IServiceCollection services = new ServiceCollection();
@@ -34,14 +33,14 @@ namespace ServiceLayer.ConsoleServices
             return cmdConn;
         }
 
-        public void DestroyWebAPIConnection(ref Process cmdProcess,
+        public void DestroyWebAPIConnection(ref Process cmdProcess, 
                                             ref ConsoleConnection cmdConn)
         {
             if (cmdProcess != null)
             {
                 if (!cmdProcess.HasExited)
                 {
-                    cmdConn.ForceQuit(cmdProcess);
+                    cmdConn.ForceQuit();
                 }
                 cmdProcess.Close();
                 cmdProcess.Dispose();

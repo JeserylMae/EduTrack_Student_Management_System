@@ -1,6 +1,5 @@
 ﻿
 using DomainLayer.WebModels;
-using System.Dynamic;
 
 
 namespace ServiceLayer.Database
@@ -9,14 +8,14 @@ namespace ServiceLayer.Database
     { 
         public static string GenerateConnectionString(ref ServerInfoModel serverInfo)
         {
-            return $"Server={serverInfo.Localhost};"
-                 + $"Database=edutrack_server;"
-                 + $"User={serverInfo.UserId};"
-                 + $"Password={serverInfo.Password};"
-                 + $"SslMode=Required;"
-                 + $"SslCa={serverInfo.SslCaPath};"
-                 + $"SslCert={serverInfo.SslCertPath};"
-                 + $"SslKey={serverInfo.SslKeyPath};";
+            return $"Server@{serverInfo.Localhost};"
+                 + $"Database@edutrack_server;"
+                 + $"User@{serverInfo.UserId};"
+                 + $"Password@{serverInfo.Password};"
+                 + $"SslMode@Required;"
+                 + $"SslCa@{serverInfo.SslCaPath};"
+                 + $"SslCert@{serverInfo.SslCertPath};"
+                 + $"SslKey@{serverInfo.SslKeyPath};";
         }
     }
 }
