@@ -13,7 +13,6 @@ namespace PresentationLayer.Presenters
         {
             _edutrackMainForm = edutrackMainForm;
 
-            _edutrackMainForm.WindowExit      += ExitAppButton_Click; 
             _edutrackMainForm.WindowMaximized += MaximizeAppButton_Click;
             _edutrackMainForm.WindowMinimized += MinimizeAppButton_Click;
             _edutrackMainForm.MouseMoved      += EdutrackMainForm_MouseMove;
@@ -21,9 +20,6 @@ namespace PresentationLayer.Presenters
 
             _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
         }
-
-        private void ExitAppButton_Click(object sender, EventArgs e)
-            => Application.Exit();
 
         private void MinimizeAppButton_Click(object sender, EventArgs e)
         {
