@@ -17,14 +17,10 @@ namespace ServiceLayer.Services
                 try { result = await HealthCheckEndpoint(); }
                 catch (HttpRequestException) { result = false; }
 
-                if (!result)
-                {
-                    Thread.Sleep(1000);
-                    attempts++;
-                }
-                else { break; }
+                if (!result) attempts++;
+                else         break; 
             }
-            while (attempts < 15);
+            while (attempts < 10);
 
             return attempts;
         }
@@ -44,7 +40,7 @@ namespace ServiceLayer.Services
 
         public string EvaluateWebConnection(int attempts)
         {
-            if (attempts < 15)
+            if (attempts < 10)
             {
                 return "Web API connection is successful.";
             }
