@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using ServiceLayer.Database;
 
 namespace ServiceLayer.Services
 {
@@ -29,7 +30,9 @@ namespace ServiceLayer.Services
         {
             using (HttpClient client = new HttpClient())
             {
-                Uri endpoint = new Uri("https://localhost:5176/api/Endpoint/Health");
+                string webAddress = DatabaseConnection.GetWebAddress();
+
+                Uri endpoint = new Uri($"{webAddress}/Endpoint/Health");
                 HttpResponseMessage response = await client.GetAsync(endpoint);
 
                 if (response.IsSuccessStatusCode) { return true; }
@@ -38,17 +41,13 @@ namespace ServiceLayer.Services
         }
 
 
-        public string EvaluateWebConnection(int attempts)
+        public void EvaluateWebConnection(int attempts)
         {
-            if (attempts < 10)
+            if (attempts >= 10)
             {
-                return "Web API connection is successful.";
-            }
-            else
-            {
-                return "ERROR: Failed to connect machine to web API. "
-                               + "Ensure that all submitted Web API Information "
-                               + "are correct.";
+                throw new Exception("ERROR: Failed to connect machine to web API. "
+                                  + "Ensure that all submitted Web API Information "
+                                  + "are correct.");
             }
         }
     }
