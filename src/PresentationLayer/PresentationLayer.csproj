@@ -65,6 +65,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminHomePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminHomePage.Designer.cs">
+      <DependentUpon>AdminHomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LogInPage.Config.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -124,6 +130,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminHomePage.resx">
+      <DependentUpon>AdminHomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +155,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\academic_info.png" />
+    <None Include="Resources\personal_info.png" />
     <Content Include="secrets.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

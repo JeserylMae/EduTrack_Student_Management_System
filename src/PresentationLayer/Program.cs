@@ -5,6 +5,7 @@ using System.Web.Configuration;
 using PresentationLayer.Views;
 using PresentationLayer.Presenters;
 using ServiceLayer.ConsoleServices;
+using PresentationLayer.UserControls;
 
 ///
 /// CREATE A METHOD WHICH AUTOMATICALLY ADDS THE secrets.json file 
@@ -27,9 +28,9 @@ namespace PresentationLayer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            AppSettings appSettings = new AppSettings();
-            SplashScreen splashScreen = new SplashScreen();
-            IServerInfoForm serverInfoForm = new ServerInfoForm();
+            AppSettings appSettings            = new AppSettings();
+            SplashScreen splashScreen          = new SplashScreen();
+            IServerInfoForm serverInfoForm     = new ServerInfoForm();
             IEdutrackMainForm edutrackMainForm = new EdutrackMainForm(serverInfoForm);
 
             new ServerInfoPresenter(serverInfoForm, edutrackMainForm, splashScreen, appSettings);
