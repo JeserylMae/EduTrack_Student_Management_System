@@ -12,6 +12,7 @@ namespace PresentationLayer.UserControls
             InitializeComponent();
 
             ItrHomeRightControl homeRightControl = new ItrHomeRightControl();
+           // AdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
             RightPanel.Controls.Add(homeRightControl);
             RightPanel.Show();
         }

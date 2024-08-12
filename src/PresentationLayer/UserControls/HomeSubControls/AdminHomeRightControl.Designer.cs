@@ -28,56 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.AdminRightPanel = new System.Windows.Forms.Panel();
-            this.AdminLogoutButton = new FontAwesome.Sharp.IconButton();
             this.CourseInfoButton = new FontAwesome.Sharp.IconButton();
             this.ItrAcadInfoButton = new FontAwesome.Sharp.IconButton();
             this.ItrPersonalInfoButton = new FontAwesome.Sharp.IconButton();
             this.StudAcadInfoButton = new FontAwesome.Sharp.IconButton();
             this.StudPersonalInfoButton = new FontAwesome.Sharp.IconButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AdminRightPanel.SuspendLayout();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.AdminLogoutButton = new FontAwesome.Sharp.IconButton();
+            this.LogoutButton = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
-            // 
-            // AdminRightPanel
-            // 
-            this.AdminRightPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.AdminRightPanel.BackgroundImage = global::PresentationLayer.Properties.Resources.home_right_button_holder;
-            this.AdminRightPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminRightPanel.Controls.Add(this.AdminLogoutButton);
-            this.AdminRightPanel.Controls.Add(this.CourseInfoButton);
-            this.AdminRightPanel.Controls.Add(this.ItrAcadInfoButton);
-            this.AdminRightPanel.Controls.Add(this.ItrPersonalInfoButton);
-            this.AdminRightPanel.Controls.Add(this.StudAcadInfoButton);
-            this.AdminRightPanel.Controls.Add(this.StudPersonalInfoButton);
-            this.AdminRightPanel.Controls.Add(this.label3);
-            this.AdminRightPanel.Controls.Add(this.label2);
-            this.AdminRightPanel.Controls.Add(this.label1);
-            this.AdminRightPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.AdminRightPanel.Location = new System.Drawing.Point(0, 0);
-            this.AdminRightPanel.Name = "AdminRightPanel";
-            this.AdminRightPanel.Padding = new System.Windows.Forms.Padding(0, 10, 15, 0);
-            this.AdminRightPanel.Size = new System.Drawing.Size(319, 678);
-            this.AdminRightPanel.TabIndex = 2;
-            this.AdminRightPanel.TabStop = true;
-            this.AdminRightPanel.Visible = false;
-            // 
-            // AdminLogoutButton
-            // 
-            this.AdminLogoutButton.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
-            this.AdminLogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminLogoutButton.FlatAppearance.BorderSize = 0;
-            this.AdminLogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminLogoutButton.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.AdminLogoutButton.IconColor = System.Drawing.Color.Black;
-            this.AdminLogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminLogoutButton.Location = new System.Drawing.Point(156, 617);
-            this.AdminLogoutButton.Name = "AdminLogoutButton";
-            this.AdminLogoutButton.Size = new System.Drawing.Size(145, 42);
-            this.AdminLogoutButton.TabIndex = 8;
-            this.AdminLogoutButton.UseVisualStyleBackColor = true;
             // 
             // CourseInfoButton
             // 
@@ -93,12 +54,13 @@
             this.CourseInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CourseInfoButton.IconSize = 40;
             this.CourseInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.CourseInfoButton.Location = new System.Drawing.Point(27, 420);
+            this.CourseInfoButton.Location = new System.Drawing.Point(25, 384);
+            this.CourseInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CourseInfoButton.Name = "CourseInfoButton";
-            this.CourseInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.CourseInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.CourseInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.CourseInfoButton.Size = new System.Drawing.Size(274, 46);
-            this.CourseInfoButton.TabIndex = 7;
+            this.CourseInfoButton.TabIndex = 15;
             this.CourseInfoButton.Text = "Course Information";
             this.CourseInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CourseInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -118,12 +80,13 @@
             this.ItrAcadInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ItrAcadInfoButton.IconSize = 40;
             this.ItrAcadInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ItrAcadInfoButton.Location = new System.Drawing.Point(27, 304);
+            this.ItrAcadInfoButton.Location = new System.Drawing.Point(26, 282);
+            this.ItrAcadInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ItrAcadInfoButton.Name = "ItrAcadInfoButton";
-            this.ItrAcadInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.ItrAcadInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.ItrAcadInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ItrAcadInfoButton.Size = new System.Drawing.Size(274, 46);
-            this.ItrAcadInfoButton.TabIndex = 6;
+            this.ItrAcadInfoButton.TabIndex = 14;
             this.ItrAcadInfoButton.Text = "Academic Information";
             this.ItrAcadInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ItrAcadInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -143,12 +106,13 @@
             this.ItrPersonalInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ItrPersonalInfoButton.IconSize = 40;
             this.ItrPersonalInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ItrPersonalInfoButton.Location = new System.Drawing.Point(27, 245);
+            this.ItrPersonalInfoButton.Location = new System.Drawing.Point(25, 224);
+            this.ItrPersonalInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ItrPersonalInfoButton.Name = "ItrPersonalInfoButton";
-            this.ItrPersonalInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.ItrPersonalInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.ItrPersonalInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ItrPersonalInfoButton.Size = new System.Drawing.Size(274, 46);
-            this.ItrPersonalInfoButton.TabIndex = 5;
+            this.ItrPersonalInfoButton.TabIndex = 13;
             this.ItrPersonalInfoButton.Text = "Personal Information";
             this.ItrPersonalInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ItrPersonalInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -168,12 +132,13 @@
             this.StudAcadInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.StudAcadInfoButton.IconSize = 40;
             this.StudAcadInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.StudAcadInfoButton.Location = new System.Drawing.Point(27, 129);
+            this.StudAcadInfoButton.Location = new System.Drawing.Point(25, 123);
+            this.StudAcadInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StudAcadInfoButton.Name = "StudAcadInfoButton";
-            this.StudAcadInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.StudAcadInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.StudAcadInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StudAcadInfoButton.Size = new System.Drawing.Size(274, 46);
-            this.StudAcadInfoButton.TabIndex = 4;
+            this.StudAcadInfoButton.TabIndex = 12;
             this.StudAcadInfoButton.Text = "Academic Information";
             this.StudAcadInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StudAcadInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -193,77 +158,125 @@
             this.StudPersonalInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.StudPersonalInfoButton.IconSize = 40;
             this.StudPersonalInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.StudPersonalInfoButton.Location = new System.Drawing.Point(27, 70);
+            this.StudPersonalInfoButton.Location = new System.Drawing.Point(25, 64);
+            this.StudPersonalInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StudPersonalInfoButton.Name = "StudPersonalInfoButton";
-            this.StudPersonalInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.StudPersonalInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.StudPersonalInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StudPersonalInfoButton.Size = new System.Drawing.Size(274, 46);
-            this.StudPersonalInfoButton.TabIndex = 3;
+            this.StudPersonalInfoButton.TabIndex = 11;
             this.StudPersonalInfoButton.Text = "Personal Information";
             this.StudPersonalInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StudPersonalInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StudPersonalInfoButton.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // label4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(223, 384);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label3.Size = new System.Drawing.Size(78, 33);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "COURSE";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(221, 343);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
+            this.label4.Size = new System.Drawing.Size(78, 37);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "COURSE";
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(184, 209);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label2.Size = new System.Drawing.Size(117, 33);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "INSRTUCTOR";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(182, 183);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
+            this.label5.Size = new System.Drawing.Size(117, 37);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "INSRTUCTOR";
             // 
-            // label1
+            // label6
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(218, 34);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.label1.Size = new System.Drawing.Size(88, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "STUDENT";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Candara", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(211, 23);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 14, 0, 0);
+            this.label6.Size = new System.Drawing.Size(88, 37);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "STUDENT";
             // 
-            // AdminHomeRightPanel
+            // AdminLogoutButton
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AdminLogoutButton.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
+            this.AdminLogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AdminLogoutButton.FlatAppearance.BorderSize = 0;
+            this.AdminLogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminLogoutButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.AdminLogoutButton.IconColor = System.Drawing.Color.Black;
+            this.AdminLogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.AdminLogoutButton.Location = new System.Drawing.Point(199, 834);
+            this.AdminLogoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AdminLogoutButton.Name = "AdminLogoutButton";
+            this.AdminLogoutButton.Size = new System.Drawing.Size(193, 58);
+            this.AdminLogoutButton.TabIndex = 16;
+            this.AdminLogoutButton.UseVisualStyleBackColor = true;
+            // 
+            // LogoutButton
+            // 
+            this.LogoutButton.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
+            this.LogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LogoutButton.FlatAppearance.BorderSize = 0;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.LogoutButton.IconColor = System.Drawing.Color.Black;
+            this.LogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogoutButton.Location = new System.Drawing.Point(154, 614);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(145, 42);
+            this.LogoutButton.TabIndex = 17;
+            this.LogoutButton.UseVisualStyleBackColor = true;
+            // 
+            // AdminHomeRightControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.AdminRightPanel);
-            this.Name = "AdminHomeRightPanel";
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.BackgroundImage = global::PresentationLayer.Properties.Resources.home_right_button_holder;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.LogoutButton);
+            this.Controls.Add(this.AdminLogoutButton);
+            this.Controls.Add(this.CourseInfoButton);
+            this.Controls.Add(this.ItrAcadInfoButton);
+            this.Controls.Add(this.ItrPersonalInfoButton);
+            this.Controls.Add(this.StudAcadInfoButton);
+            this.Controls.Add(this.StudPersonalInfoButton);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Name = "AdminHomeRightControl";
             this.Size = new System.Drawing.Size(319, 678);
-            this.AdminRightPanel.ResumeLayout(false);
-            this.AdminRightPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel AdminRightPanel;
-        private FontAwesome.Sharp.IconButton AdminLogoutButton;
         private FontAwesome.Sharp.IconButton CourseInfoButton;
         private FontAwesome.Sharp.IconButton ItrAcadInfoButton;
         private FontAwesome.Sharp.IconButton ItrPersonalInfoButton;
         private FontAwesome.Sharp.IconButton StudAcadInfoButton;
         private FontAwesome.Sharp.IconButton StudPersonalInfoButton;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private FontAwesome.Sharp.IconButton AdminLogoutButton;
+        private FontAwesome.Sharp.IconButton LogoutButton;
     }
 }
