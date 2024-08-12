@@ -5,6 +5,7 @@ using ServiceLayer.Database;
 using ServiceLayer.Services;
 using System;
 using System.Diagnostics;
+using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -99,7 +100,7 @@ namespace PresentationLayer.Presenters
         {
             if (_cmdConn != null)
             {
-                _splashScreen.ShowForm();
+                DisplaySplashForm();
 
                 EndpointAuthentication authentication = new EndpointAuthentication();
                 Process cmdProcess = _cmdConn.ExecuteWebAPI(connectionString);
@@ -114,6 +115,14 @@ namespace PresentationLayer.Presenters
                 return cmdProcess;
             }
             else return null;
+        }
+
+        private void DisplaySplashForm()
+        {
+            Size parentSize = _serverInfoForm.GetSize;
+            Point parentLocation = _serverInfoForm.GetLocation;
+            _splashScreen.SetFormLocation(parentLocation, parentSize);
+            _splashScreen.ShowForm();
         }
 
         #endregion
