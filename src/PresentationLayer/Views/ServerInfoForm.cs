@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,8 @@ namespace PresentationLayer.Views
         public DialogResult ShowSslKeyFileDialog () => sslKeyFileDialog.ShowDialog();
         public DialogResult ShowSslCertFileDialog () => sslCertFileDialog.ShowDialog();
 
+        public Size GetSize               { get => this.Size;            }
+        public Point GetLocation          { get => this.Location;        }
         public string GetServerUserId     { get => UserIdTextbox.Text;   }
         public string GetServerPassword   { get => PasswordTextbox.Text; }
         public string GetServerServerName { get => ServerTextbox.Text;   }
