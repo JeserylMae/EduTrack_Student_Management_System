@@ -17,5 +17,8 @@ namespace ServiceLayer.Database
                  + $"SslCert@{serverInfo.SslCertPath};"
                  + $"SslKey@{serverInfo.SslKeyPath};";
         }
+
+        public static string GetWebAddress()
+                => "https://localhost:5176/api";
     }
 }
