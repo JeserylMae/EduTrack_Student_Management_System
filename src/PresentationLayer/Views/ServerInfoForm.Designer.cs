@@ -301,6 +301,7 @@
             this.PasswordTextbox.Font = new System.Drawing.Font("Candara", 13F);
             this.PasswordTextbox.Location = new System.Drawing.Point(139, 163);
             this.PasswordTextbox.Name = "PasswordTextbox";
+            this.PasswordTextbox.PasswordChar = '●';
             this.PasswordTextbox.Size = new System.Drawing.Size(268, 22);
             this.PasswordTextbox.TabIndex = 10;
             // 
