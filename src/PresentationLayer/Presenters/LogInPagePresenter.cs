@@ -2,6 +2,8 @@
 using System.Windows;
 using PresentationLayer.Views;
 using PresentationLayer.UserControls;
+using DomainLayer.DataModels;
+using ServiceLayer.Database;
 
 
 namespace PresentationLayer.Presenters
@@ -10,35 +12,32 @@ namespace PresentationLayer.Presenters
     {
         public LogInPagePresenter(ILogInPage logInPage, IEdutrackMainForm edutrackMainForm)
         {
-            _logInPage = logInPage;
-            _edutrackMainForm = edutrackMainForm;
+            _logInPage          =  logInPage;
+            _edutrackMainForm   =  edutrackMainForm;
             _logInPage.LoggedIn += LogInButton_Clicked;
             _edutrackMainForm.EnableMaximizeAppButton = false;
         }
 
-        private void LogInButton_Clicked(object sender, EventArgs e) 
+        private async void LogInButton_Clicked(object sender, EventArgs e) 
         {
             try
             {
-                string e_UserId          = _logInPage.GetUserId;
-                string e_EmailAddress    = _logInPage.GetEmailAddress;
-                string e_AccountPassword = _logInPage.GetPassword;
+                UserModel e_User = new UserModel();
+                e_User.UserID          = _logInPage.GetUserId;
+                e_User.EmailAddress    = _logInPage.GetEmailAddress;
+                e_User.AccountPassword = _logInPage.GetPassword;
 
-                Console.WriteLine($"User ID: {e_UserId}");
-                Console.WriteLine($"Email Address: {e_EmailAddress}");
-                Console.WriteLine($"Password: {e_AccountPassword}");
+                UserServices services = new UserServices();
+                UserModel User = await services.GetUserByID(e_User.UserID);
+
+                ValidateUser(ref User, ref e_User);
                 
-                // position must be obtained from the db, if returned null then user is not yet registered.
-
-                // IUserModel user = new UserModel();
-
                 _edutrackMainForm.EnableMaximizeAppButton = true;
-                //EdutrackUserServices edutrackUserServices = new EdutrackUserServices();
-                //IEnumerable<string> UserCredentials = edutrackUserServices.GetByID(_logInPage.GetEmailAddress);
+                RedirectToUserPage(ref User);
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButton.OK);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             // Check user existence.
@@ -53,6 +52,23 @@ namespace PresentationLayer.Presenters
             // ADMIN: initialize admin home page.
             // STUDENT: initialize student home page.
             // INSTRUCTOR: initialize instructor home page.
+        }
+
+        private void RedirectToUserPage(ref UserModel User)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ValidateUser(ref UserModel User, ref UserModel e_User)
+        {
+            if (User == null)
+                throw new Exception($"No user with id {e_User.UserID} found.");
+            
+            if (User.AccountPassword != e_User.AccountPassword)
+                throw new Exception("Incorrect password.");
+
+            if (User.EmailAddress != e_User.EmailAddress)
+                throw new Exception("Incorrect email address.");
         }
 
         ILogInPage _logInPage;
