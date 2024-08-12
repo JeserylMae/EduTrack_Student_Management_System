@@ -93,6 +93,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IServerInfoForm.cs" />
+    <Compile Include="Views\ISplashScreen.cs" />
     <Compile Include="Views\ServerInfoForm.Config.cs">
       <SubType>Form</SubType>
     </Compile>
