@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using FontAwesome.Sharp;
 using System.Threading.Tasks;
+
 
 namespace PresentationLayer.Views
 {

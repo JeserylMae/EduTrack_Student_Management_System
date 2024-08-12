@@ -66,6 +66,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LogInPage.Config.cs">
+      <DependentUpon>LogInPage.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\LogInPage.cs">
@@ -73,6 +74,7 @@
     </Compile>
     <Compile Include="UserControls\ILogInPage.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="UserControls\LogInPage.Designer.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
@@ -82,6 +84,7 @@
     </Compile>
     <Compile Include="Views\IEdutrackMainForm.cs">
       <DependentUpon>EdutrackMainForm.cs</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\EdutrackMainForm.Designer.cs">
       <DependentUpon>EdutrackMainForm.cs</DependentUpon>
@@ -92,9 +95,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\IServerInfoForm.cs" />
-    <Compile Include="Views\ISplashScreen.cs" />
+    <Compile Include="Views\ISplashScreen.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\IServerInfoForm.cs">
+      <DependentUpon>ServerInfoForm.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\ServerInfoForm.Config.cs">
+      <DependentUpon>ServerInfoForm.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\ServerInfoForm.cs">

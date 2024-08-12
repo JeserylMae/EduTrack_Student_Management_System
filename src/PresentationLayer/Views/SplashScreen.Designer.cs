@@ -1,4 +1,5 @@
-﻿namespace PresentationLayer.Views
+﻿
+namespace PresentationLayer.Views
 {
     partial class SplashScreen
     {
