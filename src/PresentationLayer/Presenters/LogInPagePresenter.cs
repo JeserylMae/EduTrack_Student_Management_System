@@ -15,7 +15,6 @@ namespace PresentationLayer.Presenters
             _logInPage          =  logInPage;
             _edutrackMainForm   =  edutrackMainForm;
             _logInPage.LoggedIn += LogInButton_Clicked;
-            _edutrackMainForm.EnableMaximizeAppButton = false;
         }
 
         private async void LogInButton_Clicked(object sender, EventArgs e) 
