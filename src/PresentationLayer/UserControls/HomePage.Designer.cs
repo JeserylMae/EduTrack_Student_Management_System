@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.UserControls
 {
-    partial class AdminHomePage
+    partial class HomePage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,10 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.BottomPanel = new System.Windows.Forms.Panel();
+            this.RightPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // BottomPanel
+            // 
+            this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BottomPanel.Location = new System.Drawing.Point(10, 607);
+            this.BottomPanel.Name = "BottomPanel";
+            this.BottomPanel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.BottomPanel.Size = new System.Drawing.Size(951, 71);
+            this.BottomPanel.TabIndex = 2;
+            // 
+            // RightPanel
+            // 
+            this.RightPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RightPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.RightPanel.Location = new System.Drawing.Point(961, 0);
+            this.RightPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.RightPanel.Name = "RightPanel";
+            this.RightPanel.Padding = new System.Windows.Forms.Padding(0, 10, 15, 0);
+            this.RightPanel.Size = new System.Drawing.Size(319, 678);
+            this.RightPanel.TabIndex = 1;
+            this.RightPanel.TabStop = true;
+            this.RightPanel.Visible = false;
             // 
             // pictureBox1
             // 
@@ -39,32 +62,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.Home_BG;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 13, 3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(932, 598);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(942, 601);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(951, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(319, 668);
-            this.panel1.TabIndex = 1;
-            // 
-            // AdminHomePage
+            // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.BottomPanel);
+            this.Controls.Add(this.RightPanel);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "AdminHomePage";
-            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Name = "HomePage";
+            this.Padding = new System.Windows.Forms.Padding(10, 0, 0, 10);
             this.Size = new System.Drawing.Size(1280, 688);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -74,6 +92,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel RightPanel;
+        private System.Windows.Forms.Panel BottomPanel;
     }
 }
