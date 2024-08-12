@@ -39,25 +39,6 @@ namespace PresentationLayer.Presenters
             Application.Exit();
         }
 
-        private async void ServerInfoButton_Clicked(object sender, EventArgs e)
-        {
-            ServerInfoModel serverInfo = new ServerInfoModel();
-            AssignServerInfoFields(ref serverInfo);
-
-            string connectionString = DatabaseConnection.GenerateConnectionString(ref serverInfo);
-            // InitializeWebAPI(connectionString);
-            _cmdProcess = await InitializeWebAPI(connectionString);
-
-            // Function that validates whether the connection string can
-            // successfully send request to the web api.
-            // return value: bool
-
-            // Only run this function when the web api connection is
-            // successful.
-            RunEdutrackForm();
-        }
-
-
         private void SslCaDialogButton_Clicked(object sender, EventArgs e)
         {
             if (_serverInfoForm.ShowSslCaFileDialog() == DialogResult.OK)
@@ -74,6 +55,24 @@ namespace PresentationLayer.Presenters
         {
             if (_serverInfoForm.ShowSslCertFileDialog() == DialogResult.OK)
                 _serverInfoForm.SslCertLabelText = _serverInfoForm.GetSslCertFileDialogFileName;
+        }
+
+        private async void ServerInfoButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                ServerInfoModel serverInfo = new ServerInfoModel();
+                AssignServerInfoFields(ref serverInfo);
+
+                string connectionString = DatabaseConnection.GenerateConnectionString(ref serverInfo);
+                _cmdProcess = await InitializeWebAPI(connectionString);
+
+                RunEdutrackForm();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #endregion
@@ -106,11 +105,9 @@ namespace PresentationLayer.Presenters
                 Process cmdProcess = _cmdConn.ExecuteWebAPI(connectionString);
                                 
                 int attempts = await authentication.CheckWebConnection();
-                string Message = authentication.EvaluateWebConnection(attempts);
+                authentication.EvaluateWebConnection(attempts);
                 
-                if (!string.IsNullOrEmpty(Message)) _splashScreen.CloseForm();
-
-                MessageBox.Show(Message);
+                _splashScreen.CloseForm();
 
                 return cmdProcess;
             }
