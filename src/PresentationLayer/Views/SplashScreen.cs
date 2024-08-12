@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Views
 {
-    public partial class SplashScreen : Form
+    public partial class SplashScreen : Form, ISplashScreen
     {
         public SplashScreen()
         {
@@ -20,9 +14,12 @@ namespace PresentationLayer.Views
         public void ShowForm() => this.Show();
         public void CloseForm() { this.Show(); this.Dispose(); }
 
-        public Form FormMdiParent
+        public void SetFormLocation(Point ParentLocation, Size ParentSize)        
         {
-            set => this.MdiParent = value;
+            int x =  ParentLocation.X + (ParentSize.Width/2 - this.Width/2);
+            int y = ParentLocation.Y + (ParentSize.Height/2 - this.Height/2);
+
+            this.Location = new System.Drawing.Point(x, y);
         }
     }
 }
