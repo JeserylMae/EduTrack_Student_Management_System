@@ -139,8 +139,14 @@
   <data name="Home_BG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Home_BG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="home_right_button_holder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_right_button_holder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Login_left_image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login-left-image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logout_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logout_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="magnifying_glass_solid_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magnifying-glass-solid 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -162,6 +168,9 @@
   </data>
   <data name="UserId" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserId.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_solid_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-solid 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_220" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\220.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

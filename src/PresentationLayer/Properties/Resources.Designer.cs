@@ -153,9 +153,29 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap home_right_button_holder {
+            get {
+                object obj = ResourceManager.GetObject("home_right_button_holder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_left_image {
             get {
                 object obj = ResourceManager.GetObject("Login_left_image", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logout_button {
+            get {
+                object obj = ResourceManager.GetObject("Logout_button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +236,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap ServerName {
             get {
                 object obj = ResourceManager.GetObject("ServerName", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_solid_1 {
+            get {
+                object obj = ResourceManager.GetObject("user_solid_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
