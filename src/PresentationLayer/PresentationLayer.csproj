@@ -65,11 +65,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminHomePage.cs">
+    <Compile Include="UserControls\HomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminHomePage.Designer.cs">
-      <DependentUpon>AdminHomePage.cs</DependentUpon>
+    <Compile Include="UserControls\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.Designer.cs">
+      <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HomeSubControls\ItrHomeRightControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HomeSubControls\ItrHomeRightControl.Designer.cs">
+      <DependentUpon>ItrHomeRightControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LogInPage.Config.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
@@ -130,8 +142,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminHomePage.resx">
-      <DependentUpon>AdminHomePage.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HomeSubControls\AdminHomeRightControl.resx">
+      <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HomeSubControls\ItrHomeRightControl.resx">
+      <DependentUpon>ItrHomeRightControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
@@ -157,6 +175,9 @@
     </Compile>
     <None Include="Resources\academic_info.png" />
     <None Include="Resources\personal_info.png" />
+    <None Include="Resources\Logout_button.png" />
+    <None Include="Resources\home_right_button_holder.png" />
+    <None Include="Resources\user-solid 1.png" />
     <Content Include="secrets.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
