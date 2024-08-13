@@ -77,14 +77,20 @@
     <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.Designer.cs">
       <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HomeSubControls\StudItrHomeBottomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\HomeSubControls\StudItrHomeBottomControl.Designer.cs">
+      <DependentUpon>StudItrHomeBottomControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\HomeSubControls\ItrHomeRightControl.Config.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HomeSubControls\ItrHomeRightControl.cs">
+    <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HomeSubControls\ItrHomeRightControl.Designer.cs">
-      <DependentUpon>ItrHomeRightControl.cs</DependentUpon>
+    <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
+      <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LogInPage.Config.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
@@ -151,8 +157,11 @@
     <EmbeddedResource Include="UserControls\HomeSubControls\AdminHomeRightControl.resx">
       <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\HomeSubControls\ItrHomeRightControl.resx">
-      <DependentUpon>ItrHomeRightControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\HomeSubControls\StudItrHomeBottomControl.resx">
+      <DependentUpon>StudItrHomeBottomControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\HomeSubControls\StudItrHomeRightControl.resx">
+      <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>

@@ -1,6 +1,5 @@
 ﻿
 using PresentationLayer.UserControls.HomeSubControls;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls
@@ -11,10 +10,10 @@ namespace PresentationLayer.UserControls
         {
             InitializeComponent();
 
-            ItrHomeRightControl homeRightControl = new ItrHomeRightControl();
-           // AdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
-            RightPanel.Controls.Add(homeRightControl);
-            RightPanel.Show();
+            AdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
+            StudItrHomeBottomControl bottomControl = new StudItrHomeBottomControl();
+            RightPanel.Controls.Add(adminHomeRightControl);
+            BottomPanel.Controls.Add(bottomControl);    
         }
     }
 }
