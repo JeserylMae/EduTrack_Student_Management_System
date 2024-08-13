@@ -36,8 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.AdminLogoutButton = new FontAwesome.Sharp.IconButton();
-            this.LogoutButton = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // CourseInfoButton
@@ -54,8 +52,8 @@
             this.CourseInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CourseInfoButton.IconSize = 40;
             this.CourseInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.CourseInfoButton.Location = new System.Drawing.Point(25, 384);
-            this.CourseInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseInfoButton.Location = new System.Drawing.Point(39, 384);
+            this.CourseInfoButton.Margin = new System.Windows.Forms.Padding(4);
             this.CourseInfoButton.Name = "CourseInfoButton";
             this.CourseInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.CourseInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -80,8 +78,8 @@
             this.ItrAcadInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ItrAcadInfoButton.IconSize = 40;
             this.ItrAcadInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ItrAcadInfoButton.Location = new System.Drawing.Point(26, 282);
-            this.ItrAcadInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ItrAcadInfoButton.Location = new System.Drawing.Point(40, 282);
+            this.ItrAcadInfoButton.Margin = new System.Windows.Forms.Padding(4);
             this.ItrAcadInfoButton.Name = "ItrAcadInfoButton";
             this.ItrAcadInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.ItrAcadInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -106,8 +104,8 @@
             this.ItrPersonalInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ItrPersonalInfoButton.IconSize = 40;
             this.ItrPersonalInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.ItrPersonalInfoButton.Location = new System.Drawing.Point(25, 224);
-            this.ItrPersonalInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ItrPersonalInfoButton.Location = new System.Drawing.Point(39, 224);
+            this.ItrPersonalInfoButton.Margin = new System.Windows.Forms.Padding(4);
             this.ItrPersonalInfoButton.Name = "ItrPersonalInfoButton";
             this.ItrPersonalInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.ItrPersonalInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -132,8 +130,8 @@
             this.StudAcadInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.StudAcadInfoButton.IconSize = 40;
             this.StudAcadInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.StudAcadInfoButton.Location = new System.Drawing.Point(25, 123);
-            this.StudAcadInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StudAcadInfoButton.Location = new System.Drawing.Point(39, 123);
+            this.StudAcadInfoButton.Margin = new System.Windows.Forms.Padding(4);
             this.StudAcadInfoButton.Name = "StudAcadInfoButton";
             this.StudAcadInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.StudAcadInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -158,8 +156,8 @@
             this.StudPersonalInfoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.StudPersonalInfoButton.IconSize = 40;
             this.StudPersonalInfoButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.StudPersonalInfoButton.Location = new System.Drawing.Point(25, 64);
-            this.StudPersonalInfoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StudPersonalInfoButton.Location = new System.Drawing.Point(39, 64);
+            this.StudPersonalInfoButton.Margin = new System.Windows.Forms.Padding(4);
             this.StudPersonalInfoButton.Name = "StudPersonalInfoButton";
             this.StudPersonalInfoButton.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
             this.StudPersonalInfoButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -209,47 +207,12 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "STUDENT";
             // 
-            // AdminLogoutButton
-            // 
-            this.AdminLogoutButton.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
-            this.AdminLogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AdminLogoutButton.FlatAppearance.BorderSize = 0;
-            this.AdminLogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AdminLogoutButton.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.AdminLogoutButton.IconColor = System.Drawing.Color.Black;
-            this.AdminLogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.AdminLogoutButton.Location = new System.Drawing.Point(199, 834);
-            this.AdminLogoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.AdminLogoutButton.Name = "AdminLogoutButton";
-            this.AdminLogoutButton.Size = new System.Drawing.Size(193, 58);
-            this.AdminLogoutButton.TabIndex = 16;
-            this.AdminLogoutButton.UseVisualStyleBackColor = true;
-            // 
-            // LogoutButton
-            // 
-            this.LogoutButton.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
-            this.LogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogoutButton.FlatAppearance.BorderSize = 0;
-            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutButton.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.LogoutButton.IconColor = System.Drawing.Color.Black;
-            this.LogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.LogoutButton.Location = new System.Drawing.Point(154, 614);
-            this.LogoutButton.Margin = new System.Windows.Forms.Padding(4);
-            this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(145, 42);
-            this.LogoutButton.TabIndex = 17;
-            this.LogoutButton.UseVisualStyleBackColor = true;
-            // 
             // AdminHomeRightControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.BackgroundImage = global::PresentationLayer.Properties.Resources.home_right_button_holder;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.LogoutButton);
-            this.Controls.Add(this.AdminLogoutButton);
             this.Controls.Add(this.CourseInfoButton);
             this.Controls.Add(this.ItrAcadInfoButton);
             this.Controls.Add(this.ItrPersonalInfoButton);
@@ -258,10 +221,11 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "AdminHomeRightControl";
-            this.Size = new System.Drawing.Size(319, 678);
+            this.Size = new System.Drawing.Size(333, 524);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,7 +240,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private FontAwesome.Sharp.IconButton AdminLogoutButton;
-        private FontAwesome.Sharp.IconButton LogoutButton;
     }
 }
