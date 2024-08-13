@@ -57,7 +57,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presenters\AdminHomeRightPresenter.cs" />
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
+    <Compile Include="Presenters\HomePagePresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
     <Compile Include="Presenters\ServerInfoPresenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -74,12 +76,16 @@
     <Compile Include="UserControls\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.Designer.cs">
       <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HomeSubControls\IAdminHomeRightControl.cs" />
     <Compile Include="UserControls\HomeSubControls\StudItrHomeBottomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
