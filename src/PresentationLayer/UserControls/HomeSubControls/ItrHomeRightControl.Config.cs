@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.HomeSubControls
 {
-    partial class ItrHomeRightControl
+    partial class StudItrHomeRightControl
     {
         private void InitializeDataGridView()
         {
