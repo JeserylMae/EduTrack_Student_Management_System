@@ -57,6 +57,7 @@ namespace PresentationLayer.Presenters
         private void RedirectToUserPage(ref UserModel User)
         {
             HomePage homePage = new HomePage();
+            new HomePagePresenter(homePage, _edutrackMainForm);
 
             if (User.Position == "ADMIN")
             {
