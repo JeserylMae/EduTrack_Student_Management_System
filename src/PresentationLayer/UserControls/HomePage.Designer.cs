@@ -30,7 +30,7 @@
         {
             this.BottomPanel = new System.Windows.Forms.Panel();
             this.RightPanel = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.LogoutButton = new FontAwesome.Sharp.IconButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RightPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,7 +49,7 @@
             // 
             this.RightPanel.BackgroundImage = global::PresentationLayer.Properties.Resources.home_right_button_holder;
             this.RightPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.RightPanel.Controls.Add(this.iconButton1);
+            this.RightPanel.Controls.Add(this.LogoutButton);
             this.RightPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.RightPanel.Location = new System.Drawing.Point(932, 0);
             this.RightPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -59,22 +59,22 @@
             this.RightPanel.TabIndex = 1;
             this.RightPanel.TabStop = true;
             // 
-            // iconButton1
+            // LogoutButton
             // 
-            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton1.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
-            this.iconButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(168, 604);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(145, 42);
-            this.iconButton1.TabIndex = 9;
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.LogoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogoutButton.BackgroundImage = global::PresentationLayer.Properties.Resources.Logout_button;
+            this.LogoutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LogoutButton.FlatAppearance.BorderSize = 0;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.LogoutButton.IconColor = System.Drawing.Color.Black;
+            this.LogoutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LogoutButton.Location = new System.Drawing.Point(168, 604);
+            this.LogoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(145, 42);
+            this.LogoutButton.TabIndex = 9;
+            this.LogoutButton.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -115,6 +115,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel RightPanel;
         private System.Windows.Forms.Panel BottomPanel;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton LogoutButton;
     }
 }

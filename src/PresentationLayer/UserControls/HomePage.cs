@@ -1,15 +1,18 @@
 ﻿
 using PresentationLayer.UserControls.HomeSubControls;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls
 {
-    public partial class HomePage : UserControl
+    public partial class HomePage : UserControl, IHomePage
     {
         public HomePage()
         {
             InitializeComponent();
-
+            OnLoggoutButtonCreated(LogoutButton);
+            _ = InitializeLogoutButtonSubscriber();
             //AdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
             //StudItrHomeBottomControl bottomControl = new StudItrHomeBottomControl();
             //RightPanel.Controls.Add(adminHomeRightControl);
@@ -42,8 +45,11 @@ namespace PresentationLayer.UserControls
             }
         }
 
+        public event EventHandler LoggedOut;
+        public void DestroyControl() { this.Dispose(); }
 
         private UserControl _rightUserControl;
         private UserControl _bottomUserControl;
+        private TaskCompletionSource<bool> LogoutButtonCreated = new TaskCompletionSource<bool>();
     }
 }
