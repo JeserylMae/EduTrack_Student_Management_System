@@ -4,6 +4,7 @@ using PresentationLayer.Views;
 using PresentationLayer.UserControls;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
+using PresentationLayer.UserControls.HomeSubControls;
 
 
 namespace PresentationLayer.Presenters
@@ -55,7 +56,20 @@ namespace PresentationLayer.Presenters
 
         private void RedirectToUserPage(ref UserModel User)
         {
-            throw new NotImplementedException();
+            HomePage homePage = new HomePage();
+
+            if (User.Position == "ADMIN")
+            {
+                homePage.RightUserControlPage = new AdminHomeRightControl();
+            }
+            else if (User.Position == "INSTRUCTOR" || User.Position == "STUDENT")
+            {
+                homePage.RightUserControlPage = new StudItrHomeRightControl();
+                homePage.BottomUserControlPage = new StudItrHomeBottomControl();
+            }
+
+            _logInPage.DisposeForm();
+            _edutrackMainForm.UserControlPage = homePage;
         }
 
         private void ValidateUser(ref UserModel User, ref UserModel e_User)

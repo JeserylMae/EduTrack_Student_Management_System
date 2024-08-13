@@ -9,6 +9,7 @@ namespace PresentationLayer.UserControls
         string GetPassword     { get; }
         string GetEmailAddress { get; }
 
+        void DisposeForm();
         event EventHandler LoggedIn;
     }
 }

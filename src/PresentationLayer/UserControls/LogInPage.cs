@@ -20,6 +20,8 @@ namespace PresentationLayer.UserControls
             new LogInPagePresenter(this, _edutrackMainForm);
         }
 
+        public void DisposeForm() { this.Dispose(); }
+
         public string GetUserId       { get => UserIdTextbox.Text;       }
         public string GetPassword     { get => PasswordTextbox.Text;     }
         public string GetEmailAddress { get => EmailAddressTextbox.Text; }

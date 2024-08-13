@@ -9,5 +9,7 @@ namespace PresentationLayer.UserControls.HomeSubControls
         {
             InitializeComponent();
         }
+
+        public void DestroyControl() { this.Dispose(); }
     }
 }

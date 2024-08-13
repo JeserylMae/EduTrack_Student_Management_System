@@ -10,5 +10,7 @@ namespace PresentationLayer.UserControls.HomeSubControls
             InitializeComponent();
             InitializeDataGridView();
         }
+
+        public void DestroyControl() { this.Dispose(); }
     }
 }

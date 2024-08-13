@@ -65,6 +65,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\HomePage.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\HomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -92,6 +95,7 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\IHomePage.cs" />
     <Compile Include="UserControls\LogInPage.Config.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
       <SubType>UserControl</SubType>
