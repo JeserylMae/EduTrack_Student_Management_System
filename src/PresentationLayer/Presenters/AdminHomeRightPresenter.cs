@@ -1,5 +1,4 @@
 ﻿
-
 using PresentationLayer.UserControls.HomeSubControls;
 using PresentationLayer.Views;
 using System;
