@@ -1,5 +1,4 @@
 ﻿
-using PresentationLayer.UserControls.HomeSubControls;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,11 +11,7 @@ namespace PresentationLayer.UserControls
         {
             InitializeComponent();
             OnLoggoutButtonCreated(LogoutButton);
-            _ = InitializeLogoutButtonSubscriber();
-            //AdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
-            //StudItrHomeBottomControl bottomControl = new StudItrHomeBottomControl();
-            //RightPanel.Controls.Add(adminHomeRightControl);
-            //BottomPanel.Controls.Add(bottomControl);    
+            _ = InitializeLogoutButtonSubscriber();    
         }
 
         public UserControl RightUserControlPage 
