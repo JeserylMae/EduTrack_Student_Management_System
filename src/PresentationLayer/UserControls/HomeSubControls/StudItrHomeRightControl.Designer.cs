@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.UserControls.HomeSubControls
 {
-    partial class ItrHomeRightControl
+    partial class StudItrHomeRightControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,11 +34,11 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.UserPictureBox = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PersonalInfoTbl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // PersonalInfoTbl
@@ -122,29 +122,29 @@
             this.label1.Size = new System.Drawing.Size(289, 1);
             this.label1.TabIndex = 16;
             // 
-            // label2
+            // NameLabel
             // 
-            this.label2.Font = new System.Drawing.Font("Candara", 14F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(30, 161);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(289, 45);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "FULL NAME";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.NameLabel.Font = new System.Drawing.Font("Candara", 14F, System.Drawing.FontStyle.Bold);
+            this.NameLabel.ForeColor = System.Drawing.Color.Black;
+            this.NameLabel.Location = new System.Drawing.Point(30, 161);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(289, 45);
+            this.NameLabel.TabIndex = 15;
+            this.NameLabel.Text = "FULL NAME";
+            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // UserPictureBox
             // 
-            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.user_solid_1;
-            this.pictureBox1.Location = new System.Drawing.Point(122, 51);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(7);
-            this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
+            this.UserPictureBox.Image = global::PresentationLayer.Properties.Resources.user_solid_1;
+            this.UserPictureBox.Location = new System.Drawing.Point(122, 51);
+            this.UserPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.UserPictureBox.Name = "UserPictureBox";
+            this.UserPictureBox.Padding = new System.Windows.Forms.Padding(7);
+            this.UserPictureBox.Size = new System.Drawing.Size(100, 100);
+            this.UserPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.UserPictureBox.TabIndex = 13;
+            this.UserPictureBox.TabStop = false;
             // 
             // label3
             // 
@@ -155,7 +155,7 @@
             this.label3.Size = new System.Drawing.Size(110, 113);
             this.label3.TabIndex = 14;
             // 
-            // ItrHomeRightControl
+            // StudItrHomeRightControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -163,16 +163,16 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Controls.Add(this.PersonalInfoTbl);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.UserPictureBox);
             this.Controls.Add(this.label3);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "ItrHomeRightControl";
+            this.Name = "StudItrHomeRightControl";
             this.Size = new System.Drawing.Size(333, 524);
             ((System.ComponentModel.ISupportInitialize)(this.PersonalInfoTbl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -180,8 +180,8 @@
         #endregion
         private System.Windows.Forms.DataGridView PersonalInfoTbl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label NameLabel;
+        private System.Windows.Forms.PictureBox UserPictureBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
