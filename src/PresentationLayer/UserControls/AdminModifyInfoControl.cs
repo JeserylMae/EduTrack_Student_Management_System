@@ -15,6 +15,7 @@ namespace PresentationLayer.UserControls
         public AdminModifyInfoControl()
         {
             InitializeComponent();
+            InitializeInfoTable();
         }
     }
 }

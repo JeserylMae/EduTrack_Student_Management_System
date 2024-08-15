@@ -67,6 +67,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminModifyInfoControl.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\AdminModifyInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,7 +101,7 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeBottomControl.Designer.cs">
       <DependentUpon>StudItrHomeBottomControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HomeSubControls\ItrHomeRightControl.Config.cs">
+    <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Config.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.cs">
