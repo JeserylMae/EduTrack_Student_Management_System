@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -40,25 +38,24 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.InfoTable = new System.Windows.Forms.DataGridView();
-            this.SrCodeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MiddleNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDateCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GenderCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ContactNumberCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZipCodeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BarangayCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MunicipalityCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProvinceCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmerNameCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmerAddressCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmerContNumCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZipCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barangay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Municipality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Province = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmergencyContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactPersonAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ContactPersonNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +80,17 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1260, 638);
             this.panel1.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.panel3.Controls.Add(this.InfoTable);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(10, 10);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10);
+            this.panel3.Size = new System.Drawing.Size(1240, 618);
+            this.panel3.TabIndex = 1;
             // 
             // panel2
             // 
@@ -222,225 +230,147 @@
             this.iconButton1.Text = "File";
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.panel3.Controls.Add(this.InfoTable);
-            this.panel3.Location = new System.Drawing.Point(13, 13);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1234, 612);
-            this.panel3.TabIndex = 1;
-            // 
             // InfoTable
             // 
             this.InfoTable.AllowUserToAddRows = false;
             this.InfoTable.AllowUserToDeleteRows = false;
-            this.InfoTable.AllowUserToResizeColumns = false;
-            this.InfoTable.AllowUserToResizeRows = false;
-            this.InfoTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.InfoTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.InfoTable.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            this.InfoTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.InfoTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.InfoTable.ColumnHeadersHeight = 38;
+            this.InfoTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InfoTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SrCodeCol,
-            this.LastNameCol,
-            this.FirstNameCol,
-            this.MiddleNameCol,
-            this.BirthDateCol,
-            this.GenderCol,
-            this.ContactNumberCol,
-            this.ZipCodeCol,
-            this.BarangayCol,
-            this.MunicipalityCol,
-            this.ProvinceCol,
-            this.EmerNameCol,
-            this.EmerAddressCol,
-            this.EmerContNumCol});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Candara", 11F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.InfoTable.DefaultCellStyle = dataGridViewCellStyle2;
+            this.SRCODE,
+            this.LastName,
+            this.FirstName,
+            this.MiddleName,
+            this.BirthDate,
+            this.Gender,
+            this.ContactNumber,
+            this.ZipCode,
+            this.Barangay,
+            this.Municipality,
+            this.Province,
+            this.EmergencyContactPerson,
+            this.ContactPersonAddress,
+            this.ContactPersonNumber});
             this.InfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InfoTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.InfoTable.EnableHeadersVisualStyles = false;
-            this.InfoTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.InfoTable.Location = new System.Drawing.Point(10, 10);
-            this.InfoTable.Margin = new System.Windows.Forms.Padding(10);
-            this.InfoTable.MultiSelect = false;
             this.InfoTable.Name = "InfoTable";
-            this.InfoTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.InfoTable.ReadOnly = true;
             this.InfoTable.RowHeadersVisible = false;
-            this.InfoTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Candara", 11F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.InfoTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.InfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InfoTable.Size = new System.Drawing.Size(1214, 592);
-            this.InfoTable.TabIndex = 1;
+            this.InfoTable.Size = new System.Drawing.Size(1220, 598);
+            this.InfoTable.TabIndex = 0;
             // 
-            // SrCodeCol
+            // SRCODE
             // 
-            this.SrCodeCol.DividerWidth = 8;
-            this.SrCodeCol.Frozen = true;
-            this.SrCodeCol.HeaderText = "SR CODE";
-            this.SrCodeCol.MinimumWidth = 20;
-            this.SrCodeCol.Name = "SrCodeCol";
-            this.SrCodeCol.ReadOnly = true;
+            this.SRCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SRCODE.DividerWidth = 8;
+            this.SRCODE.HeaderText = "Sr Code";
+            this.SRCODE.Name = "SRCODE";
+            this.SRCODE.ReadOnly = true;
             // 
-            // LastNameCol
+            // LastName
             // 
-            this.LastNameCol.DividerWidth = 8;
-            this.LastNameCol.FillWeight = 180F;
-            this.LastNameCol.Frozen = true;
-            this.LastNameCol.HeaderText = "LAST NAME";
-            this.LastNameCol.MinimumWidth = 100;
-            this.LastNameCol.Name = "LastNameCol";
-            this.LastNameCol.ReadOnly = true;
-            this.LastNameCol.Width = 180;
+            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LastName.DividerWidth = 8;
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
             // 
-            // FirstNameCol
+            // FirstName
             // 
-            this.FirstNameCol.DividerWidth = 8;
-            this.FirstNameCol.FillWeight = 180F;
-            this.FirstNameCol.Frozen = true;
-            this.FirstNameCol.HeaderText = "FIRST NAME";
-            this.FirstNameCol.MinimumWidth = 100;
-            this.FirstNameCol.Name = "FirstNameCol";
-            this.FirstNameCol.ReadOnly = true;
-            this.FirstNameCol.Width = 180;
+            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FirstName.DividerWidth = 8;
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
             // 
-            // MiddleNameCol
+            // MiddleName
             // 
-            this.MiddleNameCol.DividerWidth = 8;
-            this.MiddleNameCol.FillWeight = 180F;
-            this.MiddleNameCol.Frozen = true;
-            this.MiddleNameCol.HeaderText = "MIDDLE NAME";
-            this.MiddleNameCol.MinimumWidth = 100;
-            this.MiddleNameCol.Name = "MiddleNameCol";
-            this.MiddleNameCol.Width = 180;
+            this.MiddleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MiddleName.DividerWidth = 8;
+            this.MiddleName.HeaderText = "Middle Name";
+            this.MiddleName.Name = "MiddleName";
+            this.MiddleName.ReadOnly = true;
             // 
-            // BirthDateCol
+            // BirthDate
             // 
-            this.BirthDateCol.DividerWidth = 8;
-            this.BirthDateCol.FillWeight = 150F;
-            this.BirthDateCol.Frozen = true;
-            this.BirthDateCol.HeaderText = "BIRTH DATE";
-            this.BirthDateCol.MinimumWidth = 100;
-            this.BirthDateCol.Name = "BirthDateCol";
-            this.BirthDateCol.ReadOnly = true;
-            this.BirthDateCol.Width = 150;
+            this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BirthDate.DividerWidth = 8;
+            this.BirthDate.HeaderText = "Birth Date";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
             // 
-            // GenderCol
+            // Gender
             // 
-            this.GenderCol.DividerWidth = 8;
-            this.GenderCol.Frozen = true;
-            this.GenderCol.HeaderText = "GENDER";
-            this.GenderCol.MinimumWidth = 80;
-            this.GenderCol.Name = "GenderCol";
+            this.Gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Gender.DividerWidth = 8;
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
             // 
-            // ContactNumberCol
+            // ContactNumber
             // 
-            this.ContactNumberCol.DividerWidth = 8;
-            this.ContactNumberCol.FillWeight = 170F;
-            this.ContactNumberCol.Frozen = true;
-            this.ContactNumberCol.HeaderText = "CONTACT NUMBER";
-            this.ContactNumberCol.MinimumWidth = 100;
-            this.ContactNumberCol.Name = "ContactNumberCol";
-            this.ContactNumberCol.Width = 170;
+            this.ContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactNumber.DividerWidth = 8;
+            this.ContactNumber.HeaderText = "ContactNumber";
+            this.ContactNumber.Name = "ContactNumber";
+            this.ContactNumber.ReadOnly = true;
             // 
-            // ZipCodeCol
+            // ZipCode
             // 
-            this.ZipCodeCol.DividerWidth = 8;
-            this.ZipCodeCol.FillWeight = 120F;
-            this.ZipCodeCol.Frozen = true;
-            this.ZipCodeCol.HeaderText = "ZIP CODE";
-            this.ZipCodeCol.MinimumWidth = 100;
-            this.ZipCodeCol.Name = "ZipCodeCol";
-            this.ZipCodeCol.Width = 120;
+            this.ZipCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ZipCode.DividerWidth = 8;
+            this.ZipCode.HeaderText = "Zip Code";
+            this.ZipCode.Name = "ZipCode";
+            this.ZipCode.ReadOnly = true;
             // 
-            // BarangayCol
+            // Barangay
             // 
-            this.BarangayCol.DividerWidth = 8;
-            this.BarangayCol.FillWeight = 150F;
-            this.BarangayCol.Frozen = true;
-            this.BarangayCol.HeaderText = "BARANGAY";
-            this.BarangayCol.MinimumWidth = 100;
-            this.BarangayCol.Name = "BarangayCol";
-            this.BarangayCol.Width = 150;
+            this.Barangay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Barangay.DividerWidth = 8;
+            this.Barangay.HeaderText = "Barangay";
+            this.Barangay.Name = "Barangay";
+            this.Barangay.ReadOnly = true;
             // 
-            // MunicipalityCol
+            // Municipality
             // 
-            this.MunicipalityCol.DividerWidth = 8;
-            this.MunicipalityCol.FillWeight = 180F;
-            this.MunicipalityCol.Frozen = true;
-            this.MunicipalityCol.HeaderText = "MUNICIPALITY";
-            this.MunicipalityCol.MinimumWidth = 100;
-            this.MunicipalityCol.Name = "MunicipalityCol";
-            this.MunicipalityCol.Width = 180;
+            this.Municipality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Municipality.DividerWidth = 8;
+            this.Municipality.HeaderText = "Municipality";
+            this.Municipality.Name = "Municipality";
+            this.Municipality.ReadOnly = true;
             // 
-            // ProvinceCol
+            // Province
             // 
-            this.ProvinceCol.DividerWidth = 8;
-            this.ProvinceCol.FillWeight = 180F;
-            this.ProvinceCol.Frozen = true;
-            this.ProvinceCol.HeaderText = "PROVINCE";
-            this.ProvinceCol.MinimumWidth = 100;
-            this.ProvinceCol.Name = "ProvinceCol";
-            this.ProvinceCol.Width = 180;
+            this.Province.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Province.DividerWidth = 8;
+            this.Province.HeaderText = "Province";
+            this.Province.Name = "Province";
+            this.Province.ReadOnly = true;
             // 
-            // EmerNameCol
+            // EmergencyContactPerson
             // 
-            this.EmerNameCol.DividerWidth = 8;
-            this.EmerNameCol.FillWeight = 200F;
-            this.EmerNameCol.Frozen = true;
-            this.EmerNameCol.HeaderText = "EMERGENCY CONTACT NAME";
-            this.EmerNameCol.MinimumWidth = 100;
-            this.EmerNameCol.Name = "EmerNameCol";
-            this.EmerNameCol.Width = 200;
+            this.EmergencyContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EmergencyContactPerson.DividerWidth = 8;
+            this.EmergencyContactPerson.HeaderText = "Emergency Contact Person";
+            this.EmergencyContactPerson.Name = "EmergencyContactPerson";
+            this.EmergencyContactPerson.ReadOnly = true;
             // 
-            // EmerAddressCol
+            // ContactPersonAddress
             // 
-            this.EmerAddressCol.DividerWidth = 8;
-            this.EmerAddressCol.FillWeight = 200F;
-            this.EmerAddressCol.Frozen = true;
-            this.EmerAddressCol.HeaderText = "EMERGENCY CONTACT ADDRESS";
-            this.EmerAddressCol.MinimumWidth = 100;
-            this.EmerAddressCol.Name = "EmerAddressCol";
-            this.EmerAddressCol.Width = 200;
+            this.ContactPersonAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactPersonAddress.DividerWidth = 8;
+            this.ContactPersonAddress.HeaderText = "Contact Person Address";
+            this.ContactPersonAddress.Name = "ContactPersonAddress";
+            this.ContactPersonAddress.ReadOnly = true;
             // 
-            // EmerContNumCol
+            // ContactPersonNumber
             // 
-            this.EmerContNumCol.DividerWidth = 8;
-            this.EmerContNumCol.FillWeight = 170F;
-            this.EmerContNumCol.Frozen = true;
-            this.EmerContNumCol.HeaderText = "EMERGENCY CONTACT NUMBER";
-            this.EmerContNumCol.MinimumWidth = 100;
-            this.EmerContNumCol.Name = "EmerContNumCol";
-            this.EmerContNumCol.Width = 170;
+            this.ContactPersonNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactPersonNumber.DividerWidth = 8;
+            this.ContactPersonNumber.HeaderText = "Contact Person Number";
+            this.ContactPersonNumber.Name = "ContactPersonNumber";
+            this.ContactPersonNumber.ReadOnly = true;
             // 
             // AdminModifyInfoControl
             // 
@@ -456,9 +386,9 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).EndInit();
             this.ResumeLayout(false);
 
@@ -477,19 +407,19 @@
         private FontAwesome.Sharp.IconButton iconButton5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView InfoTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SrCodeCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MiddleNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDateCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenderCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ContactNumberCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ZipCodeCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BarangayCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MunicipalityCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProvinceCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmerNameCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmerAddressCol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmerContNumCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SRCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MiddleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ZipCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Barangay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Municipality;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Province;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmergencyContactPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactPersonAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ContactPersonNumber;
     }
 }
