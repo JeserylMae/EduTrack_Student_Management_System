@@ -103,6 +103,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gray_label_highlighter {
+            get {
+                object obj = ResourceManager.GetObject("gray-label-highlighter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_2 {
             get {
                 object obj = ResourceManager.GetObject("Group_2", resourceCulture);
@@ -136,6 +146,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap Group_5 {
             get {
                 object obj = ResourceManager.GetObject("Group_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap group_box_border {
+            get {
+                object obj = ResourceManager.GetObject("group-box-border", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -186,6 +206,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap magnifying_glass_solid_1 {
             get {
                 object obj = ResourceManager.GetObject("magnifying_glass_solid_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap panel_border_with_thick_bottom {
+            get {
+                object obj = ResourceManager.GetObject("panel-border-with-thick-bottom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
