@@ -61,20 +61,20 @@ namespace PresentationLayer.UserControls
 
         private void ModifyDataGridViewColumnWidth()
         {
-            InfoTable.Columns["SrCode"].Width                 = 120;
-            InfoTable.Columns["LastName"].Width               = 180;
-            InfoTable.Columns["FirstName"].Width              = 180;
-            InfoTable.Columns["MiddleName"].Width             = 180;
-            InfoTable.Columns["BirthDate"].Width              = 150;
-            InfoTable.Columns["Gender"].Width                 = 100;
-            InfoTable.Columns["ContactNumber"].Width          = 170;
-            InfoTable.Columns["ZipCode"].Width                = 120;
-            InfoTable.Columns["Barangay"].Width               = 180;
-            InfoTable.Columns["Municipality"].Width           = 180;
-            InfoTable.Columns["Province"].Width               = 180;
+            InfoTable.Columns["SrCode"].Width = 120;
+            InfoTable.Columns["LastName"].Width = 180;
+            InfoTable.Columns["FirstName"].Width = 180;
+            InfoTable.Columns["MiddleName"].Width = 180;
+            InfoTable.Columns["BirthDate"].Width = 150;
+            InfoTable.Columns["Gender"].Width = 100;
+            InfoTable.Columns["ContactNumber"].Width = 170;
+            InfoTable.Columns["ZipCode"].Width = 120;
+            InfoTable.Columns["Barangay"].Width = 180;
+            InfoTable.Columns["Municipality"].Width = 180;
+            InfoTable.Columns["Province"].Width = 180;
             InfoTable.Columns["EmergencyContactPerson"].Width = 250;
-            InfoTable.Columns["ContactPersonAddress"].Width   = 250;
-            InfoTable.Columns["ContactPersonNumber"].Width    = 170;
+            InfoTable.Columns["ContactPersonAddress"].Width = 250;
+            InfoTable.Columns["ContactPersonNumber"].Width = 170;
         }
     }
 }

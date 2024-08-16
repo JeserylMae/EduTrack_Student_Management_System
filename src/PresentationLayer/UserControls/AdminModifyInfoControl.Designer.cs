@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.InfoTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -39,6 +38,7 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.InfoTable = new System.Windows.Forms.DataGridView();
             this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,8 +55,8 @@
             this.ContactPersonNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -91,40 +91,6 @@
             this.panel3.Padding = new System.Windows.Forms.Padding(10);
             this.panel3.Size = new System.Drawing.Size(1240, 618);
             this.panel3.TabIndex = 1;
-            // 
-            // InfoTable
-            // 
-            this.InfoTable.AllowUserToAddRows = false;
-            this.InfoTable.AllowUserToDeleteRows = false;
-            this.InfoTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.InfoTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.InfoTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.InfoTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SRCODE,
-            this.LastName,
-            this.FirstName,
-            this.MiddleName,
-            this.BirthDate,
-            this.Gender,
-            this.ContactNumber,
-            this.ZipCode,
-            this.Barangay,
-            this.Municipality,
-            this.Province,
-            this.EmergencyContactPerson,
-            this.ContactPersonAddress,
-            this.ContactPersonNumber});
-            this.InfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InfoTable.Enabled = false;
-            this.InfoTable.EnableHeadersVisualStyles = false;
-            this.InfoTable.Location = new System.Drawing.Point(10, 10);
-            this.InfoTable.Name = "InfoTable";
-            this.InfoTable.ReadOnly = true;
-            this.InfoTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.InfoTable.RowHeadersVisible = false;
-            this.InfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InfoTable.Size = new System.Drawing.Size(1220, 598);
-            this.InfoTable.TabIndex = 0;
             // 
             // panel2
             // 
@@ -264,9 +230,40 @@
             this.iconButton1.Text = "File";
             this.iconButton1.UseVisualStyleBackColor = true;
             // 
+            // InfoTable
+            // 
+            this.InfoTable.AllowUserToAddRows = false;
+            this.InfoTable.AllowUserToDeleteRows = false;
+            this.InfoTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InfoTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SRCODE,
+            this.LastName,
+            this.FirstName,
+            this.MiddleName,
+            this.BirthDate,
+            this.Gender,
+            this.ContactNumber,
+            this.ZipCode,
+            this.Barangay,
+            this.Municipality,
+            this.Province,
+            this.EmergencyContactPerson,
+            this.ContactPersonAddress,
+            this.ContactPersonNumber});
+            this.InfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InfoTable.EnableHeadersVisualStyles = false;
+            this.InfoTable.Location = new System.Drawing.Point(10, 10);
+            this.InfoTable.Name = "InfoTable";
+            this.InfoTable.ReadOnly = true;
+            this.InfoTable.RowHeadersVisible = false;
+            this.InfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.InfoTable.Size = new System.Drawing.Size(1220, 598);
+            this.InfoTable.TabIndex = 0;
+            // 
             // SRCODE
             // 
             this.SRCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SRCODE.DividerWidth = 8;
             this.SRCODE.HeaderText = "Sr Code";
             this.SRCODE.Name = "SRCODE";
             this.SRCODE.ReadOnly = true;
@@ -274,6 +271,7 @@
             // LastName
             // 
             this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LastName.DividerWidth = 8;
             this.LastName.HeaderText = "Last Name";
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
@@ -281,6 +279,7 @@
             // FirstName
             // 
             this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FirstName.DividerWidth = 8;
             this.FirstName.HeaderText = "First Name";
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
@@ -288,6 +287,7 @@
             // MiddleName
             // 
             this.MiddleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MiddleName.DividerWidth = 8;
             this.MiddleName.HeaderText = "Middle Name";
             this.MiddleName.Name = "MiddleName";
             this.MiddleName.ReadOnly = true;
@@ -295,6 +295,7 @@
             // BirthDate
             // 
             this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BirthDate.DividerWidth = 8;
             this.BirthDate.HeaderText = "Birth Date";
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.ReadOnly = true;
@@ -302,6 +303,7 @@
             // Gender
             // 
             this.Gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Gender.DividerWidth = 8;
             this.Gender.HeaderText = "Gender";
             this.Gender.Name = "Gender";
             this.Gender.ReadOnly = true;
@@ -309,13 +311,15 @@
             // ContactNumber
             // 
             this.ContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactNumber.HeaderText = "Contact Number";
+            this.ContactNumber.DividerWidth = 8;
+            this.ContactNumber.HeaderText = "ContactNumber";
             this.ContactNumber.Name = "ContactNumber";
             this.ContactNumber.ReadOnly = true;
             // 
             // ZipCode
             // 
             this.ZipCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ZipCode.DividerWidth = 8;
             this.ZipCode.HeaderText = "Zip Code";
             this.ZipCode.Name = "ZipCode";
             this.ZipCode.ReadOnly = true;
@@ -323,6 +327,7 @@
             // Barangay
             // 
             this.Barangay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Barangay.DividerWidth = 8;
             this.Barangay.HeaderText = "Barangay";
             this.Barangay.Name = "Barangay";
             this.Barangay.ReadOnly = true;
@@ -330,6 +335,7 @@
             // Municipality
             // 
             this.Municipality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Municipality.DividerWidth = 8;
             this.Municipality.HeaderText = "Municipality";
             this.Municipality.Name = "Municipality";
             this.Municipality.ReadOnly = true;
@@ -337,6 +343,7 @@
             // Province
             // 
             this.Province.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Province.DividerWidth = 8;
             this.Province.HeaderText = "Province";
             this.Province.Name = "Province";
             this.Province.ReadOnly = true;
@@ -344,6 +351,7 @@
             // EmergencyContactPerson
             // 
             this.EmergencyContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EmergencyContactPerson.DividerWidth = 8;
             this.EmergencyContactPerson.HeaderText = "Emergency Contact Person";
             this.EmergencyContactPerson.Name = "EmergencyContactPerson";
             this.EmergencyContactPerson.ReadOnly = true;
@@ -351,6 +359,7 @@
             // ContactPersonAddress
             // 
             this.ContactPersonAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactPersonAddress.DividerWidth = 8;
             this.ContactPersonAddress.HeaderText = "Contact Person Address";
             this.ContactPersonAddress.Name = "ContactPersonAddress";
             this.ContactPersonAddress.ReadOnly = true;
@@ -358,6 +367,7 @@
             // ContactPersonNumber
             // 
             this.ContactPersonNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactPersonNumber.DividerWidth = 8;
             this.ContactPersonNumber.HeaderText = "Contact Person Number";
             this.ContactPersonNumber.Name = "ContactPersonNumber";
             this.ContactPersonNumber.ReadOnly = true;
@@ -377,9 +387,9 @@
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).EndInit();
             this.ResumeLayout(false);
 
         }
