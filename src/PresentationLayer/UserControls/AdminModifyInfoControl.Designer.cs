@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.PageLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.MainControlHolder = new System.Windows.Forms.Panel();
             this.InfoTable = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.SearchSrCodeTextbox = new System.Windows.Forms.TextBox();
             this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,26 +48,31 @@
             this.EmergencyContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPersonAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPersonNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SearchSrCodeButton = new FontAwesome.Sharp.IconButton();
+            this.OpenModifyFormButton = new FontAwesome.Sharp.IconButton();
+            this.OpenDropFormButton = new FontAwesome.Sharp.IconButton();
+            this.OpenAddFormButton = new FontAwesome.Sharp.IconButton();
+            this.FileDropDownButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.MainControlHolder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // PageLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
-            this.label1.Location = new System.Drawing.Point(4, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Student Personal Information";
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
+            this.PageLabel.Location = new System.Drawing.Point(4, 5);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(220, 21);
+            this.PageLabel.TabIndex = 0;
+            this.PageLabel.Text = "Student Personal Information";
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.MainControlHolder);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(10, 40);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -81,159 +81,22 @@
             this.panel1.Size = new System.Drawing.Size(1260, 638);
             this.panel1.TabIndex = 1;
             // 
-            // panel3
+            // MainControlHolder
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.panel3.Controls.Add(this.InfoTable);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(10, 10);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10);
-            this.panel3.Size = new System.Drawing.Size(1240, 618);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.iconButton5);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.iconButton4);
-            this.panel2.Controls.Add(this.iconButton3);
-            this.panel2.Controls.Add(this.iconButton2);
-            this.panel2.Controls.Add(this.iconButton1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1260, 30);
-            this.panel2.TabIndex = 2;
-            // 
-            // iconButton5
-            // 
-            this.iconButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton5.AutoSize = true;
-            this.iconButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.Font = new System.Drawing.Font("Candara Light", 11.25F);
-            this.iconButton5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton5.IconSize = 20;
-            this.iconButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.Location = new System.Drawing.Point(853, 1);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(80, 28);
-            this.iconButton5.TabIndex = 6;
-            this.iconButton5.Text = "Search";
-            this.iconButton5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton5.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Candara Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.textBox1.Location = new System.Drawing.Point(942, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(307, 26);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.WordWrap = false;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.AutoSize = true;
-            this.iconButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton4.IconSize = 20;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(518, 0);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(89, 31);
-            this.iconButton4.TabIndex = 4;
-            this.iconButton4.Text = "Modify";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = true;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.AutoSize = true;
-            this.iconButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton3.IconSize = 20;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(442, 0);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(76, 31);
-            this.iconButton3.TabIndex = 3;
-            this.iconButton3.Text = "Drop";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton3.UseVisualStyleBackColor = true;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(374, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(68, 31);
-            this.iconButton2.TabIndex = 2;
-            this.iconButton2.Text = "Add";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(299, 3);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(75, 25);
-            this.iconButton1.TabIndex = 1;
-            this.iconButton1.Text = "File";
-            this.iconButton1.UseVisualStyleBackColor = true;
+            this.MainControlHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.MainControlHolder.Controls.Add(this.InfoTable);
+            this.MainControlHolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainControlHolder.Location = new System.Drawing.Point(10, 10);
+            this.MainControlHolder.Name = "MainControlHolder";
+            this.MainControlHolder.Padding = new System.Windows.Forms.Padding(10);
+            this.MainControlHolder.Size = new System.Drawing.Size(1240, 618);
+            this.MainControlHolder.TabIndex = 1;
             // 
             // InfoTable
             // 
             this.InfoTable.AllowUserToAddRows = false;
             this.InfoTable.AllowUserToDeleteRows = false;
+            this.InfoTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.InfoTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InfoTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SRCODE,
@@ -252,6 +115,7 @@
             this.ContactPersonNumber});
             this.InfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoTable.EnableHeadersVisualStyles = false;
+            this.InfoTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.InfoTable.Location = new System.Drawing.Point(10, 10);
             this.InfoTable.Name = "InfoTable";
             this.InfoTable.ReadOnly = true;
@@ -260,10 +124,37 @@
             this.InfoTable.Size = new System.Drawing.Size(1220, 598);
             this.InfoTable.TabIndex = 0;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.SearchSrCodeButton);
+            this.panel2.Controls.Add(this.SearchSrCodeTextbox);
+            this.panel2.Controls.Add(this.OpenModifyFormButton);
+            this.panel2.Controls.Add(this.OpenDropFormButton);
+            this.panel2.Controls.Add(this.OpenAddFormButton);
+            this.panel2.Controls.Add(this.FileDropDownButton);
+            this.panel2.Controls.Add(this.PageLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(10, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1260, 30);
+            this.panel2.TabIndex = 2;
+            // 
+            // SearchSrCodeTextbox
+            // 
+            this.SearchSrCodeTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchSrCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
+            this.SearchSrCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchSrCodeTextbox.Font = new System.Drawing.Font("Candara Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchSrCodeTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchSrCodeTextbox.Location = new System.Drawing.Point(942, 3);
+            this.SearchSrCodeTextbox.Name = "SearchSrCodeTextbox";
+            this.SearchSrCodeTextbox.Size = new System.Drawing.Size(307, 26);
+            this.SearchSrCodeTextbox.TabIndex = 5;
+            this.SearchSrCodeTextbox.WordWrap = false;
+            // 
             // SRCODE
             // 
             this.SRCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SRCODE.DividerWidth = 8;
             this.SRCODE.HeaderText = "Sr Code";
             this.SRCODE.Name = "SRCODE";
             this.SRCODE.ReadOnly = true;
@@ -271,7 +162,6 @@
             // LastName
             // 
             this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LastName.DividerWidth = 8;
             this.LastName.HeaderText = "Last Name";
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
@@ -279,7 +169,6 @@
             // FirstName
             // 
             this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FirstName.DividerWidth = 8;
             this.FirstName.HeaderText = "First Name";
             this.FirstName.Name = "FirstName";
             this.FirstName.ReadOnly = true;
@@ -287,7 +176,6 @@
             // MiddleName
             // 
             this.MiddleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MiddleName.DividerWidth = 8;
             this.MiddleName.HeaderText = "Middle Name";
             this.MiddleName.Name = "MiddleName";
             this.MiddleName.ReadOnly = true;
@@ -295,7 +183,6 @@
             // BirthDate
             // 
             this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BirthDate.DividerWidth = 8;
             this.BirthDate.HeaderText = "Birth Date";
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.ReadOnly = true;
@@ -303,7 +190,6 @@
             // Gender
             // 
             this.Gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Gender.DividerWidth = 8;
             this.Gender.HeaderText = "Gender";
             this.Gender.Name = "Gender";
             this.Gender.ReadOnly = true;
@@ -311,7 +197,6 @@
             // ContactNumber
             // 
             this.ContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactNumber.DividerWidth = 8;
             this.ContactNumber.HeaderText = "ContactNumber";
             this.ContactNumber.Name = "ContactNumber";
             this.ContactNumber.ReadOnly = true;
@@ -319,7 +204,6 @@
             // ZipCode
             // 
             this.ZipCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ZipCode.DividerWidth = 8;
             this.ZipCode.HeaderText = "Zip Code";
             this.ZipCode.Name = "ZipCode";
             this.ZipCode.ReadOnly = true;
@@ -327,7 +211,6 @@
             // Barangay
             // 
             this.Barangay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Barangay.DividerWidth = 8;
             this.Barangay.HeaderText = "Barangay";
             this.Barangay.Name = "Barangay";
             this.Barangay.ReadOnly = true;
@@ -335,7 +218,6 @@
             // Municipality
             // 
             this.Municipality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Municipality.DividerWidth = 8;
             this.Municipality.HeaderText = "Municipality";
             this.Municipality.Name = "Municipality";
             this.Municipality.ReadOnly = true;
@@ -343,7 +225,6 @@
             // Province
             // 
             this.Province.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Province.DividerWidth = 8;
             this.Province.HeaderText = "Province";
             this.Province.Name = "Province";
             this.Province.ReadOnly = true;
@@ -351,7 +232,6 @@
             // EmergencyContactPerson
             // 
             this.EmergencyContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EmergencyContactPerson.DividerWidth = 8;
             this.EmergencyContactPerson.HeaderText = "Emergency Contact Person";
             this.EmergencyContactPerson.Name = "EmergencyContactPerson";
             this.EmergencyContactPerson.ReadOnly = true;
@@ -359,7 +239,6 @@
             // ContactPersonAddress
             // 
             this.ContactPersonAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactPersonAddress.DividerWidth = 8;
             this.ContactPersonAddress.HeaderText = "Contact Person Address";
             this.ContactPersonAddress.Name = "ContactPersonAddress";
             this.ContactPersonAddress.ReadOnly = true;
@@ -367,10 +246,119 @@
             // ContactPersonNumber
             // 
             this.ContactPersonNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactPersonNumber.DividerWidth = 8;
             this.ContactPersonNumber.HeaderText = "Contact Person Number";
             this.ContactPersonNumber.Name = "ContactPersonNumber";
             this.ContactPersonNumber.ReadOnly = true;
+            // 
+            // SearchSrCodeButton
+            // 
+            this.SearchSrCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchSrCodeButton.AutoSize = true;
+            this.SearchSrCodeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SearchSrCodeButton.FlatAppearance.BorderSize = 0;
+            this.SearchSrCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchSrCodeButton.Font = new System.Drawing.Font("Candara Light", 11.25F);
+            this.SearchSrCodeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchSrCodeButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.SearchSrCodeButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchSrCodeButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.SearchSrCodeButton.IconSize = 20;
+            this.SearchSrCodeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchSrCodeButton.Location = new System.Drawing.Point(853, 1);
+            this.SearchSrCodeButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SearchSrCodeButton.Name = "SearchSrCodeButton";
+            this.SearchSrCodeButton.Size = new System.Drawing.Size(80, 28);
+            this.SearchSrCodeButton.TabIndex = 6;
+            this.SearchSrCodeButton.Text = "Search";
+            this.SearchSrCodeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchSrCodeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SearchSrCodeButton.UseVisualStyleBackColor = true;
+            // 
+            // OpenModifyFormButton
+            // 
+            this.OpenModifyFormButton.AutoSize = true;
+            this.OpenModifyFormButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OpenModifyFormButton.FlatAppearance.BorderSize = 0;
+            this.OpenModifyFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenModifyFormButton.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenModifyFormButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.OpenModifyFormButton.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.OpenModifyFormButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.OpenModifyFormButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.OpenModifyFormButton.IconSize = 20;
+            this.OpenModifyFormButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenModifyFormButton.Location = new System.Drawing.Point(518, 0);
+            this.OpenModifyFormButton.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenModifyFormButton.Name = "OpenModifyFormButton";
+            this.OpenModifyFormButton.Size = new System.Drawing.Size(89, 31);
+            this.OpenModifyFormButton.TabIndex = 4;
+            this.OpenModifyFormButton.Text = "Modify";
+            this.OpenModifyFormButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenModifyFormButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OpenModifyFormButton.UseVisualStyleBackColor = true;
+            // 
+            // OpenDropFormButton
+            // 
+            this.OpenDropFormButton.AutoSize = true;
+            this.OpenDropFormButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OpenDropFormButton.FlatAppearance.BorderSize = 0;
+            this.OpenDropFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenDropFormButton.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenDropFormButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.OpenDropFormButton.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
+            this.OpenDropFormButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.OpenDropFormButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.OpenDropFormButton.IconSize = 20;
+            this.OpenDropFormButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenDropFormButton.Location = new System.Drawing.Point(442, 0);
+            this.OpenDropFormButton.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenDropFormButton.Name = "OpenDropFormButton";
+            this.OpenDropFormButton.Size = new System.Drawing.Size(76, 31);
+            this.OpenDropFormButton.TabIndex = 3;
+            this.OpenDropFormButton.Text = "Drop";
+            this.OpenDropFormButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenDropFormButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OpenDropFormButton.UseVisualStyleBackColor = true;
+            // 
+            // OpenAddFormButton
+            // 
+            this.OpenAddFormButton.AutoSize = true;
+            this.OpenAddFormButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.OpenAddFormButton.FlatAppearance.BorderSize = 0;
+            this.OpenAddFormButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenAddFormButton.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OpenAddFormButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.OpenAddFormButton.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.OpenAddFormButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.OpenAddFormButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.OpenAddFormButton.IconSize = 20;
+            this.OpenAddFormButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenAddFormButton.Location = new System.Drawing.Point(374, 0);
+            this.OpenAddFormButton.Margin = new System.Windows.Forms.Padding(0);
+            this.OpenAddFormButton.Name = "OpenAddFormButton";
+            this.OpenAddFormButton.Size = new System.Drawing.Size(68, 31);
+            this.OpenAddFormButton.TabIndex = 2;
+            this.OpenAddFormButton.Text = "Add";
+            this.OpenAddFormButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpenAddFormButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OpenAddFormButton.UseVisualStyleBackColor = true;
+            // 
+            // FileDropDownButton
+            // 
+            this.FileDropDownButton.FlatAppearance.BorderSize = 0;
+            this.FileDropDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FileDropDownButton.Font = new System.Drawing.Font("Candara Light", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FileDropDownButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.FileDropDownButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.FileDropDownButton.IconColor = System.Drawing.Color.Black;
+            this.FileDropDownButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.FileDropDownButton.Location = new System.Drawing.Point(299, 3);
+            this.FileDropDownButton.Margin = new System.Windows.Forms.Padding(0);
+            this.FileDropDownButton.Name = "FileDropDownButton";
+            this.FileDropDownButton.Size = new System.Drawing.Size(75, 25);
+            this.FileDropDownButton.TabIndex = 1;
+            this.FileDropDownButton.Text = "File";
+            this.FileDropDownButton.UseVisualStyleBackColor = true;
             // 
             // AdminModifyInfoControl
             // 
@@ -386,26 +374,26 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.MainControlHolder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PageLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.TextBox textBox1;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconButton FileDropDownButton;
+        private FontAwesome.Sharp.IconButton OpenDropFormButton;
+        private FontAwesome.Sharp.IconButton OpenAddFormButton;
+        private FontAwesome.Sharp.IconButton OpenModifyFormButton;
+        private System.Windows.Forms.TextBox SearchSrCodeTextbox;
+        private FontAwesome.Sharp.IconButton SearchSrCodeButton;
+        private System.Windows.Forms.Panel MainControlHolder;
         private System.Windows.Forms.DataGridView InfoTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn SRCODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;

@@ -1,8 +1,6 @@
 ﻿
 
 using System.Drawing;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls
@@ -25,7 +23,7 @@ namespace PresentationLayer.UserControls
 
         private void DataGridViewInsertData()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 50; i++)
             {
                 InfoTable.Rows.Add("11-0000", "Montefalco", "Knoxx", "Navarro", 
                                    "2000-12-12", "Male", "09089", "", "Padre Castillo", 
@@ -61,20 +59,20 @@ namespace PresentationLayer.UserControls
 
         private void ModifyDataGridViewColumnWidth()
         {
-            InfoTable.Columns["SrCode"].Width = 120;
-            InfoTable.Columns["LastName"].Width = 180;
-            InfoTable.Columns["FirstName"].Width = 180;
-            InfoTable.Columns["MiddleName"].Width = 180;
-            InfoTable.Columns["BirthDate"].Width = 150;
-            InfoTable.Columns["Gender"].Width = 100;
-            InfoTable.Columns["ContactNumber"].Width = 170;
-            InfoTable.Columns["ZipCode"].Width = 120;
-            InfoTable.Columns["Barangay"].Width = 180;
-            InfoTable.Columns["Municipality"].Width = 180;
-            InfoTable.Columns["Province"].Width = 180;
+            InfoTable.Columns["SrCode"].Width                 = 120;
+            InfoTable.Columns["LastName"].Width               = 180;
+            InfoTable.Columns["FirstName"].Width              = 180;
+            InfoTable.Columns["MiddleName"].Width             = 180;
+            InfoTable.Columns["BirthDate"].Width              = 150;
+            InfoTable.Columns["Gender"].Width                 = 100;
+            InfoTable.Columns["ContactNumber"].Width          = 170;
+            InfoTable.Columns["ZipCode"].Width                = 120;
+            InfoTable.Columns["Barangay"].Width               = 180;
+            InfoTable.Columns["Municipality"].Width           = 180;
+            InfoTable.Columns["Province"].Width               = 180;
             InfoTable.Columns["EmergencyContactPerson"].Width = 250;
-            InfoTable.Columns["ContactPersonAddress"].Width = 250;
-            InfoTable.Columns["ContactPersonNumber"].Width = 170;
+            InfoTable.Columns["ContactPersonAddress"].Width   = 250;
+            InfoTable.Columns["ContactPersonNumber"].Width    = 170;
         }
     }
 }
