@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer.UserControls
+namespace PresentationLayer.UserControls.MainControls
 {
     public partial class HomePage : UserControl, IHomePage
     {

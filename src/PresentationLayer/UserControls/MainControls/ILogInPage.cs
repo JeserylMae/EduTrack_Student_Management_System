@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace PresentationLayer.UserControls
+namespace PresentationLayer.UserControls.MainControls
 {
     public interface ILogInPage
     {

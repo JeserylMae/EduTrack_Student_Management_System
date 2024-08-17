@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace PresentationLayer.UserControls
+namespace PresentationLayer.UserControls.MainControls
 {
     public interface IHomePage
     {

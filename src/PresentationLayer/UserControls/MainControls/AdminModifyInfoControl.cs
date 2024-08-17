@@ -3,7 +3,7 @@ using PresentationLayer.UserControls.AdminSubControls;
 using System.Windows.Forms;
 
 
-namespace PresentationLayer.UserControls
+namespace PresentationLayer.UserControls.MainControls
 {
     public partial class AdminModifyInfoControl : UserControl
     {
@@ -11,10 +11,6 @@ namespace PresentationLayer.UserControls
         {
             InitializeComponent();
             InitializeInfoTable();
-
-            UserControl userControl = new PersonalInfoControl();
-            MainControlHolder.Controls.Add(userControl);
-            userControl.Dock = DockStyle.Left;
         }
     }
 }

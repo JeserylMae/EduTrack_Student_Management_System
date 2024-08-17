@@ -3,7 +3,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PresentationLayer.UserControls
+namespace PresentationLayer.UserControls.MainControls
 {
     partial class AdminModifyInfoControl
     {
