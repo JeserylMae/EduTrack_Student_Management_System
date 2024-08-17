@@ -14,6 +14,7 @@ using PresentationLayer.UserControls;
 /// tasklist | findstr "InfrastructureLayer.exe"
 /// tasklist | findstr "dotnet.exe"
 /// taskkill /IM InfrastructureLayer.exe /F && taskkill /IM dotnet.exe /F && taskkill /IM cmd.exe /F 
+/// 2NXzenE74FrwQk#JqwaB
 
 namespace PresentationLayer
 {

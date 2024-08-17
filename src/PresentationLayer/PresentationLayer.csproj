@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\AdminHomeRightPresenter.cs" />
+    <Compile Include="Presenters\AdminModifyInfoPresenter.cs" />
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\HomePagePresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
@@ -67,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs" />
     <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Config.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -123,6 +125,7 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainControls\IAdminModifyInfoControl.cs" />
     <Compile Include="UserControls\MainControls\IHomePage.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
       <SubType>Code</SubType>
