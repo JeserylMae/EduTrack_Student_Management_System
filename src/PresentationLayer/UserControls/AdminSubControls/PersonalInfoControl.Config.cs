@@ -7,6 +7,12 @@ namespace PresentationLayer.UserControls.AdminSubControls
 {
     partial class PersonalInfoControl
     {
+		private void InitializeButtonsAsHidden()
+		{
+			SubmitAddButton.Hide();
+			SubmitUpdateButton.Hide();
+		}
+
 		private void SetYearOptions()
 		{
 			int currentYear = DateTime.Now.Year;
