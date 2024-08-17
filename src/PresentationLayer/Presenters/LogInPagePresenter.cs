@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 using PresentationLayer.Views;
-using PresentationLayer.UserControls;
+using PresentationLayer.UserControls.MainControls;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
 using PresentationLayer.UserControls.HomeSubControls;

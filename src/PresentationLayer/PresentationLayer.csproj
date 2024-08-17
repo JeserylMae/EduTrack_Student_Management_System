@@ -67,13 +67,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminModifyInfoControl.Config.cs">
+    <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Config.cs">
+      <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminModifyInfoControl.cs">
+    <Compile Include="UserControls\MainControls\AdminModifyInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminModifyInfoControl.Designer.cs">
+    <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Designer.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.cs">
@@ -82,16 +83,18 @@
     <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Designer.cs">
       <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HomePage.Config.cs">
+    <Compile Include="UserControls\MainControls\HomePage.Config.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HomePage.cs">
+    <Compile Include="UserControls\MainControls\HomePage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\HomePage.Designer.cs">
+    <Compile Include="UserControls\MainControls\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.Config.cs">
+      <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.cs">
@@ -100,7 +103,10 @@
     <Compile Include="UserControls\HomeSubControls\AdminHomeRightControl.Designer.cs">
       <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\HomeSubControls\IAdminHomeRightControl.cs" />
+    <Compile Include="UserControls\HomeSubControls\IAdminHomeRightControl.cs">
+      <DependentUpon>AdminHomeRightControl.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UserControls\HomeSubControls\StudItrHomeBottomControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +114,7 @@
       <DependentUpon>StudItrHomeBottomControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Config.cs">
+      <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.cs">
@@ -116,19 +123,22 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\IHomePage.cs" />
-    <Compile Include="UserControls\LogInPage.Config.cs">
+    <Compile Include="UserControls\MainControls\IHomePage.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainControls\LogInPage.Config.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\LogInPage.cs">
+    <Compile Include="UserControls\MainControls\LogInPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\ILogInPage.cs">
+    <Compile Include="UserControls\MainControls\ILogInPage.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="UserControls\LogInPage.Designer.cs">
+    <Compile Include="UserControls\MainControls\LogInPage.Designer.cs">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\EdutrackMainForm.cs">
@@ -176,13 +186,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminModifyInfoControl.resx">
+    <EmbeddedResource Include="UserControls\MainControls\AdminModifyInfoControl.resx">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\PersonalInfoControl.resx">
       <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\HomePage.resx">
+    <EmbeddedResource Include="UserControls\MainControls\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HomeSubControls\AdminHomeRightControl.resx">
@@ -194,7 +204,7 @@
     <EmbeddedResource Include="UserControls\HomeSubControls\StudItrHomeRightControl.resx">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\LogInPage.resx">
+    <EmbeddedResource Include="UserControls\MainControls\LogInPage.resx">
       <DependentUpon>LogInPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EdutrackMainForm.resx">
@@ -227,6 +237,9 @@
     <Content Include="secrets.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

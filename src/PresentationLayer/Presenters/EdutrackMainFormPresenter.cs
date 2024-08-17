@@ -3,7 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using PresentationLayer.Views;
-using PresentationLayer.UserControls;
+using PresentationLayer.UserControls.MainControls;
 
 namespace PresentationLayer.Presenters
 {
@@ -18,7 +18,7 @@ namespace PresentationLayer.Presenters
             _edutrackMainForm.MouseMoved      += EdutrackMainForm_MouseMove;
             _edutrackMainForm.MousePressed    += EdutrackMainForm_MouseDown;
 
-            _edutrackMainForm.UserControlPage = new AdminModifyInfoControl();
+            _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
         }
 
         private void MinimizeAppButton_Click(object sender, EventArgs e)
