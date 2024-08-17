@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,6 +8,20 @@ namespace PresentationLayer.UserControls.MainControls
 {
     partial class AdminModifyInfoControl
     {
+        private void OnTopBarButtonsCreated()
+        {
+            if (OpenAddFormButton != null)    { OpenAddFormButtonCreated.TrySetResult(true);    }
+            if (OpenModifyFormButton != null) { OpenUpdateFormButtonCreated.TrySetResult(true); }
+        }
+
+        private async void InitializeButtonSubscriber()
+        {
+            await OpenAddFormButtonCreated.Task;
+            OpenAddFormButton.Click += delegate { ViewAddForm?.Invoke(this, EventArgs.Empty); };
+
+            await OpenUpdateFormButtonCreated.Task;
+            OpenModifyFormButton.Click += delegate { ViewUpdateForm?.Invoke(this, EventArgs.Empty); };
+        }
 
         private void InitializeInfoTable()
         {

@@ -32,8 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.MainControlHolder = new System.Windows.Forms.Panel();
             this.InfoTable = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.SearchSrCodeTextbox = new System.Windows.Forms.TextBox();
             this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +46,9 @@
             this.EmergencyContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPersonAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPersonNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.SearchSrCodeButton = new FontAwesome.Sharp.IconButton();
+            this.SearchSrCodeTextbox = new System.Windows.Forms.TextBox();
             this.OpenModifyFormButton = new FontAwesome.Sharp.IconButton();
             this.OpenDropFormButton = new FontAwesome.Sharp.IconButton();
             this.OpenAddFormButton = new FontAwesome.Sharp.IconButton();
@@ -123,34 +123,6 @@
             this.InfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.InfoTable.Size = new System.Drawing.Size(1220, 598);
             this.InfoTable.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.SearchSrCodeButton);
-            this.panel2.Controls.Add(this.SearchSrCodeTextbox);
-            this.panel2.Controls.Add(this.OpenModifyFormButton);
-            this.panel2.Controls.Add(this.OpenDropFormButton);
-            this.panel2.Controls.Add(this.OpenAddFormButton);
-            this.panel2.Controls.Add(this.FileDropDownButton);
-            this.panel2.Controls.Add(this.PageLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1260, 30);
-            this.panel2.TabIndex = 2;
-            // 
-            // SearchSrCodeTextbox
-            // 
-            this.SearchSrCodeTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchSrCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
-            this.SearchSrCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchSrCodeTextbox.Font = new System.Drawing.Font("Candara Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchSrCodeTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SearchSrCodeTextbox.Location = new System.Drawing.Point(942, 3);
-            this.SearchSrCodeTextbox.Name = "SearchSrCodeTextbox";
-            this.SearchSrCodeTextbox.Size = new System.Drawing.Size(307, 26);
-            this.SearchSrCodeTextbox.TabIndex = 5;
-            this.SearchSrCodeTextbox.WordWrap = false;
             // 
             // SRCODE
             // 
@@ -250,6 +222,21 @@
             this.ContactPersonNumber.Name = "ContactPersonNumber";
             this.ContactPersonNumber.ReadOnly = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.SearchSrCodeButton);
+            this.panel2.Controls.Add(this.SearchSrCodeTextbox);
+            this.panel2.Controls.Add(this.OpenModifyFormButton);
+            this.panel2.Controls.Add(this.OpenDropFormButton);
+            this.panel2.Controls.Add(this.OpenAddFormButton);
+            this.panel2.Controls.Add(this.FileDropDownButton);
+            this.panel2.Controls.Add(this.PageLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(10, 10);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1260, 30);
+            this.panel2.TabIndex = 2;
+            // 
             // SearchSrCodeButton
             // 
             this.SearchSrCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -273,6 +260,19 @@
             this.SearchSrCodeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SearchSrCodeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SearchSrCodeButton.UseVisualStyleBackColor = true;
+            // 
+            // SearchSrCodeTextbox
+            // 
+            this.SearchSrCodeTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchSrCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
+            this.SearchSrCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchSrCodeTextbox.Font = new System.Drawing.Font("Candara Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchSrCodeTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchSrCodeTextbox.Location = new System.Drawing.Point(942, 3);
+            this.SearchSrCodeTextbox.Name = "SearchSrCodeTextbox";
+            this.SearchSrCodeTextbox.Size = new System.Drawing.Size(307, 26);
+            this.SearchSrCodeTextbox.TabIndex = 5;
+            this.SearchSrCodeTextbox.WordWrap = false;
             // 
             // OpenModifyFormButton
             // 
