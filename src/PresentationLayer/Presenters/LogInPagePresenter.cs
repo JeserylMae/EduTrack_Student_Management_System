@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Windows;
 using PresentationLayer.Views;
 using PresentationLayer.UserControls.MainControls;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
 using PresentationLayer.UserControls.HomeSubControls;
+using System.Windows.Forms;
 
 
 namespace PresentationLayer.Presenters
@@ -37,21 +37,8 @@ namespace PresentationLayer.Presenters
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            // Check user existence.
-            // EXISTING: get user credentials.
-            // NOT: throw error.
-
-            // Verify password.
-            // MATCH: Get user position.
-            // NOT: throw error.
-
-            // Redirect user to home page.
-            // ADMIN: initialize admin home page.
-            // STUDENT: initialize student home page.
-            // INSTRUCTOR: initialize instructor home page.
         }
 
         private void RedirectToUserPage(ref UserModel User)
@@ -61,7 +48,10 @@ namespace PresentationLayer.Presenters
 
             if (User.Position == "ADMIN")
             {
-                homePage.RightUserControlPage = new AdminHomeRightControl();
+                IAdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
+                new AdminHomeRightPresenter(adminHomeRightControl, _edutrackMainForm);
+
+                homePage.RightUserControlPage = (UserControl)adminHomeRightControl;
             }
             else if (User.Position == "INSTRUCTOR" || User.Position == "STUDENT")
             {

@@ -1,7 +1,9 @@
 ﻿
 using PresentationLayer.UserControls.HomeSubControls;
+using PresentationLayer.UserControls.MainControls;
 using PresentationLayer.Views;
 using System;
+using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters
 {
@@ -10,7 +12,7 @@ namespace PresentationLayer.Presenters
         internal AdminHomeRightPresenter(IAdminHomeRightControl adminHomeRightControl,
                                          IEdutrackMainForm edutrackMainForm)
         {
-            _edutrackMainForm = edutrackMainForm;
+            _edutrackMainForm      = edutrackMainForm;
             _adminHomeRightControl = adminHomeRightControl;
 
             _adminHomeRightControl.CourseInfoButtonClicked       += CourseInfoButton_Clicked;
@@ -42,7 +44,11 @@ namespace PresentationLayer.Presenters
 
         private void StudPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IAdminModifyInfoControl adminModifyInfoControl = new AdminModifyInfoControl();
+            new AdminModifyInfoPresenter(adminModifyInfoControl);
+
+            _edutrackMainForm.UserControlPage = (UserControl)adminModifyInfoControl;
+            _adminHomeRightControl.DestroyControl();
         }
 
         private IEdutrackMainForm _edutrackMainForm;

@@ -1,6 +1,7 @@
 ﻿using PresentationLayer.UserControls.MainControls;
 using PresentationLayer.Views;
 using System;
+using System.Windows.Forms;
 
 
 namespace PresentationLayer.Presenters
@@ -16,8 +17,14 @@ namespace PresentationLayer.Presenters
 
         internal void LogoutButton_Clicked(object sender, EventArgs e)
         {
-            _homePage.DestroyControl();
-            _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
+            DialogResult result = MessageBox.Show("Are you sure you want to log-out?", "Edutrack", 
+                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                _homePage.DestroyControl();
+                _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
+            }
         }
 
 
