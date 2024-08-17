@@ -52,6 +52,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CloseButton = new FontAwesome.Sharp.IconButton();
+            this.CancelButton = new FontAwesome.Sharp.IconButton();
+            this.SubmitAddButton = new FontAwesome.Sharp.IconButton();
             this.GuardianContactNumberTextbox = new System.Windows.Forms.TextBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
@@ -145,9 +148,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SubmitAddButton = new FontAwesome.Sharp.IconButton();
-            this.CancelButton = new FontAwesome.Sharp.IconButton();
-            this.CloseButton = new FontAwesome.Sharp.IconButton();
+            this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -393,6 +394,7 @@
             this.panel1.AutoScrollMinSize = new System.Drawing.Size(0, 1300);
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.panel1.Controls.Add(this.SubmitUpdateButton);
             this.panel1.Controls.Add(this.CloseButton);
             this.panel1.Controls.Add(this.CancelButton);
             this.panel1.Controls.Add(this.SubmitAddButton);
@@ -517,6 +519,60 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(515, 580);
             this.panel1.TabIndex = 19;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.FlatAppearance.BorderSize = 0;
+            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.CloseButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
+            this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.CloseButton.IconSize = 24;
+            this.CloseButton.Location = new System.Drawing.Point(463, 1);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(32, 32);
+            this.CloseButton.TabIndex = 140;
+            this.CloseButton.UseVisualStyleBackColor = true;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
+            this.CancelButton.FlatAppearance.BorderSize = 0;
+            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelButton.ForeColor = System.Drawing.Color.Black;
+            this.CancelButton.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
+            this.CancelButton.IconColor = System.Drawing.Color.Black;
+            this.CancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.CancelButton.IconSize = 30;
+            this.CancelButton.Location = new System.Drawing.Point(186, 1212);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.CancelButton.Size = new System.Drawing.Size(135, 44);
+            this.CancelButton.TabIndex = 139;
+            this.CancelButton.Text = "CANCEL";
+            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CancelButton.UseVisualStyleBackColor = false;
+            // 
+            // SubmitAddButton
+            // 
+            this.SubmitAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
+            this.SubmitAddButton.FlatAppearance.BorderSize = 0;
+            this.SubmitAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitAddButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitAddButton.ForeColor = System.Drawing.Color.White;
+            this.SubmitAddButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
+            this.SubmitAddButton.IconColor = System.Drawing.Color.White;
+            this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SubmitAddButton.IconSize = 30;
+            this.SubmitAddButton.Location = new System.Drawing.Point(343, 1212);
+            this.SubmitAddButton.Name = "SubmitAddButton";
+            this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.SubmitAddButton.Size = new System.Drawing.Size(135, 44);
+            this.SubmitAddButton.TabIndex = 138;
+            this.SubmitAddButton.Text = "ADD";
+            this.SubmitAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SubmitAddButton.UseVisualStyleBackColor = false;
             // 
             // GuardianContactNumberTextbox
             // 
@@ -1485,59 +1541,25 @@
             this.label3.Size = new System.Drawing.Size(459, 52);
             this.label3.TabIndex = 19;
             // 
-            // SubmitAddButton
+            // SubmitUpdateButton
             // 
-            this.SubmitAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
-            this.SubmitAddButton.FlatAppearance.BorderSize = 0;
-            this.SubmitAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SubmitAddButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitAddButton.ForeColor = System.Drawing.Color.White;
-            this.SubmitAddButton.IconChar = FontAwesome.Sharp.IconChar.PlusSquare;
-            this.SubmitAddButton.IconColor = System.Drawing.Color.White;
-            this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SubmitAddButton.IconSize = 30;
-            this.SubmitAddButton.Location = new System.Drawing.Point(343, 1212);
-            this.SubmitAddButton.Name = "SubmitAddButton";
-            this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.SubmitAddButton.Size = new System.Drawing.Size(135, 44);
-            this.SubmitAddButton.TabIndex = 138;
-            this.SubmitAddButton.Text = "ADD";
-            this.SubmitAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SubmitAddButton.UseVisualStyleBackColor = false;
-            // 
-            // CancelButton
-            // 
-            this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.CancelButton.FlatAppearance.BorderSize = 0;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.ForeColor = System.Drawing.Color.Black;
-            this.CancelButton.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.CancelButton.IconColor = System.Drawing.Color.Black;
-            this.CancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.CancelButton.IconSize = 30;
-            this.CancelButton.Location = new System.Drawing.Point(186, 1212);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.CancelButton.Size = new System.Drawing.Size(135, 44);
-            this.CancelButton.TabIndex = 139;
-            this.CancelButton.Text = "CANCEL";
-            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CancelButton.UseVisualStyleBackColor = false;
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.FlatAppearance.BorderSize = 0;
-            this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.CloseButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.CloseButton.IconSize = 24;
-            this.CloseButton.Location = new System.Drawing.Point(463, 1);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(32, 32);
-            this.CloseButton.TabIndex = 140;
-            this.CloseButton.UseVisualStyleBackColor = true;
+            this.SubmitUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
+            this.SubmitUpdateButton.FlatAppearance.BorderSize = 0;
+            this.SubmitUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitUpdateButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitUpdateButton.ForeColor = System.Drawing.Color.White;
+            this.SubmitUpdateButton.IconChar = FontAwesome.Sharp.IconChar.SquarePen;
+            this.SubmitUpdateButton.IconColor = System.Drawing.Color.White;
+            this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SubmitUpdateButton.IconSize = 30;
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(343, 1212);
+            this.SubmitUpdateButton.Name = "SubmitUpdateButton";
+            this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.SubmitUpdateButton.Size = new System.Drawing.Size(135, 44);
+            this.SubmitUpdateButton.TabIndex = 141;
+            this.SubmitUpdateButton.Text = "UPDATE";
+            this.SubmitUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SubmitUpdateButton.UseVisualStyleBackColor = false;
             // 
             // PersonalInfoControl
             // 
@@ -1686,5 +1708,6 @@
         private FontAwesome.Sharp.IconButton SubmitAddButton;
         private FontAwesome.Sharp.IconButton CancelButton;
         private FontAwesome.Sharp.IconButton CloseButton;
+        private FontAwesome.Sharp.IconButton SubmitUpdateButton;
     }
 }
