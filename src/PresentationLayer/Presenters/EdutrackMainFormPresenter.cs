@@ -18,7 +18,10 @@ namespace PresentationLayer.Presenters
             _edutrackMainForm.MouseMoved      += EdutrackMainForm_MouseMove;
             _edutrackMainForm.MousePressed    += EdutrackMainForm_MouseDown;
 
-            _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
+            // _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
+            AdminModifyInfoControl adminModifyInfoControl = new AdminModifyInfoControl();
+            new AdminModifyInfoPresenter(adminModifyInfoControl);
+            _edutrackMainForm.UserControlPage = (UserControl)adminModifyInfoControl;
         }
 
         private void MinimizeAppButton_Click(object sender, EventArgs e)

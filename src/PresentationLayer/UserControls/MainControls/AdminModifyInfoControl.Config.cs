@@ -30,21 +30,21 @@ namespace PresentationLayer.UserControls.MainControls
             InfoTable.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             InfoTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
 
-            DataGridViewInsertData();
             ModifyDataGridViewColumnStyle();
             ModifyDataGridViewColumnWidth();
             ModifyDataGridViewColumnHeaderStyle();
+           // DataGridViewInsertData();
         }
 
-        private void DataGridViewInsertData()
-        {
-            for (int i = 0; i < 50; i++)
-            {
-                InfoTable.Rows.Add("11-0000", "Montefalco", "Knoxx", "Navarro", 
-                                   "2000-12-12", "Male", "09089", "", "Padre Castillo", 
-                                   "San Pascual", "Batangas", "Claudin N. Montefalco", "");
-            }
-        }
+        //private void DataGridViewInsertData()
+        //{
+        //    for (int i = 0; i < 50; i++)
+        //    {
+        //        InfoTable.Rows.Add("11-0000", "Montefalco", "Knoxx", "Navarro", 
+        //                           "2000-12-12", "Male", "09089", "", "Padre Castillo", 
+        //                           "San Pascual", "Batangas", "Claudin N. Montefalco", "");
+        //    }
+        //}
 
         private void ModifyDataGridViewColumnStyle()
         {
