@@ -10,14 +10,14 @@ public static class Program
     {
         string? connectionString = args.FirstOrDefault(arg => arg.StartsWith("ConnectionStrings="))?.Split("=")[1];
 
-        //connectionString = "Server@JesayMae;"
-        //                     + "Database@edutrack_server;"
-        //                     + "User@Edutrack_User;"
-        //                     + "Password@2NXzenE74FrwQk#JqwaB;"
-        //                     + "SslMode@Required;"
-        //                     + "SslCa@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\ca.pem;"
-        //                     + "SslCert@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\client-cert.pem;"
-        //                     + "SslKey@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\client-key.pem;";
+        connectionString = "Server@JesayMae;"
+                             + "Database@edutrack_server;"
+                             + "User@Edutrack_User;"
+                             + "Password@2NXzenE74FrwQk#JqwaB;"
+                             + "SslMode@Required;"
+                             + "SslCa@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\ca.pem;"
+                             + "SslCert@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\client-cert.pem;"
+                             + "SslKey@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\client-key.pem;";
 
         // Filter out the connection string argument to pass only the original arguments to the builder
         var filteredArgs = args.Where(arg => !arg.StartsWith("ConnectionStrings=")).ToArray();
