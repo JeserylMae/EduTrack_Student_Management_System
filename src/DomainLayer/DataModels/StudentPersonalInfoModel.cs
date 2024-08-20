@@ -19,9 +19,9 @@ namespace DomainLayer.DataModels
         public string Province                { get; set; }
         public string ContactNumber           { get; set; }
         public string GuardianLastName        { get; set; }
-        public string GuardinFirstName        { get; set; }
+        public string GuardianFirstName        { get; set; }
         public string GuardianMiddleName      { get; set; }
-        public DateTime GuardianContactNumber { get; set; }
+        public string GuardianContactNumber   { get; set; }
         public string GuardianZipCode         { get; set; }
         public string GuardianBarangay        { get; set; }
         public string GuardianMunicipality    { get; set; }

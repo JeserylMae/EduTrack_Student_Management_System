@@ -35,9 +35,7 @@ public static class Program
         builder.Services.AddControllersWithViews();
 
         builder.Services.AddTransient<DatabaseContext>(sp => new DatabaseContext(connectionString));
-        builder.Services.AddTransient<IEndpointRepository, EndpointRepository>();
-        builder.Services.AddTransient<IUserRepository, UserRepository>();
-        
+        builder.AddTransientServices();
 
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

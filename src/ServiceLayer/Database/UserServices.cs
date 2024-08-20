@@ -1,10 +1,10 @@
 ﻿
-
 using System;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using DomainLayer.DataModels;
+
 
 namespace ServiceLayer.Database
 {
@@ -29,7 +29,7 @@ namespace ServiceLayer.Database
                     string jsonResponse = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<UserModel>(jsonResponse);
                 }
-                else { return null; }
+                else { return new UserModel(); }
             }
         }
 

@@ -8,8 +8,6 @@ namespace InfrastructureLayer.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
-        //  private readonly ApiService _apiService;
 
         public UserController(IUserRepository userRepository)
         {
@@ -128,5 +126,9 @@ namespace InfrastructureLayer.Controllers
         //    if (response is not 0)  return Ok(new { Message = $"Successfully deleted user {UserId}." });
         //    else                    return BadRequest(new { Message = $"Failed to delete user {UserId}." });
         //}
+
+
+        //  private readonly ApiService _apiService;
+        private readonly IUserRepository _userRepository;
     }
 }

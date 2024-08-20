@@ -107,6 +107,7 @@
     <Compile Include="ConsoleServices\AppSettings.cs" />
     <Compile Include="ConsoleServices\ConsoleConnection.cs" />
     <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="Database\StudentPersonalInfoServices.cs" />
     <Compile Include="Database\UserServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EndpointAuthentication.cs" />

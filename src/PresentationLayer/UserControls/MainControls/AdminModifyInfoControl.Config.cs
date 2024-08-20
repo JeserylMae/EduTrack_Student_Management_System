@@ -10,8 +10,13 @@ namespace PresentationLayer.UserControls.MainControls
     {
         private void OnTopBarButtonsCreated()
         {
-            if (OpenAddFormButton != null)    { OpenAddFormButtonCreated.TrySetResult(true);    }
+            if (OpenAddFormButton != null) { OpenAddFormButtonCreated.TrySetResult(true); }
             if (OpenModifyFormButton != null) { OpenUpdateFormButtonCreated.TrySetResult(true); }
+        }
+
+        private void OnInfoTableCreated()
+        {
+            if (InfoTable != null) { InfoTableCreated.TrySetResult(true); }
         }
 
         private async void InitializeButtonSubscriber()
@@ -21,6 +26,12 @@ namespace PresentationLayer.UserControls.MainControls
 
             await OpenUpdateFormButtonCreated.Task;
             OpenModifyFormButton.Click += delegate { ViewUpdateForm?.Invoke(this, EventArgs.Empty); };
+        }
+
+        private async void InitializeControlSubscriber()
+        {
+            await InfoTableCreated.Task;
+            this.Load += delegate { ControlLoad?.Invoke(this, EventArgs.Empty); };
         }
 
         private void InitializeInfoTable()

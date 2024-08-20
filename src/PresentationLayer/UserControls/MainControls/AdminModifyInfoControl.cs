@@ -1,5 +1,4 @@
 ﻿
-using PresentationLayer.UserControls.AdminSubControls;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,11 +10,18 @@ namespace PresentationLayer.UserControls.MainControls
     {
         public AdminModifyInfoControl()
         {
+            InfoTableCreated            = new TaskCompletionSource<bool>();
+            OpenAddFormButtonCreated    = new TaskCompletionSource<bool>();
+            OpenUpdateFormButtonCreated = new TaskCompletionSource<bool>();
+
             InitializeComponent();
             InitializeInfoTable();
+            OnInfoTableCreated();
             OnTopBarButtonsCreated();
             InitializeButtonSubscriber();
+            InitializeControlSubscriber();
         }
+
 
         public UserControl MainControlHolderControl
         {
@@ -28,11 +34,15 @@ namespace PresentationLayer.UserControls.MainControls
             }
         }
 
+        public object[] InfoTableRowData { set => InfoTable.Rows.Add(value); }
+
+        public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
         public event EventHandler ViewUpdateForm;
 
         private UserControl _addedControl;
-        private TaskCompletionSource<bool> OpenAddFormButtonCreated      = new TaskCompletionSource<bool>();
-        private TaskCompletionSource<bool> OpenUpdateFormButtonCreated   = new TaskCompletionSource<bool>();
+        private TaskCompletionSource<bool> InfoTableCreated;
+        private TaskCompletionSource<bool> OpenAddFormButtonCreated;
+        private TaskCompletionSource<bool> OpenUpdateFormButtonCreated;
     }
 }

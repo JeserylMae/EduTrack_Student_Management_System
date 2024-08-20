@@ -7,10 +7,10 @@ using System.Data;
 
 namespace InfrastructureLayer.Database
 {
-    public class StudentPersonalInfoRepository
+    public class StudentPersonalInfoRepository : IStudentPersonalInfoRepository
     {
-        public StudentPersonalInfoRepository(DatabaseContext databaseContext) 
-        { 
+        public StudentPersonalInfoRepository(DatabaseContext databaseContext)
+        {
             _databaseContext = databaseContext;
         }
 
