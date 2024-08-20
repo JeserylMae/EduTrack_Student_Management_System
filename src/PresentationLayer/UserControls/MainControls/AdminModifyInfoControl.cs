@@ -34,7 +34,14 @@ namespace PresentationLayer.UserControls.MainControls
             }
         }
 
-        public object[] InfoTableRowData { set => InfoTable.Rows.Add(value); }
+        public object[] InfoTableRowData 
+        {
+            set 
+            { 
+                InfoTable.Rows.Add(value);
+                InfoTable.Rows[InfoTable.RowCount - 1].Height = 28;
+            } 
+        }
 
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
