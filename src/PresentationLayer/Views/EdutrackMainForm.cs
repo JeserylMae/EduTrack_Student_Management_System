@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace PresentationLayer.Views
 {
     public partial class EdutrackMainForm : Form, IEdutrackMainForm
@@ -36,6 +37,11 @@ namespace PresentationLayer.Views
             }
         }
 
+        public void SetWindowToMaximized()
+        {
+            WindowMaximized(this, EventArgs.Empty);
+        }
+
         public string ConnectionString { get;             set;                     }
         public bool IsAppMaximized     { get;             set;                     }
         public int TopPosition         { get => Top;      set => Top = value;      }
@@ -53,7 +59,6 @@ namespace PresentationLayer.Views
         public event EventHandler WindowMinimized;
         public event MouseEventHandler MouseMoved;
         public event MouseEventHandler MousePressed;
-
 
         private UserControl _userControl;
         private IServerInfoForm _serverInfoForm;

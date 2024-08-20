@@ -28,7 +28,7 @@ namespace PresentationLayer.Presenters
             
             foreach(StudentPersonalInfoModel student in list)
             {
-                object[] studentInfo = new object[14];
+                object[] studentInfo = new object[15];
                 AddStudentPersonalInfoToObject(ref studentInfo, student);
                
                 _adminModifyInfoControl.InfoTableRowData = studentInfo;
@@ -61,7 +61,9 @@ namespace PresentationLayer.Presenters
             studentInfo[1] = student.LastName;
             studentInfo[2] = student.FirstName;
             studentInfo[3] = student.MiddleName;
-            studentInfo[4] = student.BirthDate.Date;
+            studentInfo[4] = $"{student.BirthDate.Month}-"
+                           + $"{student.BirthDate.Day}-" 
+                           + $"{student.BirthDate.Year}";
             studentInfo[5] = student.Gender;
             studentInfo[6] = student.ContactNumber;
             studentInfo[7] = student.EmailAddress;
@@ -74,7 +76,7 @@ namespace PresentationLayer.Presenters
                             + $"{student.GuardianLastName}";
             studentInfo[13] = student.GuardianZipCode != string.Empty?
                               $"{student.GuardianZipCode} {address}"
-                              : address;           
+                              : address;          
             studentInfo[14] = student.GuardianContactNumber;
         }
         #endregion

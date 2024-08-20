@@ -1,11 +1,9 @@
 ﻿
 using System;
 using System.Windows.Forms;
-using System.Web.Configuration;
 using PresentationLayer.Views;
 using PresentationLayer.Presenters;
 using ServiceLayer.ConsoleServices;
-using PresentationLayer.UserControls;
 
 ///
 /// CREATE A METHOD WHICH AUTOMATICALLY ADDS THE secrets.json file 

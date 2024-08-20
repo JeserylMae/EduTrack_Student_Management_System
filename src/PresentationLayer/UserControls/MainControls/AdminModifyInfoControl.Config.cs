@@ -88,6 +88,7 @@ namespace PresentationLayer.UserControls.MainControls
             InfoTable.Columns["EmergencyContactPerson"].Width = 250;
             InfoTable.Columns["ContactPersonAddress"].Width   = 250;
             InfoTable.Columns["ContactPersonNumber"].Width    = 170;
+            InfoTable.Columns["EmailAddress"].Width           = 200;
         }
     }
 }

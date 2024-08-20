@@ -12,10 +12,10 @@ namespace PresentationLayer.Views
         int FormWidth                       { get; set; }
         int FormHeight                      { get; set; }
         bool IsAppMaximized                 { get; set; }
-        Point WindowLocation                { get; set; }
         string ConnectionString             { get; set; }
-        UserControl UserControlPage         { get; set; }
         bool EnableMaximizeAppButton        { get; set; }
+        Point WindowLocation                { get; set; }
+        UserControl UserControlPage         { get; set; }
         FormWindowState FormWindowState     { get; set; }
         FormStartPosition FormStartPosition { get; set; }
 
@@ -24,5 +24,7 @@ namespace PresentationLayer.Views
         event EventHandler WindowMinimized;
         event MouseEventHandler MouseMoved;
         event MouseEventHandler MousePressed;
+
+        void SetWindowToMaximized();
     }
 }
