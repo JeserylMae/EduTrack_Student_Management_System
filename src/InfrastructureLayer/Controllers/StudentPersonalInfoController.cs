@@ -1,4 +1,5 @@
 ﻿
+using DomainLayer.DataModels;
 using InfrastructureLayer.Database;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,10 +18,22 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllStudentPersonalInfo()
         {
-            var userList = await _studentPersonalInfoRepository.GetAll();
+            List<StudentPersonalInfoModel> userList = await _studentPersonalInfoRepository.GetAll();
 
             if (userList is not null) { return Ok(userList); }
             else { return NotFound(); }  
+        }
+
+        [HttpPost("InsertNew")]
+        public async Task<IActionResult> InsertNewStudentPersonalInfo(StudentPersonalInfoModel studentPersonalInfo,
+                                                            string DefaultPassword, string Position,
+                                                            string StudentCode, string GuardianCode)
+        {
+            int result = await _studentPersonalInfoRepository.InsertNew(studentPersonalInfo,
+                                       DefaultPassword, Position, StudentCode, GuardianCode);
+
+            if (result is not 0) { return Ok(result); }
+            else { return BadRequest( new { Message = $"Failed to add student with SR-Code {studentPersonalInfo.SrCode}."}); }
         }
 
 
