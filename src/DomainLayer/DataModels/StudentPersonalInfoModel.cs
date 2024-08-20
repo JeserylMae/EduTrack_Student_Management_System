@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using System.Globalization;
 
 
 namespace DomainLayer.DataModels
@@ -18,8 +19,9 @@ namespace DomainLayer.DataModels
         public string Municipality            { get; set; }
         public string Province                { get; set; }
         public string ContactNumber           { get; set; }
+        public string EmailAddress            { get; set; }
         public string GuardianLastName        { get; set; }
-        public string GuardianFirstName        { get; set; }
+        public string GuardianFirstName       { get; set; }
         public string GuardianMiddleName      { get; set; }
         public string GuardianContactNumber   { get; set; }
         public string GuardianZipCode         { get; set; }
