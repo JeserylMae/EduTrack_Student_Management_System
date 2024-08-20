@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.PageIndicatorLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.BasicInfoIndicatorLabel = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.label14 = new System.Windows.Forms.Label();
             this.MiddleNameTextbox = new System.Windows.Forms.TextBox();
@@ -45,13 +45,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.SrCodeTextbox = new System.Windows.Forms.TextBox();
+            this.UserCodeTextbox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.UserCodeIndicatorLabel = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DefaultPasswordTextbox = new System.Windows.Forms.TextBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.EmailAddressTextbox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
             this.CloseButton = new FontAwesome.Sharp.IconButton();
             this.CancelButton = new FontAwesome.Sharp.IconButton();
             this.SubmitAddButton = new FontAwesome.Sharp.IconButton();
@@ -101,7 +110,7 @@
             this.label44 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.GenderComboBox = new System.Windows.Forms.ComboBox();
-            this.GenderTextbox = new System.Windows.Forms.TextBox();
+            this.ContactNumberTextbox = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
@@ -148,7 +157,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -156,16 +164,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // PageIndicatorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(2, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(426, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Student Personal Information Form";
+            this.PageIndicatorLabel.AutoSize = true;
+            this.PageIndicatorLabel.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageIndicatorLabel.ForeColor = System.Drawing.Color.Black;
+            this.PageIndicatorLabel.Location = new System.Drawing.Point(2, 22);
+            this.PageIndicatorLabel.Name = "PageIndicatorLabel";
+            this.PageIndicatorLabel.Size = new System.Drawing.Size(426, 33);
+            this.PageIndicatorLabel.TabIndex = 0;
+            this.PageIndicatorLabel.Text = "Student Personal Information Form";
             // 
             // pictureBox1
             // 
@@ -177,17 +185,17 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // BasicInfoIndicatorLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
-            this.label2.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(17, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 19);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Student Basic Information";
+            this.BasicInfoIndicatorLabel.AutoSize = true;
+            this.BasicInfoIndicatorLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
+            this.BasicInfoIndicatorLabel.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold);
+            this.BasicInfoIndicatorLabel.ForeColor = System.Drawing.Color.Black;
+            this.BasicInfoIndicatorLabel.Location = new System.Drawing.Point(17, 82);
+            this.BasicInfoIndicatorLabel.Name = "BasicInfoIndicatorLabel";
+            this.BasicInfoIndicatorLabel.Size = new System.Drawing.Size(189, 19);
+            this.BasicInfoIndicatorLabel.TabIndex = 2;
+            this.BasicInfoIndicatorLabel.Text = "Student Basic Information";
             // 
             // iconPictureBox1
             // 
@@ -328,17 +336,17 @@
             this.label8.Size = new System.Drawing.Size(339, 25);
             this.label8.TabIndex = 4;
             // 
-            // SrCodeTextbox
+            // UserCodeTextbox
             // 
-            this.SrCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SrCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SrCodeTextbox.Font = new System.Drawing.Font("Candara", 20F, System.Drawing.FontStyle.Bold);
-            this.SrCodeTextbox.ForeColor = System.Drawing.Color.Black;
-            this.SrCodeTextbox.Location = new System.Drawing.Point(26, 147);
-            this.SrCodeTextbox.Name = "SrCodeTextbox";
-            this.SrCodeTextbox.Size = new System.Drawing.Size(441, 33);
-            this.SrCodeTextbox.TabIndex = 0;
-            this.SrCodeTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.UserCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.UserCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserCodeTextbox.Font = new System.Drawing.Font("Candara", 20F, System.Drawing.FontStyle.Bold);
+            this.UserCodeTextbox.ForeColor = System.Drawing.Color.Black;
+            this.UserCodeTextbox.Location = new System.Drawing.Point(26, 147);
+            this.UserCodeTextbox.Name = "UserCodeTextbox";
+            this.UserCodeTextbox.Size = new System.Drawing.Size(441, 33);
+            this.UserCodeTextbox.TabIndex = 0;
+            this.UserCodeTextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label15
             // 
@@ -348,17 +356,17 @@
             this.label15.Size = new System.Drawing.Size(457, 47);
             this.label15.TabIndex = 13;
             // 
-            // label16
+            // UserCodeIndicatorLabel
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(25, 129);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(68, 19);
-            this.label16.TabIndex = 15;
-            this.label16.Text = "SR CODE";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.UserCodeIndicatorLabel.AutoSize = true;
+            this.UserCodeIndicatorLabel.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserCodeIndicatorLabel.ForeColor = System.Drawing.Color.Black;
+            this.UserCodeIndicatorLabel.Location = new System.Drawing.Point(25, 129);
+            this.UserCodeIndicatorLabel.Name = "UserCodeIndicatorLabel";
+            this.UserCodeIndicatorLabel.Size = new System.Drawing.Size(68, 19);
+            this.UserCodeIndicatorLabel.TabIndex = 15;
+            this.UserCodeIndicatorLabel.Text = "SR CODE";
+            this.UserCodeIndicatorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label17
             // 
@@ -391,9 +399,17 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.AutoScrollMinSize = new System.Drawing.Size(0, 1300);
+            this.panel1.AutoScrollMinSize = new System.Drawing.Size(0, 1400);
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.panel1.Controls.Add(this.DefaultPasswordTextbox);
+            this.panel1.Controls.Add(this.label93);
+            this.panel1.Controls.Add(this.label92);
+            this.panel1.Controls.Add(this.label87);
+            this.panel1.Controls.Add(this.EmailAddressTextbox);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label86);
+            this.panel1.Controls.Add(this.label85);
             this.panel1.Controls.Add(this.SubmitUpdateButton);
             this.panel1.Controls.Add(this.CloseButton);
             this.panel1.Controls.Add(this.CancelButton);
@@ -444,7 +460,7 @@
             this.panel1.Controls.Add(this.label44);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.GenderComboBox);
-            this.panel1.Controls.Add(this.GenderTextbox);
+            this.panel1.Controls.Add(this.ContactNumberTextbox);
             this.panel1.Controls.Add(this.label31);
             this.panel1.Controls.Add(this.label46);
             this.panel1.Controls.Add(this.label50);
@@ -506,19 +522,117 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.SrCodeTextbox);
+            this.panel1.Controls.Add(this.UserCodeIndicatorLabel);
+            this.panel1.Controls.Add(this.UserCodeTextbox);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.iconPictureBox1);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.BasicInfoIndicatorLabel);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.PageIndicatorLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(515, 580);
             this.panel1.TabIndex = 19;
+            // 
+            // DefaultPasswordTextbox
+            // 
+            this.DefaultPasswordTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.DefaultPasswordTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DefaultPasswordTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.DefaultPasswordTextbox.ForeColor = System.Drawing.Color.Black;
+            this.DefaultPasswordTextbox.Location = new System.Drawing.Point(158, 725);
+            this.DefaultPasswordTextbox.Name = "DefaultPasswordTextbox";
+            this.DefaultPasswordTextbox.Size = new System.Drawing.Size(300, 17);
+            this.DefaultPasswordTextbox.TabIndex = 149;
+            // 
+            // label93
+            // 
+            this.label93.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label93.Location = new System.Drawing.Point(151, 722);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(312, 23);
+            this.label93.TabIndex = 148;
+            // 
+            // label92
+            // 
+            this.label92.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
+            this.label92.Location = new System.Drawing.Point(150, 721);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(314, 25);
+            this.label92.TabIndex = 147;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label87.ForeColor = System.Drawing.Color.Black;
+            this.label87.Location = new System.Drawing.Point(28, 720);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(116, 18);
+            this.label87.TabIndex = 146;
+            this.label87.Text = "Default Password";
+            this.label87.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // EmailAddressTextbox
+            // 
+            this.EmailAddressTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.EmailAddressTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EmailAddressTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.EmailAddressTextbox.ForeColor = System.Drawing.Color.Black;
+            this.EmailAddressTextbox.Location = new System.Drawing.Point(136, 688);
+            this.EmailAddressTextbox.Name = "EmailAddressTextbox";
+            this.EmailAddressTextbox.Size = new System.Drawing.Size(320, 17);
+            this.EmailAddressTextbox.TabIndex = 145;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label7.Location = new System.Drawing.Point(129, 685);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(333, 23);
+            this.label7.TabIndex = 142;
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label86.ForeColor = System.Drawing.Color.Black;
+            this.label86.Location = new System.Drawing.Point(28, 688);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(94, 18);
+            this.label86.TabIndex = 144;
+            this.label86.Text = "Email Address";
+            this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label85
+            // 
+            this.label85.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
+            this.label85.Location = new System.Drawing.Point(128, 684);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(335, 25);
+            this.label85.TabIndex = 143;
+            // 
+            // SubmitUpdateButton
+            // 
+            this.SubmitUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
+            this.SubmitUpdateButton.FlatAppearance.BorderSize = 0;
+            this.SubmitUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitUpdateButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitUpdateButton.ForeColor = System.Drawing.Color.White;
+            this.SubmitUpdateButton.IconChar = FontAwesome.Sharp.IconChar.SquarePen;
+            this.SubmitUpdateButton.IconColor = System.Drawing.Color.White;
+            this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SubmitUpdateButton.IconSize = 30;
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(343, 1291);
+            this.SubmitUpdateButton.Name = "SubmitUpdateButton";
+            this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.SubmitUpdateButton.Size = new System.Drawing.Size(135, 44);
+            this.SubmitUpdateButton.TabIndex = 141;
+            this.SubmitUpdateButton.Text = "UPDATE";
+            this.SubmitUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SubmitUpdateButton.UseVisualStyleBackColor = false;
             // 
             // CloseButton
             // 
@@ -545,7 +659,7 @@
             this.CancelButton.IconColor = System.Drawing.Color.Black;
             this.CancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelButton.IconSize = 30;
-            this.CancelButton.Location = new System.Drawing.Point(186, 1212);
+            this.CancelButton.Location = new System.Drawing.Point(186, 1291);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.CancelButton.Size = new System.Drawing.Size(135, 44);
@@ -565,7 +679,7 @@
             this.SubmitAddButton.IconColor = System.Drawing.Color.White;
             this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitAddButton.IconSize = 30;
-            this.SubmitAddButton.Location = new System.Drawing.Point(343, 1212);
+            this.SubmitAddButton.Location = new System.Drawing.Point(343, 1291);
             this.SubmitAddButton.Name = "SubmitAddButton";
             this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.SubmitAddButton.Size = new System.Drawing.Size(135, 44);
@@ -580,7 +694,7 @@
             this.GuardianContactNumberTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianContactNumberTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianContactNumberTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianContactNumberTextbox.Location = new System.Drawing.Point(150, 1137);
+            this.GuardianContactNumberTextbox.Location = new System.Drawing.Point(150, 1216);
             this.GuardianContactNumberTextbox.Name = "GuardianContactNumberTextbox";
             this.GuardianContactNumberTextbox.Size = new System.Drawing.Size(308, 17);
             this.GuardianContactNumberTextbox.TabIndex = 137;
@@ -588,7 +702,7 @@
             // label83
             // 
             this.label83.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label83.Location = new System.Drawing.Point(145, 1134);
+            this.label83.Location = new System.Drawing.Point(145, 1213);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(317, 23);
             this.label83.TabIndex = 136;
@@ -596,7 +710,7 @@
             // label84
             // 
             this.label84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label84.Location = new System.Drawing.Point(144, 1133);
+            this.label84.Location = new System.Drawing.Point(144, 1212);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(319, 25);
             this.label84.TabIndex = 135;
@@ -606,7 +720,7 @@
             this.label88.AutoSize = true;
             this.label88.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label88.ForeColor = System.Drawing.Color.Black;
-            this.label88.Location = new System.Drawing.Point(28, 1137);
+            this.label88.Location = new System.Drawing.Point(28, 1216);
             this.label88.Name = "label88";
             this.label88.Size = new System.Drawing.Size(110, 18);
             this.label88.TabIndex = 131;
@@ -618,7 +732,7 @@
             this.label89.AutoSize = true;
             this.label89.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label89.ForeColor = System.Drawing.Color.Black;
-            this.label89.Location = new System.Drawing.Point(29, 1110);
+            this.label89.Location = new System.Drawing.Point(29, 1189);
             this.label89.Name = "label89";
             this.label89.Size = new System.Drawing.Size(161, 19);
             this.label89.TabIndex = 130;
@@ -628,7 +742,7 @@
             // label90
             // 
             this.label90.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label90.Location = new System.Drawing.Point(20, 1121);
+            this.label90.Location = new System.Drawing.Point(20, 1200);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(457, 50);
             this.label90.TabIndex = 129;
@@ -636,7 +750,7 @@
             // label91
             // 
             this.label91.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label91.Location = new System.Drawing.Point(19, 1120);
+            this.label91.Location = new System.Drawing.Point(19, 1199);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(459, 52);
             this.label91.TabIndex = 128;
@@ -647,7 +761,7 @@
             this.GuardianProvinceTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianProvinceTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianProvinceTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianProvinceTextbox.Location = new System.Drawing.Point(124, 1055);
+            this.GuardianProvinceTextbox.Location = new System.Drawing.Point(124, 1134);
             this.GuardianProvinceTextbox.Name = "GuardianProvinceTextbox";
             this.GuardianProvinceTextbox.Size = new System.Drawing.Size(333, 17);
             this.GuardianProvinceTextbox.TabIndex = 125;
@@ -655,7 +769,7 @@
             // label68
             // 
             this.label68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label68.Location = new System.Drawing.Point(118, 1052);
+            this.label68.Location = new System.Drawing.Point(118, 1131);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(345, 23);
             this.label68.TabIndex = 127;
@@ -663,7 +777,7 @@
             // label69
             // 
             this.label69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label69.Location = new System.Drawing.Point(117, 1051);
+            this.label69.Location = new System.Drawing.Point(117, 1130);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(347, 25);
             this.label69.TabIndex = 126;
@@ -673,7 +787,7 @@
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.Color.Black;
-            this.label70.Location = new System.Drawing.Point(49, 1055);
+            this.label70.Location = new System.Drawing.Point(49, 1134);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(62, 18);
             this.label70.TabIndex = 124;
@@ -685,7 +799,7 @@
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label71.ForeColor = System.Drawing.Color.Black;
-            this.label71.Location = new System.Drawing.Point(29, 922);
+            this.label71.Location = new System.Drawing.Point(29, 1001);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(73, 19);
             this.label71.TabIndex = 123;
@@ -698,7 +812,7 @@
             this.GuardianMunicipalityTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianMunicipalityTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianMunicipalityTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianMunicipalityTextbox.Location = new System.Drawing.Point(124, 1020);
+            this.GuardianMunicipalityTextbox.Location = new System.Drawing.Point(124, 1099);
             this.GuardianMunicipalityTextbox.Name = "GuardianMunicipalityTextbox";
             this.GuardianMunicipalityTextbox.Size = new System.Drawing.Size(333, 17);
             this.GuardianMunicipalityTextbox.TabIndex = 122;
@@ -709,7 +823,7 @@
             this.GuardianBarangayTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianBarangayTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianBarangayTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianBarangayTextbox.Location = new System.Drawing.Point(124, 985);
+            this.GuardianBarangayTextbox.Location = new System.Drawing.Point(124, 1064);
             this.GuardianBarangayTextbox.Name = "GuardianBarangayTextbox";
             this.GuardianBarangayTextbox.Size = new System.Drawing.Size(333, 17);
             this.GuardianBarangayTextbox.TabIndex = 116;
@@ -717,7 +831,7 @@
             // label72
             // 
             this.label72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label72.Location = new System.Drawing.Point(118, 1017);
+            this.label72.Location = new System.Drawing.Point(118, 1096);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(345, 23);
             this.label72.TabIndex = 121;
@@ -725,7 +839,7 @@
             // label73
             // 
             this.label73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label73.Location = new System.Drawing.Point(118, 982);
+            this.label73.Location = new System.Drawing.Point(118, 1061);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(345, 23);
             this.label73.TabIndex = 120;
@@ -733,7 +847,7 @@
             // label74
             // 
             this.label74.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label74.Location = new System.Drawing.Point(117, 1016);
+            this.label74.Location = new System.Drawing.Point(117, 1095);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(347, 25);
             this.label74.TabIndex = 119;
@@ -741,7 +855,7 @@
             // label75
             // 
             this.label75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label75.Location = new System.Drawing.Point(117, 981);
+            this.label75.Location = new System.Drawing.Point(117, 1060);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(347, 25);
             this.label75.TabIndex = 118;
@@ -752,7 +866,7 @@
             this.GuardianZipCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianZipCodeTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianZipCodeTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianZipCodeTextbox.Location = new System.Drawing.Point(124, 952);
+            this.GuardianZipCodeTextbox.Location = new System.Drawing.Point(124, 1031);
             this.GuardianZipCodeTextbox.Name = "GuardianZipCodeTextbox";
             this.GuardianZipCodeTextbox.Size = new System.Drawing.Size(333, 17);
             this.GuardianZipCodeTextbox.TabIndex = 114;
@@ -760,7 +874,7 @@
             // label76
             // 
             this.label76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label76.Location = new System.Drawing.Point(118, 949);
+            this.label76.Location = new System.Drawing.Point(118, 1028);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(345, 23);
             this.label76.TabIndex = 117;
@@ -770,7 +884,7 @@
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label77.ForeColor = System.Drawing.Color.Black;
-            this.label77.Location = new System.Drawing.Point(28, 1020);
+            this.label77.Location = new System.Drawing.Point(28, 1099);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(83, 18);
             this.label77.TabIndex = 113;
@@ -782,7 +896,7 @@
             this.label78.AutoSize = true;
             this.label78.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label78.ForeColor = System.Drawing.Color.Black;
-            this.label78.Location = new System.Drawing.Point(45, 985);
+            this.label78.Location = new System.Drawing.Point(45, 1064);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(66, 18);
             this.label78.TabIndex = 112;
@@ -794,7 +908,7 @@
             this.label79.AutoSize = true;
             this.label79.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label79.ForeColor = System.Drawing.Color.Black;
-            this.label79.Location = new System.Drawing.Point(49, 952);
+            this.label79.Location = new System.Drawing.Point(49, 1031);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(62, 18);
             this.label79.TabIndex = 111;
@@ -804,7 +918,7 @@
             // label80
             // 
             this.label80.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label80.Location = new System.Drawing.Point(117, 948);
+            this.label80.Location = new System.Drawing.Point(117, 1027);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(347, 25);
             this.label80.TabIndex = 115;
@@ -812,7 +926,7 @@
             // label81
             // 
             this.label81.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label81.Location = new System.Drawing.Point(20, 934);
+            this.label81.Location = new System.Drawing.Point(20, 1013);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(457, 156);
             this.label81.TabIndex = 110;
@@ -820,7 +934,7 @@
             // label82
             // 
             this.label82.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label82.Location = new System.Drawing.Point(19, 933);
+            this.label82.Location = new System.Drawing.Point(19, 1012);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(459, 158);
             this.label82.TabIndex = 109;
@@ -830,7 +944,7 @@
             this.textBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.textBox20.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox20.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
-            this.textBox20.Location = new System.Drawing.Point(92, 962);
+            this.textBox20.Location = new System.Drawing.Point(92, 1041);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(122, 17);
             this.textBox20.TabIndex = 108;
@@ -840,7 +954,7 @@
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.Black;
-            this.label48.Location = new System.Drawing.Point(29, 776);
+            this.label48.Location = new System.Drawing.Point(29, 855);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(90, 19);
             this.label48.TabIndex = 107;
@@ -853,7 +967,7 @@
             this.GuardianMiddleNameTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianMiddleNameTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianMiddleNameTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianMiddleNameTextbox.Location = new System.Drawing.Point(132, 870);
+            this.GuardianMiddleNameTextbox.Location = new System.Drawing.Point(132, 949);
             this.GuardianMiddleNameTextbox.Name = "GuardianMiddleNameTextbox";
             this.GuardianMiddleNameTextbox.Size = new System.Drawing.Size(325, 17);
             this.GuardianMiddleNameTextbox.TabIndex = 104;
@@ -864,7 +978,7 @@
             this.GuardianFirstNameTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianFirstNameTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianFirstNameTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianFirstNameTextbox.Location = new System.Drawing.Point(132, 835);
+            this.GuardianFirstNameTextbox.Location = new System.Drawing.Point(132, 914);
             this.GuardianFirstNameTextbox.Name = "GuardianFirstNameTextbox";
             this.GuardianFirstNameTextbox.Size = new System.Drawing.Size(325, 17);
             this.GuardianFirstNameTextbox.TabIndex = 98;
@@ -872,7 +986,7 @@
             // label53
             // 
             this.label53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label53.Location = new System.Drawing.Point(126, 867);
+            this.label53.Location = new System.Drawing.Point(126, 946);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(337, 23);
             this.label53.TabIndex = 103;
@@ -880,7 +994,7 @@
             // label58
             // 
             this.label58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label58.Location = new System.Drawing.Point(126, 832);
+            this.label58.Location = new System.Drawing.Point(126, 911);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(337, 23);
             this.label58.TabIndex = 102;
@@ -888,7 +1002,7 @@
             // label59
             // 
             this.label59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label59.Location = new System.Drawing.Point(125, 866);
+            this.label59.Location = new System.Drawing.Point(125, 945);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(339, 25);
             this.label59.TabIndex = 101;
@@ -896,7 +1010,7 @@
             // label60
             // 
             this.label60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label60.Location = new System.Drawing.Point(125, 831);
+            this.label60.Location = new System.Drawing.Point(125, 910);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(339, 25);
             this.label60.TabIndex = 100;
@@ -907,7 +1021,7 @@
             this.GuardianLastNameTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GuardianLastNameTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GuardianLastNameTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GuardianLastNameTextbox.Location = new System.Drawing.Point(132, 802);
+            this.GuardianLastNameTextbox.Location = new System.Drawing.Point(132, 881);
             this.GuardianLastNameTextbox.Name = "GuardianLastNameTextbox";
             this.GuardianLastNameTextbox.Size = new System.Drawing.Size(325, 17);
             this.GuardianLastNameTextbox.TabIndex = 96;
@@ -915,7 +1029,7 @@
             // label61
             // 
             this.label61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label61.Location = new System.Drawing.Point(126, 799);
+            this.label61.Location = new System.Drawing.Point(126, 878);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(337, 23);
             this.label61.TabIndex = 99;
@@ -925,7 +1039,7 @@
             this.label62.AutoSize = true;
             this.label62.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label62.ForeColor = System.Drawing.Color.Black;
-            this.label62.Location = new System.Drawing.Point(28, 870);
+            this.label62.Location = new System.Drawing.Point(28, 949);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(91, 18);
             this.label62.TabIndex = 95;
@@ -937,7 +1051,7 @@
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label63.ForeColor = System.Drawing.Color.Black;
-            this.label63.Location = new System.Drawing.Point(45, 835);
+            this.label63.Location = new System.Drawing.Point(45, 914);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(74, 18);
             this.label63.TabIndex = 94;
@@ -949,7 +1063,7 @@
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.ForeColor = System.Drawing.Color.Black;
-            this.label64.Location = new System.Drawing.Point(46, 802);
+            this.label64.Location = new System.Drawing.Point(46, 881);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(73, 18);
             this.label64.TabIndex = 93;
@@ -959,7 +1073,7 @@
             // label65
             // 
             this.label65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label65.Location = new System.Drawing.Point(125, 798);
+            this.label65.Location = new System.Drawing.Point(125, 877);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(339, 25);
             this.label65.TabIndex = 97;
@@ -967,7 +1081,7 @@
             // label66
             // 
             this.label66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label66.Location = new System.Drawing.Point(20, 787);
+            this.label66.Location = new System.Drawing.Point(20, 866);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(457, 115);
             this.label66.TabIndex = 106;
@@ -975,7 +1089,7 @@
             // label67
             // 
             this.label67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.label67.Location = new System.Drawing.Point(19, 786);
+            this.label67.Location = new System.Drawing.Point(19, 865);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(459, 117);
             this.label67.TabIndex = 105;
@@ -988,7 +1102,7 @@
             this.iconPictureBox2.IconColor = System.Drawing.Color.Black;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 26;
-            this.iconPictureBox2.Location = new System.Drawing.Point(454, 725);
+            this.iconPictureBox2.Location = new System.Drawing.Point(454, 804);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(32, 26);
             this.iconPictureBox2.TabIndex = 92;
@@ -1000,7 +1114,7 @@
             this.label44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
             this.label44.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold);
             this.label44.ForeColor = System.Drawing.Color.Black;
-            this.label44.Location = new System.Drawing.Point(17, 726);
+            this.label44.Location = new System.Drawing.Point(17, 805);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(158, 19);
             this.label44.TabIndex = 91;
@@ -1009,7 +1123,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::PresentationLayer.Properties.Resources.gray_label_highlighter;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 719);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 798);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(479, 34);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1033,16 +1147,16 @@
             this.GenderComboBox.Size = new System.Drawing.Size(99, 23);
             this.GenderComboBox.TabIndex = 89;
             // 
-            // GenderTextbox
+            // ContactNumberTextbox
             // 
-            this.GenderTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.GenderTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GenderTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
-            this.GenderTextbox.ForeColor = System.Drawing.Color.Black;
-            this.GenderTextbox.Location = new System.Drawing.Point(331, 651);
-            this.GenderTextbox.Name = "GenderTextbox";
-            this.GenderTextbox.Size = new System.Drawing.Size(125, 17);
-            this.GenderTextbox.TabIndex = 88;
+            this.ContactNumberTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.ContactNumberTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ContactNumberTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.ContactNumberTextbox.ForeColor = System.Drawing.Color.Black;
+            this.ContactNumberTextbox.Location = new System.Drawing.Point(331, 651);
+            this.ContactNumberTextbox.Name = "ContactNumberTextbox";
+            this.ContactNumberTextbox.Size = new System.Drawing.Size(125, 17);
+            this.ContactNumberTextbox.TabIndex = 88;
             // 
             // label31
             // 
@@ -1117,7 +1231,7 @@
             this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.label56.Location = new System.Drawing.Point(18, 635);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(457, 50);
+            this.label56.Size = new System.Drawing.Size(457, 123);
             this.label56.TabIndex = 80;
             // 
             // label57
@@ -1125,7 +1239,7 @@
             this.label57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
             this.label57.Location = new System.Drawing.Point(17, 634);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(459, 52);
+            this.label57.Size = new System.Drawing.Size(459, 125);
             this.label57.TabIndex = 79;
             // 
             // YearComboBox
@@ -1541,26 +1655,6 @@
             this.label3.Size = new System.Drawing.Size(459, 52);
             this.label3.TabIndex = 19;
             // 
-            // SubmitUpdateButton
-            // 
-            this.SubmitUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
-            this.SubmitUpdateButton.FlatAppearance.BorderSize = 0;
-            this.SubmitUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SubmitUpdateButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitUpdateButton.ForeColor = System.Drawing.Color.White;
-            this.SubmitUpdateButton.IconChar = FontAwesome.Sharp.IconChar.SquarePen;
-            this.SubmitUpdateButton.IconColor = System.Drawing.Color.White;
-            this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SubmitUpdateButton.IconSize = 30;
-            this.SubmitUpdateButton.Location = new System.Drawing.Point(343, 1212);
-            this.SubmitUpdateButton.Name = "SubmitUpdateButton";
-            this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.SubmitUpdateButton.Size = new System.Drawing.Size(135, 44);
-            this.SubmitUpdateButton.TabIndex = 141;
-            this.SubmitUpdateButton.Text = "UPDATE";
-            this.SubmitUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SubmitUpdateButton.UseVisualStyleBackColor = false;
-            // 
             // PersonalInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -1588,11 +1682,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label PageIndicatorLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label BasicInfoIndicatorLabel;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private System.Windows.Forms.TextBox SrCodeTextbox;
+        private System.Windows.Forms.TextBox UserCodeTextbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -1607,7 +1701,7 @@
         private System.Windows.Forms.TextBox FirstNameTextbox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label UserCodeIndicatorLabel;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -1650,7 +1744,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ComboBox YearComboBox;
         private System.Windows.Forms.ComboBox GenderComboBox;
-        private System.Windows.Forms.TextBox GenderTextbox;
+        private System.Windows.Forms.TextBox ContactNumberTextbox;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label50;
@@ -1709,5 +1803,13 @@
         private FontAwesome.Sharp.IconButton CancelButton;
         private FontAwesome.Sharp.IconButton CloseButton;
         private FontAwesome.Sharp.IconButton SubmitUpdateButton;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.TextBox DefaultPasswordTextbox;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.TextBox EmailAddressTextbox;
+        private System.Windows.Forms.Label label86;
     }
 }
