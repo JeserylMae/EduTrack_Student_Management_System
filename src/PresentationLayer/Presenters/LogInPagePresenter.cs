@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using PresentationLayer.Views;
 using PresentationLayer.UserControls.MainControls;
 using DomainLayer.DataModels;
@@ -33,6 +34,8 @@ namespace PresentationLayer.Presenters
                 ValidateUser(ref User, ref e_User);
                 
                 _edutrackMainForm.EnableMaximizeAppButton = true;
+                _edutrackMainForm.SetWindowToMaximized();
+
                 RedirectToUserPage(ref User);
             }
             catch (Exception ex) 
