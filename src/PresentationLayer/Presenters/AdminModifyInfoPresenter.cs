@@ -6,7 +6,6 @@ using PresentationLayer.UserControls.AdminSubControls;
 using System.Collections.Generic;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
-using System.Threading.Tasks;
 
 
 namespace PresentationLayer.Presenters
@@ -29,7 +28,7 @@ namespace PresentationLayer.Presenters
             
             foreach(StudentPersonalInfoModel student in list)
             {
-                object[] studentInfo = new object[1];
+                object[] studentInfo = new object[14];
                 AddStudentPersonalInfoToObject(ref studentInfo, student);
                
                 _adminModifyInfoControl.InfoTableRowData = studentInfo;
@@ -55,27 +54,28 @@ namespace PresentationLayer.Presenters
                                             StudentPersonalInfoModel student)
         {
             string address = $"{student.GuardianBarangay}, "
-                            + $"{student.GuardianMunicipality}, "
-                            + $"{student.GuardianProvince}";
+                           + $"{student.GuardianMunicipality}, "
+                           + $"{student.GuardianProvince}";
 
             studentInfo[0] = student.SrCode;
             studentInfo[1] = student.LastName;
             studentInfo[2] = student.FirstName;
             studentInfo[3] = student.MiddleName;
-            studentInfo[4] = student.BirthDate;
+            studentInfo[4] = student.BirthDate.Date;
             studentInfo[5] = student.Gender;
             studentInfo[6] = student.ContactNumber;
-            studentInfo[7] = student.ZipCode;
-            studentInfo[8] = student.Barangay;
-            studentInfo[9] = student.Municipality;
-            studentInfo[10] = student.Province;
-            studentInfo[11] = $"{student.GuardianFirstName} "
+            studentInfo[7] = student.EmailAddress;
+            studentInfo[8] = student.ZipCode;
+            studentInfo[9] = student.Barangay;
+            studentInfo[10] = student.Municipality;
+            studentInfo[11] = student.Province;
+            studentInfo[12] = $"{student.GuardianFirstName} "
                             + $"{student.GuardianMiddleName[0]}. "
                             + $"{student.GuardianLastName}";
-            studentInfo[12] = student.GuardianZipCode != string.Empty?
+            studentInfo[13] = student.GuardianZipCode != string.Empty?
                               $"{student.GuardianZipCode} {address}"
                               : address;           
-            studentInfo[13] = student.GuardianContactNumber;
+            studentInfo[14] = student.GuardianContactNumber;
         }
         #endregion
 
