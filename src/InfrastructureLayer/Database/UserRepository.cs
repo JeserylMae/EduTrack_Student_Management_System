@@ -33,7 +33,7 @@ namespace InfrastructureLayer.Database
             string storedProcedure = "spUser_SelectById";
 
             //  using (var connection = this._dapperDBContext.CreateConnection())
-            using (var connection = _databaseContext.CreateConnection())
+            using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 var parameters = new DynamicParameters();
                 parameters.Add("p_userId", UserId, DbType.String);
