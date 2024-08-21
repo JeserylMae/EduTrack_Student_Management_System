@@ -12,9 +12,12 @@ namespace PresentationLayer.UserControls.AdminSubControls
         {
             InitializeComponent();
             SetYearOptions();
+            OnButtonsCreated();
             InitializeButtonsAsHidden();
+            _ = InitializeButtonSubcribers();
         }
-
+        
+        public void DestroyControl()   { this.Dispose();            }
         public void ShowAddButton()    { SubmitAddButton.Show();    }
         public void ShowUpdateButton() { SubmitUpdateButton.Show(); }
 
@@ -25,10 +28,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public string LastNameTextboxText   { get => LastNameTextbox.Text;   set => LastNameTextbox.Text   = value; }
         public string FirstNameTextboxText  { get => FirstNameTextbox.Text;  set => FirstNameTextbox.Text  = value; }
         public string MiddleNameTextboxText { get => MiddleNameTextbox.Text; set => MiddleNameTextbox.Text = value; }
-        public string MonthComboBoxText     { get => MonthComboBox.Text;     set => MonthComboBox.Text     = value; }
-        public string DayComboBoxText       { get => DayComboBox.Text;       set => DayComboBox.Text       = value; }
-        public string YearComboBoxText      { get => YearComboBox.Text;      set => YearComboBox.Text      = value; }
-        public string GenderComboBoxText    { get => GenderComboBox.Text;    set => GenderComboBox.Text    = value; }
         public string ZipCodeTextboxText    { get => ZipCodeTextbox.Text;    set => ZipCodeTextbox.Text    = value; }
         public string BarangayTextboxText   { get => BarangayTextbox.Text;   set => BarangayTextbox.Text   = value; }
 
@@ -36,6 +35,11 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public string ProvinceTextboxText      { get => ProvinceTextbox.Text;      set => ProvinceTextbox.Text      = value; }
         public string ContactNumberTextboxText { get => ContactNumberTextbox.Text; set => ContactNumberTextbox.Text = value; }
         public string EmailAddresTextboxText   { get => EmailAddressTextbox.Text;  set => EmailAddressTextbox.Text  = value; }
+
+        public string MonthComboBoxText     { get => MonthComboBox.SelectedItem.ToString();     set => MonthComboBox.SelectedItem  = value; }
+        public string DayComboBoxText       { get => DayComboBox.SelectedItem.ToString();       set => DayComboBox.SelectedItem    = value; }
+        public string YearComboBoxText      { get => YearComboBox.SelectedItem.ToString();      set => YearComboBox.SelectedItem   = value; }
+        public string GenderComboBoxText    { get => GenderComboBox.SelectedItem.ToString();    set => GenderComboBox.SelectedItem = value; }
 
         public string DefaultPasswordTextboxText       { get => DefaultPasswordTextbox.Text;       set => DefaultPasswordTextbox.Text       = value; }
         public string GuardianLastNameTextboxText      { get => GuardianLastNameTextbox.Text;      set => GuardianFirstNameTextbox.Text     = value; }
