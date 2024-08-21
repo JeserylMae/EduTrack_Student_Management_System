@@ -12,7 +12,7 @@ namespace DomainLayer.DataModels
         public string LastName                { get; set; }
         public string FirstName               { get; set; }
         public string MiddleName              { get; set; }
-        public DateTime BirthDate             { get; set; }
+        public string BirthDate               { get; set; }
         public string Gender                  { get; set; }
         public string ZipCode                 { get; set; }
         public string Barangay                { get; set; }
