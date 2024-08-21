@@ -62,15 +62,16 @@
     <Compile Include="Presenters\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\HomePagePresenter.cs" />
     <Compile Include="Presenters\LogInPagePresenter.cs" />
+    <Compile Include="Presenters\PersonalInfoPresenter.cs" />
     <Compile Include="Presenters\ServerInfoPresenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
-		  <DependentUpon>PersonalInfoControl.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Config.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -127,9 +128,9 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\MainControls\IAdminModifyInfoControl.cs">
-		  <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\MainControls\IAdminModifyInfoControl.cs">
+      <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainControls\IHomePage.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
       <SubType>Code</SubType>
@@ -245,7 +246,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Config.cs">
-		<DependentUpon>PersonalInfoControl.cs</DependentUpon>
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

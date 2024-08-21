@@ -34,6 +34,24 @@ namespace ServiceLayer.Database
             }
         }
 
+        public async Task<int> InsertNew(StudentPersonalInfoModel studentPersonalInfo,
+                                         string DefaultPassword, string Position,
+                                         string StudentCode, string GuardianCode)
+        {
+            string request = $"{_webAddress}/InsertNew";
+
+            var parameters = new 
+            {
+                studentPersonalInfo = studentPersonalInfo,
+                DefaultPassword = DefaultPassword,
+                Position = Position,
+                StudentCode = StudentCode,
+                GuardianCode = GuardianCode
+            };
+
+            string JsonParameter = JsonSerializer.Serialize(parameters);
+        }
+
         private string _webAddress;
     }
 }
