@@ -25,6 +25,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public string UserCodeIndicatorLabelText  { set => UserCodeIndicatorLabel.Text  = value; }
         public string BasicInfoIndicatorLabelText { set => BasicInfoIndicatorLabel.Text = value; }
 
+        public string UserCodeTextboxText   { get => UserCodeTextbox.Text;   set => UserCodeTextbox.Text   = value; }
         public string LastNameTextboxText   { get => LastNameTextbox.Text;   set => LastNameTextbox.Text   = value; }
         public string FirstNameTextboxText  { get => FirstNameTextbox.Text;  set => FirstNameTextbox.Text  = value; }
         public string MiddleNameTextboxText { get => MiddleNameTextbox.Text; set => MiddleNameTextbox.Text = value; }

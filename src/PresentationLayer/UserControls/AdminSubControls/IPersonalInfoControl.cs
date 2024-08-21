@@ -13,6 +13,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         string PageIndicatorLabelText      { set; }
         string UserCodeIndicatorLabelText  { set; }
         string BasicInfoIndicatorLabelText { set; }
+        string UserCodeTextboxText              { get; set; }
         string LastNameTextboxText              { get; set; }
         string FirstNameTextboxText             { get; set; }
         string MiddleNameTextboxText            { get; set; }
