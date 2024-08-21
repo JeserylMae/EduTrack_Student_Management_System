@@ -38,6 +38,7 @@ namespace PresentationLayer.Presenters
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
             IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
+            new PersonalInfoPresenter(personalInfoControl);
             personalInfoControl.ShowAddButton();
 
             _adminModifyInfoControl.MainControlHolderControl = (UserControl)personalInfoControl;
@@ -61,9 +62,7 @@ namespace PresentationLayer.Presenters
             studentInfo[1] = student.LastName;
             studentInfo[2] = student.FirstName;
             studentInfo[3] = student.MiddleName;
-            studentInfo[4] = $"{student.BirthDate.Month}-"
-                           + $"{student.BirthDate.Day}-" 
-                           + $"{student.BirthDate.Year}";
+            studentInfo[4] = student.BirthDate;
             studentInfo[5] = student.Gender;
             studentInfo[6] = student.ContactNumber;
             studentInfo[7] = student.EmailAddress;
