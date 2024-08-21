@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ServiceLayer.Database
@@ -34,22 +35,20 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<int> InsertNew(StudentPersonalInfoModel studentPersonalInfo,
-                                         string DefaultPassword, string Position,
-                                         string StudentCode, string GuardianCode)
+        public async Task<bool> InsertNew(PersonalInfoModel<StudentPersonalInfoModel> parameters)
         {
             string request = $"{_webAddress}/InsertNew";
 
-            var parameters = new 
-            {
-                studentPersonalInfo = studentPersonalInfo,
-                DefaultPassword = DefaultPassword,
-                Position = Position,
-                StudentCode = StudentCode,
-                GuardianCode = GuardianCode
-            };
+            string JsonParameter = JsonConvert.SerializeObject(parameters, Formatting.Indented);
+            //string JsonParameter = System.Text.Json.JsonSerializer.Serialize(parameters);
+            StringContent content = new StringContent(JsonParameter, Encoding.UTF8, "application/json");
 
-            string JsonParameter = JsonSerializer.Serialize(parameters);
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.PostAsync(request, content);
+
+                return response.IsSuccessStatusCode;
+            }
         }
 
         private string _webAddress;
