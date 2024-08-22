@@ -27,16 +27,28 @@ namespace PresentationLayer.Presenters
                 
         private async void SubmitAddNewInfoButton_Clicked(object sender, EventArgs e)
         {
-            StudentPersonalInfoModel studentPersonalInfoModel = new StudentPersonalInfoModel();
-            PersonalInfoModel<StudentPersonalInfoModel> model = new PersonalInfoModel<StudentPersonalInfoModel>();
+            try
+            {
+                StudentPersonalInfoModel studentPersonalInfoModel = new StudentPersonalInfoModel();
+                PersonalInfoModel<StudentPersonalInfoModel> model = new PersonalInfoModel<StudentPersonalInfoModel>();
 
-            AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
-            AddValuesToPersonalInfoModel(ref model, studentPersonalInfoModel);
+                AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
+                AddValuesToPersonalInfoModel(ref model, studentPersonalInfoModel);
 
-            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-            bool response = await services.InsertNew(model);
+                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+                await services.ValidateParameter(model);
+                bool response = await services.InsertNew(model);
 
-            EvaluateResponse(response, studentPersonalInfoModel.SrCode);
+                ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+            }
+            catch (ArgumentNullException ex)
+            {
+                DisplayError(ex.Message, "Add");
+            }
+            catch (Exception ex)
+            {
+                DisplayError(ex.Message, "Add");
+            }
         }
 
         private void SubmitUpdateInfoButton_Clicked(object sender, EventArgs e)
@@ -47,24 +59,20 @@ namespace PresentationLayer.Presenters
 
 
         #region Helper Methods
-        private void EvaluateResponse(bool response, string srcode)
+        private void DisplayError(string message, string commandName)
         {
-            string MessageBoxTitle = "Student Personal Information - Add";
+            MessageBox.Show(message, $"Student Peronal Information - {commandName}",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
-            if (response) 
-            {
-                MessageBox.Show($"Successfully added student with SR Code {srcode}.",
-                                MessageBoxTitle,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Information); 
-            }
-            else
-            {
-                MessageBox.Show($"Failed to add student with SR Code {srcode}.",
-                                MessageBoxTitle,
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error);
-            }
+        private void ConfirmAdd(bool response, string srcode)
+        {
+            if (!response) return;
+            
+            MessageBox.Show($"Successfully added student with SR Code {srcode}.",
+                            "Student Personal Information - Add",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Information); 
         }
         
         private void AddValuesToPersonalInfoModel(ref PersonalInfoModel<StudentPersonalInfoModel> model,
