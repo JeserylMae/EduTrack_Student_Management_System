@@ -27,47 +27,54 @@ namespace InfrastructureLayer.Database
             }
         }
 
-        public async Task<int> InsertNew(StudentPersonalInfoModel studentPersonalInfo,
-                                      string DefaultPassword, string Position, 
-                                      string StudentCode, string GuardianCode)
+        public async Task<int> InsertNew(PersonalInfoModel<StudentPersonalInfoModel> student)
         {
             string storedProcedure = "spStudent_InsertNewPersonalInfo";
 
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("p_SrCode",        studentPersonalInfo.SrCode);
-                parameters.Add("p_LastName",      studentPersonalInfo.LastName);
-                parameters.Add("p_FirstName",     studentPersonalInfo.FirstName);
-                parameters.Add("p_MiddleName",    studentPersonalInfo.MiddleName);
-                parameters.Add("p_BirthDate",     studentPersonalInfo.BirthDate);
-                parameters.Add("p_Gender",        studentPersonalInfo.Gender);
-                parameters.Add("p_ContactNumber", studentPersonalInfo.ContactNumber);
-                parameters.Add("p_EmailAddress",  studentPersonalInfo.EmailAddress);
-                parameters.Add("p_HouseNumber",   studentPersonalInfo.ZipCode);
-                parameters.Add("p_Barangay",      studentPersonalInfo.Barangay);
-                parameters.Add("p_Municipality",  studentPersonalInfo.Municipality);
-                parameters.Add("p_Province",              studentPersonalInfo.Province);
-                parameters.Add("p_GuardianLastName",      studentPersonalInfo.GuardianLastName);
-                parameters.Add("p_GuardianFirstName",     studentPersonalInfo.GuardianFirstName);
-                parameters.Add("p_GuardianMiddleName",    studentPersonalInfo.GuardianMiddleName);
-                parameters.Add("p_GuardianContactNumber", studentPersonalInfo.GuardianContactNumber);
-                parameters.Add("p_GuardianHouseNumber",   studentPersonalInfo.GuardianZipCode);
-                parameters.Add("p_GuardianBarangay",      studentPersonalInfo.GuardianBarangay);
-                parameters.Add("p_GuardianMunicipality",  studentPersonalInfo.GuardianMunicipality);
-                parameters.Add("p_GuardianProvince",      studentPersonalInfo.GuardianProvince);
-                parameters.Add("p_StudentNameCode",       StudentCode);
-                parameters.Add("p_StudentAddressCode",    StudentCode);
-                parameters.Add("p_GuardianNameCode",      GuardianCode);
-                parameters.Add("p_GuardianAddressCode",   GuardianCode);
-                parameters.Add("p_DefaultPassword",       DefaultPassword);
-                parameters.Add("p_Position",              Position);
+                AddValuesToParameters(ref parameters, ref student);
 
                 return await connection.ExecuteAsync(storedProcedure, parameters,
                                        commandType: CommandType.StoredProcedure);
             }
 
         }
+
+
+        #region Helper Methods
+        private void AddValuesToParameters(ref DynamicParameters parameters,
+                    ref PersonalInfoModel<StudentPersonalInfoModel> student)
+        {
+            parameters.Add("p_SrCode",        student.InfoModel.SrCode);
+            parameters.Add("p_LastName",      student.InfoModel.LastName);
+            parameters.Add("p_FirstName",     student.InfoModel.FirstName);
+            parameters.Add("p_MiddleName",    student.InfoModel.MiddleName);
+            parameters.Add("p_BirthDate",     student.InfoModel.BirthDate);
+            parameters.Add("p_Gender",        student.InfoModel.Gender);
+            parameters.Add("p_ContactNumber", student.InfoModel.ContactNumber);
+            parameters.Add("p_EmailAddress",  student.InfoModel.EmailAddress);
+            parameters.Add("p_HouseNumber",   student.InfoModel.ZipCode);
+            parameters.Add("p_Barangay",      student.InfoModel.Barangay);
+            parameters.Add("p_Municipality",  student.InfoModel.Municipality);
+            parameters.Add("p_Province",      student.InfoModel.Province);
+            parameters.Add("p_GuardianLastName",      student.InfoModel.GuardianLastName);
+            parameters.Add("p_GuardianFirstName",     student.InfoModel.GuardianFirstName);
+            parameters.Add("p_GuardianMiddleName",    student.InfoModel.GuardianMiddleName);
+            parameters.Add("p_GuardianContactNumber", student.InfoModel.GuardianContactNumber);
+            parameters.Add("p_GuardianHouseNumber",   student.InfoModel.GuardianZipCode);
+            parameters.Add("p_GuardianBarangay",      student.InfoModel.GuardianBarangay);
+            parameters.Add("p_GuardianMunicipality",  student.InfoModel.GuardianMunicipality);
+            parameters.Add("p_GuardianProvince",      student.InfoModel.GuardianProvince);
+            parameters.Add("p_StudentNameCode",       student.StudentCode);
+            parameters.Add("p_StudentAddressCode",    student.StudentCode);
+            parameters.Add("p_GuardianNameCode",      student.GuardianCode);
+            parameters.Add("p_GuardianAddressCode",   student.GuardianCode);
+            parameters.Add("p_DefaultPassword",       student.DefaultPassword);
+            parameters.Add("p_Position",              student.Position);
+        }
+        #endregion
 
         private DatabaseContext _databaseContext;
     }

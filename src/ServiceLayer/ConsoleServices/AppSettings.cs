@@ -16,7 +16,7 @@ namespace ServiceLayer.ConsoleServices
         private IConfiguration SetUpServiceCollection()
             => new Microsoft.Extensions.Configuration.ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("secrets.json")
+                .AddJsonFile("secrets.json", optional: false, reloadOnChange: true)
                 .Build();
 
         public ConsoleConnection GetConsoleConnection()

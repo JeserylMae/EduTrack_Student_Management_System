@@ -40,13 +40,13 @@ namespace ServiceLayer.Database
             string request = $"{_webAddress}/InsertNew";
 
             string JsonParameter = JsonConvert.SerializeObject(parameters, Formatting.Indented);
-            //string JsonParameter = System.Text.Json.JsonSerializer.Serialize(parameters);
             StringContent content = new StringContent(JsonParameter, Encoding.UTF8, "application/json");
 
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.PostAsync(request, content);
 
+                Console.WriteLine(response.Content.ToString());
                 return response.IsSuccessStatusCode;
             }
         }

@@ -79,9 +79,9 @@ namespace PresentationLayer.Presenters
 
         private void AddValuesToStudentPersonalInfoModel(ref StudentPersonalInfoModel student)
         {
-            student.BirthDate = _personalInfoControl.MonthComboBoxText + "-"
-                              + _personalInfoControl.DayComboBoxText + "-"
-                              + _personalInfoControl.YearComboBoxText;
+            student.BirthDate = _personalInfoControl.YearComboBoxText + "-"
+                              + _personalInfoControl.MonthComboBoxText + "-"
+                              + _personalInfoControl.DayComboBoxText;
 
             student.SrCode                = _personalInfoControl.UserCodeTextboxText;
             student.LastName              = _personalInfoControl.LastNameTextboxText;

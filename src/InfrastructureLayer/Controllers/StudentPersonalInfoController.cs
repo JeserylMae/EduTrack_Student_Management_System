@@ -25,15 +25,12 @@ namespace InfrastructureLayer.Controllers
         }
 
         [HttpPost("InsertNew")]
-        public async Task<IActionResult> InsertNewStudentPersonalInfo(StudentPersonalInfoModel studentPersonalInfo,
-                                                            string DefaultPassword, string Position,
-                                                            string StudentCode, string GuardianCode)
+        public async Task<IActionResult> InsertNewStudentPersonalInfo(PersonalInfoModel<StudentPersonalInfoModel> student)
         {
-            int result = await _studentPersonalInfoRepository.InsertNew(studentPersonalInfo,
-                                       DefaultPassword, Position, StudentCode, GuardianCode);
+            int result = await _studentPersonalInfoRepository.InsertNew(student);
 
             if (result is not 0) { return Ok(result); }
-            else { return BadRequest( new { Message = $"Failed to add student with SR-Code {studentPersonalInfo.SrCode}."}); }
+            else { return BadRequest( new { Message = $"Failed to add student with SR-Code {student.InfoModel.SrCode}."}); }
         }
 
 

@@ -243,7 +243,7 @@
     <None Include="Resources\group-box-border.png" />
     <Content Include="Resources\panel-border-with-thick-bottom.png" />
     <Content Include="secrets.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Config.cs">
       <DependentUpon>PersonalInfoControl.cs</DependentUpon>
