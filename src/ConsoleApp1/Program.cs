@@ -2,6 +2,7 @@
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
 using System;
+using System.Net.Http;
 
 
 namespace ServiceLayer
@@ -14,7 +15,7 @@ namespace ServiceLayer
             StudentPersonalInfoServices services = new StudentPersonalInfoServices();
             PersonalInfoModel<StudentPersonalInfoModel> personalInfoModel = new PersonalInfoModel<StudentPersonalInfoModel>();
 
-            student.SrCode = "11-111-1115";
+            student.SrCode = "11-111-1114";
             student.LastName = "Riego";
             student.FirstName = "Percival";
             student.MiddleName = "Vesarius";
@@ -41,9 +42,15 @@ namespace ServiceLayer
             personalInfoModel.DefaultPassword = "sibal";
             personalInfoModel.Position = "STUDENT";
 
-            var response = await services.InsertNew(personalInfoModel);
-
-            Console.WriteLine(response);
+            try
+            {
+                var response = await services.InsertNew(personalInfoModel);
+                Console.WriteLine(response);
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
