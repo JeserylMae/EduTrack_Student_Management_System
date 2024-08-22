@@ -21,9 +21,27 @@ namespace InfrastructureLayer.Database
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 var result = await connection.QueryAsync<StudentPersonalInfoModel>(storedProcedure,
-                                                         commandType: CommandType.StoredProcedure);
+                           commandType: CommandType.StoredProcedure);
 
                 return result.ToList();
+            }
+        }
+
+        public async Task<StudentPersonalInfoModel> GetById(string SrCode)
+        {
+            string storedProcedure = "spStudent_SelectPersonalInfoById";
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("p_SrCode", SrCode, DbType.String);
+
+                var result = await connection.QuerySingleOrDefaultAsync<StudentPersonalInfoModel>(
+                           storedProcedure,
+                           parameters,
+                           commandType: CommandType.StoredProcedure);
+
+                return result;
             }
         }
 
@@ -37,7 +55,7 @@ namespace InfrastructureLayer.Database
                 AddValuesToParameters(ref parameters, ref student);
 
                 return await connection.ExecuteAsync(storedProcedure, parameters,
-                                       commandType: CommandType.StoredProcedure);
+                             commandType: CommandType.StoredProcedure);
             }
 
         }

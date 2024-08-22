@@ -24,6 +24,15 @@ namespace InfrastructureLayer.Controllers
             else { return NotFound(); }  
         }
 
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetStudentPersonalInfoById(string SrCode)
+        {
+            StudentPersonalInfoModel student = await _studentPersonalInfoRepository.GetById(SrCode);
+
+            if (student is not null) { return Ok(student); }
+            else { return NotFound(new { Message = $"Student with SR Code {SrCode} is not found."}); }
+        }
+
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNewStudentPersonalInfo(PersonalInfoModel<StudentPersonalInfoModel> student)
         {
