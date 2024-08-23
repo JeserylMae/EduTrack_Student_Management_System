@@ -2,7 +2,11 @@
 using DomainLayer.DataModels;
 using PresentationLayer.UserControls.AdminSubControls;
 using ServiceLayer.Database;
+using ServiceLayer.Services;
 using System;
+using System.Net.Http;
+using System.Reflection;
+using System.Threading.Tasks;
 using System.Windows;
 
 
@@ -33,29 +37,28 @@ namespace PresentationLayer.Presenters
                 PersonalInfoModel<StudentPersonalInfoModel> model = new PersonalInfoModel<StudentPersonalInfoModel>();
 
                 AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
-                AddValuesToPersonalInfoModel(ref model, studentPersonalInfoModel);
+                AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
 
                 StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-                await services.ValidateParameter(model);
-                bool response = await services.InsertNew(model);
+                ParameterAuthentication authentication = new ParameterAuthentication();
 
-                ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+                Task completed = await authentication.ValidateParameter(model);
+
+                if (completed == Task.CompletedTask)
+                {
+                    bool response = await services.InsertNew(model);
+                    ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+                }
             }
-            catch (ArgumentNullException ex)
-            {
-                DisplayError(ex.Message, "Add");
-            }
-            catch (Exception ex)
-            {
-                DisplayError(ex.Message, "Add");
-            }
+            catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }
+            catch (HttpRequestException ex) { DisplayError(ex.Message, "Add"); }
+            catch (Exception ex) { DisplayError(ex.Message, "Add"); }
         }
 
         private void SubmitUpdateInfoButton_Clicked(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
-
 
 
         #region Helper Methods
@@ -75,8 +78,8 @@ namespace PresentationLayer.Presenters
                             MessageBoxImage.Information); 
         }
         
-        private void AddValuesToPersonalInfoModel(ref PersonalInfoModel<StudentPersonalInfoModel> model,
-                                                  StudentPersonalInfoModel student)
+        private void AddValuesToPersonalInfoModel(StudentPersonalInfoModel student,
+                             ref PersonalInfoModel<StudentPersonalInfoModel> model)
         {
             model.InfoModel = student;
             model.DefaultPassword = _personalInfoControl.DefaultPasswordTextboxText;
@@ -112,6 +115,7 @@ namespace PresentationLayer.Presenters
             student.GuardianContactNumber = _personalInfoControl.GuardianContactNumberTextboxText;
         }
         #endregion
+
 
         private IPersonalInfoControl _personalInfoControl;
     }
