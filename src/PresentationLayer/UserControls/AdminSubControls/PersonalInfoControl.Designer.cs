@@ -1134,6 +1134,7 @@
             // 
             this.GenderComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.GenderComboBox.DropDownHeight = 100;
+            this.GenderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenderComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GenderComboBox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.GenderComboBox.ForeColor = System.Drawing.Color.Black;
@@ -1246,6 +1247,7 @@
             // 
             this.YearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.YearComboBox.DropDownHeight = 100;
+            this.YearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.YearComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.YearComboBox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.YearComboBox.ForeColor = System.Drawing.Color.Black;
@@ -1260,6 +1262,7 @@
             // 
             this.DayComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.DayComboBox.DropDownHeight = 100;
+            this.DayComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DayComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DayComboBox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.DayComboBox.ForeColor = System.Drawing.Color.Black;
@@ -1306,6 +1309,7 @@
             // 
             this.MonthComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.MonthComboBox.DropDownHeight = 100;
+            this.MonthComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MonthComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MonthComboBox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
             this.MonthComboBox.ForeColor = System.Drawing.Color.Black;
