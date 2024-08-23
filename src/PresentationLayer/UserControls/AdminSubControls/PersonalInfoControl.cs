@@ -21,7 +21,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         {
             get
             {
-                object obj = MonthComboBox.SelectedItem;
+                object obj = (MonthComboBox.SelectedIndex+1).ToString();
 
                 if (obj != null) return obj.ToString();
                 else return string.Empty;
