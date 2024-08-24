@@ -22,7 +22,6 @@ namespace PresentationLayer.UserControls.MainControls
             InitializeControlSubscriber();
         }
 
-
         public UserControl MainControlHolderControl
         {
             get { return _addedControl; }
@@ -33,7 +32,6 @@ namespace PresentationLayer.UserControls.MainControls
                 _addedControl.Dock = DockStyle.Left;
             }
         }
-
         public object[] InfoTableRowData 
         {
             set 
@@ -46,6 +44,8 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
         public event EventHandler ViewUpdateForm;
+
+        public void ClearInfoTable() { InfoTable.Rows.Clear(); }
 
         private UserControl _addedControl;
         private TaskCompletionSource<bool> InfoTableCreated;
