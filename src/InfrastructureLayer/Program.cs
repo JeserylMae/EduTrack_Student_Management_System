@@ -1,6 +1,6 @@
 
+using InfrastructureLayer;
 using InfrastructureLayer.Data;
-using InfrastructureLayer.Database;
 using System.Data;
 
 
@@ -10,15 +10,8 @@ public static class Program
     {
         string? connectionString = args.FirstOrDefault(arg => arg.StartsWith("ConnectionStrings="))?.Split("=")[1];
 
-        connectionString = "Server@JesayMae;"
-                             + "Database@edutrack_server;"
-                             + "User@Edutrack_User;"
-                             + "Password@2NXzenE74FrwQk#JqwaB;"
-                             + "SslMode@Required;"
-                             + "SslCa@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\ca.pem;"
-                             + "SslCert@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\client-cert.pem;"
-                             + "SslKey@C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Data\\client-key.pem;";
-
+        connectionString = Connection.GetConnectionString();
+        
         // Filter out the connection string argument to pass only the original arguments to the builder
         var filteredArgs = args.Where(arg => !arg.StartsWith("ConnectionStrings=")).ToArray();
 
@@ -26,7 +19,6 @@ public static class Program
             throw new Exception("No connection string given.");
 
         var builder = WebApplication.CreateBuilder(filteredArgs);
-        //this.InitializeAppBuilder();
 
         // Add services to the container.
 
