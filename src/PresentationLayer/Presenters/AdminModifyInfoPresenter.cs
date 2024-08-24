@@ -25,6 +25,8 @@ namespace PresentationLayer.Presenters
         {
             StudentPersonalInfoServices services = new StudentPersonalInfoServices();
             List<StudentPersonalInfoModel> list = await services.GetAll();
+
+            _adminModifyInfoControl.ClearInfoTable();
             
             foreach(StudentPersonalInfoModel student in list)
             {
@@ -38,6 +40,8 @@ namespace PresentationLayer.Presenters
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
             IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
+            personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
+
             new PersonalInfoPresenter(personalInfoControl);
             personalInfoControl.ShowAddButton();
 
