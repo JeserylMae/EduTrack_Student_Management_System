@@ -65,6 +65,9 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public void DestroyControl()   { this.Dispose();            }
         public void ShowAddButton()    { SubmitAddButton.Show();    }
         public void ShowUpdateButton() { SubmitUpdateButton.Show(); }
+        public void ReloadInfoTable() { TriggerInfoTableReload.Invoke(this, EventArgs.Empty); }
+
+        //public TaskCompletionSource<bool> TriggerInfoTableReload { get; set; }
 
         public string PageIndicatorLabelText      { set => PageIndicatorLabel.Text      = value; }
         public string UserCodeIndicatorLabelText  { set => UserCodeIndicatorLabel.Text  = value; }
@@ -92,7 +95,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public string GuardianProvinceTextboxText      { get => GuardianProvinceTextbox.Text;      set => GuardianProvinceTextbox.Text      = value; }
         public string GuardianContactNumberTextboxText { get => GuardianContactNumberTextbox.Text; set => GuardianContactNumberTextbox.Text = value; }
 
-
+        public event EventHandler TriggerInfoTableReload;
         public event EventHandler TopCloseButtonClicked;
         public event EventHandler BotCancelButtonClicked;
         public event EventHandler AddNewStudentInfoSubmit;

@@ -48,6 +48,7 @@ namespace PresentationLayer.Presenters
                 {
                     bool response = await services.InsertNew(model);
                     ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+                    _personalInfoControl.ReloadInfoTable();
                 }
             }
             catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }

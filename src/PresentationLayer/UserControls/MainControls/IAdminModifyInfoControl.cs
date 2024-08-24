@@ -11,7 +11,7 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler ViewAddForm;
         event EventHandler ViewUpdateForm;
 
-        object[] InfoTableRowData { set; }
+        object[] InfoTableRowData            { set; }
         UserControl MainControlHolderControl { get; set; }
     }
 }
