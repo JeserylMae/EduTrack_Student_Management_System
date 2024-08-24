@@ -4,6 +4,7 @@ using PresentationLayer.UserControls.AdminSubControls;
 using ServiceLayer.Database;
 using ServiceLayer.Services;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -17,18 +18,29 @@ namespace PresentationLayer.Presenters
         public PersonalInfoPresenter(IPersonalInfoControl personalInfoControl)
         {
             _personalInfoControl = personalInfoControl;
-
+            
             _personalInfoControl.TopCloseButtonClicked   += CloseCancelButton_Clicked;
             _personalInfoControl.BotCancelButtonClicked  += CloseCancelButton_Clicked;
             _personalInfoControl.AddNewStudentInfoSubmit += SubmitAddNewInfoButton_Clicked;
             _personalInfoControl.UpdateStudentInfoSubmit += SubmitUpdateInfoButton_Clicked;
+            PersonalInfoControl_OnLoad();
         }
 
+        private void PersonalInfoControl_OnLoad()
+        {
+            IList<string> yearsCollection = new List<string>();
+            SetYearOptions(ref yearsCollection);
+
+            _personalInfoControl.YearComboBoxDataSource = yearsCollection;
+            _personalInfoControl.YearComboBoxText = null;
+        }
+
+        #region Event Subscribers
         private void CloseCancelButton_Clicked(object sender, EventArgs e)
         {
             _personalInfoControl.DestroyControl();
         }
-                
+                        
         private async void SubmitAddNewInfoButton_Clicked(object sender, EventArgs e)
         {
             try
@@ -47,7 +59,10 @@ namespace PresentationLayer.Presenters
                 if (completed == Task.CompletedTask)
                 {
                     bool response = await services.InsertNew(model);
+
                     ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+                    _personalInfoControl.TriggerInfoTableReload();
+                    ClearTextBoxes();  
                 }
             }
             catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }
@@ -59,9 +74,20 @@ namespace PresentationLayer.Presenters
         {
             throw new NotImplementedException();
         }
+        #endregion
 
 
         #region Helper Methods
+        private void SetYearOptions(ref IList<string> years)
+        {
+            int currentYear = DateTime.Now.Year;
+           
+            for (int idx = currentYear; idx >= 1950; idx--)
+            {
+                years.Add(idx.ToString());
+            }
+        }
+
         private void DisplayError(string message, string commandName)
         {
             MessageBox.Show(message, $"Student Peronal Information - {commandName}",
@@ -111,8 +137,36 @@ namespace PresentationLayer.Presenters
             student.GuardianProvince      = _personalInfoControl.GuardianProvinceTextboxText;
             student.GuardianFirstName     = _personalInfoControl.GuardianFirstNameTextboxText;
             student.GuardianMiddleName    = _personalInfoControl.GuardianMiddleNameTextboxText;
-            student.GuardianMunicipality  = _personalInfoControl.GuardianMiddleNameTextboxText;
+            student.GuardianMunicipality  = _personalInfoControl.GuardianMunicipalityTextboxText;
             student.GuardianContactNumber = _personalInfoControl.GuardianContactNumberTextboxText;
+        }
+
+        private void ClearTextBoxes()
+        {
+            _personalInfoControl.DayComboBoxText    = null;
+            _personalInfoControl.YearComboBoxText   = null;
+            _personalInfoControl.MonthComboBoxText  = null;
+            _personalInfoControl.GenderComboBoxText = null;
+
+            _personalInfoControl.UserCodeTextboxText = string.Empty;
+            _personalInfoControl.LastNameTextboxText = string.Empty;
+            _personalInfoControl.ZipCodeTextboxText  = string.Empty;
+            _personalInfoControl.BarangayTextboxText = string.Empty;
+            _personalInfoControl.ProvinceTextboxText = string.Empty;
+            _personalInfoControl.FirstNameTextboxText     = string.Empty;
+            _personalInfoControl.MiddleNameTextboxText    = string.Empty;
+            _personalInfoControl.EmailAddresTextboxText   = string.Empty;
+            _personalInfoControl.MunicipalityTextboxText  = string.Empty;
+            _personalInfoControl.ContactNumberTextboxText = string.Empty;
+            _personalInfoControl.DefaultPasswordTextboxText  = string.Empty;
+            _personalInfoControl.GuardianZipCodeTextboxText  = string.Empty;
+            _personalInfoControl.GuardianBarangayTextboxText = string.Empty;
+            _personalInfoControl.GuardianLastNameTextboxText = string.Empty;
+            _personalInfoControl.GuardianProvinceTextboxText      = string.Empty;
+            _personalInfoControl.GuardianFirstNameTextboxText     = string.Empty;
+            _personalInfoControl.GuardianMiddleNameTextboxText    = string.Empty;
+            _personalInfoControl.GuardianMunicipalityTextboxText  = string.Empty;
+            _personalInfoControl.GuardianContactNumberTextboxText = string.Empty;
         }
         #endregion
 
