@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
@@ -14,16 +13,20 @@ namespace PresentationLayer.UserControls.AdminSubControls
 			SubmitUpdateButton.Hide();
 		}
 
-		private void OnButtonsCreated()
+		private void OnControlsCreated()
 		{
 			if (CloseButton != null)		{ TopCloseButtonCreated.TrySetResult(true);			}
+			if (YearComboBox != null)		{ YearComboBoxCreated.TrySetResult(true);			}
 			if (CancelButton != null)		{ BotCancelButtonCreated.TrySetResult(true);		}
 			if (SubmitAddButton != null)	{ SubmitAddInfoButtonCreated.TrySetResult(true);	}	
 			if (SubmitUpdateButton != null) { SubmitUpdateInfoButtonCreated.TrySetResult(true); }
 		}
 
-		private async Task InitializeButtonSubcribers()
+		private async Task InitializeControlSubcribers()
 		{
+			await YearComboBoxCreated.Task;
+			this.Load += delegate { OnControlLoad?.Invoke(this, EventArgs.Empty); };
+
 			await TopCloseButtonCreated.Task;
 			CloseButton.Click += delegate { TopCloseButtonClicked?.Invoke(this, EventArgs.Empty); };
 
@@ -35,19 +38,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
 			await SubmitUpdateInfoButtonCreated.Task;
 			SubmitUpdateButton.Click += delegate { UpdateStudentInfoSubmit?.Invoke(this, EventArgs.Empty); };
-		}
-
-		private void SetYearOptions()
-		{
-			int currentYear = DateTime.Now.Year;
-			IList<string> years = new List<string>();
-
-			for (int idx = currentYear; idx >= 1950; idx--)
-			{
-				years.Add(idx.ToString());
-			}
-			YearComboBox.DataSource = years;
-			YearComboBox.SelectedItem = null;
 		}
 	}
 }
