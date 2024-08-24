@@ -6,8 +6,6 @@ using PresentationLayer.UserControls.AdminSubControls;
 using System.Collections.Generic;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
-using System.Threading.Tasks;
-using System.Threading;
 
 
 namespace PresentationLayer.Presenters
@@ -40,8 +38,6 @@ namespace PresentationLayer.Presenters
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
             IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
-            personalInfoControl.TriggerInfoTableReload += InfoTable_OnLoadAsync;
-
             new PersonalInfoPresenter(personalInfoControl);
             personalInfoControl.ShowAddButton();
 
@@ -55,14 +51,6 @@ namespace PresentationLayer.Presenters
 
 
         #region Helper methods
-        //private async Task PerformInfoTableReload(IPersonalInfoControl model)
-        //{
-        //    if (await model.TriggerInfoTableReload.Task)
-        //    {
-        //        InfoTable_OnLoadAsync(this, EventArgs.Empty);
-        //    }
-        //}
-
         private void AddStudentPersonalInfoToObject(ref object[] studentInfo,
                                             StudentPersonalInfoModel student)
         {

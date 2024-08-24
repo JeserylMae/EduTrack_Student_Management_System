@@ -40,7 +40,6 @@ namespace PresentationLayer.UserControls.MainControls
             { 
                 InfoTable.Rows.Add(value);
                 InfoTable.Rows[InfoTable.RowCount - 1].Height = 28;
-            ControlLoad.Invoke(this, EventArgs.Empty);
             } 
         }
 

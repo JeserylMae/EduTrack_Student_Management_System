@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Threading.Tasks;
 
 
 namespace PresentationLayer.UserControls.AdminSubControls
@@ -10,7 +9,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
         void ShowAddButton();
         void DestroyControl();
         void ShowUpdateButton();
-        void ReloadInfoTable();
 
         string PageIndicatorLabelText      { set; }
         string UserCodeIndicatorLabelText  { set; }
@@ -38,9 +36,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
         string GuardianMunicipalityTextboxText  { get; set; }
         string GuardianProvinceTextboxText      { get; set; }
         string GuardianContactNumberTextboxText { get; set; }
-        //TaskCompletionSource<bool> TriggerInfoTableReload { get; set; }
 
-        event EventHandler TriggerInfoTableReload;
+
         event EventHandler TopCloseButtonClicked;
         event EventHandler BotCancelButtonClicked;
         event EventHandler AddNewStudentInfoSubmit;
