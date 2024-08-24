@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 
 namespace PresentationLayer.UserControls.AdminSubControls
@@ -9,10 +10,20 @@ namespace PresentationLayer.UserControls.AdminSubControls
         void ShowAddButton();
         void DestroyControl();
         void ShowUpdateButton();
+        void TriggerInfoTableReload();
 
-        string PageIndicatorLabelText      { set; }
-        string UserCodeIndicatorLabelText  { set; }
-        string BasicInfoIndicatorLabelText { set; }
+        event EventHandler OnControlLoad;
+        event EventHandler TopCloseButtonClicked;
+        event EventHandler BotCancelButtonClicked;
+        event EventHandler AddNewStudentInfoSubmit;
+        event EventHandler UpdateStudentInfoSubmit;
+        event EventHandler InfoTableReloadTriggered;
+
+        string PageIndicatorLabelText        { set; }
+        string UserCodeIndicatorLabelText    { set; }
+        string BasicInfoIndicatorLabelText   { set; }
+        IList<string> YearComboBoxDataSource { set; }
+
         string UserCodeTextboxText              { get; set; }
         string LastNameTextboxText              { get; set; }
         string FirstNameTextboxText             { get; set; }
@@ -36,11 +47,5 @@ namespace PresentationLayer.UserControls.AdminSubControls
         string GuardianMunicipalityTextboxText  { get; set; }
         string GuardianProvinceTextboxText      { get; set; }
         string GuardianContactNumberTextboxText { get; set; }
-
-
-        event EventHandler TopCloseButtonClicked;
-        event EventHandler BotCancelButtonClicked;
-        event EventHandler AddNewStudentInfoSubmit;
-        event EventHandler UpdateStudentInfoSubmit;
     }
 }

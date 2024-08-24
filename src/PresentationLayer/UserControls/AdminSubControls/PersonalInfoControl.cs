@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,10 +12,9 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public PersonalInfoControl()
         {
             InitializeComponent();
-            SetYearOptions();
-            OnButtonsCreated();
+            OnControlsCreated();
             InitializeButtonsAsHidden();
-            _ = InitializeButtonSubcribers();
+            _ = InitializeControlSubcribers();
         }
         
         public string MonthComboBoxText     
@@ -62,13 +62,22 @@ namespace PresentationLayer.UserControls.AdminSubControls
             set => GenderComboBox.SelectedItem = value; 
         }
 
-        public void DestroyControl()   { this.Dispose();            }
-        public void ShowAddButton()    { SubmitAddButton.Show();    }
-        public void ShowUpdateButton() { SubmitUpdateButton.Show(); }
+        public event EventHandler OnControlLoad;
+        public event EventHandler TopCloseButtonClicked;
+        public event EventHandler BotCancelButtonClicked;
+        public event EventHandler AddNewStudentInfoSubmit;
+        public event EventHandler UpdateStudentInfoSubmit;
+        public event EventHandler InfoTableReloadTriggered;
 
-        public string PageIndicatorLabelText      { set => PageIndicatorLabel.Text      = value; }
-        public string UserCodeIndicatorLabelText  { set => UserCodeIndicatorLabel.Text  = value; }
-        public string BasicInfoIndicatorLabelText { set => BasicInfoIndicatorLabel.Text = value; }
+        public void DestroyControl()         { this.Dispose();            }
+        public void ShowAddButton()          { SubmitAddButton.Show();    }
+        public void ShowUpdateButton()       { SubmitUpdateButton.Show(); }
+        public void TriggerInfoTableReload() { InfoTableReloadTriggered?.Invoke(this, EventArgs.Empty); }
+
+        public string PageIndicatorLabelText        { set => PageIndicatorLabel.Text      = value; }
+        public string UserCodeIndicatorLabelText    { set => UserCodeIndicatorLabel.Text  = value; }
+        public string BasicInfoIndicatorLabelText   { set => BasicInfoIndicatorLabel.Text = value; }
+        public IList<string> YearComboBoxDataSource { set => YearComboBox.DataSource      = value; }
 
         public string UserCodeTextboxText   { get => UserCodeTextbox.Text;   set => UserCodeTextbox.Text   = value; }
         public string LastNameTextboxText   { get => LastNameTextbox.Text;   set => LastNameTextbox.Text   = value; }
@@ -83,7 +92,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public string EmailAddresTextboxText   { get => EmailAddressTextbox.Text;  set => EmailAddressTextbox.Text  = value; }
 
         public string DefaultPasswordTextboxText       { get => DefaultPasswordTextbox.Text;       set => DefaultPasswordTextbox.Text       = value; }
-        public string GuardianLastNameTextboxText      { get => GuardianLastNameTextbox.Text;      set => GuardianFirstNameTextbox.Text     = value; }
+        public string GuardianLastNameTextboxText      { get => GuardianLastNameTextbox.Text;      set => GuardianLastNameTextbox.Text      = value; }
         public string GuardianFirstNameTextboxText     { get => GuardianFirstNameTextbox.Text;     set => GuardianFirstNameTextbox.Text     = value; }
         public string GuardianMiddleNameTextboxText    { get => GuardianMiddleNameTextbox.Text;    set => GuardianMiddleNameTextbox.Text    = value; }
         public string GuardianZipCodeTextboxText       { get => GuardianZipCodeTextbox.Text;       set => GuardianZipCodeTextbox.Text       = value; }
@@ -93,11 +102,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public string GuardianContactNumberTextboxText { get => GuardianContactNumberTextbox.Text; set => GuardianContactNumberTextbox.Text = value; }
 
 
-        public event EventHandler TopCloseButtonClicked;
-        public event EventHandler BotCancelButtonClicked;
-        public event EventHandler AddNewStudentInfoSubmit;
-        public event EventHandler UpdateStudentInfoSubmit;
-
+        private TaskCompletionSource<bool> YearComboBoxCreated           = new TaskCompletionSource<bool>();
         private TaskCompletionSource<bool> TopCloseButtonCreated         = new TaskCompletionSource<bool>();
         private TaskCompletionSource<bool> BotCancelButtonCreated        = new TaskCompletionSource<bool>();
         private TaskCompletionSource<bool> SubmitAddInfoButtonCreated    = new TaskCompletionSource<bool>();
