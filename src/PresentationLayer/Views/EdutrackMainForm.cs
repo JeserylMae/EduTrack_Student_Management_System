@@ -19,9 +19,11 @@ namespace PresentationLayer.Views
             _ = AppMainPanelEventSubscriber();
             _ = InitializeTopBarButtonSubscribers();
 
-            MaximizeAppbutton.Enabled = false;
+            //MaximizeAppbutton.Enabled = false;
+            //WindowState = FormWindowState.Normal;
+            //RunServerForm();
+            MaximizeAppbutton.Enabled = true;
             WindowState = FormWindowState.Normal;
-           // RunServerForm();
         }
 
         public UserControl UserControlPage
