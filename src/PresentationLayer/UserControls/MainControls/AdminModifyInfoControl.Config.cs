@@ -32,6 +32,7 @@ namespace PresentationLayer.UserControls.MainControls
         {
             await InfoTableCreated.Task;
             this.Load += delegate { ControlLoad?.Invoke(this, EventArgs.Empty); };
+            InfoTable.SelectionChanged += delegate { SelectedRowChanged?.Invoke(this, EventArgs.Empty); };
         }
 
         private void InitializeInfoTable()
@@ -81,7 +82,7 @@ namespace PresentationLayer.UserControls.MainControls
             InfoTable.Columns["BirthDate"].Width              = 150;
             InfoTable.Columns["Gender"].Width                 = 100;
             InfoTable.Columns["ContactNumber"].Width          = 170;
-            InfoTable.Columns["ZipCode"].Width                = 120;
+            InfoTable.Columns["HouseNumber"].Width            = 120;
             InfoTable.Columns["Barangay"].Width               = 180;
             InfoTable.Columns["Municipality"].Width           = 180;
             InfoTable.Columns["Province"].Width               = 180;

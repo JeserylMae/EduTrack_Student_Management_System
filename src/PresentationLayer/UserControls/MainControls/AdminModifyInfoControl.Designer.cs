@@ -47,7 +47,7 @@
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmailAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ZipCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HouseNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barangay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Municipality = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Province = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,7 +108,7 @@
             this.Gender,
             this.ContactNumber,
             this.EmailAddress,
-            this.ZipCode,
+            this.HouseNumber,
             this.Barangay,
             this.Municipality,
             this.Province,
@@ -320,12 +320,12 @@
             this.EmailAddress.Name = "EmailAddress";
             this.EmailAddress.ReadOnly = true;
             // 
-            // ZipCode
+            // HouseNumber
             // 
-            this.ZipCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ZipCode.HeaderText = "Zip Code";
-            this.ZipCode.Name = "ZipCode";
-            this.ZipCode.ReadOnly = true;
+            this.HouseNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HouseNumber.HeaderText = "House Number";
+            this.HouseNumber.Name = "HouseNumber";
+            this.HouseNumber.ReadOnly = true;
             // 
             // Barangay
             // 
@@ -412,7 +412,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn EmailAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ZipCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HouseNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Barangay;
         private System.Windows.Forms.DataGridViewTextBoxColumn Municipality;
         private System.Windows.Forms.DataGridViewTextBoxColumn Province;
