@@ -123,7 +123,7 @@ namespace PresentationLayer.Presenters
             student.SrCode                = _personalInfoControl.UserCodeTextboxText;
             student.LastName              = _personalInfoControl.LastNameTextboxText;
             student.Gender                = _personalInfoControl.GenderComboBoxText;
-            student.ZipCode               = _personalInfoControl.ZipCodeTextboxText;
+            student.HouseNumber           = _personalInfoControl.ZipCodeTextboxText;
             student.Barangay              = _personalInfoControl.BarangayTextboxText;
             student.Province              = _personalInfoControl.ProvinceTextboxText;
             student.FirstName             = _personalInfoControl.FirstNameTextboxText;
@@ -131,7 +131,7 @@ namespace PresentationLayer.Presenters
             student.EmailAddress          = _personalInfoControl.EmailAddresTextboxText;
             student.Municipality          = _personalInfoControl.MunicipalityTextboxText;
             student.ContactNumber         = _personalInfoControl.ContactNumberTextboxText;
-            student.GuardianZipCode       = _personalInfoControl.GuardianZipCodeTextboxText;
+            student.GuardianHouseNumber   = _personalInfoControl.GuardianZipCodeTextboxText;
             student.GuardianBarangay      = _personalInfoControl.GuardianBarangayTextboxText;
             student.GuardianLastName      = _personalInfoControl.GuardianLastNameTextboxText;
             student.GuardianProvince      = _personalInfoControl.GuardianProvinceTextboxText;
