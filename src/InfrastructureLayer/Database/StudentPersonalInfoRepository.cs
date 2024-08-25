@@ -73,7 +73,7 @@ namespace InfrastructureLayer.Database
             parameters.Add("p_Gender",        student.InfoModel.Gender);
             parameters.Add("p_ContactNumber", student.InfoModel.ContactNumber);
             parameters.Add("p_EmailAddress",  student.InfoModel.EmailAddress);
-            parameters.Add("p_HouseNumber",   student.InfoModel.ZipCode);
+            parameters.Add("p_HouseNumber",   student.InfoModel.HouseNumber);
             parameters.Add("p_Barangay",      student.InfoModel.Barangay);
             parameters.Add("p_Municipality",  student.InfoModel.Municipality);
             parameters.Add("p_Province",      student.InfoModel.Province);
@@ -81,7 +81,7 @@ namespace InfrastructureLayer.Database
             parameters.Add("p_GuardianFirstName",     student.InfoModel.GuardianFirstName);
             parameters.Add("p_GuardianMiddleName",    student.InfoModel.GuardianMiddleName);
             parameters.Add("p_GuardianContactNumber", student.InfoModel.GuardianContactNumber);
-            parameters.Add("p_GuardianHouseNumber",   student.InfoModel.GuardianZipCode);
+            parameters.Add("p_GuardianHouseNumber",   student.InfoModel.GuardianHouseNumber);
             parameters.Add("p_GuardianBarangay",      student.InfoModel.GuardianBarangay);
             parameters.Add("p_GuardianMunicipality",  student.InfoModel.GuardianMunicipality);
             parameters.Add("p_GuardianProvince",      student.InfoModel.GuardianProvince);
