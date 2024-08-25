@@ -1,5 +1,7 @@
 ﻿
+using PresentationLayer.UserControls.AdminSubControls;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -40,10 +42,16 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.RowCount - 1].Height = 28;
             } 
         }
+        public DataGridViewSelectedRowCollection SelectedRowCollection
+        {
+            get => InfoTable.SelectedRows;
+        }
+        public IPersonalInfoControl PersonalInfoControl { get; set; }
 
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
         public event EventHandler ViewUpdateForm;
+        public event EventHandler SelectedRowChanged;
 
         public void ClearInfoTable() { InfoTable.Rows.Clear(); }
 
