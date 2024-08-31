@@ -38,6 +38,11 @@ namespace ServiceLayer.Services
             {
                 object value = property.GetValue(model);
 
+                if (property.Name == "HouseNumber" || property.Name == "GuardianHouseNumber")
+                {
+                    continue;
+                }
+
                 if (string.IsNullOrEmpty(value.ToString()))
                 {
                     isNull = true;
