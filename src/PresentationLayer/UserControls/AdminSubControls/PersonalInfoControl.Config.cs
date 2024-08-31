@@ -34,10 +34,10 @@ namespace PresentationLayer.UserControls.AdminSubControls
 			CancelButton.Click += delegate { BotCancelButtonClicked?.Invoke(this, EventArgs.Empty); };
 
 			await SubmitAddInfoButtonCreated.Task;
-			SubmitAddButton.Click += delegate { AddNewStudentInfoSubmit?.Invoke(this, EventArgs.Empty); };
+			SubmitAddButton.Click += delegate { AddNewStudentInfoSubmit?.Invoke(SubmitAddButton, EventArgs.Empty); };
 
 			await SubmitUpdateInfoButtonCreated.Task;
-			SubmitUpdateButton.Click += delegate { UpdateStudentInfoSubmit?.Invoke(this, EventArgs.Empty); };
+			SubmitUpdateButton.Click += delegate { UpdateStudentInfoSubmit?.Invoke(SubmitUpdateButton, EventArgs.Empty); };
 		}
 	}
 }

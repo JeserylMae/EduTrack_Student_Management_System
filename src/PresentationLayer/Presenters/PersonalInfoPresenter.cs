@@ -26,6 +26,8 @@ namespace PresentationLayer.Presenters
             PersonalInfoControl_OnLoad();
         }
 
+
+        #region Event Subscribers
         private void PersonalInfoControl_OnLoad()
         {
             IList<string> yearsCollection = new List<string>();
@@ -35,12 +37,11 @@ namespace PresentationLayer.Presenters
             _personalInfoControl.YearComboBoxText = null;
         }
 
-        #region Event Subscribers
         private void CloseCancelButton_Clicked(object sender, EventArgs e)
         {
             _personalInfoControl.DestroyControl();
         }
-                        
+ 
         private async void SubmitAddNewInfoButton_Clicked(object sender, EventArgs e)
         {
             try
@@ -51,28 +52,46 @@ namespace PresentationLayer.Presenters
                 AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
                 AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
 
-                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
                 ParameterAuthentication authentication = new ParameterAuthentication();
+                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
 
                 Task completed = await authentication.ValidateParameter(model);
+                bool response  = await services.InsertNew(model);
 
-                if (completed == Task.CompletedTask)
-                {
-                    bool response = await services.InsertNew(model);
-
-                    ConfirmAdd(response, studentPersonalInfoModel.SrCode);
-                    _personalInfoControl.TriggerInfoTableReload();
-                    ClearTextBoxes();  
-                }
+                ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+                _personalInfoControl.TriggerInfoTableReload();
+                ClearTextBoxes();
             }
             catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }
             catch (HttpRequestException ex) { DisplayError(ex.Message, "Add"); }
             catch (Exception ex) { DisplayError(ex.Message, "Add"); }
         }
 
-        private void SubmitUpdateInfoButton_Clicked(object sender, EventArgs e)
+        private async void SubmitUpdateInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                StudentPersonalInfoModel studentPersonalInfoModel = new StudentPersonalInfoModel();
+                PersonalInfoModel<StudentPersonalInfoModel> model = new PersonalInfoModel<StudentPersonalInfoModel>();
+
+                AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
+                AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
+
+                ParameterAuthentication authentication = new ParameterAuthentication();
+
+                Task completed = await authentication.ValidateParameter(model);
+                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+
+                // TODO: Add update in the Infrastructure Layer.    
+
+                //bool responde = await services.Update()
+                //ConfirmUpdate(response, studentPersonalInfoModel.SrCode);
+                //_personalInfoControl.TriggerInfoTableReload();
+                //ClearTextBoxes();
+            }
+            catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }
+            catch (HttpRequestException ex) { DisplayError(ex.Message, "Add"); }
+            catch (Exception ex) { DisplayError(ex.Message, "Add"); }
         }
         #endregion
 
@@ -108,7 +127,8 @@ namespace PresentationLayer.Presenters
                              ref PersonalInfoModel<StudentPersonalInfoModel> model)
         {
             model.InfoModel = student;
-            model.DefaultPassword = _personalInfoControl.DefaultPasswordTextboxText;
+            model.DefaultPassword = string.IsNullOrEmpty(_personalInfoControl.DefaultPasswordTextboxText)?
+                                                "null" : _personalInfoControl.DefaultPasswordTextboxText;
             model.Position = "STUDENT";
             model.StudentCode = student.SrCode + "-STU";
             model.GuardianCode = student.SrCode + "-GUA";
@@ -170,7 +190,11 @@ namespace PresentationLayer.Presenters
         }
         #endregion
 
-
+        private readonly Dictionary<string, string> ButtonType = new Dictionary<string, string>
+        {
+            { "ADD", "FontAwesome.Sharp.IconButton, Text: ADD" },
+            { "UPDATE", "FontAwesome.Sharp.IconButton, Text: UPDATE" }
+        };
         private IPersonalInfoControl _personalInfoControl;
     }
 }

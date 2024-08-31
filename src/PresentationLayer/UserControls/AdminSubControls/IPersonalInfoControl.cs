@@ -11,6 +11,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         void DestroyControl();
         void ShowUpdateButton();
         void TriggerInfoTableReload();
+        void DisableDefaultPasswordTextBox();
 
         event EventHandler OnControlLoad;
         event EventHandler TopCloseButtonClicked;

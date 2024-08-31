@@ -72,7 +72,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public void DestroyControl()         { this.Dispose();            }
         public void ShowAddButton()          { SubmitAddButton.Show();    }
         public void ShowUpdateButton()       { SubmitUpdateButton.Show(); }
-        public void TriggerInfoTableReload() { InfoTableReloadTriggered?.Invoke(this, EventArgs.Empty); }
+        public void DisableDefaultPasswordTextBox() { DefaultPasswordTextbox.Enabled = false;                  }
+        public void TriggerInfoTableReload()        { InfoTableReloadTriggered?.Invoke(this, EventArgs.Empty); }
 
         public string PageIndicatorLabelText        { set => PageIndicatorLabel.Text      = value; }
         public string UserCodeIndicatorLabelText    { set => UserCodeIndicatorLabel.Text  = value; }
