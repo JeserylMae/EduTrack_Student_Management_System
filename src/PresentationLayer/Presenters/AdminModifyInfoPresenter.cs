@@ -6,7 +6,6 @@ using PresentationLayer.UserControls.AdminSubControls;
 using System.Collections.Generic;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
-using System.Threading.Tasks;
 
 
 namespace PresentationLayer.Presenters
@@ -51,6 +50,7 @@ namespace PresentationLayer.Presenters
 
             student = await services.GetById(UserId);
 
+            _adminModifyInfoControl.PersonalInfoControl.DisableDefaultPasswordTextBox();
             DisplaySelectedToPersonalInfoControl(student);
         }
 
@@ -78,35 +78,6 @@ namespace PresentationLayer.Presenters
 
 
         #region Helper methods
-        private void DisplaySelectedToPersonalInfoControl(StudentPersonalInfoModel student)
-        {
-            /*
-             Create an update stored procedure.
-            Make sure that it only include the fields in StudentPersonalInfoModel.
-            Also display only the fields inside StudentPersonalInfoModel.
-            Also default password and srcode textboxes should be disabled.
-            for default password show only ***. Do not get the default password from the db.
-             */
-
-            _adminModifyInfoControl.PersonalInfoControl.UserCodeTextboxText = student.SrCode;
-
-            _adminModifyInfoControl.PersonalInfoControl.LastNameTextboxText = student.LastName;
-            _adminModifyInfoControl.PersonalInfoControl.FirstNameTextboxText = student.FirstName;
-            _adminModifyInfoControl.PersonalInfoControl.MiddleNameTextboxText =student.MiddleName;
-
-            _adminModifyInfoControl.PersonalInfoControl.GenderComboBoxText = student.Gender;
-            _adminModifyInfoControl.PersonalInfoControl.UserCodeTextboxText = student.ContactNumber;
-
-            _adminModifyInfoControl.PersonalInfoControl.ZipCodeTextboxText = selectedRow.Cells["HouseNumber"].Value?.ToString();
-            _adminModifyInfoControl.PersonalInfoControl.BarangayTextboxText = selectedRow.Cells["Barangay"]?.Value.ToString();
-            _adminModifyInfoControl.PersonalInfoControl.MunicipalityTextboxText = selectedRow.Cells["Municipality"]?.Value.ToString();
-            _adminModifyInfoControl.PersonalInfoControl.ProvinceTextboxText = selectedRow.Cells["Province"]?.Value.ToString();
-
-            _adminModifyInfoControl.PersonalInfoControl.GuardianLastNameTextboxText = selectedRow.Cells["EmergencyContactPerson"].Value.ToString().Split(' ')[0];
-            _adminModifyInfoControl.PersonalInfoControl.GuardianFirstNameTextboxText = selectedRow.Cells["EmergencyContactPerson"].Value.ToString().Split(' ')[1];
-            _adminModifyInfoControl.PersonalInfoControl.GuardianMiddleNameTextboxText = selectedRow.Cells["EmergencyContactPerson"].Value.ToString().Split(' ')[2];
-        }
-
         private void AddStudentPersonalInfoToObject(ref object[] studentInfo,
                                             StudentPersonalInfoModel student)
         {
@@ -133,6 +104,38 @@ namespace PresentationLayer.Presenters
                               $"{student.GuardianHouseNumber} {address}"
                               : address;          
             studentInfo[14] = student.GuardianContactNumber;
+        }
+
+        private void DisplaySelectedToPersonalInfoControl(StudentPersonalInfoModel student)
+        {
+            _adminModifyInfoControl.PersonalInfoControl.UserCodeTextboxText   = student.SrCode;
+            _adminModifyInfoControl.PersonalInfoControl.LastNameTextboxText   = student.LastName;
+            _adminModifyInfoControl.PersonalInfoControl.FirstNameTextboxText  = student.FirstName;
+            _adminModifyInfoControl.PersonalInfoControl.MiddleNameTextboxText = student.MiddleName;
+
+            _adminModifyInfoControl.PersonalInfoControl.GenderComboBoxText         = student.Gender;
+            _adminModifyInfoControl.PersonalInfoControl.UserCodeTextboxText        = student.ContactNumber;
+            _adminModifyInfoControl.PersonalInfoControl.EmailAddresTextboxText     = student.EmailAddress;
+            _adminModifyInfoControl.PersonalInfoControl.DefaultPasswordTextboxText = "•••";
+
+            _adminModifyInfoControl.PersonalInfoControl.MonthComboBoxText = student.BirthDate.Split(' ')[0].ToUpper();
+            _adminModifyInfoControl.PersonalInfoControl.DayComboBoxText   = student.BirthDate.Split(' ')[1].TrimEnd(',');
+            _adminModifyInfoControl.PersonalInfoControl.YearComboBoxText  = student.BirthDate.Split(' ')[2];
+
+            _adminModifyInfoControl.PersonalInfoControl.ZipCodeTextboxText      = student.HouseNumber;
+            _adminModifyInfoControl.PersonalInfoControl.BarangayTextboxText     = student.Barangay;
+            _adminModifyInfoControl.PersonalInfoControl.MunicipalityTextboxText = student.Municipality;
+            _adminModifyInfoControl.PersonalInfoControl.ProvinceTextboxText     = student.Province;
+
+            _adminModifyInfoControl.PersonalInfoControl.GuardianLastNameTextboxText      = student.GuardianLastName;
+            _adminModifyInfoControl.PersonalInfoControl.GuardianFirstNameTextboxText     = student.GuardianFirstName;
+            _adminModifyInfoControl.PersonalInfoControl.GuardianMiddleNameTextboxText    = student.MiddleName;
+            _adminModifyInfoControl.PersonalInfoControl.GuardianContactNumberTextboxText = student.GuardianContactNumber;
+
+            _adminModifyInfoControl.PersonalInfoControl.GuardianZipCodeTextboxText      = student.GuardianHouseNumber;
+            _adminModifyInfoControl.PersonalInfoControl.GuardianBarangayTextboxText     = student.GuardianBarangay;
+            _adminModifyInfoControl.PersonalInfoControl.GuardianMunicipalityTextboxText = student.GuardianMunicipality;
+            _adminModifyInfoControl.PersonalInfoControl.GuardianProvinceTextboxText     = student.GuardianProvince;
         }
         #endregion
 
