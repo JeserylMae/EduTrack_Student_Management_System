@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\PersonalInfoModel.cs" />
+    <Compile Include="DataModels\StudentPersonalInfoCodeModel.cs" />
     <Compile Include="DataModels\StudentPersonalInfoModel.cs" />
     <Compile Include="DataModels\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
