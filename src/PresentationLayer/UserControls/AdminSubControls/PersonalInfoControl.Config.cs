@@ -18,7 +18,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
 			if (CloseButton != null)		{ TopCloseButtonCreated.TrySetResult(true);			}
 			if (YearComboBox != null)		{ YearComboBoxCreated.TrySetResult(true);			}
 			if (CancelButton != null)		{ BotCancelButtonCreated.TrySetResult(true);		}
-			if (SubmitAddButton != null)	{ SubmitAddInfoButtonCreated.TrySetResult(true);	}	
+			if (SubmitAddButton != null)	{ SubmitAddInfoButtonCreated.TrySetResult(true);	}
 			if (SubmitUpdateButton != null) { SubmitUpdateInfoButtonCreated.TrySetResult(true); }
 		}
 
