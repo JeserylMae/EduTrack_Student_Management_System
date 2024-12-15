@@ -12,7 +12,8 @@ namespace ServiceLayer.Services
     {
         // NOTE: Use method overriding for creating method ValidateParameter for other
         // models.
-        public async Task<Task> ValidateParameter(PersonalInfoModel<StudentPersonalInfoModel> parameters)
+        public async Task<Task> ValidateParameter(PersonalInfoModel<StudentPersonalInfoModel> parameters, 
+                                                  string validateFrom)
         {
             if (HasNullOrEmptyString(parameters) || HasNullOrEmptyString(parameters.InfoModel))
             {
@@ -22,7 +23,7 @@ namespace ServiceLayer.Services
 
             StudentPersonalInfoServices services = new StudentPersonalInfoServices();
             StudentPersonalInfoModel model = await services.GetById(parameters.InfoModel.SrCode);
-            if (!string.IsNullOrEmpty(model.SrCode))
+            if (!string.IsNullOrEmpty(model.SrCode) && validateFrom == "ADD")
             {
                 throw new Exception($"Student with SR Code {parameters.InfoModel.SrCode} already exists.");
             }
