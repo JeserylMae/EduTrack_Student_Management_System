@@ -53,7 +53,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler ViewUpdateForm;
         public event EventHandler SelectedRowChanged;
 
-        public void ClearInfoTable() { InfoTable.Rows.Clear(); }
+        public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
 
         private UserControl _addedControl;
         private TaskCompletionSource<bool> InfoTableCreated;
