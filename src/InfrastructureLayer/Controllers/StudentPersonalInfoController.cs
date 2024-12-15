@@ -42,6 +42,15 @@ namespace InfrastructureLayer.Controllers
             else { return BadRequest( new { Message = $"Failed to add student with SR-Code {student.InfoModel.SrCode}."}); }
         }
 
+        [HttpPost("Update")]
+        public async Task<IActionResult> UpdateStudentPersonalInfo(PersonalInfoModel<StudentPersonalInfoModel> student)
+        {
+            int result = await _studentPersonalInfoRepository.Update(student);
+
+            if (result is not 0) { return Ok(result); }
+            else { return BadRequest(new { Message = $"Failed to update student with SR-Code {student.InfoModel.SrCode}."}); }
+        }
+
 
         private IStudentPersonalInfoRepository _studentPersonalInfoRepository;
     }

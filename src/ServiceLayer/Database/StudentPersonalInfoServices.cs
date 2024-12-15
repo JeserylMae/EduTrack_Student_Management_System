@@ -71,7 +71,21 @@ namespace ServiceLayer.Database
             }
         }
 
-        
+        public async Task<bool> Update(PersonalInfoModel<StudentPersonalInfoModel> parameters)
+        {
+            string request = _webAddress + "/Update";
+
+            string JsonParameter = JsonConvert.SerializeObject(parameters, Formatting.Indented);
+            StringContent content = new StringContent(JsonParameter, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.PostAsync(request, content);
+                response.EnsureSuccessStatusCode();
+
+                return response.IsSuccessStatusCode;
+            }
+        }
 
 
         private string _webAddress;

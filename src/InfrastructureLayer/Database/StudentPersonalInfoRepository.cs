@@ -45,6 +45,20 @@ namespace InfrastructureLayer.Database
             }
         }
 
+        public async Task<int> Update(PersonalInfoModel<StudentPersonalInfoModel> student)
+        {
+            string storedProcedure = "spStudent_UpdatePersonalInfo";
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                AddValuesToParameters(ref parameters, ref student, "UPDATE");
+
+                return await connection.ExecuteAsync(storedProcedure, parameters,
+                             commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public async Task<int> InsertNew(PersonalInfoModel<StudentPersonalInfoModel> student)
         {
             string storedProcedure = "spStudent_InsertNewPersonalInfo";
@@ -52,18 +66,18 @@ namespace InfrastructureLayer.Database
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 DynamicParameters parameters = new DynamicParameters();
-                AddValuesToParameters(ref parameters, ref student);
+                AddValuesToParameters(ref parameters, ref student, "ADD");
 
                 return await connection.ExecuteAsync(storedProcedure, parameters,
                              commandType: CommandType.StoredProcedure);
             }
-
         }
 
 
         #region Helper Methods
         private void AddValuesToParameters(ref DynamicParameters parameters,
-                    ref PersonalInfoModel<StudentPersonalInfoModel> student)
+                    ref PersonalInfoModel<StudentPersonalInfoModel> student,
+                    string modification)
         {
             parameters.Add("p_SrCode",        student.InfoModel.SrCode);
             parameters.Add("p_LastName",      student.InfoModel.LastName);
@@ -89,8 +103,12 @@ namespace InfrastructureLayer.Database
             parameters.Add("p_StudentAddressCode",    student.StudentCode);
             parameters.Add("p_GuardianNameCode",      student.GuardianCode);
             parameters.Add("p_GuardianAddressCode",   student.GuardianCode);
-            parameters.Add("p_DefaultPassword",       student.DefaultPassword);
-            parameters.Add("p_Position",              student.Position);
+
+            if (modification == "ADD")
+            {
+                parameters.Add("p_DefaultPassword",       student.DefaultPassword);
+                parameters.Add("p_Position",              student.Position);
+            }
         }
         #endregion
 
