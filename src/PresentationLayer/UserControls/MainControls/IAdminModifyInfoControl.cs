@@ -12,9 +12,11 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler ControlLoad;
         event EventHandler ViewAddForm;
         event EventHandler ViewUpdateForm;
+        event EventHandler DeleteSelectedRow;
         event EventHandler SelectedRowChanged;
 
         void ClearInfoTable();
+        void TriggerInfoTableReload();
         object[] InfoTableRowData { set; }
         UserControl MainControlHolderControl { get; set; }
         IPersonalInfoControl PersonalInfoControl { get; set; }

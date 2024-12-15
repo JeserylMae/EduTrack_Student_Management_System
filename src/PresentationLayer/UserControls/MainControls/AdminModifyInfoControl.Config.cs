@@ -12,6 +12,7 @@ namespace PresentationLayer.UserControls.MainControls
         {
             if (OpenAddFormButton != null) { OpenAddFormButtonCreated.TrySetResult(true); }
             if (OpenModifyFormButton != null) { OpenUpdateFormButtonCreated.TrySetResult(true); }
+            if (OpenDropFormButton != null) {  DeleteSelectedRowButtonCreated.TrySetResult(true); }
         }
 
         private void OnInfoTableCreated()
@@ -26,6 +27,9 @@ namespace PresentationLayer.UserControls.MainControls
 
             await OpenUpdateFormButtonCreated.Task;
             OpenModifyFormButton.Click += delegate { ViewUpdateForm?.Invoke(this, EventArgs.Empty); };
+
+            await DeleteSelectedRowButtonCreated.Task;
+            OpenDropFormButton.Click += delegate { DeleteSelectedRow?.Invoke(this, EventArgs.Empty); };
         }
 
         private async void InitializeControlSubscriber()

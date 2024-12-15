@@ -12,9 +12,10 @@ namespace PresentationLayer.UserControls.MainControls
     {
         public AdminModifyInfoControl()
         {
-            InfoTableCreated            = new TaskCompletionSource<bool>();
-            OpenAddFormButtonCreated    = new TaskCompletionSource<bool>();
-            OpenUpdateFormButtonCreated = new TaskCompletionSource<bool>();
+            InfoTableCreated               = new TaskCompletionSource<bool>();
+            OpenAddFormButtonCreated       = new TaskCompletionSource<bool>();
+            OpenUpdateFormButtonCreated    = new TaskCompletionSource<bool>();
+            DeleteSelectedRowButtonCreated = new TaskCompletionSource<bool>();
 
             InitializeComponent();
             InitializeInfoTable();
@@ -22,6 +23,11 @@ namespace PresentationLayer.UserControls.MainControls
             OnTopBarButtonsCreated();
             InitializeButtonSubscriber();
             InitializeControlSubscriber();
+        }
+
+        public void TriggerInfoTableReload()
+        {
+            ControlLoad?.Invoke(this, EventArgs.Empty);
         }
 
         public UserControl MainControlHolderControl
@@ -51,6 +57,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
         public event EventHandler ViewUpdateForm;
+        public event EventHandler DeleteSelectedRow;
         public event EventHandler SelectedRowChanged;
 
         public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
@@ -59,5 +66,6 @@ namespace PresentationLayer.UserControls.MainControls
         private TaskCompletionSource<bool> InfoTableCreated;
         private TaskCompletionSource<bool> OpenAddFormButtonCreated;
         private TaskCompletionSource<bool> OpenUpdateFormButtonCreated;
+        private TaskCompletionSource<bool> DeleteSelectedRowButtonCreated;
     }
 }

@@ -17,9 +17,10 @@ namespace PresentationLayer.Presenters
         {
             _adminModifyInfoControl = adminModifyInfoControl;
 
-            _adminModifyInfoControl.ControlLoad    += InfoTable_OnLoadAsync;
-            _adminModifyInfoControl.ViewAddForm    += OpenAddFormButton_Clicked;
-            _adminModifyInfoControl.ViewUpdateForm += OpenModifyFormButton_Clicked;
+            _adminModifyInfoControl.ControlLoad       += InfoTable_OnLoadAsync;
+            _adminModifyInfoControl.ViewAddForm       += OpenAddFormButton_Clicked;
+            _adminModifyInfoControl.ViewUpdateForm    += OpenModifyFormButton_Clicked;
+            _adminModifyInfoControl.DeleteSelectedRow += DeleteSelectedRowButton_Clicked;
         }
 
         private async void InfoTable_OnLoadAsync(object sender, EventArgs e)
@@ -83,8 +84,61 @@ namespace PresentationLayer.Presenters
             _adminModifyInfoControl.MainControlHolderControl = (UserControl)personalInfoControl;            
         }
 
+        private async void DeleteSelectedRowButton_Clicked(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
+            StudentPersonalInfoCodeModel codes = new StudentPersonalInfoCodeModel();
+
+            string srCode = selectedRow.Cells["SrCode"].Value.ToString();
+
+            DialogResult result = ConfirmDelete(srCode);
+
+            if (result == DialogResult.Yes)
+            {
+                AssignValuesToObject(ref codes, srCode);
+                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+
+                bool response = await services.Delete(codes);
+
+                DisplayDeleteConfirmationMessage(response, srCode);
+                _adminModifyInfoControl.TriggerInfoTableReload();
+            }
+        }
+
 
         #region Helper methods
+        private DialogResult ConfirmDelete(string srCode)
+        {
+            return MessageBox.Show(
+                $"Are you sure you want to delete informations about student with Sr-Code {srCode}?",
+                "Student Personal Info - Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+        }
+
+        private void DisplayDeleteConfirmationMessage(bool deleteSuccessful, string srCode)
+        {
+            string confirmationMessage = deleteSuccessful ?
+                    $"Successfully deleted student with SR-Code {srCode}." :
+                    $"Failed to delete student with Sr-Code {srCode}.";
+
+            MessageBox.Show(confirmationMessage,
+                "Student Personal Info - Delete",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+        private void AssignValuesToObject(ref StudentPersonalInfoCodeModel codes, string srCode)
+        {
+            codes.SrCode              = srCode;
+            codes.StudentNameCode     = $"{srCode}-STU";
+            codes.StudentAddressCode  = $"{srCode}-STU";
+            codes.GuardianNameCode    = $"{srCode}-GUA";
+            codes.GuardianAddressCode = $"{srCode}-GUA";
+        }
+
         private void AddStudentPersonalInfoToObject(ref object[] studentInfo,
                                             StudentPersonalInfoModel student)
         {

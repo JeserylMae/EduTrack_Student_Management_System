@@ -87,6 +87,27 @@ namespace ServiceLayer.Database
             }
         }
 
+        public async Task<bool> Delete(StudentPersonalInfoCodeModel code)
+        {
+            Uri requestUri = new Uri(_webAddress + "/Delete");
+
+            string JsonParameter = JsonConvert.SerializeObject(code, Formatting.Indented);
+            StringContent content = new StringContent(JsonParameter, Encoding.UTF8, "application/json");
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpRequestMessage request = new HttpRequestMessage { 
+                    Method = HttpMethod.Delete, 
+                    RequestUri = requestUri, 
+                    Content = content 
+                };
+                HttpResponseMessage response = await client.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+
+                return response.IsSuccessStatusCode;
+            }
+        }
+
 
         private string _webAddress;
     }
