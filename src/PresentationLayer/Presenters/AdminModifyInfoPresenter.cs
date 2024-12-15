@@ -6,6 +6,7 @@ using PresentationLayer.UserControls.AdminSubControls;
 using System.Collections.Generic;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
+using System.Reflection;
 
 
 namespace PresentationLayer.Presenters
@@ -23,23 +24,29 @@ namespace PresentationLayer.Presenters
 
         private async void InfoTable_OnLoadAsync(object sender, EventArgs e)
         {
-            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-            List<StudentPersonalInfoModel> list = await services.GetAll();
-
-            _adminModifyInfoControl.ClearInfoTable();
-            
-            foreach(StudentPersonalInfoModel student in list)
+            try
             {
-                object[] studentInfo = new object[15];
-                AddStudentPersonalInfoToObject(ref studentInfo, student);
-               
-                _adminModifyInfoControl.InfoTableRowData = studentInfo;
+                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+                List<StudentPersonalInfoModel> list = await services.GetAll();
+
+                _adminModifyInfoControl.ClearInfoTable();
+
+                foreach (StudentPersonalInfoModel student in list)
+                {
+                    object[] studentInfo = new object[15];
+
+                    AddStudentPersonalInfoToObject(ref studentInfo, student);
+                    _adminModifyInfoControl.InfoTableRowData = studentInfo;
+
+                    Console.WriteLine($"{student.SrCode} {studentInfo.Length} ");
+                }
             }
+            catch (ArgumentOutOfRangeException ex) { Console.WriteLine(ex.Message); }
         }
 
         private async void InfoTable_SelectionChanged(object sender, EventArgs e)
         {
-            if (_adminModifyInfoControl.SelectedRowCollection.Count < 0)
+            if (_adminModifyInfoControl.SelectedRowCollection.Count <= 0)
                 return;
 
             DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
@@ -68,6 +75,8 @@ namespace PresentationLayer.Presenters
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
             IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
+            personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
+
             new PersonalInfoPresenter (personalInfoControl);
             personalInfoControl.ShowUpdateButton();
 
@@ -114,7 +123,7 @@ namespace PresentationLayer.Presenters
             _adminModifyInfoControl.PersonalInfoControl.MiddleNameTextboxText = student.MiddleName;
 
             _adminModifyInfoControl.PersonalInfoControl.GenderComboBoxText         = student.Gender;
-            _adminModifyInfoControl.PersonalInfoControl.UserCodeTextboxText        = student.ContactNumber;
+            _adminModifyInfoControl.PersonalInfoControl.ContactNumberTextboxText   = student.ContactNumber;
             _adminModifyInfoControl.PersonalInfoControl.EmailAddresTextboxText     = student.EmailAddress;
             _adminModifyInfoControl.PersonalInfoControl.DefaultPasswordTextboxText = "•••";
 
