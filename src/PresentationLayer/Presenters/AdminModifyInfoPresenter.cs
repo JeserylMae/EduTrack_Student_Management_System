@@ -37,8 +37,6 @@ namespace PresentationLayer.Presenters
 
                     AddStudentPersonalInfoToObject(ref studentInfo, student);
                     _adminModifyInfoControl.InfoTableRowData = studentInfo;
-
-                    Console.WriteLine($"{student.SrCode} {studentInfo.Length} ");
                 }
             }
             catch (ArgumentOutOfRangeException ex) { Console.WriteLine(ex.Message); }
