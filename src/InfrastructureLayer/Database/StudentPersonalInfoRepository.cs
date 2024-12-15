@@ -45,6 +45,20 @@ namespace InfrastructureLayer.Database
             }
         }
 
+        public async Task<int> DeleteById(StudentPersonalInfoCodeModel codes)
+        {
+            string storedProcedure = "spStudent_DeletePersonalInfo";
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                AddValuesToParameters(ref parameters, ref codes);
+
+                return await connection.ExecuteAsync(storedProcedure, parameters,
+                            commandType: CommandType.StoredProcedure);
+            }
+        }
+
         public async Task<int> Update(PersonalInfoModel<StudentPersonalInfoModel> student)
         {
             string storedProcedure = "spStudent_UpdatePersonalInfo";
@@ -75,6 +89,16 @@ namespace InfrastructureLayer.Database
 
 
         #region Helper Methods
+        private void AddValuesToParameters(ref DynamicParameters parameters, 
+                                    ref StudentPersonalInfoCodeModel codes)
+        {
+            parameters.Add("p_SrCode",              codes.SrCode);
+            parameters.Add("p_StudentNameCode",     codes.StudentNameCode);
+            parameters.Add("p_StudentAddressCode",  codes.StudentAddressCode);
+            parameters.Add("p_GuardianNameCode",    codes.GuardianNameCode);
+            parameters.Add("p_GuardianAddressCode", codes.GuardianAddressCode);
+        }
+
         private void AddValuesToParameters(ref DynamicParameters parameters,
                     ref PersonalInfoModel<StudentPersonalInfoModel> student,
                     string modification)

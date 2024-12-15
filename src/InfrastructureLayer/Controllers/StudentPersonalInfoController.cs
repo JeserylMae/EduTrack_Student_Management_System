@@ -51,6 +51,15 @@ namespace InfrastructureLayer.Controllers
             else { return BadRequest(new { Message = $"Failed to update student with SR-Code {student.InfoModel.SrCode}."}); }
         }
 
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> DeleteStudentPersonalInfo([FromBody] StudentPersonalInfoCodeModel codes)
+        {
+            int result = await _studentPersonalInfoRepository.DeleteById(codes);
+
+            if (result is not 0) { return Ok(result); }
+            else { return BadRequest(new { Message = $"Falied to delete information of student with Sr-Code {codes.SrCode}." }); }
+        }
+
 
         private IStudentPersonalInfoRepository _studentPersonalInfoRepository;
     }
