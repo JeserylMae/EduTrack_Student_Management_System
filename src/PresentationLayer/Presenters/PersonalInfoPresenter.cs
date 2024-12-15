@@ -55,10 +55,10 @@ namespace PresentationLayer.Presenters
                 ParameterAuthentication authentication = new ParameterAuthentication();
                 StudentPersonalInfoServices services = new StudentPersonalInfoServices();
 
-                Task completed = await authentication.ValidateParameter(model);
+                Task completed = await authentication.ValidateParameter(model, "ADD");
                 bool response  = await services.InsertNew(model);
 
-                ConfirmAdd(response, studentPersonalInfoModel.SrCode);
+                ConfirmMessage(response, studentPersonalInfoModel.SrCode, 0);
                 _personalInfoControl.TriggerInfoTableReload();
                 ClearTextBoxes();
             }
@@ -78,20 +78,19 @@ namespace PresentationLayer.Presenters
                 AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
 
                 ParameterAuthentication authentication = new ParameterAuthentication();
-
-                Task completed = await authentication.ValidateParameter(model);
                 StudentPersonalInfoServices services = new StudentPersonalInfoServices();
 
-                // TODO: Add update in the Infrastructure Layer.    
+                Task completed = await authentication.ValidateParameter(model, "UPDATE");
+                bool response = await services.Update(model);
 
-                //bool responde = await services.Update()
-                //ConfirmUpdate(response, studentPersonalInfoModel.SrCode);
-                //_personalInfoControl.TriggerInfoTableReload();
-                //ClearTextBoxes();
+                ConfirmMessage(response, studentPersonalInfoModel.SrCode, 1);
+                _personalInfoControl.TriggerInfoTableReload();
+                ClearTextBoxes();
             }
-            catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }
-            catch (HttpRequestException ex) { DisplayError(ex.Message, "Add"); }
-            catch (Exception ex) { DisplayError(ex.Message, "Add"); }
+            catch (TargetInvocationException ex) { Console.WriteLine(ex.Message); }
+            catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Update"); }
+            catch (HttpRequestException ex) { DisplayError(ex.Message, "Update"); }
+            catch (Exception ex) { DisplayError(ex.Message, "Update"); }
         }
         #endregion
 
@@ -113,12 +112,15 @@ namespace PresentationLayer.Presenters
                             MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private void ConfirmAdd(bool response, string srcode)
+        private void ConfirmMessage(bool response, string srcode, int modification)
         {
             if (!response) return;
+
+            string mod     = modification == 0 ? "Add"   : "Update";
+            string message = modification == 0 ? "added" : "updated";
             
-            MessageBox.Show($"Successfully added student with SR Code {srcode}.",
-                            "Student Personal Information - Add",
+            MessageBox.Show($"Successfully {message} student with SR Code {srcode}.",
+                            $"Student Personal Information - {mod}",
                             MessageBoxButton.OK,
                             MessageBoxImage.Information); 
         }
