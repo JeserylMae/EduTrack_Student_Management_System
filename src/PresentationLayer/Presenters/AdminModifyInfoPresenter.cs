@@ -20,7 +20,9 @@ namespace PresentationLayer.Presenters
             _adminModifyInfoControl.ControlLoad       += InfoTable_OnLoadAsync;
             _adminModifyInfoControl.ViewAddForm       += OpenAddFormButton_Clicked;
             _adminModifyInfoControl.ViewUpdateForm    += OpenModifyFormButton_Clicked;
-            _adminModifyInfoControl.DeleteSelectedRow += DeleteSelectedRowButton_Clicked;
+            _adminModifyInfoControl.DeleteSelectedRow   += DeleteSelectedRowButton_Clicked;
+            _adminModifyInfoControl.SearchButtonClicked += SearchButton_Clicked;
+            _adminModifyInfoControl.SearchTextBoxKeyDown += SearchTextBox_KeyDown;
         }
 
         private async void InfoTable_OnLoadAsync(object sender, EventArgs e)
@@ -105,8 +107,38 @@ namespace PresentationLayer.Presenters
             }
         }
 
+        private void SearchButton_Clicked(object sender, EventArgs e)
+        {
+            string srCode = _adminModifyInfoControl.SearchSrCodeText;
+
+            if (String.IsNullOrEmpty(srCode)) return;
+
+            HighlightSearchRow(srCode);
+        }
+
+        private void SearchTextBox_KeyDown(object sender, KeyEventArgs e) 
+        {
+            if (e.KeyCode != Keys.Enter) return;
+            e.SuppressKeyPress = true;
+            
+            SearchButton_Clicked((object)sender, e);
+        }
+
 
         #region Helper methods
+        private void HighlightSearchRow(string srCode)
+        {
+            for (int i = 0; i < _adminModifyInfoControl.InfoTableRows.Count; i++)
+            {
+                string tempSrCode = _adminModifyInfoControl.InfoTableRows[i].Cells["SrCode"].Value.ToString();
+
+                if (tempSrCode == srCode)
+                    _adminModifyInfoControl.InfoTableRows [i].Selected = true;
+                else
+                    _adminModifyInfoControl.InfoTableRows[i].Selected = false;
+            }
+        }
+
         private DialogResult ConfirmDelete(string srCode)
         {
             return MessageBox.Show(
