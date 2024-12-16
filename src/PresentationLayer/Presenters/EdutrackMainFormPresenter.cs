@@ -21,10 +21,13 @@ namespace PresentationLayer.Presenters
 
             GeneralPresenter.WindowOpenControlSubscriber += WindowOpenControl_Triggered;
 
-            //_edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
-            AdminModifyInfoControl adminModifyInfoControl = new AdminModifyInfoControl();
-            new AdminModifyInfoPresenter(adminModifyInfoControl);
-            _edutrackMainForm.UserControlPage = adminModifyInfoControl;
+            ILogInPage loginPage = new LogInPage();
+            _edutrackMainForm.UserControlPage = (UserControl)loginPage;
+            new LogInPagePresenter(loginPage);
+
+            //AdminModifyInfoControl adminModifyInfoControl = new AdminModifyInfoControl();
+            //new AdminModifyInfoPresenter(adminModifyInfoControl);
+            //_edutrackMainForm.UserControlPage = adminModifyInfoControl;
         }
 
         private void WindowOpenControl_Triggered(object sender, EventArgs e)
