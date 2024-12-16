@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -9,7 +10,22 @@ namespace PresentationLayer.Views
 {
     public partial class EdutrackMainForm : Form, IEdutrackMainForm
     {
-        public EdutrackMainForm(IServerInfoForm serverInfoForm)
+        public static IEdutrackMainForm _instance;
+
+        public static IEdutrackMainForm GetInstance(IServerInfoForm serverInfoForm = null)
+        {
+            if (_instance == null && serverInfoForm != null)
+            {
+                lock (_lock)
+                {
+                    IEdutrackMainForm edutrackMainForm = new EdutrackMainForm(serverInfoForm);
+                    _instance = edutrackMainForm;
+                }
+            }
+            return _instance;
+        }
+
+        private EdutrackMainForm(IServerInfoForm serverInfoForm)
         {
             InitializeComponent();
             IsAppMaximized = false;
@@ -19,11 +35,11 @@ namespace PresentationLayer.Views
             _ = AppMainPanelEventSubscriber();
             _ = InitializeTopBarButtonSubscribers();
 
-            //MaximizeAppbutton.Enabled = false;
+            MaximizeAppbutton.Enabled = false;
+            WindowState = FormWindowState.Minimized;
+            RunServerForm();
+            //MaximizeAppbutton.Enabled = true;
             //WindowState = FormWindowState.Normal;
-            //RunServerForm();
-            MaximizeAppbutton.Enabled = true;
-            WindowState = FormWindowState.Normal;
         }
 
         public UserControl UserControlPage
@@ -64,6 +80,7 @@ namespace PresentationLayer.Views
 
         private UserControl _userControl;
         private IServerInfoForm _serverInfoForm;
+        private static readonly object _lock = new object();
         private TaskCompletionSource<bool> TopBarCreated = new TaskCompletionSource<bool>();
     }
 }
