@@ -13,6 +13,8 @@ namespace PresentationLayer.UserControls.MainControls
             if (SearchSrCodeButton != null)   { SearchButtonCreated.TrySetResult(true); }
             if (SearchSrCodeTextbox != null)  { SearchTextBoxCreated.TrySetResult(true); }
             if (OpenAddFormButton != null)    { OpenAddFormButtonCreated.TrySetResult(true); }
+            if (FileDropDownLayout != null)   { FileDropDownLayoutCreated.TrySetResult(true); }
+            if (FileDropDownButton != null)   { FileDropDownButtonCreated.TrySetResult(true); }
             if (OpenModifyFormButton != null) { OpenUpdateFormButtonCreated.TrySetResult(true); }
             if (OpenDropFormButton != null)   { DeleteSelectedRowButtonCreated.TrySetResult(true); }
         }
@@ -35,6 +37,17 @@ namespace PresentationLayer.UserControls.MainControls
 
             await SearchButtonCreated.Task;
             SearchSrCodeButton.Click += delegate { SearchButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+
+            await FileDropDownButtonCreated.Task;
+            FileDropDownButton.Click += delegate { FileDropDownButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await FileDropDownLayoutCreated.Task;
+            ExitButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty); };
+            CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
+            StudentAcadInfoButton.Click        += delegate { StudAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            InstructorAcadInfoButton.Click     += delegate { ItrAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            InstructorPersonalInfoButton.Click += delegate { ItrPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
 
             await SearchTextBoxCreated.Task;
             SearchSrCodeTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchTextBoxKeyDown?.Invoke(sender, e); };

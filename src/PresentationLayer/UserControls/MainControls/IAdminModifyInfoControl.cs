@@ -13,9 +13,15 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler ViewAddForm;
         event EventHandler ViewUpdateForm;
         event EventHandler DeleteSelectedRow;
+        event EventHandler ExitButtonClicked;
         event EventHandler SelectedRowChanged;
         event EventHandler SearchButtonClicked;
         event KeyEventHandler SearchTextBoxKeyDown;
+        event EventHandler CloseEditorButtonClicked;
+        event EventHandler ItrAcadInfoButtonClicked;
+        event EventHandler FileDropDownButtonClicked;
+        event EventHandler StudAcadInfoButtonClicked;
+        event EventHandler ItrPersonalInfoButtonClicked;
 
         void ClearInfoTable();
         void TriggerInfoTableReload();
@@ -24,6 +30,7 @@ namespace PresentationLayer.UserControls.MainControls
         object[] InfoTableRowData  { set; }
 
         DataGridViewRowCollection InfoTableRows  { get; }
+        FlowLayoutPanel AccessFileDropDownLayout { get; }
         UserControl MainControlHolderControl     { get; set; }
         IPersonalInfoControl PersonalInfoControl { get; set; }
         DataGridViewSelectedRowCollection SelectedRowCollection { get; }

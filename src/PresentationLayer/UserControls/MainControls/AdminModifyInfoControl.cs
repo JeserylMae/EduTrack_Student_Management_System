@@ -16,6 +16,8 @@ namespace PresentationLayer.UserControls.MainControls
             SearchButtonCreated            = new TaskCompletionSource<bool>();
             SearchTextBoxCreated           = new TaskCompletionSource<bool>();
             OpenAddFormButtonCreated       = new TaskCompletionSource<bool>();
+            FileDropDownButtonCreated      = new TaskCompletionSource<bool>();
+            FileDropDownLayoutCreated      = new TaskCompletionSource<bool>();
             OpenUpdateFormButtonCreated    = new TaskCompletionSource<bool>();
             DeleteSelectedRowButtonCreated = new TaskCompletionSource<bool>();
 
@@ -27,10 +29,6 @@ namespace PresentationLayer.UserControls.MainControls
             InitializeControlSubscriber();
         }
 
-        public void TriggerInfoTableReload()
-        {
-            ControlLoad?.Invoke(this, EventArgs.Empty);
-        }
 
         public UserControl MainControlHolderControl
         {
@@ -52,22 +50,14 @@ namespace PresentationLayer.UserControls.MainControls
             } 
         }
 
-        public DataGridViewSelectedRowCollection SelectedRowCollection
-        {
-            get => InfoTable.SelectedRows;
-        }
+        public string SearchSrCodeText                                 { get => SearchSrCodeTextbox.Text; }
+        public IPersonalInfoControl PersonalInfoControl                { get; set;                        }
+        public DataGridViewRowCollection InfoTableRows                 { get => InfoTable.Rows;           }
+        public FlowLayoutPanel AccessFileDropDownLayout                { get => FileDropDownLayout;       }
+        public DataGridViewSelectedRowCollection SelectedRowCollection { get => InfoTable.SelectedRows;   }
 
-        public DataGridViewRowCollection InfoTableRows
-        {
-            get => InfoTable.Rows;
-        }
 
-        public string SearchSrCodeText
-        {
-            get => SearchSrCodeTextbox.Text;
-        }
-
-        public IPersonalInfoControl PersonalInfoControl { get; set; }
+        public void TriggerInfoTableReload() { ControlLoad?.Invoke(this, EventArgs.Empty); }
 
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
@@ -76,6 +66,12 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler SelectedRowChanged;
         public event EventHandler SearchButtonClicked;
         public event KeyEventHandler SearchTextBoxKeyDown;
+        public event EventHandler ItrAcadInfoButtonClicked;
+        public event EventHandler FileDropDownButtonClicked;
+        public event EventHandler StudAcadInfoButtonClicked;
+        public event EventHandler ItrPersonalInfoButtonClicked;
+        public event EventHandler ExitButtonClicked;
+        public event EventHandler CloseEditorButtonClicked;
 
         public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
 
@@ -84,6 +80,8 @@ namespace PresentationLayer.UserControls.MainControls
         private TaskCompletionSource<bool> SearchButtonCreated;
         private TaskCompletionSource<bool> SearchTextBoxCreated;
         private TaskCompletionSource<bool> OpenAddFormButtonCreated;
+        private TaskCompletionSource<bool> FileDropDownButtonCreated;
+        private TaskCompletionSource<bool> FileDropDownLayoutCreated;
         private TaskCompletionSource<bool> OpenUpdateFormButtonCreated;
         private TaskCompletionSource<bool> DeleteSelectedRowButtonCreated;
     }
