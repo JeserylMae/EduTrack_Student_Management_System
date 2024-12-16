@@ -17,12 +17,20 @@ namespace PresentationLayer.Presenters
             _edutrackMainForm.WindowMinimized += MinimizeAppButton_Click;
             _edutrackMainForm.MouseMoved      += EdutrackMainForm_MouseMove;
             _edutrackMainForm.MousePressed    += EdutrackMainForm_MouseDown;
-            _edutrackMainForm.WindowExit      += GeneralPresenter.TriggerAppExit;
+            _edutrackMainForm.WindowExit += GeneralPresenter.TriggerAppExit;
+
+            GeneralPresenter.WindowOpenControlSubscriber += WindowOpenControl_Triggered;
 
             //_edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
             AdminModifyInfoControl adminModifyInfoControl = new AdminModifyInfoControl();
             new AdminModifyInfoPresenter(adminModifyInfoControl);
             _edutrackMainForm.UserControlPage = adminModifyInfoControl;
+        }
+
+        private void WindowOpenControl_Triggered(object sender, EventArgs e)
+        {
+            if (GeneralPresenter.NewWindowControl == null) return;
+            _edutrackMainForm.UserControlPage = GeneralPresenter.NewWindowControl;
         }
 
         private void MinimizeAppButton_Click(object sender, EventArgs e)
