@@ -164,7 +164,9 @@ namespace PresentationLayer.Presenters
 
         private void FileDropDownButton_Clicked(object sender, EventArgs e)
         {
-            _adminModifyInfoControl.AccessFileDropDownLayout.Visible = true;
+            if (_adminModifyInfoControl.AccessFileDropDownLayout.Visible)
+                 _adminModifyInfoControl.AccessFileDropDownLayout.Visible = false;
+            else _adminModifyInfoControl.AccessFileDropDownLayout.Visible = true;
         }
 
 
