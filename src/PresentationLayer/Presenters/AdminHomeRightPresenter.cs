@@ -9,10 +9,8 @@ namespace PresentationLayer.Presenters
 {
     internal class AdminHomeRightPresenter
     {
-        internal AdminHomeRightPresenter(IAdminHomeRightControl adminHomeRightControl,
-                                         IEdutrackMainForm edutrackMainForm)
+        internal AdminHomeRightPresenter(IAdminHomeRightControl adminHomeRightControl)
         {
-            _edutrackMainForm      = edutrackMainForm;
             _adminHomeRightControl = adminHomeRightControl;
 
             _adminHomeRightControl.CourseInfoButtonClicked       += CourseInfoButton_Clicked;
@@ -47,11 +45,12 @@ namespace PresentationLayer.Presenters
             IAdminModifyInfoControl adminModifyInfoControl = new AdminModifyInfoControl();
             new AdminModifyInfoPresenter(adminModifyInfoControl);
 
-            _edutrackMainForm.UserControlPage = (UserControl)adminModifyInfoControl;
+            GeneralPresenter.NewWindowControl = (UserControl) adminModifyInfoControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
+
             _adminHomeRightControl.DestroyControl();
         }
 
-        private IEdutrackMainForm _edutrackMainForm;
         private IAdminHomeRightControl _adminHomeRightControl;
     }
 }
