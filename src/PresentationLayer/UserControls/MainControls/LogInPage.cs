@@ -9,15 +9,12 @@ namespace PresentationLayer.UserControls.MainControls
 {
     public partial class LogInPage : UserControl, ILogInPage
     {
-        public LogInPage(IEdutrackMainForm edutrackMainForm)
+        public LogInPage()
         {
             InitializeComponent();
-            OnLogInButtonCreated(LogInButton);
+            OnLogInButtonCreated();
 
             _ = InitializeButtonSubscriber();
-            _edutrackMainForm = edutrackMainForm;
-
-            new LogInPagePresenter(this, _edutrackMainForm);
         }
 
         public void DisposeForm() { this.Dispose(); }
@@ -27,7 +24,6 @@ namespace PresentationLayer.UserControls.MainControls
         public string GetEmailAddress { get => EmailAddressTextbox.Text; }
 
         public event EventHandler LoggedIn;
-        private IEdutrackMainForm _edutrackMainForm;
         private TaskCompletionSource<bool> LogInButtonCreated = new TaskCompletionSource<bool>();
 
 

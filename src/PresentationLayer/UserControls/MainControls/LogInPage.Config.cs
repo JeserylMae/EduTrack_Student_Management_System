@@ -8,7 +8,7 @@ namespace PresentationLayer.UserControls.MainControls
 {
     partial class LogInPage
     {
-        private void OnLogInButtonCreated(Button LogInButton)
+        private void OnLogInButtonCreated()
         {
             if (LogInButton != null) { LogInButtonCreated.TrySetResult(true); }
         }

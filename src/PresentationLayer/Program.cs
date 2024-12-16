@@ -24,11 +24,10 @@ namespace PresentationLayer
             AppSettings appSettings            = new AppSettings();
             SplashScreen splashScreen          = new SplashScreen();
             IServerInfoForm serverInfoForm     = new ServerInfoForm();
-            IEdutrackMainForm edutrackMainForm = new EdutrackMainForm(serverInfoForm);
+            IEdutrackMainForm edutrackMainForm = EdutrackMainForm.GetInstance(serverInfoForm);
 
             new ServerInfoPresenter(serverInfoForm, edutrackMainForm, splashScreen, appSettings);
             new EdutrackMainFormPresenter(edutrackMainForm);
-
 
             Application.Run((Form)edutrackMainForm);
         }
