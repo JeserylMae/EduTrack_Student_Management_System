@@ -20,9 +20,41 @@ namespace PresentationLayer.Presenters
             _adminModifyInfoControl.ControlLoad       += InfoTable_OnLoadAsync;
             _adminModifyInfoControl.ViewAddForm       += OpenAddFormButton_Clicked;
             _adminModifyInfoControl.ViewUpdateForm    += OpenModifyFormButton_Clicked;
-            _adminModifyInfoControl.DeleteSelectedRow   += DeleteSelectedRowButton_Clicked;
-            _adminModifyInfoControl.SearchButtonClicked += SearchButton_Clicked;
+            _adminModifyInfoControl.DeleteSelectedRow    += DeleteSelectedRowButton_Clicked;
+            _adminModifyInfoControl.SearchButtonClicked  += SearchButton_Clicked;
             _adminModifyInfoControl.SearchTextBoxKeyDown += SearchTextBox_KeyDown;
+
+            _adminModifyInfoControl.ExitButtonClicked            += ExitButton_Clicked;
+            _adminModifyInfoControl.FileDropDownButtonClicked    += FileDropDownButton_Clicked;
+            _adminModifyInfoControl.CloseEditorButtonClicked     += CloseEditorButton_Clicked;
+            _adminModifyInfoControl.StudAcadInfoButtonClicked    += StudAcadInfoButton_Clicked;
+            _adminModifyInfoControl.ItrAcadInfoButtonClicked     += ItrAcadInfoButton_Clicked;
+            _adminModifyInfoControl.ItrPersonalInfoButtonClicked += ItrPersonalInfoButton_Clicked;
+        }
+
+        private void ItrPersonalInfoButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ItrAcadInfoButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExitButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CloseEditorButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private async void InfoTable_OnLoadAsync(object sender, EventArgs e)
@@ -122,6 +154,11 @@ namespace PresentationLayer.Presenters
             e.SuppressKeyPress = true;
             
             SearchButton_Clicked((object)sender, e);
+        }
+
+        private void FileDropDownButton_Clicked(object sender, EventArgs e)
+        {
+            _adminModifyInfoControl.AccessFileDropDownLayout.Visible = true;
         }
 
 
