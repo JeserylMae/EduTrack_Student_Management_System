@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using DomainLayer.DataModels;
 using ServiceLayer.Database;
 using System.Reflection;
+using PresentationLayer.UserControls.HomeSubControls;
+using PresentationLayer.Views;
 
 
 namespace PresentationLayer.Presenters
@@ -49,7 +51,16 @@ namespace PresentationLayer.Presenters
 
         private void CloseEditorButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            HomePage homePage = new HomePage();
+            new HomePagePresenter(homePage);
+
+            IAdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
+            new AdminHomeRightPresenter(adminHomeRightControl);
+
+            homePage.RightUserControlPage = (UserControl)adminHomeRightControl;
+
+            GeneralPresenter.NewWindowControl = (UserControl)homePage;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
         }
 
         private async void InfoTable_OnLoadAsync(object sender, EventArgs e)
