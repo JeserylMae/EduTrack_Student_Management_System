@@ -23,12 +23,13 @@ namespace PresentationLayer.Presenters
             _edutrackMainForm = edutrackMainForm;
             _cmdConn = _settings.GetConsoleConnection();
 
-            _serverInfoForm.WindowExit           += ExitAppButton_Clicked;
-            _edutrackMainForm.WindowExit         += ExitAppButton_Clicked;
-            _serverInfoForm.SubmittedServerInfo  += ServerInfoButton_Clicked;
-            _serverInfoForm.SslCaButtonClicked   += SslCaDialogButton_Clicked;
-            _serverInfoForm.SslKeyButtonClicked  += SslKeyDialogButton_Clicked;
-            _serverInfoForm.SslCertButtonClicked += SslCertDialogButton_Clicked;
+            _serverInfoForm.WindowExit             += ExitAppButton_Clicked;
+            _serverInfoForm.SubmittedServerInfo    += ServerInfoButton_Clicked;
+            _serverInfoForm.SslCaButtonClicked     += SslCaDialogButton_Clicked;
+            _serverInfoForm.SslKeyButtonClicked    += SslKeyDialogButton_Clicked;
+            _serverInfoForm.SslCertButtonClicked   += SslCertDialogButton_Clicked;
+            
+            GeneralPresenter.WindowExitSubscriber += ExitAppButton_Clicked;
         }
 
         #region Button Subcribers

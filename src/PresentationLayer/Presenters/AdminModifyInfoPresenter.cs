@@ -24,7 +24,7 @@ namespace PresentationLayer.Presenters
             _adminModifyInfoControl.SearchButtonClicked  += SearchButton_Clicked;
             _adminModifyInfoControl.SearchTextBoxKeyDown += SearchTextBox_KeyDown;
 
-            _adminModifyInfoControl.ExitButtonClicked            += ExitButton_Clicked;
+            _adminModifyInfoControl.ExitButtonClicked            += GeneralPresenter.TriggerAppExit;
             _adminModifyInfoControl.FileDropDownButtonClicked    += FileDropDownButton_Clicked;
             _adminModifyInfoControl.CloseEditorButtonClicked     += CloseEditorButton_Clicked;
             _adminModifyInfoControl.StudAcadInfoButtonClicked    += StudAcadInfoButton_Clicked;
@@ -43,11 +43,6 @@ namespace PresentationLayer.Presenters
         }
 
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ExitButton_Clicked(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
