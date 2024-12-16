@@ -8,10 +8,11 @@ namespace PresentationLayer.Presenters
 {
     internal class HomePagePresenter
     {
-        internal HomePagePresenter(IHomePage homePage, IEdutrackMainForm edutrackMainForm) 
+        internal HomePagePresenter(IHomePage homePage) 
         {
             _homePage = homePage;
-            _edutrackMainForm = edutrackMainForm;
+            _edutrackMainForm = EdutrackMainForm.GetInstance();
+
             _homePage.LoggedOut += LogoutButton_Clicked;
         }
 
@@ -23,7 +24,14 @@ namespace PresentationLayer.Presenters
             if (result == DialogResult.Yes)
             {
                 _homePage.DestroyControl();
-                _edutrackMainForm.UserControlPage = new LogInPage(_edutrackMainForm);
+                     
+                ILogInPage logInPage = new LogInPage();
+                new LogInPagePresenter(logInPage);
+                    
+                GeneralPresenter.NewWindowControl = (UserControl) logInPage;
+                GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+                _edutrackMainForm.SetWindowToMaximized();
             }
         }
 
@@ -32,3 +40,4 @@ namespace PresentationLayer.Presenters
         private IEdutrackMainForm _edutrackMainForm;
     }
 }
+
