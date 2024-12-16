@@ -468,7 +468,7 @@
             this.FileDropDownButton.IconChar = FontAwesome.Sharp.IconChar.None;
             this.FileDropDownButton.IconColor = System.Drawing.Color.Black;
             this.FileDropDownButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.FileDropDownButton.Location = new System.Drawing.Point(299, 3);
+            this.FileDropDownButton.Location = new System.Drawing.Point(299, 1);
             this.FileDropDownButton.Margin = new System.Windows.Forms.Padding(0);
             this.FileDropDownButton.Name = "FileDropDownButton";
             this.FileDropDownButton.Size = new System.Drawing.Size(75, 25);

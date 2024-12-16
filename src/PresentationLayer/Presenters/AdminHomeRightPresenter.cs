@@ -32,7 +32,12 @@ namespace PresentationLayer.Presenters
 
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            AdminModifyAcadInfoControl adminModifyAcadInfoControl = new AdminModifyAcadInfoControl();
+
+            GeneralPresenter.NewWindowControl = (UserControl)adminModifyAcadInfoControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _adminHomeRightControl.DestroyControl();
         }
 
         private void ItrPersonalInfoButton_Clicked(object sender, EventArgs e)

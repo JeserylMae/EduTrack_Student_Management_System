@@ -73,6 +73,16 @@
     <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
       <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainControls\AdminModifyAcadInfoControl.Config.cs">
+	  <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainControls\AdminModifyAcadInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainControls\AdminModifyAcadInfoControl.Designer.cs">
+      <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Config.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -194,6 +204,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MainControls\AdminModifyAcadInfoControl.resx">
+      <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainControls\AdminModifyInfoControl.resx">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
