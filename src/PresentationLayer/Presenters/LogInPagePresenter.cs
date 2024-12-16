@@ -52,7 +52,7 @@ namespace PresentationLayer.Presenters
             if (User.Position == "ADMIN")
             {
                 IAdminHomeRightControl adminHomeRightControl = new AdminHomeRightControl();
-                new AdminHomeRightPresenter(adminHomeRightControl, _edutrackMainForm);
+                new AdminHomeRightPresenter(adminHomeRightControl);
 
                 homePage.RightUserControlPage = (UserControl)adminHomeRightControl;
             }
