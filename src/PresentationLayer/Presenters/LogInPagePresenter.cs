@@ -12,18 +12,19 @@ namespace PresentationLayer.Presenters
 {
     public class LogInPagePresenter
     {
-        public LogInPagePresenter(ILogInPage logInPage, IEdutrackMainForm edutrackMainForm)
+        public LogInPagePresenter(ILogInPage logInPage)
         {
             _logInPage          =  logInPage;
-            _edutrackMainForm   =  edutrackMainForm;
+            _edutrackMainForm   =  EdutrackMainForm.GetInstance();
+
             _logInPage.LoggedIn += LogInButton_Clicked;
         }
 
         private async void LogInButton_Clicked(object sender, EventArgs e) 
         {
             try
-            {
-                UserModel e_User = new UserModel();
+            { 
+                UserModel e_User       = new UserModel();
                 e_User.UserID          = _logInPage.GetUserId;
                 e_User.EmailAddress    = _logInPage.GetEmailAddress;
                 e_User.AccountPassword = _logInPage.GetPassword;
@@ -32,7 +33,7 @@ namespace PresentationLayer.Presenters
                 UserModel User = await services.GetUserByID(e_User.UserID);
 
                 ValidateUser(ref User, ref e_User);
-                
+
                 _edutrackMainForm.EnableMaximizeAppButton = true;
                 _edutrackMainForm.SetWindowToMaximized();
 
@@ -40,14 +41,16 @@ namespace PresentationLayer.Presenters
             }
             catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Ensure all credentials are correct.", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void RedirectToUserPage(ref UserModel User)
         {
             HomePage homePage = new HomePage();
-            new HomePagePresenter(homePage, _edutrackMainForm);
+            new HomePagePresenter(homePage);
 
             if (User.Position == "ADMIN")
             {
@@ -63,7 +66,8 @@ namespace PresentationLayer.Presenters
             }
 
             _logInPage.DisposeForm();
-            _edutrackMainForm.UserControlPage = homePage;
+            GeneralPresenter.NewWindowControl = homePage;
+            GeneralPresenter.TriggerWindowControlChange(null, EventArgs.Empty);
         }
 
         private void ValidateUser(ref UserModel User, ref UserModel e_User)
