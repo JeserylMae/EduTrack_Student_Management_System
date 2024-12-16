@@ -13,6 +13,8 @@ namespace PresentationLayer.UserControls.MainControls
         public AdminModifyInfoControl()
         {
             InfoTableCreated               = new TaskCompletionSource<bool>();
+            SearchButtonCreated            = new TaskCompletionSource<bool>();
+            SearchTextBoxCreated           = new TaskCompletionSource<bool>();
             OpenAddFormButtonCreated       = new TaskCompletionSource<bool>();
             OpenUpdateFormButtonCreated    = new TaskCompletionSource<bool>();
             DeleteSelectedRowButtonCreated = new TaskCompletionSource<bool>();
@@ -40,6 +42,7 @@ namespace PresentationLayer.UserControls.MainControls
                 _addedControl.Dock = DockStyle.Left;
             }
         }
+
         public object[] InfoTableRowData 
         {
             set 
@@ -48,10 +51,22 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.RowCount - 1].Height = 28;
             } 
         }
+
         public DataGridViewSelectedRowCollection SelectedRowCollection
         {
             get => InfoTable.SelectedRows;
         }
+
+        public DataGridViewRowCollection InfoTableRows
+        {
+            get => InfoTable.Rows;
+        }
+
+        public string SearchSrCodeText
+        {
+            get => SearchSrCodeTextbox.Text;
+        }
+
         public IPersonalInfoControl PersonalInfoControl { get; set; }
 
         public event EventHandler ControlLoad;
@@ -59,11 +74,15 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler ViewUpdateForm;
         public event EventHandler DeleteSelectedRow;
         public event EventHandler SelectedRowChanged;
+        public event EventHandler SearchButtonClicked;
+        public event KeyEventHandler SearchTextBoxKeyDown;
 
         public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
 
         private UserControl _addedControl;
         private TaskCompletionSource<bool> InfoTableCreated;
+        private TaskCompletionSource<bool> SearchButtonCreated;
+        private TaskCompletionSource<bool> SearchTextBoxCreated;
         private TaskCompletionSource<bool> OpenAddFormButtonCreated;
         private TaskCompletionSource<bool> OpenUpdateFormButtonCreated;
         private TaskCompletionSource<bool> DeleteSelectedRowButtonCreated;

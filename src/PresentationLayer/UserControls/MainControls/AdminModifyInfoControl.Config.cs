@@ -10,9 +10,11 @@ namespace PresentationLayer.UserControls.MainControls
     {
         private void OnTopBarButtonsCreated()
         {
-            if (OpenAddFormButton != null) { OpenAddFormButtonCreated.TrySetResult(true); }
+            if (SearchSrCodeButton != null)   { SearchButtonCreated.TrySetResult(true); }
+            if (SearchSrCodeTextbox != null)  { SearchTextBoxCreated.TrySetResult(true); }
+            if (OpenAddFormButton != null)    { OpenAddFormButtonCreated.TrySetResult(true); }
             if (OpenModifyFormButton != null) { OpenUpdateFormButtonCreated.TrySetResult(true); }
-            if (OpenDropFormButton != null) {  DeleteSelectedRowButtonCreated.TrySetResult(true); }
+            if (OpenDropFormButton != null)   { DeleteSelectedRowButtonCreated.TrySetResult(true); }
         }
 
         private void OnInfoTableCreated()
@@ -30,6 +32,12 @@ namespace PresentationLayer.UserControls.MainControls
 
             await DeleteSelectedRowButtonCreated.Task;
             OpenDropFormButton.Click += delegate { DeleteSelectedRow?.Invoke(this, EventArgs.Empty); };
+
+            await SearchButtonCreated.Task;
+            SearchSrCodeButton.Click += delegate { SearchButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await SearchTextBoxCreated.Task;
+            SearchSrCodeTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchTextBoxKeyDown?.Invoke(sender, e); };
         }
 
         private async void InitializeControlSubscriber()

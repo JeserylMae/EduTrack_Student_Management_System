@@ -14,11 +14,17 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler ViewUpdateForm;
         event EventHandler DeleteSelectedRow;
         event EventHandler SelectedRowChanged;
+        event EventHandler SearchButtonClicked;
+        event KeyEventHandler SearchTextBoxKeyDown;
 
         void ClearInfoTable();
         void TriggerInfoTableReload();
-        object[] InfoTableRowData { set; }
-        UserControl MainControlHolderControl { get; set; }
+
+        string SearchSrCodeText    { get; }
+        object[] InfoTableRowData  { set; }
+
+        DataGridViewRowCollection InfoTableRows  { get; }
+        UserControl MainControlHolderControl     { get; set; }
         IPersonalInfoControl PersonalInfoControl { get; set; }
         DataGridViewSelectedRowCollection SelectedRowCollection { get; }
     }

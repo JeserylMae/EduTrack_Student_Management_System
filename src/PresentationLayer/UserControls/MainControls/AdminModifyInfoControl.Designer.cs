@@ -260,12 +260,12 @@
             this.SearchSrCodeButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.SearchSrCodeButton.IconSize = 20;
             this.SearchSrCodeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchSrCodeButton.Location = new System.Drawing.Point(853, 1);
+            this.SearchSrCodeButton.Location = new System.Drawing.Point(802, 1);
             this.SearchSrCodeButton.Margin = new System.Windows.Forms.Padding(0);
             this.SearchSrCodeButton.Name = "SearchSrCodeButton";
-            this.SearchSrCodeButton.Size = new System.Drawing.Size(80, 28);
+            this.SearchSrCodeButton.Size = new System.Drawing.Size(131, 28);
             this.SearchSrCodeButton.TabIndex = 6;
-            this.SearchSrCodeButton.Text = "Search";
+            this.SearchSrCodeButton.Text = "Search Sr-Code";
             this.SearchSrCodeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SearchSrCodeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SearchSrCodeButton.UseVisualStyleBackColor = true;
