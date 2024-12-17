@@ -108,6 +108,9 @@ namespace PresentationLayer.Presenters
             new PersonalInfoPresenter(personalInfoControl);
             personalInfoControl.ShowAddButton();
 
+            if (_openUserControl != null) _openUserControl.Dispose();
+
+            _openUserControl = (UserControl)personalInfoControl;
             _adminModifyInfoControl.MainControlHolderControl = (UserControl)personalInfoControl;
         }
 
@@ -118,6 +121,9 @@ namespace PresentationLayer.Presenters
 
             new PersonalInfoPresenter (personalInfoControl);
             personalInfoControl.ShowUpdateButton();
+
+            if (_openUserControl != null) _openUserControl.Dispose();
+            _openUserControl = (UserControl)personalInfoControl;
 
             _adminModifyInfoControl.SelectedRowChanged += InfoTable_SelectionChanged;
             _adminModifyInfoControl.PersonalInfoControl = personalInfoControl;
@@ -278,6 +284,7 @@ namespace PresentationLayer.Presenters
         #endregion
 
 
+        private UserControl _openUserControl;
         private IAdminModifyInfoControl _adminModifyInfoControl;
     }
 }

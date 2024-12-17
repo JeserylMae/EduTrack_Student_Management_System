@@ -73,24 +73,24 @@
     <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
       <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\MainControls\AdminModifyAcadInfoControl.Config.cs">
-	  <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\AdminModifyAcadInfoControl.Config.cs">
+      <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\MainControls\AdminModifyAcadInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\AdminModifyAcadInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\MainControls\AdminModifyAcadInfoControl.Designer.cs">
+    <Compile Include="UserControls\AdminSubControls\AdminModifyAcadInfoControl.Designer.cs">
       <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Config.cs">
+    <Compile Include="UserControls\AdminSubControls\AdminModifyInfoControl.Config.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\MainControls\AdminModifyInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\AdminModifyInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\MainControls\AdminModifyInfoControl.Designer.cs">
+    <Compile Include="UserControls\AdminSubControls\AdminModifyInfoControl.Designer.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.cs">
@@ -139,7 +139,7 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\MainControls\IAdminModifyInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\IAdminModifyInfoControl.cs">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainControls\IHomePage.cs">
@@ -205,10 +205,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\MainControls\AdminModifyAcadInfoControl.resx">
+    <EmbeddedResource Include="UserControls\AdminSubControls\AdminModifyAcadInfoControl.resx">
       <DependentUpon>AdminModifyAcadInfoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\MainControls\AdminModifyInfoControl.resx">
+    <EmbeddedResource Include="UserControls\AdminSubControls\AdminModifyInfoControl.resx">
       <DependentUpon>AdminModifyInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\PersonalInfoControl.resx">
