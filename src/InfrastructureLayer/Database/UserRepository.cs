@@ -27,7 +27,7 @@ namespace InfrastructureLayer.Database
                 parameters.Add("@p_userId", UserId, DbType.String);
 
                 var user = await connection.QuerySingleOrDefaultAsync<UserModel>(
-                    procedure
+                    procedure,
                     parameters,
                     commandType: CommandType.Text
                 );
