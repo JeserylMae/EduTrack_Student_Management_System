@@ -1,7 +1,9 @@
-﻿namespace InfrastructureLayer.Database
+﻿using DomainLayer.DataModels;
+
+namespace InfrastructureLayer.Database
 {
     public interface IStudentAcademicInfoRepository
     {
-        Task<List<>>
+        Task<List<RStudentAcademicInfoModel>> GetAll();
     }
 }
