@@ -65,11 +65,13 @@
     <Compile Include="Presenters\LogInPagePresenter.cs" />
     <Compile Include="Presenters\PersonalInfoPresenter.cs" />
     <Compile Include="Presenters\ServerInfoPresenter.cs" />
+    <Compile Include="Presenters\StudentModifyAcadInfoPresenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminSubControls\IStudentModifyAcadInfoControl.cs" />
     <Compile Include="UserControls\AdminSubControls\IStudentPersonalInfoControl.cs">
       <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
     </Compile>

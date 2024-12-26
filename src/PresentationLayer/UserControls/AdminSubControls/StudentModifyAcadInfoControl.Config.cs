@@ -10,6 +10,16 @@ namespace PresentationLayer.UserControls.MainControls
 {
     partial class StudentModifyAcadInfoControl
     {
+        private void InvokeElementCreated()
+        {
+            if (InfoTable != null) InfoTableCreated.TrySetResult(true);
+        }
+
+        private void InitializeEventSubscribers()
+        {
+            this.Load += delegate { ControlLoad?.Invoke(this, EventArgs.Empty); };
+        }
+
         private void InitializeInfoTable()
         {
             InfoTable.ScrollBars = ScrollBars.Both;
