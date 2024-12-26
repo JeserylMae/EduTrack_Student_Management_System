@@ -58,6 +58,9 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
 
         public void TriggerInfoTableReload() { ControlLoad?.Invoke(this, EventArgs.Empty); }
+        public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
+        public void DisposeControl() { this.Dispose(); }
+
 
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
@@ -73,7 +76,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public event EventHandler ExitButtonClicked;
         public event EventHandler CloseEditorButtonClicked;
 
-        public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
 
         private UserControl _addedControl;
         private TaskCompletionSource<bool> InfoTableCreated;

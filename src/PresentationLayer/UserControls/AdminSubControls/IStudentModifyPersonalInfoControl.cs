@@ -24,6 +24,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler ItrPersonalInfoButtonClicked;
 
         void ClearInfoTable();
+        void DisposeControl();
         void TriggerInfoTableReload();
 
         string SearchSrCodeText    { get; }
