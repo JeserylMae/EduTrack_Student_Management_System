@@ -17,6 +17,7 @@ namespace PresentationLayer.UserControls.MainControls
         {
             InitializeComponent();
             InitializeInfoTable();
+            InitializeEventSubscribers();
 
             InfoTableCreated = new TaskCompletionSource<bool>();
         }

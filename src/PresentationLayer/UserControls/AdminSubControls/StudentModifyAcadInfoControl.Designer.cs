@@ -418,7 +418,7 @@
             this.panel1.Size = new System.Drawing.Size(1280, 658);
             this.panel1.TabIndex = 4;
             // 
-            // AdminModifyAcadInfoControl
+            // StudentModifyAcadInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -427,7 +427,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Candara Light", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AdminModifyAcadInfoControl";
+            this.Name = "StudentModifyAcadInfoControl";
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
