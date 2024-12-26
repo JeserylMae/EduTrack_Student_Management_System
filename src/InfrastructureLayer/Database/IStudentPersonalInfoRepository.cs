@@ -4,10 +4,10 @@ namespace InfrastructureLayer.Database
 {
     public interface IStudentPersonalInfoRepository
     {
-        Task<List<StudentPersonalInfoModel>> GetAll();
-        Task<StudentPersonalInfoModel> GetById(string SrCode);
-        Task<int> DeleteById(StudentPersonalInfoCodeModel codes);
-        Task<int> Update(PersonalInfoModel<StudentPersonalInfoModel> student);
-        Task<int> InsertNew(PersonalInfoModel<StudentPersonalInfoModel> student);
+        Task<List<RStudentPersonalInfoModel>> GetAll();
+        Task<RStudentPersonalInfoModel> GetById(string SrCode);
+        Task<int> DeleteById(PStudentPersonalInfoCodeModel codes);
+        Task<int> Update(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student);
+        Task<int> InsertNew(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student);
     }
 }

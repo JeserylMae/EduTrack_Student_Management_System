@@ -15,7 +15,7 @@ namespace ServiceLayer.Database
             _webAddress = $"{DatabaseConnection.GetWebAddress()}/User";
         }
 
-        public async Task<UserModel> GetUserByID(string UserId)
+        public async Task<PRUserModel> GetUserByID(string UserId)
         {
             string request = $"{_webAddress}/GetById?UserId={UserId}";
             Uri endpoint = new Uri(request);
@@ -27,9 +27,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<UserModel>(jsonResponse);
+                    return JsonConvert.DeserializeObject<PRUserModel>(jsonResponse);
                 }
-                else { return new UserModel(); }
+                else { return new PRUserModel(); }
             }
         }
 

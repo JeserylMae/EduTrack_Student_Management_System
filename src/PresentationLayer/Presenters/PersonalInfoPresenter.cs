@@ -46,8 +46,8 @@ namespace PresentationLayer.Presenters
         {
             try
             {
-                StudentPersonalInfoModel studentPersonalInfoModel = new StudentPersonalInfoModel();
-                PersonalInfoModel<StudentPersonalInfoModel> model = new PersonalInfoModel<StudentPersonalInfoModel>();
+                RStudentPersonalInfoModel studentPersonalInfoModel = new RStudentPersonalInfoModel();
+                PStudentPersonalInfoModel<RStudentPersonalInfoModel> model = new PStudentPersonalInfoModel<RStudentPersonalInfoModel>();
 
                 AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
                 AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
@@ -71,8 +71,8 @@ namespace PresentationLayer.Presenters
         {
             try
             {
-                StudentPersonalInfoModel studentPersonalInfoModel = new StudentPersonalInfoModel();
-                PersonalInfoModel<StudentPersonalInfoModel> model = new PersonalInfoModel<StudentPersonalInfoModel>();
+                RStudentPersonalInfoModel studentPersonalInfoModel = new RStudentPersonalInfoModel();
+                PStudentPersonalInfoModel<RStudentPersonalInfoModel> model = new PStudentPersonalInfoModel<RStudentPersonalInfoModel>();
 
                 AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
                 AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
@@ -125,18 +125,18 @@ namespace PresentationLayer.Presenters
                             MessageBoxImage.Information); 
         }
         
-        private void AddValuesToPersonalInfoModel(StudentPersonalInfoModel student,
-                             ref PersonalInfoModel<StudentPersonalInfoModel> model)
+        private void AddValuesToPersonalInfoModel(RStudentPersonalInfoModel student,
+                             ref PStudentPersonalInfoModel<RStudentPersonalInfoModel> model)
         {
             model.InfoModel = student;
             model.DefaultPassword = string.IsNullOrEmpty(_personalInfoControl.DefaultPasswordTextboxText)?
                                                 "null" : _personalInfoControl.DefaultPasswordTextboxText;
             model.Position = "STUDENT";
-            model.StudentCode = student.SrCode + "-STU";
+            model.UserId = student.SrCode + "-STU";
             model.GuardianCode = student.SrCode + "-GUA";
         }
 
-        private void AddValuesToStudentPersonalInfoModel(ref StudentPersonalInfoModel student)
+        private void AddValuesToStudentPersonalInfoModel(ref RStudentPersonalInfoModel student)
         {
             student.BirthDate = _personalInfoControl.YearComboBoxText + "-"
                               + _personalInfoControl.MonthComboBoxText + "-"

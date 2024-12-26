@@ -17,7 +17,7 @@ namespace ServiceLayer.Database
             _webAddress = $"{DatabaseConnection.GetWebAddress()}/StudentPersonalInfo";
         }
 
-        public async Task<List<StudentPersonalInfoModel>> GetAll()
+        public async Task<List<RStudentPersonalInfoModel>> GetAll()
         {
             string request = $"{_webAddress}/GetAll";
             Uri endpoint = new Uri(request);
@@ -29,13 +29,13 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode) 
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<List<StudentPersonalInfoModel>>(jsonResponse);
+                    return JsonConvert.DeserializeObject<List<RStudentPersonalInfoModel>>(jsonResponse);
                 }
-                else { return new List<StudentPersonalInfoModel>(); }
+                else { return new List<RStudentPersonalInfoModel>(); }
             }
         }
 
-        public async Task<StudentPersonalInfoModel> GetById(string SrCode)
+        public async Task<RStudentPersonalInfoModel> GetById(string SrCode)
         {
             if (string.IsNullOrEmpty(SrCode)) { throw new ArgumentNullException(nameof(SrCode)); }
 
@@ -49,13 +49,13 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<StudentPersonalInfoModel>(jsonResponse);
+                    return JsonConvert.DeserializeObject<RStudentPersonalInfoModel>(jsonResponse);
                 }
-                else { return new StudentPersonalInfoModel(); }
+                else { return new RStudentPersonalInfoModel(); }
             }
         }
 
-        public async Task<bool> InsertNew(PersonalInfoModel<StudentPersonalInfoModel> parameters)
+        public async Task<bool> InsertNew(PStudentPersonalInfoModel<RStudentPersonalInfoModel> parameters)
         {
             string request = _webAddress + "/InsertNew";
 
@@ -71,7 +71,7 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> Update(PersonalInfoModel<StudentPersonalInfoModel> parameters)
+        public async Task<bool> Update(PStudentPersonalInfoModel<RStudentPersonalInfoModel> parameters)
         {
             string request = _webAddress + "/Update";
 
@@ -87,7 +87,7 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> Delete(StudentPersonalInfoCodeModel code)
+        public async Task<bool> Delete(PStudentPersonalInfoCodeModel code)
         {
             Uri requestUri = new Uri(_webAddress + "/Delete");
 

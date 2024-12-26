@@ -68,11 +68,11 @@ namespace PresentationLayer.Presenters
             try
             {
                 StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-                List<StudentPersonalInfoModel> list = await services.GetAll();
+                List<RStudentPersonalInfoModel> list = await services.GetAll();
 
                 _adminModifyInfoControl.ClearInfoTable();
 
-                foreach (StudentPersonalInfoModel student in list)
+                foreach (RStudentPersonalInfoModel student in list)
                 {
                     object[] studentInfo = new object[15];
 
@@ -91,7 +91,7 @@ namespace PresentationLayer.Presenters
             DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
             string UserId               = selectedRow.Cells["SrCode"].Value.ToString();
 
-            StudentPersonalInfoModel student     = new StudentPersonalInfoModel();
+            RStudentPersonalInfoModel student     = new RStudentPersonalInfoModel();
             StudentPersonalInfoServices services = new StudentPersonalInfoServices();
 
             student = await services.GetById(UserId);
@@ -133,7 +133,7 @@ namespace PresentationLayer.Presenters
         private async void DeleteSelectedRowButton_Clicked(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
-            StudentPersonalInfoCodeModel codes = new StudentPersonalInfoCodeModel();
+            PStudentPersonalInfoCodeModel codes = new PStudentPersonalInfoCodeModel();
 
             string srCode = selectedRow.Cells["SrCode"].Value.ToString();
 
@@ -213,7 +213,7 @@ namespace PresentationLayer.Presenters
             );
         }
 
-        private void AssignValuesToObject(ref StudentPersonalInfoCodeModel codes, string srCode)
+        private void AssignValuesToObject(ref PStudentPersonalInfoCodeModel codes, string srCode)
         {
             codes.SrCode              = srCode;
             codes.StudentNameCode     = $"{srCode}-STU";
@@ -223,7 +223,7 @@ namespace PresentationLayer.Presenters
         }
 
         private void AddStudentPersonalInfoToObject(ref object[] studentInfo,
-                                            StudentPersonalInfoModel student)
+                                            RStudentPersonalInfoModel student)
         {
             string address = $"{student.GuardianBarangay}, "
                            + $"{student.GuardianMunicipality}, "
@@ -250,7 +250,7 @@ namespace PresentationLayer.Presenters
             studentInfo[14] = student.GuardianContactNumber;
         }
 
-        private void DisplaySelectedToPersonalInfoControl(StudentPersonalInfoModel student)
+        private void DisplaySelectedToPersonalInfoControl(RStudentPersonalInfoModel student)
         {
             _adminModifyInfoControl.PersonalInfoControl.UserCodeTextboxText   = student.SrCode;
             _adminModifyInfoControl.PersonalInfoControl.LastNameTextboxText   = student.LastName;

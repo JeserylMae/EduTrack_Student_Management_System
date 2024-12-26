@@ -8,9 +8,9 @@ namespace InfrastructureLayer.Data
     {
         internal static void AddTransientServices(this WebApplicationBuilder builder)
         {
-            builder.Services.AddTransient<IUserRepository, UserRepository>();
-            builder.Services.AddTransient<IEndpointRepository, EndpointRepository>();
-            builder.Services.AddTransient<IStudentPersonalInfoRepository, StudentPersonalInfoRepository>();
+            builder.Services.AddTransient<IUserRepository, MUserRepository>();
+            builder.Services.AddTransient<IEndpointRepository, MEndpointRepository>();
+            builder.Services.AddTransient<IStudentPersonalInfoRepository, MStudentPersonalInfoRepository>();
         }
     }
 }

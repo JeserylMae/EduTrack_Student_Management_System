@@ -24,13 +24,13 @@ namespace PresentationLayer.Presenters
         {
             try
             { 
-                UserModel e_User       = new UserModel();
+                PRUserModel e_User       = new PRUserModel();
                 e_User.UserID          = _logInPage.GetUserId;
                 e_User.EmailAddress    = _logInPage.GetEmailAddress;
                 e_User.AccountPassword = _logInPage.GetPassword;
 
                 UserServices services = new UserServices();
-                UserModel User = await services.GetUserByID(e_User.UserID);
+                PRUserModel User = await services.GetUserByID(e_User.UserID);
 
                 ValidateUser(ref User, ref e_User);
 
@@ -48,7 +48,7 @@ namespace PresentationLayer.Presenters
             }
         }
 
-        private void RedirectToUserPage(ref UserModel User)
+        private void RedirectToUserPage(ref PRUserModel User)
         {
             HomePage homePage = new HomePage();
             new HomePagePresenter(homePage);
@@ -71,7 +71,7 @@ namespace PresentationLayer.Presenters
             GeneralPresenter.TriggerWindowControlChange(null, EventArgs.Empty);
         }
 
-        private void ValidateUser(ref UserModel User, ref UserModel e_User)
+        private void ValidateUser(ref PRUserModel User, ref PRUserModel e_User)
         {
             if (User == null)
                 throw new Exception($"No user with id {e_User.UserID} found.");
