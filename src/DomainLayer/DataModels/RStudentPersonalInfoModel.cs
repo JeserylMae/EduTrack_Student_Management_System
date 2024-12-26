@@ -2,7 +2,7 @@
 
 namespace DomainLayer.DataModels
 {
-    public class StudentPersonalInfoModel
+    public class RStudentPersonalInfoModel
     {
         public string SrCode                  { get; set; }
         public string LastName                { get; set; }
