@@ -10,6 +10,7 @@ namespace InfrastructureLayer.Data
         {
             builder.Services.AddTransient<IUserRepository, MUserRepository>();
             builder.Services.AddTransient<IEndpointRepository, MEndpointRepository>();
+            builder.Services.AddTransient<IStudentAcademicInfoRepository, MStudentAcademicInfoRepository>();
             builder.Services.AddTransient<IStudentPersonalInfoRepository, MStudentPersonalInfoRepository>();
         }
     }
