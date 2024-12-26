@@ -18,7 +18,7 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllStudentPersonalInfo()
         {
-            List<StudentPersonalInfoModel> userList = await _studentPersonalInfoRepository.GetAll();
+            List<RStudentPersonalInfoModel> userList = await _studentPersonalInfoRepository.GetAll();
 
             if (userList is not null) { return Ok(userList); }
             else { return NotFound(); }  
@@ -27,14 +27,14 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetById")]
         public async Task<IActionResult> GetStudentPersonalInfoById(string SrCode)
         {
-            StudentPersonalInfoModel student = await _studentPersonalInfoRepository.GetById(SrCode);
+            RStudentPersonalInfoModel student = await _studentPersonalInfoRepository.GetById(SrCode);
 
             if (student is not null) { return Ok(student); }
             else { return NotFound(new { Message = $"Student with SR Code {SrCode} is not found."}); }
         }
 
         [HttpPost("InsertNew")]
-        public async Task<IActionResult> InsertNewStudentPersonalInfo(PersonalInfoModel<StudentPersonalInfoModel> student)
+        public async Task<IActionResult> InsertNewStudentPersonalInfo(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student)
         {
             int result = await _studentPersonalInfoRepository.InsertNew(student);
 
@@ -43,7 +43,7 @@ namespace InfrastructureLayer.Controllers
         }
 
         [HttpPost("Update")]
-        public async Task<IActionResult> UpdateStudentPersonalInfo(PersonalInfoModel<StudentPersonalInfoModel> student)
+        public async Task<IActionResult> UpdateStudentPersonalInfo(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student)
         {
             int result = await _studentPersonalInfoRepository.Update(student);
 
@@ -52,7 +52,7 @@ namespace InfrastructureLayer.Controllers
         }
 
         [HttpDelete("Delete")]
-        public async Task<IActionResult> DeleteStudentPersonalInfo([FromBody] StudentPersonalInfoCodeModel codes)
+        public async Task<IActionResult> DeleteStudentPersonalInfo([FromBody] PStudentPersonalInfoCodeModel codes)
         {
             int result = await _studentPersonalInfoRepository.DeleteById(codes);
 
