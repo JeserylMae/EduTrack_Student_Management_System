@@ -2,7 +2,7 @@
 {
     public struct StudentAcadInfoQuery
     {
-        public readonly string GetAll => (@"
+        public readonly string spGetAll => (@"
             SELECT 
                 StudentAIT.SrCode, 
                 StudentName.LastName,   
@@ -15,8 +15,8 @@
                 StudentAIT.Program
             FROM 
                 StudentAcademicInfoTbl as StudentAIT
-            INNER JOIN
-                NameTbl StudentName ON StudentAIT.SrCode = StudentName.UserId;
+            LEFT JOIN
+                NameTbl StudentName ON StudentAIT.StudentNameId = StudentName.UserId;
         ");
     }
 }
