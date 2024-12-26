@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.MainControls
 {
-    partial class AdminModifyAcadInfoControl
+    partial class StudentModifyAcadInfoControl
     {
         private void InitializeInfoTable()
         {

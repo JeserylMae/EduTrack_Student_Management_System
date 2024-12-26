@@ -15,7 +15,7 @@ namespace PresentationLayer.Presenters
 {
     public class AdminModifyInfoPresenter
     {
-        public AdminModifyInfoPresenter(IAdminModifyInfoControl adminModifyInfoControl)
+        public AdminModifyInfoPresenter(IStudentModifyPersonalInfoControl adminModifyInfoControl)
         {
             _adminModifyInfoControl = adminModifyInfoControl;
 
@@ -102,7 +102,7 @@ namespace PresentationLayer.Presenters
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
-            IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
+            IStudentPersonalInfoControl personalInfoControl = new StudentPersonalInfoControl();
             personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
 
             new PersonalInfoPresenter(personalInfoControl);
@@ -116,7 +116,7 @@ namespace PresentationLayer.Presenters
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
-            IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
+            IStudentPersonalInfoControl personalInfoControl = new StudentPersonalInfoControl();
             personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
 
             new PersonalInfoPresenter (personalInfoControl);
@@ -285,6 +285,6 @@ namespace PresentationLayer.Presenters
 
 
         private UserControl _openUserControl;
-        private IAdminModifyInfoControl _adminModifyInfoControl;
+        private IStudentModifyPersonalInfoControl _adminModifyInfoControl;
     }
 }

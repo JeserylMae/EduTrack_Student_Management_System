@@ -15,7 +15,7 @@ namespace PresentationLayer.Presenters
 {
     public class PersonalInfoPresenter
     {
-        public PersonalInfoPresenter(IPersonalInfoControl personalInfoControl)
+        public PersonalInfoPresenter(IStudentPersonalInfoControl personalInfoControl)
         {
             _personalInfoControl = personalInfoControl;
             
@@ -197,6 +197,6 @@ namespace PresentationLayer.Presenters
             { "ADD", "FontAwesome.Sharp.IconButton, Text: ADD" },
             { "UPDATE", "FontAwesome.Sharp.IconButton, Text: UPDATE" }
         };
-        private IPersonalInfoControl _personalInfoControl;
+        private IStudentPersonalInfoControl _personalInfoControl;
     }
 }

@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public partial class PersonalInfoControl : UserControl, IPersonalInfoControl
+    public partial class StudentPersonalInfoControl : UserControl, IStudentPersonalInfoControl
     {
-        public PersonalInfoControl()
+        public StudentPersonalInfoControl()
         {
             InitializeComponent();
             OnControlsCreated();
