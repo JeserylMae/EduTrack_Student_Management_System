@@ -78,6 +78,8 @@
 
 		public readonly string spDelete => (@"
 			DELETE FROM StudentPersonalInfoTbl WHERE SrCode = @p_SrCode;
+
+			DELETE FROM StudentAcademicInfoTbl WHERE SrCode = @p_SrCode;
     
 			DELETE FROM AddressTbl WHERE UserId = @p_StudentAddressCode;
 			DELETE FROM AddressTbl WHERE UserId = @p_GuardianAddressCode;
@@ -106,8 +108,8 @@
 			VALUES (@p_SrCode, @p_StudentNameCode, @p_BirthDate, @p_Gender, @p_StudentAddressCode, @p_ContactNumber,
 					@p_GuardianNameCode, @p_GuardianContactNumber, @p_GuardianAddressCode);
             
-			INSERT INTO StudentAcademicInfoTbl
-			VALUES (@p_SrCode, @p_StudentNameCode, null, null, null, null, null);
+			INSERT INTO StudentAcademicInfoTbl(SrCode, StudentNameId, AcademicYear)
+			VALUES (@p_SrCode, @p_StudentNameCode, @p_AcademicYear);
 		");
 
 		public readonly string spUpdate => (@"
