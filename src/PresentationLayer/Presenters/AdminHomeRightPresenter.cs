@@ -33,9 +33,9 @@ namespace PresentationLayer.Presenters
 
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            StudentModifyAcadInfoControl adminModifyAcadInfoControl = new StudentModifyAcadInfoControl();
+            StudentModifyAcadInfoControl studentModifyAcadInfoControl = new StudentModifyAcadInfoControl();
 
-            GeneralPresenter.NewWindowControl = (UserControl)adminModifyAcadInfoControl;
+            GeneralPresenter.NewWindowControl = (UserControl)studentModifyAcadInfoControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
 
             _adminHomeRightControl.DestroyControl();
@@ -48,10 +48,10 @@ namespace PresentationLayer.Presenters
 
         private void StudPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            IStudentModifyPersonalInfoControl adminModifyInfoControl = new StudentModifyPersonalInfoControl();
-            new AdminModifyInfoPresenter(adminModifyInfoControl);
+            IStudentModifyPersonalInfoControl studentModifyInfoControl = new StudentModifyPersonalInfoControl();
+            new AdminModifyInfoPresenter(studentModifyInfoControl);
 
-            GeneralPresenter.NewWindowControl = (UserControl) adminModifyInfoControl;
+            GeneralPresenter.NewWindowControl = (UserControl) studentModifyInfoControl;
             GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
 
             _adminHomeRightControl.DestroyControl();

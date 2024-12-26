@@ -41,6 +41,7 @@ namespace PresentationLayer.Presenters
             }
             catch (Exception ex) 
             {
+                Console.WriteLine(ex.StackTrace);
                 MessageBox.Show(
                     "Ensure all credentials are correct.", 
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -74,9 +75,13 @@ namespace PresentationLayer.Presenters
         {
             if (User == null)
                 throw new Exception($"No user with id {e_User.UserID} found.");
-            
+
             if (User.AccountPassword != e_User.AccountPassword)
+            {
+                Console.WriteLine("User: " + User.AccountPassword);
+                Console.WriteLine("e_User: " + e_User.AccountPassword);
                 throw new Exception("Incorrect password.");
+            }
 
             if (User.EmailAddress != e_User.EmailAddress)
                 throw new Exception("Incorrect email address.");
