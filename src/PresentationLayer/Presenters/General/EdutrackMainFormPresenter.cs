@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using PresentationLayer.Views;
 using PresentationLayer.UserControls.MainControls;
 
-namespace PresentationLayer.Presenters
+namespace PresentationLayer.Presenters.General
 {
     internal class EdutrackMainFormPresenter
     {

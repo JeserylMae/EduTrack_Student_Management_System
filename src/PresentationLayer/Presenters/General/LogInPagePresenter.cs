@@ -6,9 +6,10 @@ using DomainLayer.DataModels;
 using ServiceLayer.Database;
 using PresentationLayer.UserControls.HomeSubControls;
 using System.Windows.Forms;
+using PresentationLayer.Presenters.Admin;
 
 
-namespace PresentationLayer.Presenters
+namespace PresentationLayer.Presenters.General
 {
     public class LogInPagePresenter
     {

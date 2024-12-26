@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
-namespace PresentationLayer.Presenters
+namespace PresentationLayer.Presenters.General
 {
     internal static class GeneralPresenter
     {

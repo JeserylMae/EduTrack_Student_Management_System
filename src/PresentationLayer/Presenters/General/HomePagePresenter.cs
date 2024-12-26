@@ -4,7 +4,7 @@ using System;
 using System.Windows.Forms;
 
 
-namespace PresentationLayer.Presenters
+namespace PresentationLayer.Presenters.General
 {
     internal class HomePagePresenter
     {
