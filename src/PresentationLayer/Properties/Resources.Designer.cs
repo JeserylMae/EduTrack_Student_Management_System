@@ -103,6 +103,46 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap empty_profile_female {
+            get {
+                object obj = ResourceManager.GetObject("empty-profile-female", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_profile_female1 {
+            get {
+                object obj = ResourceManager.GetObject("empty-profile-female1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_profile_male {
+            get {
+                object obj = ResourceManager.GetObject("empty-profile-male", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_profile_male1 {
+            get {
+                object obj = ResourceManager.GetObject("empty-profile-male1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gray_label_highlighter {
             get {
                 object obj = ResourceManager.GetObject("gray-label-highlighter", resourceCulture);
@@ -176,6 +216,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap home_right_button_holder {
             get {
                 object obj = ResourceManager.GetObject("home_right_button_holder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] hr_line {
+            get {
+                object obj = ResourceManager.GetObject("hr-line", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Line_2 {
+            get {
+                object obj = ResourceManager.GetObject("Line 2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
