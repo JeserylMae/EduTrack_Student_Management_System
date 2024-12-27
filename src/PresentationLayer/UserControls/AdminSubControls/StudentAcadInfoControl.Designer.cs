@@ -84,7 +84,7 @@
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(25, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 1);
+            this.label1.Size = new System.Drawing.Size(470, 1);
             this.label1.TabIndex = 143;
             // 
             // SrCodeLabel
@@ -215,7 +215,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.Black;
             this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseButton.IconSize = 24;
-            this.CloseButton.Location = new System.Drawing.Point(463, 13);
+            this.CloseButton.Location = new System.Drawing.Point(473, 13);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(32, 32);
             this.CloseButton.TabIndex = 141;
@@ -229,7 +229,7 @@
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.gray_label_highlighter;
             this.pictureBox1.Location = new System.Drawing.Point(38, 119);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(433, 53);
+            this.pictureBox1.Size = new System.Drawing.Size(450, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 144;
             this.pictureBox1.TabStop = false;
@@ -250,7 +250,7 @@
             this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.group_box_border;
             this.pictureBox3.Location = new System.Drawing.Point(38, 328);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(433, 234);
+            this.pictureBox3.Size = new System.Drawing.Size(450, 234);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 157;
             this.pictureBox3.TabStop = false;
