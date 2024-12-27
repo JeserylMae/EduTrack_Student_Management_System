@@ -34,8 +34,20 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
             }
         }
-        public FlowLayoutPanel AccessFileDropDownLayout { get => FileDropDownLayout; }
-
+        public FlowLayoutPanel AccessFileDropDownLayout 
+        { 
+            get => FileDropDownLayout; 
+        }
+        public UserControl AddUserControlToMainControl
+        {
+            get { return _addedUserControl; }
+            set
+            {
+                _addedUserControl = value;
+                MainControlHolder.Controls.Add(_addedUserControl);
+                _addedUserControl.Dock = DockStyle.Left;
+            }
+        }
 
         public void ClearInfoTable()
         {
@@ -60,6 +72,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler InstructorPersonalInfoButtonClicked;
 
 
+        private UserControl _addedUserControl;
         private TaskCompletionSource<bool> InfoTableCreated;
         private TaskCompletionSource<bool> FileDropDownButtonCreated;
         private TaskCompletionSource<bool> FileDropDownLayoutCreated;

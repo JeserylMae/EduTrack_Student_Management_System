@@ -23,5 +23,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         object[] InfoTableRowData { set; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
+        UserControl AddUserControlToMainControl { get; set; }
     }
 }

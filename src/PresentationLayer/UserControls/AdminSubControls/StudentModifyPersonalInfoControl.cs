@@ -51,7 +51,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         }
 
         public string SearchSrCodeText                                 { get => SearchSrCodeTextbox.Text; }
-        public IStudentPersonalInfoControl PersonalInfoControl                { get; set;                        }
+        public IStudentPersonalInfoControl PersonalInfoControl         { get; set;                        }
         public DataGridViewRowCollection InfoTableRows                 { get => InfoTable.Rows;           }
         public FlowLayoutPanel AccessFileDropDownLayout                { get => FileDropDownLayout;       }
         public DataGridViewSelectedRowCollection SelectedRowCollection { get => InfoTable.SelectedRows;   }
