@@ -13,11 +13,24 @@ namespace PresentationLayer.UserControls.MainControls
         private void InvokeElementCreated()
         {
             if (InfoTable != null) InfoTableCreated.TrySetResult(true);
+            if (FileDropDownButton != null) FileDropDownButtonCreated.TrySetResult(true);
+            if (FileDropDownLayout != null) FileDropDownLayoutCreated.TrySetResult(true);
         }
 
-        private void InitializeEventSubscribers()
+        private async Task InitializeEventSubscribers()
         {
+            await InfoTableCreated.Task;
             this.Load += delegate { ControlLoad?.Invoke(this, EventArgs.Empty); };
+
+            await FileDropDownButtonCreated.Task;
+            FileDropDownButton.Click += delegate { FileDropDownButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await FileDropDownLayoutCreated.Task;
+            ExitButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty); };
+            CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
+            InstructorAcadInfoButton.Click     += delegate { InstructorAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            StudentPersonalInfoButton.Click    += delegate { StudentPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            InstructorPersonalInfoButton.Click += delegate { InstructorPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
         }
 
         private void InitializeInfoTable()
