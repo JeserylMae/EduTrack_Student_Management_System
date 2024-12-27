@@ -75,6 +75,12 @@
     <Compile Include="UserControls\AdminSubControls\IStudentPersonalInfoControl.cs">
       <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Designer.cs">
+      <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.Config.cs">
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -207,6 +213,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminSubControls\StudentAcadInfoControl.resx">
+      <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.resx">
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,8 +264,11 @@
     <None Include="Resources\Logout_button.png" />
     <None Include="Resources\home_right_button_holder.png" />
     <None Include="Resources\user-solid 1.png" />
+    <Content Include="Resources\empty-profile-female.png" />
+    <Content Include="Resources\empty-profile-male.png" />
     <Content Include="Resources\gray-label-highlighter.png" />
     <None Include="Resources\group-box-border.png" />
+    <None Include="Resources\Line 21.png" />
     <Content Include="Resources\panel-border-with-thick-bottom.png" />
     <Content Include="secrets.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
