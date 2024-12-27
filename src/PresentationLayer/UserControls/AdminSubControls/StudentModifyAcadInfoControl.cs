@@ -15,11 +15,14 @@ namespace PresentationLayer.UserControls.MainControls
     {
         public StudentModifyAcadInfoControl()
         {
+            InfoTableCreated          = new TaskCompletionSource<bool>();
+            FileDropDownButtonCreated = new TaskCompletionSource<bool>();
+            FileDropDownLayoutCreated = new TaskCompletionSource<bool>();
+          
             InitializeComponent();
             InitializeInfoTable();
-            InitializeEventSubscribers();
-
-            InfoTableCreated = new TaskCompletionSource<bool>();
+            InvokeElementCreated();
+            _ = InitializeEventSubscribers();
         }
 
 
@@ -31,13 +34,17 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
             }
         }
+        public FlowLayoutPanel AccessFileDropDownLayout { get => FileDropDownLayout; }
+
 
         public void ClearInfoTable()
         {
             InfoTable.Rows.Clear();
             InfoTable.Refresh();
         }
-
+        public void DisposeControl() { 
+            this.Dispose(); 
+        }
         public void TriggerInfoTableReload()
         {
             throw new NotImplementedException();
@@ -45,8 +52,16 @@ namespace PresentationLayer.UserControls.MainControls
 
 
         public event EventHandler ControlLoad;
+        public event EventHandler ExitButtonClicked;
+        public event EventHandler CloseEditorButtonClicked;
+        public event EventHandler FileDropDownButtonClicked;
+        public event EventHandler InstructorAcadInfoButtonClicked;
+        public event EventHandler StudentPersonalInfoButtonClicked;
+        public event EventHandler InstructorPersonalInfoButtonClicked;
 
 
         private TaskCompletionSource<bool> InfoTableCreated;
+        private TaskCompletionSource<bool> FileDropDownButtonCreated;
+        private TaskCompletionSource<bool> FileDropDownLayoutCreated;
     }
 }
