@@ -65,13 +65,11 @@
             // 
             // PageIndicatorLabel
             // 
-            this.PageIndicatorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.PageIndicatorLabel.AutoSize = true;
             this.PageIndicatorLabel.BackColor = System.Drawing.Color.Transparent;
             this.PageIndicatorLabel.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PageIndicatorLabel.ForeColor = System.Drawing.Color.Black;
-            this.PageIndicatorLabel.Location = new System.Drawing.Point(39, 42);
+            this.PageIndicatorLabel.Location = new System.Drawing.Point(39, 43);
             this.PageIndicatorLabel.Name = "PageIndicatorLabel";
             this.PageIndicatorLabel.Size = new System.Drawing.Size(438, 33);
             this.PageIndicatorLabel.TabIndex = 142;
@@ -79,12 +77,10 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(25, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(453, 1);
+            this.label1.Size = new System.Drawing.Size(470, 1);
             this.label1.TabIndex = 143;
             // 
             // SrCodeLabel
@@ -196,10 +192,9 @@
             // 
             // StudentProfilePictureBox
             // 
-            this.StudentProfilePictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.StudentProfilePictureBox.BackColor = System.Drawing.Color.White;
             this.StudentProfilePictureBox.Image = global::PresentationLayer.Properties.Resources.empty_profile_male1;
-            this.StudentProfilePictureBox.Location = new System.Drawing.Point(351, 200);
+            this.StudentProfilePictureBox.Location = new System.Drawing.Point(360, 200);
             this.StudentProfilePictureBox.Name = "StudentProfilePictureBox";
             this.StudentProfilePictureBox.Size = new System.Drawing.Size(100, 100);
             this.StudentProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -216,7 +211,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.Black;
             this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseButton.IconSize = 24;
-            this.CloseButton.Location = new System.Drawing.Point(456, 13);
+            this.CloseButton.Location = new System.Drawing.Point(473, 13);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(32, 32);
             this.CloseButton.TabIndex = 141;
@@ -224,35 +219,30 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.gray_label_highlighter;
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.gray_label_highlighter;
             this.pictureBox1.Location = new System.Drawing.Point(38, 119);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(433, 53);
+            this.pictureBox1.Size = new System.Drawing.Size(446, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 144;
             this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
-            this.label2.Location = new System.Drawing.Point(346, 195);
+            this.label2.Location = new System.Drawing.Point(355, 195);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 110);
             this.label2.TabIndex = 155;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.group_box_border;
             this.pictureBox3.Location = new System.Drawing.Point(38, 328);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(433, 234);
+            this.pictureBox3.Size = new System.Drawing.Size(446, 234);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 157;
             this.pictureBox3.TabStop = false;
@@ -380,7 +370,7 @@
             // 
             // CancelSubmitButton
             // 
-            this.CancelSubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelSubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelSubmitButton.AutoSize = true;
             this.CancelSubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
             this.CancelSubmitButton.FlatAppearance.BorderSize = 0;
@@ -391,7 +381,7 @@
             this.CancelSubmitButton.IconColor = System.Drawing.Color.Black;
             this.CancelSubmitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelSubmitButton.IconSize = 32;
-            this.CancelSubmitButton.Location = new System.Drawing.Point(206, 617);
+            this.CancelSubmitButton.Location = new System.Drawing.Point(219, 617);
             this.CancelSubmitButton.Name = "CancelSubmitButton";
             this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.CancelSubmitButton.Size = new System.Drawing.Size(124, 42);
@@ -402,7 +392,7 @@
             // 
             // SubmitUpdateButton
             // 
-            this.SubmitUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SubmitUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
             this.SubmitUpdateButton.FlatAppearance.BorderSize = 0;
             this.SubmitUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -412,7 +402,7 @@
             this.SubmitUpdateButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitUpdateButton.IconSize = 24;
-            this.SubmitUpdateButton.Location = new System.Drawing.Point(347, 617);
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(360, 617);
             this.SubmitUpdateButton.Name = "SubmitUpdateButton";
             this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.SubmitUpdateButton.Size = new System.Drawing.Size(124, 42);
@@ -424,7 +414,7 @@
             // 
             // SubmitAddButton
             // 
-            this.SubmitAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SubmitAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
             this.SubmitAddButton.FlatAppearance.BorderSize = 0;
             this.SubmitAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -434,7 +424,7 @@
             this.SubmitAddButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitAddButton.IconSize = 28;
-            this.SubmitAddButton.Location = new System.Drawing.Point(347, 617);
+            this.SubmitAddButton.Location = new System.Drawing.Point(360, 617);
             this.SubmitAddButton.Name = "SubmitAddButton";
             this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.SubmitAddButton.Size = new System.Drawing.Size(124, 42);
@@ -484,7 +474,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentAcadInfoControl";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(501, 600);
+            this.Size = new System.Drawing.Size(518, 600);
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
