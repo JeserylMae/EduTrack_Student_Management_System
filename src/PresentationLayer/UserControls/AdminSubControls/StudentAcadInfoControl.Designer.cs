@@ -381,7 +381,7 @@
             this.CancelSubmitButton.IconColor = System.Drawing.Color.Black;
             this.CancelSubmitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelSubmitButton.IconSize = 32;
-            this.CancelSubmitButton.Location = new System.Drawing.Point(216, 635);
+            this.CancelSubmitButton.Location = new System.Drawing.Point(211, 635);
             this.CancelSubmitButton.Name = "CancelSubmitButton";
             this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.CancelSubmitButton.Size = new System.Drawing.Size(126, 44);
@@ -403,7 +403,7 @@
             this.SubmitAddButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitAddButton.IconSize = 32;
-            this.SubmitAddButton.Location = new System.Drawing.Point(358, 635);
+            this.SubmitAddButton.Location = new System.Drawing.Point(353, 635);
             this.SubmitAddButton.Name = "SubmitAddButton";
             this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.SubmitAddButton.Size = new System.Drawing.Size(126, 44);
@@ -425,7 +425,7 @@
             this.SubmitUpdateButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitUpdateButton.IconSize = 32;
-            this.SubmitUpdateButton.Location = new System.Drawing.Point(358, 635);
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(353, 635);
             this.SubmitUpdateButton.Name = "SubmitUpdateButton";
             this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.SubmitUpdateButton.Size = new System.Drawing.Size(126, 44);
@@ -478,7 +478,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentAcadInfoControl";
             this.Padding = new System.Windows.Forms.Padding(10, 10, 50, 10);
-            this.Size = new System.Drawing.Size(540, 600);
+            this.Size = new System.Drawing.Size(535, 600);
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
