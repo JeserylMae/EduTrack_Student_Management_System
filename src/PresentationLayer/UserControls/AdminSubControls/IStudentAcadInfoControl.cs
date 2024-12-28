@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
 {
     internal interface IStudentAcadInfoControl
     {
+        IconButton AccessSubmitAddButton    { get; }
+        IconButton AccessSubmitUpdateButton { get; }
     }
 }

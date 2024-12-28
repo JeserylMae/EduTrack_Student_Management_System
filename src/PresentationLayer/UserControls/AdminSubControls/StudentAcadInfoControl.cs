@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.Sharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
         {
             InitializeComponent();
         }
+
+        public IconButton AccessSubmitAddButton     { get => SubmitAddButton;    }
+        public IconButton AccessSubmitUpdateButton  { get => SubmitUpdateButton; }
     }
 }
