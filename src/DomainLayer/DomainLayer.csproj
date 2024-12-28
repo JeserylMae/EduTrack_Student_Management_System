@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\PStudentAcadInfoParams.cs" />
     <Compile Include="DataModels\PStudentPersonalInfoModel.cs" />
     <Compile Include="DataModels\RStudentAcademicInfoModel.cs" />
     <Compile Include="DataModels\PStudentPersonalInfoCodeModel.cs" />
