@@ -69,7 +69,7 @@
             this.PageIndicatorLabel.BackColor = System.Drawing.Color.Transparent;
             this.PageIndicatorLabel.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PageIndicatorLabel.ForeColor = System.Drawing.Color.Black;
-            this.PageIndicatorLabel.Location = new System.Drawing.Point(39, 43);
+            this.PageIndicatorLabel.Location = new System.Drawing.Point(39, 61);
             this.PageIndicatorLabel.Name = "PageIndicatorLabel";
             this.PageIndicatorLabel.Size = new System.Drawing.Size(438, 33);
             this.PageIndicatorLabel.TabIndex = 142;
@@ -78,7 +78,7 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(25, 92);
+            this.label1.Location = new System.Drawing.Point(25, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(470, 1);
             this.label1.TabIndex = 143;
@@ -89,7 +89,7 @@
             this.SrCodeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
             this.SrCodeLabel.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SrCodeLabel.ForeColor = System.Drawing.Color.Black;
-            this.SrCodeLabel.Location = new System.Drawing.Point(49, 137);
+            this.SrCodeLabel.Location = new System.Drawing.Point(49, 155);
             this.SrCodeLabel.Name = "SrCodeLabel";
             this.SrCodeLabel.Size = new System.Drawing.Size(73, 19);
             this.SrCodeLabel.TabIndex = 145;
@@ -100,7 +100,7 @@
             this.SrCodeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
             this.SrCodeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SrCodeTextBox.Font = new System.Drawing.Font("Candara", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SrCodeTextBox.Location = new System.Drawing.Point(141, 124);
+            this.SrCodeTextBox.Location = new System.Drawing.Point(141, 142);
             this.SrCodeTextBox.Name = "SrCodeTextBox";
             this.SrCodeTextBox.ReadOnly = true;
             this.SrCodeTextBox.Size = new System.Drawing.Size(314, 43);
@@ -112,7 +112,7 @@
             this.FullNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.FullNameLabel.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FullNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.FullNameLabel.Location = new System.Drawing.Point(55, 197);
+            this.FullNameLabel.Location = new System.Drawing.Point(55, 215);
             this.FullNameLabel.Name = "FullNameLabel";
             this.FullNameLabel.Size = new System.Drawing.Size(147, 18);
             this.FullNameLabel.TabIndex = 147;
@@ -124,7 +124,7 @@
             this.LastNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.LastNameLabel.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.LastNameLabel.Location = new System.Drawing.Point(55, 224);
+            this.LastNameLabel.Location = new System.Drawing.Point(55, 242);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(77, 18);
             this.LastNameLabel.TabIndex = 148;
@@ -136,7 +136,7 @@
             this.FirstNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.FirstNameLabel.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FirstNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.FirstNameLabel.Location = new System.Drawing.Point(55, 248);
+            this.FirstNameLabel.Location = new System.Drawing.Point(55, 266);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(80, 18);
             this.FirstNameLabel.TabIndex = 149;
@@ -148,7 +148,7 @@
             this.MiddleNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.MiddleNameLabel.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MiddleNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.MiddleNameLabel.Location = new System.Drawing.Point(55, 273);
+            this.MiddleNameLabel.Location = new System.Drawing.Point(55, 291);
             this.MiddleNameLabel.Name = "MiddleNameLabel";
             this.MiddleNameLabel.Size = new System.Drawing.Size(97, 18);
             this.MiddleNameLabel.TabIndex = 150;
@@ -159,7 +159,7 @@
             this.MiddleNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.MiddleNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MiddleNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.MiddleNameTextBox.Location = new System.Drawing.Point(173, 273);
+            this.MiddleNameTextBox.Location = new System.Drawing.Point(173, 291);
             this.MiddleNameTextBox.Name = "MiddleNameTextBox";
             this.MiddleNameTextBox.ReadOnly = true;
             this.MiddleNameTextBox.Size = new System.Drawing.Size(148, 19);
@@ -171,7 +171,7 @@
             this.FirstNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.FirstNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.FirstNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.FirstNameTextBox.Location = new System.Drawing.Point(173, 248);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(173, 266);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.ReadOnly = true;
             this.FirstNameTextBox.Size = new System.Drawing.Size(148, 19);
@@ -183,7 +183,7 @@
             this.LastNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.LastNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LastNameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.LastNameTextBox.Location = new System.Drawing.Point(173, 224);
+            this.LastNameTextBox.Location = new System.Drawing.Point(173, 242);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.ReadOnly = true;
             this.LastNameTextBox.Size = new System.Drawing.Size(148, 19);
@@ -194,7 +194,7 @@
             // 
             this.StudentProfilePictureBox.BackColor = System.Drawing.Color.White;
             this.StudentProfilePictureBox.Image = global::PresentationLayer.Properties.Resources.empty_profile_male1;
-            this.StudentProfilePictureBox.Location = new System.Drawing.Point(360, 200);
+            this.StudentProfilePictureBox.Location = new System.Drawing.Point(360, 218);
             this.StudentProfilePictureBox.Name = "StudentProfilePictureBox";
             this.StudentProfilePictureBox.Size = new System.Drawing.Size(100, 100);
             this.StudentProfilePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -211,7 +211,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.Black;
             this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseButton.IconSize = 24;
-            this.CloseButton.Location = new System.Drawing.Point(473, 13);
+            this.CloseButton.Location = new System.Drawing.Point(463, 26);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(32, 32);
             this.CloseButton.TabIndex = 141;
@@ -221,7 +221,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.gray_label_highlighter;
             this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.gray_label_highlighter;
-            this.pictureBox1.Location = new System.Drawing.Point(38, 119);
+            this.pictureBox1.Location = new System.Drawing.Point(38, 137);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(446, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,7 +231,7 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
-            this.label2.Location = new System.Drawing.Point(355, 195);
+            this.label2.Location = new System.Drawing.Point(355, 213);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 110);
             this.label2.TabIndex = 155;
@@ -240,7 +240,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.group_box_border;
-            this.pictureBox3.Location = new System.Drawing.Point(38, 328);
+            this.pictureBox3.Location = new System.Drawing.Point(38, 346);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(446, 234);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -253,7 +253,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(53, 319);
+            this.label3.Location = new System.Drawing.Point(53, 337);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 18);
             this.label3.TabIndex = 158;
@@ -264,7 +264,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(71, 355);
+            this.label4.Location = new System.Drawing.Point(71, 373);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 159;
@@ -276,7 +276,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(77, 395);
+            this.label5.Location = new System.Drawing.Point(77, 413);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 18);
             this.label5.TabIndex = 160;
@@ -288,7 +288,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(64, 437);
+            this.label6.Location = new System.Drawing.Point(64, 455);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 18);
             this.label6.TabIndex = 161;
@@ -300,7 +300,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(96, 478);
+            this.label7.Location = new System.Drawing.Point(96, 496);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(36, 18);
             this.label7.TabIndex = 162;
@@ -311,7 +311,7 @@
             // 
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(54, 504);
+            this.label8.Location = new System.Drawing.Point(54, 522);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 48);
             this.label8.TabIndex = 163;
@@ -322,7 +322,7 @@
             // 
             this.ProgramComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.ProgramComboBox.FormattingEnabled = true;
-            this.ProgramComboBox.Location = new System.Drawing.Point(155, 350);
+            this.ProgramComboBox.Location = new System.Drawing.Point(155, 368);
             this.ProgramComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.ProgramComboBox.Name = "ProgramComboBox";
             this.ProgramComboBox.Size = new System.Drawing.Size(300, 26);
@@ -332,7 +332,7 @@
             // 
             this.SectionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SectionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SectionTextBox.Location = new System.Drawing.Point(155, 391);
+            this.SectionTextBox.Location = new System.Drawing.Point(155, 409);
             this.SectionTextBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.SectionTextBox.Name = "SectionTextBox";
             this.SectionTextBox.Size = new System.Drawing.Size(300, 26);
@@ -342,7 +342,7 @@
             // 
             this.SemesterComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SemesterComboBox.FormattingEnabled = true;
-            this.SemesterComboBox.Location = new System.Drawing.Point(155, 432);
+            this.SemesterComboBox.Location = new System.Drawing.Point(155, 450);
             this.SemesterComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.SemesterComboBox.Name = "SemesterComboBox";
             this.SemesterComboBox.Size = new System.Drawing.Size(300, 26);
@@ -352,7 +352,7 @@
             // 
             this.YearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.YearComboBox.FormattingEnabled = true;
-            this.YearComboBox.Location = new System.Drawing.Point(155, 473);
+            this.YearComboBox.Location = new System.Drawing.Point(155, 491);
             this.YearComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.YearComboBox.Name = "YearComboBox";
             this.YearComboBox.Size = new System.Drawing.Size(300, 26);
@@ -362,7 +362,7 @@
             // 
             this.AcademicYearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.AcademicYearComboBox.FormattingEnabled = true;
-            this.AcademicYearComboBox.Location = new System.Drawing.Point(155, 514);
+            this.AcademicYearComboBox.Location = new System.Drawing.Point(155, 532);
             this.AcademicYearComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
             this.AcademicYearComboBox.Name = "AcademicYearComboBox";
             this.AcademicYearComboBox.Size = new System.Drawing.Size(300, 26);
@@ -381,10 +381,10 @@
             this.CancelSubmitButton.IconColor = System.Drawing.Color.Black;
             this.CancelSubmitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelSubmitButton.IconSize = 32;
-            this.CancelSubmitButton.Location = new System.Drawing.Point(218, 624);
+            this.CancelSubmitButton.Location = new System.Drawing.Point(216, 635);
             this.CancelSubmitButton.Name = "CancelSubmitButton";
             this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
-            this.CancelSubmitButton.Size = new System.Drawing.Size(124, 44);
+            this.CancelSubmitButton.Size = new System.Drawing.Size(126, 44);
             this.CancelSubmitButton.TabIndex = 169;
             this.CancelSubmitButton.Text = "Cancel";
             this.CancelSubmitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -403,10 +403,10 @@
             this.SubmitAddButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitAddButton.IconSize = 32;
-            this.SubmitAddButton.Location = new System.Drawing.Point(360, 624);
+            this.SubmitAddButton.Location = new System.Drawing.Point(358, 635);
             this.SubmitAddButton.Name = "SubmitAddButton";
             this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
-            this.SubmitAddButton.Size = new System.Drawing.Size(124, 44);
+            this.SubmitAddButton.Size = new System.Drawing.Size(126, 44);
             this.SubmitAddButton.TabIndex = 170;
             this.SubmitAddButton.Text = "Add";
             this.SubmitAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -425,7 +425,7 @@
             this.SubmitUpdateButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitUpdateButton.IconSize = 32;
-            this.SubmitUpdateButton.Location = new System.Drawing.Point(358, 624);
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(358, 635);
             this.SubmitUpdateButton.Name = "SubmitUpdateButton";
             this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.SubmitUpdateButton.Size = new System.Drawing.Size(126, 44);
@@ -439,7 +439,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoScrollMinSize = new System.Drawing.Size(0, 1000);
+            this.AutoScrollMinSize = new System.Drawing.Size(0, 800);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::PresentationLayer.Properties.Resources.panel_border_with_thick_bottom;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -477,8 +477,8 @@
             this.Font = new System.Drawing.Font("Candara", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentAcadInfoControl";
-            this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(535, 600);
+            this.Padding = new System.Windows.Forms.Padding(10, 10, 50, 10);
+            this.Size = new System.Drawing.Size(540, 600);
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
