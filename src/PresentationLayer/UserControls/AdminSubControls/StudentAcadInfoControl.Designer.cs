@@ -56,8 +56,8 @@
             this.YearComboBox = new System.Windows.Forms.ComboBox();
             this.AcademicYearComboBox = new System.Windows.Forms.ComboBox();
             this.CancelSubmitButton = new FontAwesome.Sharp.IconButton();
-            this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
             this.SubmitAddButton = new FontAwesome.Sharp.IconButton();
+            this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -370,9 +370,9 @@
             // 
             // CancelSubmitButton
             // 
-            this.CancelSubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelSubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelSubmitButton.AutoSize = true;
-            this.CancelSubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
+            this.CancelSubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
             this.CancelSubmitButton.FlatAppearance.BorderSize = 0;
             this.CancelSubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelSubmitButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -381,40 +381,19 @@
             this.CancelSubmitButton.IconColor = System.Drawing.Color.Black;
             this.CancelSubmitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelSubmitButton.IconSize = 32;
-            this.CancelSubmitButton.Location = new System.Drawing.Point(219, 617);
+            this.CancelSubmitButton.Location = new System.Drawing.Point(218, 624);
             this.CancelSubmitButton.Name = "CancelSubmitButton";
-            this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
-            this.CancelSubmitButton.Size = new System.Drawing.Size(124, 42);
+            this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
+            this.CancelSubmitButton.Size = new System.Drawing.Size(124, 44);
             this.CancelSubmitButton.TabIndex = 169;
             this.CancelSubmitButton.Text = "Cancel";
             this.CancelSubmitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CancelSubmitButton.UseVisualStyleBackColor = false;
             // 
-            // SubmitUpdateButton
-            // 
-            this.SubmitUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubmitUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
-            this.SubmitUpdateButton.FlatAppearance.BorderSize = 0;
-            this.SubmitUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SubmitUpdateButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitUpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SubmitUpdateButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.SubmitUpdateButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SubmitUpdateButton.IconSize = 24;
-            this.SubmitUpdateButton.Location = new System.Drawing.Point(360, 617);
-            this.SubmitUpdateButton.Name = "SubmitUpdateButton";
-            this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
-            this.SubmitUpdateButton.Size = new System.Drawing.Size(124, 42);
-            this.SubmitUpdateButton.TabIndex = 170;
-            this.SubmitUpdateButton.Text = "Update";
-            this.SubmitUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SubmitUpdateButton.UseVisualStyleBackColor = false;
-            this.SubmitUpdateButton.Visible = false;
-            // 
             // SubmitAddButton
             // 
-            this.SubmitAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitAddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitAddButton.AutoSize = true;
             this.SubmitAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
             this.SubmitAddButton.FlatAppearance.BorderSize = 0;
             this.SubmitAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -423,25 +402,49 @@
             this.SubmitAddButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
             this.SubmitAddButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SubmitAddButton.IconSize = 28;
-            this.SubmitAddButton.Location = new System.Drawing.Point(360, 617);
+            this.SubmitAddButton.IconSize = 32;
+            this.SubmitAddButton.Location = new System.Drawing.Point(360, 624);
             this.SubmitAddButton.Name = "SubmitAddButton";
-            this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
-            this.SubmitAddButton.Size = new System.Drawing.Size(124, 42);
-            this.SubmitAddButton.TabIndex = 171;
+            this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
+            this.SubmitAddButton.Size = new System.Drawing.Size(124, 44);
+            this.SubmitAddButton.TabIndex = 170;
             this.SubmitAddButton.Text = "Add";
             this.SubmitAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SubmitAddButton.UseVisualStyleBackColor = false;
+            // 
+            // SubmitUpdateButton
+            // 
+            this.SubmitUpdateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitUpdateButton.AutoSize = true;
+            this.SubmitUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(4)))), ((int)(((byte)(140)))));
+            this.SubmitUpdateButton.FlatAppearance.BorderSize = 0;
+            this.SubmitUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitUpdateButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitUpdateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SubmitUpdateButton.IconChar = FontAwesome.Sharp.IconChar.Pencil;
+            this.SubmitUpdateButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SubmitUpdateButton.IconSize = 32;
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(358, 624);
+            this.SubmitUpdateButton.Name = "SubmitUpdateButton";
+            this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
+            this.SubmitUpdateButton.Size = new System.Drawing.Size(126, 44);
+            this.SubmitUpdateButton.TabIndex = 171;
+            this.SubmitUpdateButton.Text = "Update";
+            this.SubmitUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SubmitUpdateButton.UseVisualStyleBackColor = false;
             // 
             // StudentAcadInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoScrollMinSize = new System.Drawing.Size(0, 700);
+            this.AutoScrollMinSize = new System.Drawing.Size(0, 1000);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::PresentationLayer.Properties.Resources.panel_border_with_thick_bottom;
-            this.Controls.Add(this.SubmitAddButton);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.SubmitUpdateButton);
+            this.Controls.Add(this.SubmitAddButton);
             this.Controls.Add(this.CancelSubmitButton);
             this.Controls.Add(this.AcademicYearComboBox);
             this.Controls.Add(this.YearComboBox);
@@ -470,11 +473,12 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Candara", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentAcadInfoControl";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Size = new System.Drawing.Size(518, 600);
+            this.Size = new System.Drawing.Size(535, 600);
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -513,7 +517,7 @@
         private System.Windows.Forms.ComboBox YearComboBox;
         private System.Windows.Forms.ComboBox AcademicYearComboBox;
         private FontAwesome.Sharp.IconButton CancelSubmitButton;
-        private FontAwesome.Sharp.IconButton SubmitUpdateButton;
         private FontAwesome.Sharp.IconButton SubmitAddButton;
+        private FontAwesome.Sharp.IconButton SubmitUpdateButton;
     }
 }
