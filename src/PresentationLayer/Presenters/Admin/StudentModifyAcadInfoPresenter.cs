@@ -23,11 +23,46 @@ namespace PresentationLayer.Presenters.Admin
             _studentAcadInfoControl.CloseEditorButtonClicked            += CloseEditorButton_Clicked;
             _studentAcadInfoControl.ExitButtonClicked                   += GeneralPresenter.TriggerAppExit;
             _studentAcadInfoControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
+            _studentAcadInfoControl.OpenAddFormButtonClicked            += OpenAddFormButton_Clicked;
+            _studentAcadInfoControl.OpenDropFormButtonClicked           += OpenDropFormButton_Clicked;
+            _studentAcadInfoControl.OpenModifyFormButtonClicked         += OpenModifyFormButton_Clicked;
             _studentAcadInfoControl.InstructorAcadInfoButtonClicked     += InstructorAcadInfoButton_Clicked;
             _studentAcadInfoControl.StudentPersonalInfoButtonClicked    += StudentPersonalInfoButton_Clicked;
             _studentAcadInfoControl.InstructorPersonalInfoButtonClicked += InstructorPersonalInfoButton_Clicked;
+            _studentAcadInfoControl.SearchSrCodeButtonClicked           += SeachSrCodeButton_Clicked;
+            _studentAcadInfoControl.SearchSrCodeTextboxPressed          += SearchSrCodeTextBox_Pressed;
         }
 
+        private void SearchSrCodeTextBox_Pressed(object sender, KeyEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SeachSrCodeButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenDropFormButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OpenAddFormButton_Clicked(object sender, EventArgs e)
+        {
+            IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            new AcadInfoPresenter(studentControl);
+
+            if (_studentAcadInfoControl.AddUserControlToMainControl != null)
+                _studentAcadInfoControl.AddUserControlToMainControl.Dispose();
+
+            _studentAcadInfoControl.AddUserControlToMainControl = (UserControl) studentControl;
+        }
 
         private void CloseEditorButton_Clicked(object sender, EventArgs e)
         {
