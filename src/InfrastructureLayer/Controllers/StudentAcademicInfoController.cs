@@ -26,6 +26,17 @@ namespace InfrastructureLayer.Controllers
             return NotFound(new { Message = "An error occurred. Failed to load Student Academic Information page." });
         }
 
+        [HttpGet("GetByParams")]
+        public async Task<IActionResult> GetByParams([FromQuery]PStudentAcadInfoParams? studentModel)
+        {
+            if (studentModel == null) return BadRequest(new { Message = "At least one parameter must be filled." });
+
+            RStudentAcademicInfoModel response = await _studentAcademicRepository.GetByParams(studentModel);
+
+            if (response != null) return Ok(response);
+            return NotFound(new { Message = $"Student with Sr-Code {studentModel.SrCode} not found." });
+        }
+
 
         private IStudentAcademicInfoRepository _studentAcademicRepository;
     }
