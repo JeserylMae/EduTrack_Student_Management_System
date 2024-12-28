@@ -45,7 +45,14 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            new AcadInfoPresenter(studentControl);
+
+            if (_studentAcadInfoControl.AddUserControlToMainControl != null)
+                _studentAcadInfoControl.AddUserControlToMainControl.Dispose();
+
+            _studentAcadInfoControl.AddUserControlToMainControl = (UserControl)studentControl;
+            SetSubmitButtonVisibility(studentControl, "UPDATE");
         }
 
         private void OpenDropFormButton_Clicked(object sender, EventArgs e)
@@ -62,6 +69,7 @@ namespace PresentationLayer.Presenters.Admin
                 _studentAcadInfoControl.AddUserControlToMainControl.Dispose();
 
             _studentAcadInfoControl.AddUserControlToMainControl = (UserControl) studentControl;
+            SetSubmitButtonVisibility(studentControl, "ADD");
         }
 
         private void CloseEditorButton_Clicked(object sender, EventArgs e)
@@ -146,6 +154,17 @@ namespace PresentationLayer.Presenters.Admin
             studentObj[6] = studentInfo.Semester;
             studentObj[7] = studentInfo.Section;
             studentObj[8] = studentInfo.AcademicYear;
+        }
+
+        private void SetSubmitButtonVisibility(IStudentAcadInfoControl studentControl, string button)
+        {
+            studentControl.AccessSubmitAddButton.Visible = false;
+            studentControl.AccessSubmitUpdateButton.Visible = false;
+
+            if (button == "ADD")
+                studentControl.AccessSubmitAddButton.Visible = true;
+            else
+                studentControl.AccessSubmitUpdateButton.Visible= true;
         }
         #endregion
 
