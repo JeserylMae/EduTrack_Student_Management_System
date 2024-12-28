@@ -12,16 +12,23 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler ControlLoad;
         event EventHandler ExitButtonClicked;
         event EventHandler CloseEditorButtonClicked;
+        event EventHandler OpenAddFormButtonClicked;
+        event EventHandler OpenDropFormButtonClicked;
+        event EventHandler SearchSrCodeButtonClicked;
         event EventHandler FileDropDownButtonClicked;
+        event EventHandler OpenModifyFormButtonClicked;
         event EventHandler InstructorAcadInfoButtonClicked;
         event EventHandler StudentPersonalInfoButtonClicked;
         event EventHandler InstructorPersonalInfoButtonClicked;
+        event KeyEventHandler SearchSrCodeTextboxPressed;
+        
 
         void ClearInfoTable();
         void DisposeControl();
         void TriggerInfoTableReload();
 
         object[] InfoTableRowData { set; }
+        TextBox AccessSearchSrCodeTextbox        { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
         UserControl AddUserControlToMainControl { get; set; }
     }
