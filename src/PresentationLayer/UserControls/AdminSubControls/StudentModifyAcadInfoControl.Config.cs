@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,8 +14,13 @@ namespace PresentationLayer.UserControls.MainControls
         private void InvokeElementCreated()
         {
             if (InfoTable != null) InfoTableCreated.TrySetResult(true);
-            if (FileDropDownButton != null) FileDropDownButtonCreated.TrySetResult(true);
-            if (FileDropDownLayout != null) FileDropDownLayoutCreated.TrySetResult(true);
+            if (OpenAddFormButton != null)    OpenAddFormButtonCreated.TrySetResult(true);
+            if (FileDropDownButton != null)   FileDropDownButtonCreated.TrySetResult(true);
+            if (FileDropDownLayout != null)   FileDropDownLayoutCreated.TrySetResult(true);
+            if (OpenDropFormButton != null)   OpenDropFormButtonCreated.TrySetResult(true);
+            if (SearchSrCodeButton != null)   SearchSrCodeButtonCreated.TrySetResult(true);
+            if (SearchSrCodeTextbox != null)  SearchSrCodeTextboxCreated.TrySetResult(true);
+            if (OpenModifyFormButton != null) OpenModifyFormButtonCreated.TrySetResult(true);
         }
 
         private async Task InitializeEventSubscribers()
@@ -31,6 +37,21 @@ namespace PresentationLayer.UserControls.MainControls
             InstructorAcadInfoButton.Click     += delegate { InstructorAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
             StudentPersonalInfoButton.Click    += delegate { StudentPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
             InstructorPersonalInfoButton.Click += delegate { InstructorPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await OpenAddFormButtonCreated.Task;
+            OpenAddFormButton.Click += delegate { OpenAddFormButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await OpenDropFormButtonCreated.Task;
+            OpenDropFormButton.Click += delegate { OpenDropFormButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await OpenModifyFormButtonCreated.Task;
+            OpenModifyFormButton.Click += delegate { OpenModifyFormButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await SearchSrCodeButtonCreated.Task;
+            SearchSrCodeButton.Click += delegate { SearchSrCodeButtonClicked?.Invoke(this, EventArgs.Empty); };
+
+            await SearchSrCodeTextboxCreated.Task;
+            SearchSrCodeTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchSrCodeTextboxPressed?.Invoke(sender, e); };
         }
 
         private void InitializeInfoTable()

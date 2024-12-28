@@ -15,10 +15,16 @@ namespace PresentationLayer.UserControls.MainControls
     {
         public StudentModifyAcadInfoControl()
         {
-            InfoTableCreated          = new TaskCompletionSource<bool>();
-            FileDropDownButtonCreated = new TaskCompletionSource<bool>();
-            FileDropDownLayoutCreated = new TaskCompletionSource<bool>();
-          
+            InfoTableCreated            = new TaskCompletionSource<bool>();
+            OpenAddFormButtonCreated    = new TaskCompletionSource<bool>();
+            FileDropDownButtonCreated   = new TaskCompletionSource<bool>();
+            FileDropDownLayoutCreated   = new TaskCompletionSource<bool>();
+            OpenDropFormButtonCreated   = new TaskCompletionSource<bool>();
+            OpenModifyFormButtonCreated = new TaskCompletionSource<bool>();
+            SearchSrCodeButtonCreated   = new TaskCompletionSource<bool>();
+            SearchSrCodeTextboxCreated  = new TaskCompletionSource<bool>();
+
+
             InitializeComponent();
             InitializeInfoTable();
             InvokeElementCreated();
@@ -34,10 +40,6 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
             }
         }
-        public FlowLayoutPanel AccessFileDropDownLayout 
-        { 
-            get => FileDropDownLayout; 
-        }
         public UserControl AddUserControlToMainControl
         {
             get { return _addedUserControl; }
@@ -48,6 +50,10 @@ namespace PresentationLayer.UserControls.MainControls
                 _addedUserControl.Dock = DockStyle.Left;
             }
         }
+
+        public TextBox AccessSearchSrCodeTextbox { get => SearchSrCodeTextbox; }
+        public FlowLayoutPanel AccessFileDropDownLayout { get => FileDropDownLayout; }
+
 
         public void ClearInfoTable()
         {
@@ -66,15 +72,25 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler ControlLoad;
         public event EventHandler ExitButtonClicked;
         public event EventHandler CloseEditorButtonClicked;
+        public event EventHandler OpenAddFormButtonClicked;
         public event EventHandler FileDropDownButtonClicked;
+        public event EventHandler OpenDropFormButtonClicked;
+        public event EventHandler SearchSrCodeButtonClicked;
+        public event EventHandler OpenModifyFormButtonClicked;
         public event EventHandler InstructorAcadInfoButtonClicked;
         public event EventHandler StudentPersonalInfoButtonClicked;
         public event EventHandler InstructorPersonalInfoButtonClicked;
+        public event KeyEventHandler SearchSrCodeTextboxPressed;
 
 
         private UserControl _addedUserControl;
         private TaskCompletionSource<bool> InfoTableCreated;
+        private TaskCompletionSource<bool> OpenAddFormButtonCreated;
+        private TaskCompletionSource<bool> OpenDropFormButtonCreated;
         private TaskCompletionSource<bool> FileDropDownButtonCreated;
         private TaskCompletionSource<bool> FileDropDownLayoutCreated;
+        private TaskCompletionSource<bool> SearchSrCodeButtonCreated;
+        private TaskCompletionSource<bool> SearchSrCodeTextboxCreated;
+        private TaskCompletionSource<bool> OpenModifyFormButtonCreated;
     }
 }
