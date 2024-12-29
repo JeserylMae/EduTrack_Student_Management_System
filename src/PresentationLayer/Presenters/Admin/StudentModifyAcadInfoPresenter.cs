@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using PresentationLayer.Presenters.General;
 using PresentationLayer.UserControls.HomeSubControls;
 using PresentationLayer.UserControls.MainControls;
+using System.Activities;
+using PresentationLayer.Presenters.Enumerations;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -46,6 +48,7 @@ namespace PresentationLayer.Presenters.Admin
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
             IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            studentControl.CurrentRequestType = FormRequestType.UPDATE;
             new AcadInfoPresenter(studentControl);
 
             if (_studentAcadInfoControl.AddUserControlToMainControl != null)
@@ -63,6 +66,7 @@ namespace PresentationLayer.Presenters.Admin
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
             IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            studentControl.CurrentRequestType = FormRequestType.ADD;
             new AcadInfoPresenter(studentControl);
 
             if (_studentAcadInfoControl.AddUserControlToMainControl != null)
@@ -116,12 +120,12 @@ namespace PresentationLayer.Presenters.Admin
                 _studentAcadInfoControl.AccessFileDropDownLayout.Visible = true;
         }
 
-        public void StudentAcadControl_Load(object sender, EventArgs e)
+        public async void StudentAcadControl_Load(object sender, EventArgs e)
         {
             try
             {
                 StudentAcademicInfoServices services = new StudentAcademicInfoServices();
-                List<PStudentAcademicInfoModel<PNameModel>> studentList = services.GetAll();
+                List<PStudentAcademicInfoModel<PNameModel>> studentList = await services.GetAll();
 
                 _studentAcadInfoControl.ClearInfoTable();
 
