@@ -52,7 +52,7 @@ namespace InfrastructureLayer.Controllers
         }
 
         [HttpDelete("Delete")]
-        public async Task<IActionResult> DeleteStudentPersonalInfo([FromBody] PStudentPersonalInfoCodeModel codes)
+        public async Task<IActionResult> DeleteStudentPersonalInfo([FromBody] PStudentPersonalInfoParams codes)
         {
             int result = await _studentPersonalInfoRepository.DeleteById(codes);
 
