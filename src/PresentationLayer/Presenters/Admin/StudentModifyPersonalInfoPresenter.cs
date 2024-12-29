@@ -140,7 +140,7 @@ namespace PresentationLayer.Presenters.Admin
         private async void DeleteSelectedRowButton_Clicked(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
-            PStudentPersonalInfoCodeModel codes = new PStudentPersonalInfoCodeModel();
+            PStudentPersonalInfoParams codes = new PStudentPersonalInfoParams();
 
             string srCode = selectedRow.Cells["SrCode"].Value.ToString();
 
@@ -220,7 +220,7 @@ namespace PresentationLayer.Presenters.Admin
             );
         }
 
-        private void AssignValuesToObject(ref PStudentPersonalInfoCodeModel codes, string srCode)
+        private void AssignValuesToObject(ref PStudentPersonalInfoParams codes, string srCode)
         {
             codes.SrCode              = srCode;
             codes.StudentNameCode     = $"{srCode}-STU";

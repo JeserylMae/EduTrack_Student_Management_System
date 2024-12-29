@@ -87,7 +87,7 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> Delete(PStudentPersonalInfoCodeModel code)
+        public async Task<bool> Delete(PStudentPersonalInfoParams code)
         {
             Uri requestUri = new Uri(_webAddress + "/Delete");
 
