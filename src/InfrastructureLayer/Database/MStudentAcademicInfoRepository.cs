@@ -44,6 +44,26 @@ namespace InfrastructureLayer.Database
             }
         }
 
+        public async Task<int> GetRecordId(PRStudentAcademicInfoParams paramsModel)
+        {
+            string procedure = _studentQuery.spGetRecordId;
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                
+                AddDynamicParameters(ref parameters,
+                    StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester,
+                    paramsModel
+                );
+
+                return await connection.QuerySingleOrDefaultAsync<int>(
+                    procedure, param: parameters,
+                    commandType: CommandType.Text
+                );
+            }
+        }
+
         public async Task<int> DeleteStudent(PRStudentAcademicInfoParams paramsModel)
         {
             StudentAcadParams studentAcadParams = HandleParameter(paramsModel);
@@ -177,11 +197,6 @@ namespace InfrastructureLayer.Database
                 return StudentAcadParams.SrCode;
             }
             return StudentAcadParams.None;
-        }
-
-        public Task<int> GetRecordId(PRStudentAcademicInfoParams paramsModel)
-        {
-            
         }
         #endregion
 
