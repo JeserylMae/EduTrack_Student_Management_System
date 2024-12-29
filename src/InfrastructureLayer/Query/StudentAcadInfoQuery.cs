@@ -15,14 +15,14 @@
         public readonly string spGetAll => (@"
             SELECT 
                 StudentAIT.SrCode, 
-                StudentName.LastName,   
-                StudentName.FirstName,
-                StudentName.MiddleName,
                 StudentAIT.YearLevel,
                 StudentAIT.Semester,
                 StudentAIT.Section,
                 StudentAIT.AcademicYear,
-                StudentAIT.Program
+                StudentAIT.Program,
+                StudentName.LastName,   
+                StudentName.FirstName,
+                StudentName.MiddleName
             FROM 
                 StudentAcademicInfoTbl as StudentAIT
             LEFT JOIN
@@ -34,14 +34,14 @@
             string query = (@"
                 SELECT
                     StudentAIT.SrCode, 
-                    StudentName.LastName,   
-                    StudentName.FirstName,
-                    StudentName.MiddleName,
                     StudentAIT.YearLevel,
                     StudentAIT.Semester,
                     StudentAIT.Section,
                     StudentAIT.AcademicYear,
-                    StudentAIT.Program
+                    StudentAIT.Program,
+                    StudentName.LastName,   
+                    StudentName.FirstName,
+                    StudentName.MiddleName
                 FROM 
                     StudentAcademicInfoTbl as StudentAIT
                 LEFT JOIN
@@ -61,18 +61,19 @@
             UPDATE 
                 StudentAcademicInfoTbl
             SET
-                YearLevel = @p_YearLevel,
-                Semester = @p_Semester,
                 Section = @p_Section,
                 Program = @p_Program,
-                AcademicYear = @p_AcademicYear
+                AcademicYear = @p_AcademicYear,
+                YearLevel = @p_YearLevel,
+                Semester = @p_Semester
             WHERE
-                SrCode = @p_SrCode;
+                SrCode = @p_SrCode AND
+                Id = @p_Id;
         ");
 
         public string spDelete(StudentAcadParams parameter)
         {
-            string query = @"DELETE FROM StudentAcademicInfoTbl";
+            string query = @"DELETE FROM StudentAcademicInfoTbl AS StudentAIT";
 
             HandleParameter(ref query, parameter);
             
@@ -102,7 +103,7 @@
                         WHERE
                             StudentAIT.SrCode = @p_SrCode AND
                             StudentAIT.AcademicYear = @p_AcademicYear AND
-                            StudentAIT.YearLevel = @p_YearLevel
+                            StudentAIT.YearLevel = @p_YearLevel AND
                             StudentAIT.Semester = @p_Semester;
                     ";
                     break;
