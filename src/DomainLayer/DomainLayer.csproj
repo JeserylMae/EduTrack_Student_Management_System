@@ -43,10 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModels\PStudentAcadInfoParams.cs" />
+    <Compile Include="DataModels\PNameModel.cs" />
+    <Compile Include="DataModels\PStudentAcademicInfoModel.cs" />
+    <Compile Include="DataModels\PRStudentAcademicInfoParams.cs" />
     <Compile Include="DataModels\PStudentPersonalInfoModel.cs" />
-    <Compile Include="DataModels\RStudentAcademicInfoModel.cs" />
-    <Compile Include="DataModels\PStudentPersonalInfoCodeModel.cs" />
+    <Compile Include="DataModels\PStudentPersonalInfoParams.cs" />
     <Compile Include="DataModels\RStudentPersonalInfoModel.cs" />
     <Compile Include="DataModels\PRUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
