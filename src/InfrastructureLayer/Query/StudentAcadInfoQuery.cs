@@ -53,21 +53,21 @@
         }
 
         public readonly string spInsertNew => (@"
-            INSERT INTO StudentAcademicInfoTbl
-            Values(p_SrCode, p_StudentNameId, p_YearLevel, p_Semester, p_Section, p_AcademicYear, p_Program);
+            INSERT INTO StudentAcademicInfoTbl (SrCode, StudentNameId, YearLevel, Semester, Section, AcademicYear, Program)
+            Values(@p_SrCode, @p_StudentNameId, @p_YearLevel, @p_Semester, @p_Section, @p_AcademicYear, @p_Program);
         ");
 
         public readonly string spUpdate => (@"
             UPDATE 
                 StudentAcademicInfoTbl
             SET
-                YearLevel = p_YearLevel,
-                Semester = p_Semester,
-                Section = p_Section,
-                Program = p_Program,
-                AcademicYear = p_AcademicYear
+                YearLevel = @p_YearLevel,
+                Semester = @p_Semester,
+                Section = @p_Section,
+                Program = @p_Program,
+                AcademicYear = @p_AcademicYear
             WHERE
-                SrCode = p_SrCode;
+                SrCode = @p_SrCode;
         ");
 
         public string spDelete(StudentAcadParams parameter)
