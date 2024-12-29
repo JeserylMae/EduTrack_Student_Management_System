@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using DomainLayer.DataModels;
+using FontAwesome.Sharp;
 using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    internal interface IStudentAcadInfoControl
+    public interface IStudentAcadInfoControl
     {
+        void DisposeControl();
+
         event EventHandler ControlLoad;
         event EventHandler CloseButtonClicked;
 
