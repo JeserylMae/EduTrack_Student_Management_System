@@ -24,21 +24,27 @@ namespace InfrastructureLayer.Database
         }
 
 
-        public async Task<List<RStudentAcademicInfoModel>> GetAll()
+        public async Task<List<PStudentAcademicInfoModel<PNameModel>>> GetAll()
         {
             string procedure = _studentQuery.spGetAll;
 
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
-                var result = await connection.QueryAsync<RStudentAcademicInfoModel>(
-                                procedure,
-                                commandType: CommandType.Text
+                var result = await connection.QueryAsync<PStudentAcademicInfoModel<PNameModel>,
+                                             PNameModel, PStudentAcademicInfoModel<PNameModel>>(
+                    procedure,
+                    (academicInfo, name) =>
+                    {
+                        academicInfo.StudentName = name;
+                        return academicInfo;
+                    },  splitOn: "LastName",
+                    commandType: CommandType.Text
                 );
                 return result.ToList();
             }
         }
 
-        public async Task<int> DeleteStudent(PStudentAcadInfoParams paramsModel)
+        public async Task<int> DeleteStudent(PRStudentAcademicInfoParams paramsModel)
         {
             StudentAcadParams studentAcadParams = HandleParameter(paramsModel);
             string procedure = _studentQuery.spDelete(studentAcadParams);
@@ -52,7 +58,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
-        public async Task<RStudentAcademicInfoModel> GetByParams(PStudentAcadInfoParams paramsModel)
+        public async Task<PStudentAcademicInfoModel<PNameModel>> GetByParams(PRStudentAcademicInfoParams paramsModel)
         {
             StudentAcadParams parameterType = HandleParameter(paramsModel);
             string procedure = _studentQuery.spGetById(parameterType);
@@ -63,28 +69,37 @@ namespace InfrastructureLayer.Database
                 DynamicParameters parameters = new DynamicParameters();
                 AddDynamicParameters(ref parameters, parameterType, paramsModel);
 
-                var result = await connection.QuerySingleOrDefaultAsync<RStudentAcademicInfoModel>(
-                                procedure, parameters,
+                var result = await connection.QueryAsync<PStudentAcademicInfoModel<PNameModel>,
+                                            PNameModel, PStudentAcademicInfoModel<PNameModel>>(
+                                procedure,
+                                (academicInfo, name) =>
+                                {
+                                    academicInfo.StudentName = name;
+                                    return academicInfo;
+                                }, splitOn: "LastName",
+                                param: parameters,
                                 commandType: CommandType.Text
                 );
-                return result;
+                return result.SingleOrDefault();
             }
         }
 
-        public async Task<int> Update(RStudentAcademicInfoModel studentModel)
+
+        // in updating, get first the id of the row usign GetParams before updating (IN SERVICES).
+        public async Task<int> Update(PStudentAcademicInfoModel<string> studentModel, int dataId)
         {
             string procedure = _studentQuery.spUpdate;
 
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 DynamicParameters parameters = new DynamicParameters();
-                AddDynamicParameters(ref parameters, studentModel, RequestType.UPDATE);
+                AddDynamicParameters(ref parameters, studentModel, RequestType.UPDATE, dataId);
 
                 return await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.Text ); 
             }
         }
 
-        public async Task<int> InsertNew(RStudentAcademicInfoModel studentModel)
+        public async Task<int> InsertNew(PStudentAcademicInfoModel<string> studentModel)
         {
             string procedure = _studentQuery.spInsertNew;
 
@@ -100,8 +115,8 @@ namespace InfrastructureLayer.Database
 
         #region Helpers
         private void AddDynamicParameters(ref DynamicParameters parameters, 
-                                    RStudentAcademicInfoModel studentModel,
-                                    RequestType request)
+                                    PStudentAcademicInfoModel<string> studentModel,
+                                    RequestType request, int? dataId = null)
         {
             parameters.Add("@p_SrCode",         studentModel.SrCode         );
             parameters.Add("@p_YearLevel",      studentModel.YearLevel      );
@@ -111,33 +126,14 @@ namespace InfrastructureLayer.Database
             parameters.Add("@p_Program",        studentModel.Program        );
             
             if (RequestType.INSERT == request)
-                parameters.Add("@p_StudentNameId",  $"{studentModel.SrCode}-STU");
-        }
-
-        private StudentAcadParams HandleParameter(PStudentAcadInfoParams model)
-        {
-            if (!String.IsNullOrEmpty(model.Semester))
-            {
-                return StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester;
-            }
-            else if (!String.IsNullOrEmpty(model.Semester))
-            {
-                return StudentAcadParams.SrCodeAndAcadYearAndYearLevel;
-            }
-            else if (!String.IsNullOrEmpty(model.AcademicYear))
-            {
-                return StudentAcadParams.SrCodeAndAcadYear;
-            }
-            else if (!String.IsNullOrEmpty(model.SrCode))
-            {
-                return StudentAcadParams.SrCode;
-            }
-            return StudentAcadParams.None;
+                parameters.Add("@p_StudentNameId",  studentModel.StudentName);
+            else if (RequestType.UPDATE == request && null != dataId)
+                parameters.Add("@p_Id", dataId);
         }
 
         private void AddDynamicParameters(ref DynamicParameters parameters, 
                                           StudentAcadParams parameterType,
-                                          PStudentAcadInfoParams studentModel)
+                                          PRStudentAcademicInfoParams studentModel)
         {
             switch (parameterType)
             {
@@ -160,6 +156,32 @@ namespace InfrastructureLayer.Database
                     parameters.Add("@p_Semester", studentModel.Semester);
                     break;
             }
+        }
+
+        private StudentAcadParams HandleParameter(PRStudentAcademicInfoParams model)
+        {
+            if (!String.IsNullOrEmpty(model.Semester))
+            {
+                return StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester;
+            }
+            else if (!String.IsNullOrEmpty(model.Semester))
+            {
+                return StudentAcadParams.SrCodeAndAcadYearAndYearLevel;
+            }
+            else if (!String.IsNullOrEmpty(model.AcademicYear))
+            {
+                return StudentAcadParams.SrCodeAndAcadYear;
+            }
+            else if (!String.IsNullOrEmpty(model.SrCode))
+            {
+                return StudentAcadParams.SrCode;
+            }
+            return StudentAcadParams.None;
+        }
+
+        public Task<int> GetRecordId(PRStudentAcademicInfoParams paramsModel)
+        {
+            
         }
         #endregion
 
