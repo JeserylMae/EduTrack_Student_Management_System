@@ -27,6 +27,7 @@ namespace PresentationLayer.UserControls.MainControls
         {
             await InfoTableCreated.Task;
             this.Load += delegate { ControlLoad?.Invoke(this, EventArgs.Empty); };
+            InfoTable.SelectionChanged += delegate { InfoTableSelectionChanged?.Invoke(this, EventArgs.Empty); };
 
             await FileDropDownButtonCreated.Task;
             FileDropDownButton.Click += delegate { FileDropDownButtonClicked?.Invoke(this, EventArgs.Empty); };

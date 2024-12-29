@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using DomainLayer.DataModels;
+using FontAwesome.Sharp;
 using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,9 @@ namespace PresentationLayer.UserControls.AdminSubControls
             InvokeElementCreated();
             _ = InitializeEventSubscribers();
         }
+        
+
+        public void DisposeControl() => this.Dispose();
 
 
         public event EventHandler ControlLoad;
@@ -39,7 +43,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public IconButton AccessSubmitAddButton     { get => SubmitAddButton;    }
         public IconButton AccessSubmitUpdateButton  { get => SubmitUpdateButton; }
 
-        public FormRequestType CurrentRequestType   { get; set; }
+        public FormRequestType CurrentRequestType { get; set; }
 
 
         private TaskCompletionSource<bool> CloseButtonCreated;

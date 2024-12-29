@@ -1,11 +1,12 @@
-﻿using System;
+﻿using PresentationLayer.UserControls.AdminSubControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer.UserControls.AdminSubControls
+namespace PresentationLayer.UserControls.MainControls
 {
     internal interface IStudentModifyAcadInfoControl
     {
@@ -16,20 +17,22 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler OpenDropFormButtonClicked;
         event EventHandler SearchSrCodeButtonClicked;
         event EventHandler FileDropDownButtonClicked;
+        event EventHandler InfoTableSelectionChanged;
         event EventHandler OpenModifyFormButtonClicked;
         event EventHandler InstructorAcadInfoButtonClicked;
         event EventHandler StudentPersonalInfoButtonClicked;
         event EventHandler InstructorPersonalInfoButtonClicked;
         event KeyEventHandler SearchSrCodeTextboxPressed;
-        
+
 
         void ClearInfoTable();
         void DisposeControl();
         void TriggerInfoTableReload();
 
-        object[] InfoTableRowData { set; }
+        object[] InfoTableRowData                { set; }
+        DataGridView AccessInfoTable             { get; }
         TextBox AccessSearchSrCodeTextbox        { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
-        UserControl AddUserControlToMainControl { get; set; }
+        IStudentAcadInfoControl CurrentUserControl           { get; set; }
     }
 }

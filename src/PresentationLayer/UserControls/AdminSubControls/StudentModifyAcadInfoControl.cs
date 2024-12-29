@@ -32,29 +32,6 @@ namespace PresentationLayer.UserControls.MainControls
         }
 
 
-        public object[] InfoTableRowData 
-        { 
-            set
-            {
-                InfoTable.Rows.Add(value);
-                InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
-            }
-        }
-        public UserControl AddUserControlToMainControl
-        {
-            get { return _addedUserControl; }
-            set
-            {
-                _addedUserControl = value;
-                MainControlHolder.Controls.Add(_addedUserControl);
-                _addedUserControl.Dock = DockStyle.Left;
-            }
-        }
-
-        public TextBox AccessSearchSrCodeTextbox { get => SearchSrCodeTextbox; }
-        public FlowLayoutPanel AccessFileDropDownLayout { get => FileDropDownLayout; }
-
-
         public void ClearInfoTable()
         {
             InfoTable.Rows.Clear();
@@ -69,6 +46,29 @@ namespace PresentationLayer.UserControls.MainControls
         }
 
 
+        public object[] InfoTableRowData 
+        { 
+            set
+            {
+                InfoTable.Rows.Add(value);
+                InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
+            }
+        }
+        public IStudentAcadInfoControl CurrentUserControl
+        {
+            get { return (IStudentAcadInfoControl)_addedUserControl; }
+            set
+            {
+                _addedUserControl = (UserControl)value;
+                MainControlHolder.Controls.Add(_addedUserControl);
+                _addedUserControl.Dock = DockStyle.Left;
+            }
+        }
+
+        public DataGridView AccessInfoTable             { get => InfoTable;           }
+        public TextBox AccessSearchSrCodeTextbox        { get => SearchSrCodeTextbox; }
+        public FlowLayoutPanel AccessFileDropDownLayout { get => FileDropDownLayout;  }
+
         public event EventHandler ControlLoad;
         public event EventHandler ExitButtonClicked;
         public event EventHandler CloseEditorButtonClicked;
@@ -76,6 +76,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler FileDropDownButtonClicked;
         public event EventHandler OpenDropFormButtonClicked;
         public event EventHandler SearchSrCodeButtonClicked;
+        public event EventHandler InfoTableSelectionChanged;
         public event EventHandler OpenModifyFormButtonClicked;
         public event EventHandler InstructorAcadInfoButtonClicked;
         public event EventHandler StudentPersonalInfoButtonClicked;
