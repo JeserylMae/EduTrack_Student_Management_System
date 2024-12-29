@@ -20,6 +20,7 @@ namespace PresentationLayer.Presenters.Admin
         public StudentModifyAcadInfoPresenter(IStudentModifyAcadInfoControl studentAcadInfoControl)
         {
             _studentAcadInfoControl = studentAcadInfoControl;
+            _studentControlReady    = new TaskCompletionSource<bool>();
 
             _studentAcadInfoControl.ControlLoad                         += StudentAcadControl_Load;
             _studentAcadInfoControl.CloseEditorButtonClicked            += CloseEditorButton_Clicked;
@@ -33,6 +34,20 @@ namespace PresentationLayer.Presenters.Admin
             _studentAcadInfoControl.InstructorPersonalInfoButtonClicked += InstructorPersonalInfoButton_Clicked;
             _studentAcadInfoControl.SearchSrCodeButtonClicked           += SeachSrCodeButton_Clicked;
             _studentAcadInfoControl.SearchSrCodeTextboxPressed          += SearchSrCodeTextBox_Pressed;
+            _studentAcadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
+        }
+
+        private async void InfoTableSelection_Changed(object sender, EventArgs e)
+        {
+            if (await _studentControlReady.Task)
+            {
+                var selectedRows = _studentAcadInfoControl.AccessInfoTable.SelectedRows[0];
+
+                PNameModel nameModel = new PNameModel();
+                _studentModel = new PStudentAcademicInfoModel<PNameModel>();
+
+                DisplayValuesToUserControl(selectedRows);
+            }
         }
 
         private void SearchSrCodeTextBox_Pressed(object sender, KeyEventArgs e)
@@ -51,11 +66,13 @@ namespace PresentationLayer.Presenters.Admin
             studentControl.CurrentRequestType = FormRequestType.UPDATE;
             new AcadInfoPresenter(studentControl);
 
-            if (_studentAcadInfoControl.AddUserControlToMainControl != null)
-                _studentAcadInfoControl.AddUserControlToMainControl.Dispose();
+            if (_studentAcadInfoControl.CurrentUserControl != null)
+                _studentAcadInfoControl.CurrentUserControl.DisposeControl();
 
-            _studentAcadInfoControl.AddUserControlToMainControl = (UserControl)studentControl;
+            _studentAcadInfoControl.CurrentUserControl = studentControl;
             SetSubmitButtonVisibility(studentControl, "UPDATE");
+
+            _studentControlReady.TrySetResult(true);
         }
 
         private void OpenDropFormButton_Clicked(object sender, EventArgs e)
@@ -67,13 +84,16 @@ namespace PresentationLayer.Presenters.Admin
         {
             IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
             studentControl.CurrentRequestType = FormRequestType.ADD;
+
             new AcadInfoPresenter(studentControl);
 
-            if (_studentAcadInfoControl.AddUserControlToMainControl != null)
-                _studentAcadInfoControl.AddUserControlToMainControl.Dispose();
+            if (_studentAcadInfoControl.CurrentUserControl != null)
+                _studentAcadInfoControl.CurrentUserControl.DisposeControl();
 
-            _studentAcadInfoControl.AddUserControlToMainControl = (UserControl) studentControl;
+            _studentAcadInfoControl.CurrentUserControl = studentControl;
             SetSubmitButtonVisibility(studentControl, "ADD");
+
+            _studentControlReady.TrySetResult(true);
         }
 
         private void CloseEditorButton_Clicked(object sender, EventArgs e)
@@ -146,6 +166,23 @@ namespace PresentationLayer.Presenters.Admin
 
 
         #region Helpers
+        private void DisplayValuesToUserControl(DataGridViewRow selectedRows)
+        {
+            if (selectedRows == null) return;
+
+            _studentAcadInfoControl.CurrentUserControl.AccessLastNameTextBox.Text = selectedRows.Cells["LastName"].Value.ToString();
+            _studentAcadInfoControl.CurrentUserControl.AccessFirstNameTextBox.Text = selectedRows.Cells["FirstName"].Value.ToString();
+            _studentAcadInfoControl.CurrentUserControl.AccessMiddleNameTextBox.Text = selectedRows.Cells["MiddleName"].Value.ToString();
+
+            // ADD THIS LATER
+            //_studentModel.StudentName = nameModel;
+            //_studentModel.Section = selectedRows.Cells["Section"].Value.ToString();
+            //_studentModel.Program = selectedRows.Cells["Program"].Value.ToString();
+            //_studentModel.Semester = selectedRows.Cells["Semester"].Value.ToString();
+            //_studentModel.YearLevel = selectedRows.Cells["YearLevel"].Value.ToString();
+            //_studentModel.AcademicYear = selectedRows.Cells["AcademicYear"].Value.ToString();
+        }
+
         private void AddStudentAcademicInfoToObject(ref object[] studentObj, 
                                     PStudentAcademicInfoModel<PNameModel> studentInfo)
         {
@@ -173,6 +210,8 @@ namespace PresentationLayer.Presenters.Admin
         #endregion
 
 
-        IStudentModifyAcadInfoControl _studentAcadInfoControl;
+        private TaskCompletionSource<bool> _studentControlReady;
+        private PStudentAcademicInfoModel<PNameModel> _studentModel;
+        private IStudentModifyAcadInfoControl _studentAcadInfoControl;
     }
 }
