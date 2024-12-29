@@ -72,12 +72,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IStudentAcadInfoControl.cs" />
-    <Compile Include="UserControls\AdminSubControls\IStudentModifyAcadInfoControl.cs" />
+	  <Compile Include="UserControls\AdminSubControls\IStudentAcadInfoControl.cs">
+		  <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+	  </Compile>
+	  <Compile Include="UserControls\AdminSubControls\IStudentModifyAcadInfoControl.cs">
+		  <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
+	  </Compile>
     <Compile Include="UserControls\AdminSubControls\IStudentPersonalInfoControl.cs">
       <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Config.cs">
+		<DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.cs">
