@@ -17,7 +17,7 @@ namespace ServiceLayer.Database
         }
 
 
-        public List<RStudentAcademicInfoModel> GetAll()
+        public List<PStudentAcademicInfoModel<PNameModel>> GetAll()
         {
             string request = $"{_webAddress}/GetAll";
             Uri endpoint = new Uri(request);
@@ -29,9 +29,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = response.Content.ReadAsStringAsync().Result;
-                    return JsonConvert.DeserializeObject<List<RStudentAcademicInfoModel>>(jsonResponse);
+                    return JsonConvert.DeserializeObject<List<PStudentAcademicInfoModel<PNameModel>>>(jsonResponse);
                 }
-                else { return new List<RStudentAcademicInfoModel>(); }
+                else { return new List<PStudentAcademicInfoModel<PNameModel>>(); }
             }
         }
 

@@ -121,7 +121,7 @@ namespace PresentationLayer.Presenters.Admin
             try
             {
                 StudentAcademicInfoServices services = new StudentAcademicInfoServices();
-                List<RStudentAcademicInfoModel> studentList = services.GetAll();
+                List<PStudentAcademicInfoModel<PNameModel>> studentList = services.GetAll();
 
                 _studentAcadInfoControl.ClearInfoTable();
 
@@ -143,12 +143,12 @@ namespace PresentationLayer.Presenters.Admin
 
         #region Helpers
         private void AddStudentAcademicInfoToObject(ref object[] studentObj, 
-                                    RStudentAcademicInfoModel studentInfo)
+                                    PStudentAcademicInfoModel<PNameModel> studentInfo)
         {
             studentObj[0] = studentInfo.SrCode;
-            studentObj[1] = studentInfo.LastName;
-            studentObj[2] = studentInfo.FirstName;
-            studentObj[3] = studentInfo.MiddleName;
+            studentObj[1] = studentInfo.StudentName.LastName;
+            studentObj[2] = studentInfo.StudentName.FirstName;
+            studentObj[3] = studentInfo.StudentName.MiddleName;
             studentObj[4] = studentInfo.Program;
             studentObj[5] = studentInfo.YearLevel;
             studentObj[6] = studentInfo.Semester;
