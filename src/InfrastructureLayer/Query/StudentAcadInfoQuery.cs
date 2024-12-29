@@ -29,6 +29,16 @@
                 NameTbl StudentName ON StudentAIT.StudentNameId = StudentName.UserId;
         ");
 
+        public readonly string spGetRecordId => (@"
+            SELECT Id
+            FROM StudentAcademicInfoTbl
+            WHERE 
+                SrCode = @p_SrCode AND
+                Semester = @p_Semester AND
+                YearLevel = @p_YearLevel AND
+                AcademicYear = @p_AcademicYear;
+        ");
+
         public string spGetById(StudentAcadParams parameter)
         {
             string query = (@"
