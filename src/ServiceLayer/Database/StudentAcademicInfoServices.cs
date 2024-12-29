@@ -28,11 +28,11 @@ namespace ServiceLayer.Database
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = client.GetAsync(endpoint).Result;
+                HttpResponseMessage response = await client.GetAsync(endpoint);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    string jsonResponse = response.Content.ReadAsStringAsync().Result;
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
                     return JsonConvert.DeserializeObject<List<PStudentAcademicInfoModel<PNameModel>>>(jsonResponse);
                 }
                 else { return new List<PStudentAcademicInfoModel<PNameModel>>(); }
