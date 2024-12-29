@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DomainLayer.DataModels
 {
-    public class PStudentAcadInfoParams
+    public class PRStudentAcademicInfoParams
     {
         public string SrCode {  get; set; }
         public string AcademicYear { get; set; }
