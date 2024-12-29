@@ -6,6 +6,15 @@ using System.Data;
 
 namespace InfrastructureLayer.Database
 {
+    public enum RequestType
+    {
+        INSERT, 
+        UPDATE,
+        DELETE,
+        GETALL,
+        GETBYPARAMS
+    }
+
     public class MStudentAcademicInfoRepository : IStudentAcademicInfoRepository
     {
         public MStudentAcademicInfoRepository(DatabaseContext databaseContext)
@@ -29,9 +38,18 @@ namespace InfrastructureLayer.Database
             }
         }
 
-        public Task<int> DeleteStudent(PStudentAcadInfoParams paramsModel)
+        public async Task<int> DeleteStudent(PStudentAcadInfoParams paramsModel)
         {
-            throw new NotImplementedException();
+            StudentAcadParams studentAcadParams = HandleParameter(paramsModel);
+            string procedure = _studentQuery.spDelete(studentAcadParams);
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                AddDynamicParameters(ref parameters, studentAcadParams, paramsModel);
+
+                return await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.Text);
+            }
         }
 
         public async Task<RStudentAcademicInfoModel> GetByParams(PStudentAcadInfoParams paramsModel)
@@ -53,16 +71,48 @@ namespace InfrastructureLayer.Database
             }
         }
 
-        public Task<int> Update(RStudentAcademicInfoModel studentModel)
+        public async Task<int> Update(RStudentAcademicInfoModel studentModel)
         {
-            throw new NotImplementedException();
+            string procedure = _studentQuery.spUpdate;
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                AddDynamicParameters(ref parameters, studentModel, RequestType.UPDATE);
+
+                return await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.Text ); 
+            }
         }
 
-        public Task<int> InsertNew(RStudentAcademicInfoModel studentModel)
+        public async Task<int> InsertNew(RStudentAcademicInfoModel studentModel)
         {
-            throw new NotImplementedException();
+            string procedure = _studentQuery.spInsertNew;
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                AddDynamicParameters(ref parameters, studentModel, RequestType.INSERT);
+
+                return await connection.ExecuteAsync(procedure, parameters, commandType: CommandType.Text);
+            }
         }
 
+
+        #region Helpers
+        private void AddDynamicParameters(ref DynamicParameters parameters, 
+                                    RStudentAcademicInfoModel studentModel,
+                                    RequestType request)
+        {
+            parameters.Add("@p_SrCode",         studentModel.SrCode         );
+            parameters.Add("@p_YearLevel",      studentModel.YearLevel      );
+            parameters.Add("@p_Semester",       studentModel.Semester       );
+            parameters.Add("@p_Section",        studentModel.Section        );
+            parameters.Add("@p_AcademicYear",   studentModel.AcademicYear   );
+            parameters.Add("@p_Program",        studentModel.Program        );
+            
+            if (RequestType.INSERT == request)
+                parameters.Add("@p_StudentNameId",  $"{studentModel.SrCode}-STU");
+        }
 
         private StudentAcadParams HandleParameter(PStudentAcadInfoParams model)
         {
@@ -85,7 +135,8 @@ namespace InfrastructureLayer.Database
             return StudentAcadParams.None;
         }
 
-        private void AddDynamicParameters(ref DynamicParameters parameters, StudentAcadParams parameterType,
+        private void AddDynamicParameters(ref DynamicParameters parameters, 
+                                          StudentAcadParams parameterType,
                                           PStudentAcadInfoParams studentModel)
         {
             switch (parameterType)
@@ -110,6 +161,8 @@ namespace InfrastructureLayer.Database
                     break;
             }
         }
+        #endregion
+
 
         private DatabaseContext _databaseContext;
         private StudentAcadInfoQuery _studentQuery;
