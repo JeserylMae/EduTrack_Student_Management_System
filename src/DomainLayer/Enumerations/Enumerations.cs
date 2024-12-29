@@ -19,4 +19,13 @@ namespace PresentationLayer.Presenters.Enumerations
         SrCodeAndAcadYearAndYearLevel,
         SrCodeAndAcadYearAndYearLevelAndSemester
     }
+
+    public enum RequestType
+    {
+        INSERT,
+        UPDATE,
+        DELETE,
+        GETALL,
+        GETBYPARAMS
+    }
 }
