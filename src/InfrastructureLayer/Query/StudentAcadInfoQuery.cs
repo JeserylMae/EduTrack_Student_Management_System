@@ -1,14 +1,7 @@
-﻿namespace InfrastructureLayer.Query
-{
-    public enum StudentAcadParams
-    {
-        None,
-        SrCode,
-        SrCodeAndAcadYear,
-        SrCodeAndAcadYearAndYearLevel,
-        SrCodeAndAcadYearAndYearLevelAndSemester
-    }
+﻿using PresentationLayer.Presenters.Enumerations;
 
+namespace InfrastructureLayer.Query
+{
     public struct StudentAcadInfoQuery
     {
 
