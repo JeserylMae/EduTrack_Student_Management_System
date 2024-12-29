@@ -50,6 +50,7 @@
     <Compile Include="DataModels\PStudentPersonalInfoParams.cs" />
     <Compile Include="DataModels\RStudentPersonalInfoModel.cs" />
     <Compile Include="DataModels\PRUserModel.cs" />
+    <Compile Include="Enumerations\Enumerations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebModels\ServerInfoModel.cs" />
   </ItemGroup>
