@@ -47,7 +47,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
-        public async Task<int> DeleteById(PStudentPersonalInfoCodeModel codes)
+        public async Task<int> DeleteById(PStudentPersonalInfoParams codes)
         {
             string procedure = _studentQuery.spDelete;
 
@@ -92,7 +92,7 @@ namespace InfrastructureLayer.Database
 
         #region Helper Methods
         private void AddValuesToParameters(ref DynamicParameters parameters, 
-                                    ref PStudentPersonalInfoCodeModel codes)
+                                    ref PStudentPersonalInfoParams codes)
         {
             parameters.Add("@p_SrCode",              codes.SrCode);
             parameters.Add("@p_StudentNameCode",     codes.StudentNameCode);

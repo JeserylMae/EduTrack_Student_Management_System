@@ -6,7 +6,7 @@ namespace InfrastructureLayer.Database
     {
         Task<List<RStudentPersonalInfoModel>> GetAll();
         Task<RStudentPersonalInfoModel> GetById(string SrCode);
-        Task<int> DeleteById(PStudentPersonalInfoCodeModel codes);
+        Task<int> DeleteById(PStudentPersonalInfoParams codes);
         Task<int> Update(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student);
         Task<int> InsertNew(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student);
     }
