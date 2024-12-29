@@ -20,25 +20,25 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            List<RStudentAcademicInfoModel> response = await _studentAcademicRepository.GetAll();
+            List<PStudentAcademicInfoModel<PNameModel>> response = await _studentAcademicRepository.GetAll();
 
             if (response.Count > 0) return Ok(response);
             return NotFound(new { Message = "An error occurred. Failed to load Student Academic Information page." });
         }
 
         [HttpGet("GetByParams")]
-        public async Task<IActionResult> GetByParams([FromQuery]PStudentAcadInfoParams? studentModel)
+        public async Task<IActionResult> GetByParams([FromQuery]PRStudentAcademicInfoParams? studentModel)
         {
             if (studentModel == null) return BadRequest(new { Message = "At least one parameter must be filled." });
 
-            RStudentAcademicInfoModel response = await _studentAcademicRepository.GetByParams(studentModel);
+            PStudentAcademicInfoModel<PNameModel> response = await _studentAcademicRepository.GetByParams(studentModel);
 
             if (response != null) return Ok(response);
             return NotFound(new { Message = $"Student with Sr-Code {studentModel.SrCode} not found." });
         }
 
         [HttpPost("InsertNew")]
-        public async Task<IActionResult> InsertNew(RStudentAcademicInfoModel studentModel)
+        public async Task<IActionResult> InsertNew(PStudentAcademicInfoModel<string> studentModel)
         {
             int response = await _studentAcademicRepository.InsertNew(studentModel);
 
@@ -47,16 +47,16 @@ namespace InfrastructureLayer.Controllers
         }
 
         [HttpPatch("Update")]
-        public async Task<IActionResult> Update(RStudentAcademicInfoModel studentModel)
+        public async Task<IActionResult> Update([FromBody]PStudentAcademicInfoModel<string> studentModel, [FromQuery]int dataId)
         {
-            int response = await _studentAcademicRepository.Update(studentModel);
+            int response = await _studentAcademicRepository.Update(studentModel, dataId);
 
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"An error occured! Failed to update student with Sr-Code {studentModel.SrCode}" });
         }
 
         [HttpDelete("Delete")]
-        public async Task<IActionResult> Delete(PStudentAcadInfoParams? studentModel)
+        public async Task<IActionResult> Delete(PRStudentAcademicInfoParams? studentModel)
         {
             if (studentModel == null)
                 return BadRequest(new { Message = "At least one parameter must be filled." });
