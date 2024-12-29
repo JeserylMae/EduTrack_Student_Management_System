@@ -2,19 +2,11 @@
 using DomainLayer.DataModels;
 using InfrastructureLayer.Data;
 using InfrastructureLayer.Query;
+using PresentationLayer.Presenters.Enumerations;
 using System.Data;
 
 namespace InfrastructureLayer.Database
 {
-    public enum RequestType
-    {
-        INSERT, 
-        UPDATE,
-        DELETE,
-        GETALL,
-        GETBYPARAMS
-    }
-
     public class MStudentAcademicInfoRepository : IStudentAcademicInfoRepository
     {
         public MStudentAcademicInfoRepository(DatabaseContext databaseContext)
