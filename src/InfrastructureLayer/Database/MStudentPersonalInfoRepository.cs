@@ -68,7 +68,7 @@ namespace InfrastructureLayer.Database
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 DynamicParameters parameters = new DynamicParameters();
-                AddValuesToParameters(ref parameters, ref student, "UPDATE");
+                AddValuesToParameters(ref parameters, ref student, RequestType.UPDATE);
 
                 return await connection.ExecuteAsync(procedure, parameters,
                              commandType: CommandType.Text);
@@ -82,7 +82,7 @@ namespace InfrastructureLayer.Database
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 DynamicParameters parameters = new DynamicParameters();
-                AddValuesToParameters(ref parameters, ref student, "ADD");
+                AddValuesToParameters(ref parameters, ref student, RequestType.INSERT);
 
                 return await connection.ExecuteAsync(procedure, parameters,
                              commandType: CommandType.Text);
@@ -103,7 +103,7 @@ namespace InfrastructureLayer.Database
 
         private void AddValuesToParameters(ref DynamicParameters parameters,
                     ref PStudentPersonalInfoModel<RStudentPersonalInfoModel> student,
-                    string modification)
+                    RequestType request)
         {
             parameters.Add("@p_SrCode",        student.InfoModel.SrCode);
             parameters.Add("@p_LastName",      student.InfoModel.LastName);
@@ -130,7 +130,7 @@ namespace InfrastructureLayer.Database
             parameters.Add("@p_GuardianNameCode",      student.GuardianCode);
             parameters.Add("@p_GuardianAddressCode",   student.GuardianCode);
 
-            if (modification == "ADD")
+            if (RequestType.INSERT == request)
             {
                 int currentYear = DateTime.Now.Year; 
                 string AcademicYear = $"A.Y. {currentYear-1}-{currentYear}";
