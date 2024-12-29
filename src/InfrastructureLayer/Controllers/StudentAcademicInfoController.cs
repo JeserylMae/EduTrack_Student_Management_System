@@ -26,6 +26,15 @@ namespace InfrastructureLayer.Controllers
             return NotFound(new { Message = "An error occurred. Failed to load Student Academic Information page." });
         }
 
+        [HttpGet("GetRecordId")]
+        public async Task<IActionResult> GetRecordId([FromQuery]PRStudentAcademicInfoParams paramsModel)
+        {
+            int response = await _studentAcademicRepository.GetRecordId(paramsModel);
+
+            if (response > 0) return Ok(new { RecordId = response });
+            return NotFound(new { Message = "Failed to find record id." });
+        }
+
         [HttpGet("GetByParams")]
         public async Task<IActionResult> GetByParams([FromQuery]PRStudentAcademicInfoParams? studentModel)
         {
