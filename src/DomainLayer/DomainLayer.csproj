@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataModels\PNameModel.cs" />
+    <Compile Include="DataModels\PRProgramModel.cs" />
     <Compile Include="DataModels\PStudentAcademicInfoModel.cs" />
     <Compile Include="DataModels\PRStudentAcademicInfoParams.cs" />
     <Compile Include="DataModels\PStudentPersonalInfoModel.cs" />
