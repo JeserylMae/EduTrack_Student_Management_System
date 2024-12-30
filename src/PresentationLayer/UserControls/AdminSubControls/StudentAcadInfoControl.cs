@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,12 +37,16 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public event EventHandler CloseButtonClicked;
 
 
-        public UserControl CurrentControl           { get => this;               }
-        public TextBox AccessLastNameTextBox        { get => LastNameTextBox;    }
-        public TextBox AccessFirstNameTextBox       { get => FirstNameTextBox;   }
-        public TextBox AccessMiddleNameTextBox      { get => MiddleNameTextBox;  }
-        public IconButton AccessSubmitAddButton     { get => SubmitAddButton;    }
-        public IconButton AccessSubmitUpdateButton  { get => SubmitUpdateButton; }
+        public UserControl CurrentControl           { get => this;                 }
+        public ComboBox AccessYearComboBox          { get => YearComboBox;         }
+        public TextBox AccessLastNameTextBox        { get => LastNameTextBox;      }
+        public ComboBox AccessProgramComboBox       { get => ProgramComboBox;      }
+        public TextBox AccessFirstNameTextBox       { get => FirstNameTextBox;     }
+        public TextBox AccessMiddleNameTextBox      { get => MiddleNameTextBox;    }
+        public ComboBox AccessSemesterComboBox      { get => SemesterComboBox;     }
+        public IconButton AccessSubmitAddButton     { get => SubmitAddButton;      }
+        public IconButton AccessSubmitUpdateButton  { get => SubmitUpdateButton;   }
+        public ComboBox AccessAcademicYearComboBox  { get => AcademicYearComboBox; }
 
         public FormRequestType CurrentRequestType { get; set; }
 

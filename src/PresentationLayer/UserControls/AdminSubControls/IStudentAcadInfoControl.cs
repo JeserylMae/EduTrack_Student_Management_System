@@ -18,11 +18,16 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler CloseButtonClicked;
 
         UserControl CurrentControl          { get; }
+        ComboBox AccessYearComboBox         { get; }
         TextBox AccessLastNameTextBox       { get; }
+        ComboBox AccessProgramComboBox      { get; }
         TextBox AccessFirstNameTextBox      { get; }
+        ComboBox AccessSemesterComboBox     { get; }
         TextBox AccessMiddleNameTextBox     { get; }
         IconButton AccessSubmitAddButton    { get; }
         IconButton AccessSubmitUpdateButton { get; }
+        ComboBox AccessAcademicYearComboBox { get; }
+
 
         FormRequestType CurrentRequestType { get; set; }
     }
