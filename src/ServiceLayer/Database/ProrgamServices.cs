@@ -19,7 +19,7 @@ namespace ServiceLayer.Database
         }
 
 
-        public async Task<List<PRProgramModel>> GetAllProgram()
+        public async Task<Dictionary<string, string>> GetAllProgram()
         {
             string request = $"{_webAddress}/GetAllProgram";
 
@@ -30,9 +30,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<List<PRProgramModel>>(jsonResponse);
+                    return JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonResponse);
                 }
-                return new List<PRProgramModel>();
+                return new Dictionary<string, string>();
             }
         }
 
