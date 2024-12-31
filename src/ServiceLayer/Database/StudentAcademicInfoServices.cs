@@ -63,7 +63,7 @@ namespace ServiceLayer.Database
         {
             string request = $"{_webAddress}/GetRecordId";
             HandleRequestParameter(ref request, paramsModel);
-
+            
             Uri endpoint = new Uri(request);
 
             using (HttpClient client = new HttpClient())
@@ -73,7 +73,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<int>(jsonResponse);
+                    var result = JsonConvert.DeserializeObject<Dictionary<string, int>>(jsonResponse);
+
+                    return result["recordId"];
                 }
                 return -1;
             }
@@ -93,9 +95,9 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> Update(PStudentAcademicInfoModel<string> paramsModel)
+        public async Task<bool> Update(PStudentAcademicInfoModel<string> paramsModel, int recordId)
         {
-            Uri request = new Uri($"{_webAddress}/Update");
+            Uri request = new Uri($"{_webAddress}/Update?dataId={recordId}");
 
             string JsonParameter = JsonConvert.SerializeObject(paramsModel, Formatting.Indented);
             StringContent content = new StringContent(JsonParameter, Encoding.UTF8, "application/json");
@@ -131,7 +133,6 @@ namespace ServiceLayer.Database
                     Content = content
                 };
                 HttpResponseMessage response = await client.SendAsync(request);
-                response.EnsureSuccessStatusCode();
 
                 return response.IsSuccessStatusCode;
             }
@@ -140,16 +141,16 @@ namespace ServiceLayer.Database
         #region Helpers
         private void HandleRequestParameter(ref string request, PRStudentAcademicInfoParams paramsModel)
         {
-            if (String.IsNullOrEmpty(paramsModel.SrCode))
-                request += $"/SrCode={paramsModel.SrCode}";
+            if (!String.IsNullOrEmpty(paramsModel.SrCode))
+                request += $"?SrCode={paramsModel.SrCode}";
             
-            if (String.IsNullOrEmpty(paramsModel.AcademicYear))
-                request += $"&AcademicYear{paramsModel.AcademicYear.Replace(' ', '%')}";
+            if (!String.IsNullOrEmpty(paramsModel.AcademicYear))
+                request += $"&AcademicYear={Uri.EscapeDataString(paramsModel.AcademicYear)}";
 
-            if (String.IsNullOrEmpty(paramsModel.YearLevel))
+            if (!String.IsNullOrEmpty(paramsModel.YearLevel))
                 request += $"&YearLevel={paramsModel.YearLevel}";
 
-            if (String.IsNullOrEmpty(paramsModel.Semester))
+            if (!String.IsNullOrEmpty(paramsModel.Semester))
                 request += $"&Semester={paramsModel.Semester}";
         }
         #endregion
