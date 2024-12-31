@@ -65,8 +65,6 @@ namespace ServiceLayer.Database
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.PostAsync(request, content);
-                response.EnsureSuccessStatusCode();
-
                 return response.IsSuccessStatusCode;
             }
         }
