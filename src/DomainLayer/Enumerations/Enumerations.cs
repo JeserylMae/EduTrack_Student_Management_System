@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.Presenters.Enumerations
 {
+    public enum RequestStatus
+    {
+        SUCCESS, ERROR
+    }
+
     public enum FormRequestType
     {
-        ADD, UPDATE
+        ADD, UPDATE, DELETE, CANCEL
     }
 
     public enum StudentAcadParams
