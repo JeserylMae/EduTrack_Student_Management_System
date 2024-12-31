@@ -48,12 +48,18 @@ namespace PresentationLayer.Presenters.Admin
         {
             try
             {
+                PRStudentAcademicInfoParams parameters = new PRStudentAcademicInfoParams();
                 StudentAcademicInfoServices services = new StudentAcademicInfoServices();
                 PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
 
-                AddValuesToObject(ref student);
+                AddValuesToObject(ref parameters);
+                int recordId = await services.GetRecordId(parameters);
 
-                bool response = await services.Update(student);
+                if (recordId == -1) 
+                    throw new Exception(message: $"Cannot find student with Sr-Code {parameters.SrCode}.");
+
+                AddValuesToObject(ref student);
+                bool response = await services.Update(student, recordId);
 
                 if (response) DisplayConfimation(
                     $"Successfully updated student with Sr-Code {student.SrCode}.",
@@ -64,7 +70,7 @@ namespace PresentationLayer.Presenters.Admin
             }
             catch (Exception ex) 
             { 
-                DisplayConfimation(ex.Message, 
+                DisplayConfimation(ex.StackTrace, 
                     FormRequestType.UPDATE,
                     RequestStatus.ERROR
                 ); 
@@ -127,6 +133,16 @@ namespace PresentationLayer.Presenters.Admin
             );
         }
 
+        private void AddValuesToObject(ref PRStudentAcademicInfoParams parameters)
+        {
+            var selectedRows = _studentAcadInfoControl.AccessInfoTable.SelectedRows[0];
+
+            parameters.SrCode = selectedRows.Cells["SrCode"].Value.ToString();
+            parameters.Semester = selectedRows.Cells["Semester"].Value.ToString();
+            parameters.YearLevel = selectedRows.Cells["YearLevel"].Value.ToString();
+            parameters.AcademicYear = selectedRows.Cells["AcademicYear"].Value.ToString();
+        }
+
         private void AddValuesToObject(ref PStudentAcademicInfoModel<string> model)
         {
             model.SrCode = _studentAcadInfoControl.AccessSrCodeTextBox.Text;
@@ -161,7 +177,7 @@ namespace PresentationLayer.Presenters.Admin
 
             int startingYear = DateTime.Now.Year + 1;
             string[] acadYearOptions = Enumerable.Range(0, 9)
-                .Select(i => $"A.Y. {startingYear - (i + 1)} - {startingYear - i}")
+                .Select(i => $"A.Y. {startingYear - (i + 1)}-{startingYear - i}")
                 .ToArray();
             _studentAcadInfoControl.AccessAcademicYearComboBox.Items.AddRange(acadYearOptions);
 
