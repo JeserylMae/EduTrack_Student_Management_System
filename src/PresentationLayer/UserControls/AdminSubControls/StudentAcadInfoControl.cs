@@ -56,6 +56,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public IconButton AccessSubmitAddButton     { get => SubmitAddButton;      }
         public IconButton AccessSubmitUpdateButton  { get => SubmitUpdateButton;   }
 
+
+        public DataGridView AccessInfoTable { get; set; }
         public FormRequestType CurrentRequestType { get; set; }
 
 

@@ -36,6 +36,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         IconButton AccessSubmitUpdateButton { get; }
 
 
+        DataGridView AccessInfoTable       { get; set; }
         FormRequestType CurrentRequestType { get; set; }
     }
 }
