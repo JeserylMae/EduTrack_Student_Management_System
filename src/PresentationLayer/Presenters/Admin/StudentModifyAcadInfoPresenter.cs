@@ -75,9 +75,21 @@ namespace PresentationLayer.Presenters.Admin
             _studentControlReady.TrySetResult(true);
         }
 
-        private void OpenDropFormButton_Clicked(object sender, EventArgs e)
+        private async void OpenDropFormButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+                PRStudentAcademicInfoParams parameters = AddValuesToObject();
+
+                bool result = await services.Delete(parameters);
+
+                DisplayConfirmation($"Successfully deleted student with Sr-Code {parameters.SrCode}.", "ADD");
+            }
+            catch (Exception ex)
+            {
+                DisplayConfirmation(ex.Message, "DELETE");
+            }
         }
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
@@ -166,21 +178,47 @@ namespace PresentationLayer.Presenters.Admin
 
 
         #region Helpers
+        private void DisplayConfirmation(string message, string action)
+        {
+            MessageBoxIcon messageBoxIcon = (action.ToUpper() == "DELETE") 
+                                          ? MessageBoxIcon.Error 
+                                          : MessageBoxIcon.Information;
+
+            MessageBox.Show(message, $"Student Academic Information - {action.ToUpper()}",
+                MessageBoxButtons.OK, messageBoxIcon);
+        }
+
+        private PRStudentAcademicInfoParams AddValuesToObject()
+        {
+            PRStudentAcademicInfoParams parameters = new PRStudentAcademicInfoParams();
+
+            var selectedRows = _studentAcadInfoControl.AccessInfoTable.SelectedRows[0];
+
+            parameters.SrCode = selectedRows.Cells["SrCode"].Value.ToString();
+            parameters.Semester = selectedRows.Cells["Semester"].Value.ToString();
+            parameters.YearLevel = selectedRows.Cells["YearLevel"].Value.ToString();
+            parameters.AcademicYear = selectedRows.Cells["AcademicYear"].Value.ToString();
+
+            return parameters;
+        }
+
         private void DisplayValuesToUserControl(DataGridViewRow selectedRows)
         {
             if (selectedRows == null) return;
 
+            _studentAcadInfoControl.CurrentUserControl.AccessSrCodeTextBox.Text = selectedRows.Cells["SrCode"].Value.ToString();
             _studentAcadInfoControl.CurrentUserControl.AccessLastNameTextBox.Text = selectedRows.Cells["LastName"].Value.ToString();
             _studentAcadInfoControl.CurrentUserControl.AccessFirstNameTextBox.Text = selectedRows.Cells["FirstName"].Value.ToString();
             _studentAcadInfoControl.CurrentUserControl.AccessMiddleNameTextBox.Text = selectedRows.Cells["MiddleName"].Value.ToString();
 
-            // ADD THIS LATER
-            //_studentModel.StudentName = nameModel;
-            //_studentModel.Section = selectedRows.Cells["Section"].Value.ToString();
-            //_studentModel.Program = selectedRows.Cells["Program"].Value.ToString();
-            //_studentModel.Semester = selectedRows.Cells["Semester"].Value.ToString();
-            //_studentModel.YearLevel = selectedRows.Cells["YearLevel"].Value.ToString();
-            //_studentModel.AcademicYear = selectedRows.Cells["AcademicYear"].Value.ToString();
+            if (_studentAcadInfoControl.CurrentUserControl.CurrentRequestType == FormRequestType.UPDATE)
+            {
+                _studentAcadInfoControl.CurrentUserControl.AccessSectionTextBox.Text = selectedRows.Cells["Section"].Value.ToString();
+                _studentAcadInfoControl.CurrentUserControl.AccessYearComboBox.Text = selectedRows.Cells["YearLevel"].Value.ToString();
+                _studentAcadInfoControl.CurrentUserControl.AccessProgramComboBox.Text = selectedRows.Cells["Program"].Value.ToString();
+                _studentAcadInfoControl.CurrentUserControl.AccessSemesterComboBox.Text = selectedRows.Cells["Semester"].Value.ToString();
+                _studentAcadInfoControl.CurrentUserControl.AccessAcademicYearComboBox.Text = selectedRows.Cells["AcademicYear"].Value.ToString();
+            }
         }
 
         private void AddStudentAcademicInfoToObject(ref object[] studentObj, 
