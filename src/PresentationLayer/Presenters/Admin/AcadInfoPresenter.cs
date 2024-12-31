@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Presenters.Enumerations;
+﻿using DomainLayer.DataModels;
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.Presenters.General;
 using PresentationLayer.UserControls.AdminSubControls;
 using ServiceLayer.Database;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -16,8 +18,84 @@ namespace PresentationLayer.Presenters.Admin
         {
             _studentAcadInfoControl = studentAcadInfoControl;
 
-            _studentAcadInfoControl.ControlLoad += StudentAcadInfoControl_Load;
-            _studentAcadInfoControl.CloseButtonClicked += CloseButton_Clicked;
+            _studentAcadInfoControl.ControlLoad               += StudentAcadInfoControl_Load;
+            _studentAcadInfoControl.CloseButtonClicked        += CloseButton_Clicked;
+            _studentAcadInfoControl.SubmitAddButtonClicked    += SubmitAddButton_Clicked;
+            _studentAcadInfoControl.SubmitUpdateButtonClicked += SubmitUpdateButton_Clicked;
+            _studentAcadInfoControl.CancelSubmitButtonClicked += CancelSubmitButton_Clicked;
+        }
+
+        private void CancelSubmitButton_Clicked(object sender, EventArgs e)
+        {
+            DialogResult result = DisplayWarning(
+                "Are you sure you want to discard changes?",
+                FormRequestType.CANCEL    
+            );
+
+            if (result == DialogResult.Yes) ClearTexboxes();
+        }
+
+        private DialogResult DisplayWarning(string message, FormRequestType requestType)
+        {
+             return MessageBox.Show(message,
+                $"Student Academic Information - {requestType}",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+        }
+
+        private async void SubmitUpdateButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+                PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
+
+                AddValuesToObject(ref student);
+
+                bool response = await services.Update(student);
+
+                if (response) DisplayConfimation(
+                    $"Successfully updated student with Sr-Code {student.SrCode}.",
+                    FormRequestType.UPDATE,
+                    RequestStatus.SUCCESS
+                );
+                else throw new Exception(message: $"Failed to update student with Sr-Code {student.SrCode}.");
+            }
+            catch (Exception ex) 
+            { 
+                DisplayConfimation(ex.Message, 
+                    FormRequestType.UPDATE,
+                    RequestStatus.ERROR
+                ); 
+            }
+        }
+
+        private async void SubmitAddButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+                PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
+
+                AddValuesToObject(ref student);
+
+                bool response = await services.InsertNew(student);
+
+                if (response) DisplayConfimation(
+                    $"Successfully to inserted student with Sr-Code {student.SrCode}.",
+                    FormRequestType.ADD,
+                    RequestStatus.SUCCESS
+                );
+                else throw new Exception(message: $"Failed to insert student with Sr-Code {student.SrCode}.");
+            }
+            catch (Exception ex)
+            {
+                DisplayConfimation( ex.Message,
+                    FormRequestType.ADD,
+                    RequestStatus.ERROR
+                );
+            }
         }
 
         private void CloseButton_Clicked(object sender, EventArgs e)
@@ -35,6 +113,44 @@ namespace PresentationLayer.Presenters.Admin
 
 
         #region Helpers
+        private void DisplayConfimation(string message, FormRequestType requestType, 
+                                        RequestStatus status)
+        {
+            MessageBoxIcon messageBoxIcon = (status == RequestStatus.SUCCESS)
+                                ? MessageBoxIcon.Information
+                                : MessageBoxIcon.Error;
+
+            MessageBox.Show(message,
+                $"Student Academic Information - {requestType}.",
+                MessageBoxButtons.OK,
+                messageBoxIcon
+            );
+        }
+
+        private void AddValuesToObject(ref PStudentAcademicInfoModel<string> model)
+        {
+            model.SrCode = _studentAcadInfoControl.AccessSrCodeTextBox.Text;
+            model.Program = _studentAcadInfoControl.AccessProgramComboBox.Text;
+            model.YearLevel = _studentAcadInfoControl.AccessYearComboBox.Text;
+            model.Section = _studentAcadInfoControl.AccessSectionTextBox.Text;
+            model.Semester = _studentAcadInfoControl.AccessSemesterComboBox.Text;
+            model.AcademicYear = _studentAcadInfoControl.AccessAcademicYearComboBox.Text;
+            model.StudentName = model.SrCode + "-STU";
+        }
+
+        private void ClearTexboxes()
+        {
+            _studentAcadInfoControl.AccessSrCodeTextBox.Clear();
+            _studentAcadInfoControl.AccessSectionTextBox.Clear();
+            _studentAcadInfoControl.AccessLastNameTextBox.Clear();
+            _studentAcadInfoControl.AccessFirstNameTextBox.Clear();
+            _studentAcadInfoControl.AccessMiddleNameTextBox.Clear();
+            _studentAcadInfoControl.AccessYearComboBox.Text = string.Empty;
+            _studentAcadInfoControl.AccessProgramComboBox.Text = string.Empty;
+            _studentAcadInfoControl.AccessSemesterComboBox.Text = string.Empty;
+            _studentAcadInfoControl.AccessAcademicYearComboBox.Text = string.Empty;
+        }
+
         private async void LoadComboBoxOptions()
         {
             string[] yearOptions = { "FIRST", "SECOND", "THIRD", "FOURTH", "FIFTH"};
