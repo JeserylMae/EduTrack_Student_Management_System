@@ -64,6 +64,8 @@ namespace PresentationLayer.Presenters.Admin
         {
             IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
             studentControl.CurrentRequestType = FormRequestType.UPDATE;
+            studentControl.AccessInfoTable = _studentAcadInfoControl.AccessInfoTable;
+
             new AcadInfoPresenter(studentControl);
 
             if (_studentAcadInfoControl.CurrentUserControl != null)
