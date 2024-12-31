@@ -3,6 +3,7 @@ using FontAwesome.Sharp;
 using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,17 +17,23 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         event EventHandler ControlLoad;
         event EventHandler CloseButtonClicked;
+        event EventHandler SubmitAddButtonClicked;
+        event EventHandler CancelSubmitButtonClicked;
+        event EventHandler SubmitUpdateButtonClicked;
+
 
         UserControl CurrentControl          { get; }
-        ComboBox AccessYearComboBox         { get; }
+        TextBox AccessSrCodeTextBox         { get; }
+        TextBox AccessSectionTextBox        { get; }
         TextBox AccessLastNameTextBox       { get; }
-        ComboBox AccessProgramComboBox      { get; }
         TextBox AccessFirstNameTextBox      { get; }
-        ComboBox AccessSemesterComboBox     { get; }
         TextBox AccessMiddleNameTextBox     { get; }
+        ComboBox AccessYearComboBox         { get; }
+        ComboBox AccessProgramComboBox      { get; }
+        ComboBox AccessSemesterComboBox     { get; }
+        ComboBox AccessAcademicYearComboBox { get; }
         IconButton AccessSubmitAddButton    { get; }
         IconButton AccessSubmitUpdateButton { get; }
-        ComboBox AccessAcademicYearComboBox { get; }
 
 
         FormRequestType CurrentRequestType { get; set; }
