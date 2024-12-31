@@ -79,7 +79,7 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> InsertNew(PStudentAcademicInfoModel<PNameModel> paramsModel)
+        public async Task<bool> InsertNew(PStudentAcademicInfoModel<string> paramsModel)
         {
             string request = $"{_webAddress}/InsertNew";
 
@@ -89,12 +89,11 @@ namespace ServiceLayer.Database
             using (HttpClient client = new HttpClient())
             {
                 HttpResponseMessage response = await client.PostAsync(request, content);
-
                 return response.IsSuccessStatusCode;
             }
         }
 
-        public async Task<bool> Update(PStudentAcademicInfoModel<PNameModel> paramsModel)
+        public async Task<bool> Update(PStudentAcademicInfoModel<string> paramsModel)
         {
             Uri request = new Uri($"{_webAddress}/Update");
 
@@ -110,8 +109,7 @@ namespace ServiceLayer.Database
                     Content = content
                 };
 
-                HttpResponseMessage response = await client.PostAsync(request, content);
-                response.EnsureSuccessStatusCode();
+                HttpResponseMessage response = await client.SendAsync(httpRequest);
 
                 return response.IsSuccessStatusCode;
             }
