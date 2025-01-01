@@ -2,10 +2,12 @@
 using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.Presenters.General;
 using PresentationLayer.UserControls.AdminSubControls;
+using PresentationLayer.UserControls.MainControls;
 using ServiceLayer.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,11 +63,15 @@ namespace PresentationLayer.Presenters.Admin
                 AddValuesToObject(ref student);
                 bool response = await services.Update(student, recordId);
 
-                if (response) DisplayConfimation(
-                    $"Successfully updated student with Sr-Code {student.SrCode}.",
-                    FormRequestType.UPDATE,
-                    RequestStatus.SUCCESS
-                );
+                if (response)
+                {
+                    DisplayConfimation(
+                        $"Successfully updated student with Sr-Code {student.SrCode}.",
+                        FormRequestType.UPDATE,
+                        RequestStatus.SUCCESS
+                    );
+                    _studentAcadInfoControl.StudentControl.TriggerInfoTableReload();
+                }
                 else throw new Exception(message: $"Failed to update student with Sr-Code {student.SrCode}.");
             }
             catch (Exception ex) 
@@ -88,11 +94,15 @@ namespace PresentationLayer.Presenters.Admin
 
                 bool response = await services.InsertNew(student);
 
-                if (response) DisplayConfimation(
-                    $"Successfully to inserted student with Sr-Code {student.SrCode}.",
-                    FormRequestType.ADD,
-                    RequestStatus.SUCCESS
-                );
+                if (response)
+                {
+                    DisplayConfimation(
+                        $"Successfully to inserted student with Sr-Code {student.SrCode}.",
+                        FormRequestType.ADD,
+                        RequestStatus.SUCCESS
+                    );
+                    _studentAcadInfoControl.StudentControl.TriggerInfoTableReload();
+                }
                 else throw new Exception(message: $"Failed to insert student with Sr-Code {student.SrCode}.");
             }
             catch (Exception ex)
@@ -194,6 +204,7 @@ namespace PresentationLayer.Presenters.Admin
             _studentAcadInfoControl.AccessMiddleNameTextBox.ReadOnly = true;
         }
         #endregion
+
 
         private IStudentAcadInfoControl _studentAcadInfoControl;
     }
