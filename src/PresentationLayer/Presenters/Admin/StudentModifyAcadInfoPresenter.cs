@@ -56,12 +56,27 @@ namespace PresentationLayer.Presenters.Admin
 
         private void SearchSrCodeTextBox_Pressed(object sender, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.KeyCode != Keys.Enter) return;
+
+            SeachSrCodeButton_Clicked(sender, e);
         }
 
         private void SeachSrCodeButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string SrCode = _studentAcadInfoControl.AccessSearchSrCodeTextbox.Text;
+            var infoTableRowList = _studentAcadInfoControl.AccessInfoTable.Rows;
+
+            if (SrCode == null || infoTableRowList.Count == 0) return;
+
+            for (int i = 0; i < infoTableRowList.Count; i++)
+            {
+                string SrCodeCell = infoTableRowList[i].Cells["SrCode"].Value.ToString();
+
+                if (SrCodeCell == SrCode)
+                    _studentAcadInfoControl.AccessInfoTable.Rows[i].Selected = true;
+                else
+                    _studentAcadInfoControl.AccessInfoTable.Rows[i].Selected = false;
+            }
         }
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
