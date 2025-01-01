@@ -92,6 +92,7 @@ namespace PresentationLayer.Presenters.Admin
                 bool result = await services.Delete(parameters);
 
                 DisplayConfirmation($"Successfully deleted student with Sr-Code {parameters.SrCode}.", "ADD");
+                _studentAcadInfoControl.TriggerInfoTableReload();
             }
             catch (Exception ex)
             {
