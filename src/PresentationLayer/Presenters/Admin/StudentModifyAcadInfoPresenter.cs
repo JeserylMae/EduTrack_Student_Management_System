@@ -41,7 +41,11 @@ namespace PresentationLayer.Presenters.Admin
         {
             if (await _studentControlReady.Task)
             {
-                var selectedRows = _studentAcadInfoControl.AccessInfoTable.SelectedRows[0];
+                var selectedRowList = _studentAcadInfoControl.AccessInfoTable.SelectedRows;
+
+                if (selectedRowList == null || selectedRowList.Count == 0) return;
+
+                var selectedRows = selectedRowList[0];
 
                 PNameModel nameModel = new PNameModel();
                 _studentModel = new PStudentAcademicInfoModel<PNameModel>();
@@ -63,6 +67,7 @@ namespace PresentationLayer.Presenters.Admin
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
             IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            studentControl.StudentControl = _studentAcadInfoControl;
             studentControl.CurrentRequestType = FormRequestType.UPDATE;
             studentControl.AccessInfoTable = _studentAcadInfoControl.AccessInfoTable;
 
@@ -98,6 +103,7 @@ namespace PresentationLayer.Presenters.Admin
         {
             IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
             studentControl.CurrentRequestType = FormRequestType.ADD;
+            studentControl.StudentControl = _studentAcadInfoControl;
 
             new AcadInfoPresenter(studentControl);
 
@@ -224,7 +230,7 @@ namespace PresentationLayer.Presenters.Admin
         }
 
         private void AddStudentAcademicInfoToObject(ref object[] studentObj, 
-                                    PStudentAcademicInfoModel<PNameModel> studentInfo)
+                        PStudentAcademicInfoModel<PNameModel> studentInfo)
         {
             studentObj[0] = studentInfo.SrCode;
             studentObj[1] = studentInfo.StudentName.LastName;
