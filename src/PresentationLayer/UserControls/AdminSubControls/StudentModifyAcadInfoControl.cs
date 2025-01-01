@@ -42,7 +42,7 @@ namespace PresentationLayer.UserControls.MainControls
         }
         public void TriggerInfoTableReload()
         {
-            throw new NotImplementedException();
+            ControlLoad?.Invoke(this, EventArgs.Empty);
         }
 
 

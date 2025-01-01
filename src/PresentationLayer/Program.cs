@@ -18,13 +18,13 @@ namespace PresentationLayer
         /// </summary>
         [STAThread]
         static void Main()
-        { 
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            AppSettings appSettings            = new AppSettings();
-            SplashScreen splashScreen          = new SplashScreen();
-            IServerInfoForm serverInfoForm     = new ServerInfoForm();
+            AppSettings appSettings = new AppSettings();
+            SplashScreen splashScreen = new SplashScreen();
+            IServerInfoForm serverInfoForm = new ServerInfoForm();
             IEdutrackMainForm edutrackMainForm = EdutrackMainForm.GetInstance(serverInfoForm);
 
             new ServerInfoPresenter(serverInfoForm, edutrackMainForm, splashScreen, appSettings);

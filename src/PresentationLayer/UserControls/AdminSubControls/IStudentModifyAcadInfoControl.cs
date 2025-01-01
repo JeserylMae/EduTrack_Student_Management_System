@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.MainControls
 {
-    internal interface IStudentModifyAcadInfoControl
+    public interface IStudentModifyAcadInfoControl
     {
         event EventHandler ControlLoad;
         event EventHandler ExitButtonClicked;
