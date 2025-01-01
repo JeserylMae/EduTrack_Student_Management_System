@@ -1,6 +1,7 @@
 ﻿using DomainLayer.DataModels;
 using FontAwesome.Sharp;
 using PresentationLayer.Presenters.Enumerations;
+using PresentationLayer.UserControls.MainControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,8 +58,9 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public IconButton AccessSubmitUpdateButton  { get => SubmitUpdateButton;   }
 
 
-        public DataGridView AccessInfoTable { get; set; }
-        public FormRequestType CurrentRequestType { get; set; }
+        public DataGridView AccessInfoTable                 { get; set; }
+        public FormRequestType CurrentRequestType           { get; set; }
+        public IStudentModifyAcadInfoControl StudentControl {  get; set; }
 
 
         private TaskCompletionSource<bool> CloseButtonCreated;

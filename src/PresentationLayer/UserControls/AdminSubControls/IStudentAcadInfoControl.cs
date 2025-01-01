@@ -1,6 +1,7 @@
 ﻿using DomainLayer.DataModels;
 using FontAwesome.Sharp;
 using PresentationLayer.Presenters.Enumerations;
+using PresentationLayer.UserControls.MainControls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -38,5 +39,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         DataGridView AccessInfoTable       { get; set; }
         FormRequestType CurrentRequestType { get; set; }
+        IStudentModifyAcadInfoControl StudentControl { get; set; }
     }
 }
