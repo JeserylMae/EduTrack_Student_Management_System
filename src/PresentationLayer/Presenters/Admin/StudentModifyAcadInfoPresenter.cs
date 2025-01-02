@@ -183,6 +183,7 @@ namespace PresentationLayer.Presenters.Admin
             if (_studentAcadInfoControl.AccessFilterEditor == null)
             {
                 IFilterControl filterControl = new FilterControl();
+                filterControl.AccessStudentControl = _studentAcadInfoControl;
                 new FilterPresenter(filterControl);
 
                 _studentAcadInfoControl.AccessFilterEditor = (UserControl)filterControl;
