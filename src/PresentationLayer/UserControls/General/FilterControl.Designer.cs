@@ -33,6 +33,7 @@
             this.YearLevelComboBox = new System.Windows.Forms.ComboBox();
             this.SemesterComboBox = new System.Windows.Forms.ComboBox();
             this.SectionComboBox = new System.Windows.Forms.ComboBox();
+            this.ProgramComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.AcademicYearComboBox.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AcademicYearComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
             this.AcademicYearComboBox.FormattingEnabled = true;
-            this.AcademicYearComboBox.Location = new System.Drawing.Point(53, 1);
+            this.AcademicYearComboBox.Location = new System.Drawing.Point(438, 1);
             this.AcademicYearComboBox.Name = "AcademicYearComboBox";
             this.AcademicYearComboBox.Size = new System.Drawing.Size(158, 26);
             this.AcademicYearComboBox.TabIndex = 1;
@@ -72,7 +73,7 @@
             this.YearLevelComboBox.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.YearLevelComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
             this.YearLevelComboBox.FormattingEnabled = true;
-            this.YearLevelComboBox.Location = new System.Drawing.Point(231, 1);
+            this.YearLevelComboBox.Location = new System.Drawing.Point(616, 1);
             this.YearLevelComboBox.Name = "YearLevelComboBox";
             this.YearLevelComboBox.Size = new System.Drawing.Size(158, 26);
             this.YearLevelComboBox.TabIndex = 2;
@@ -86,7 +87,7 @@
             this.SemesterComboBox.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SemesterComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
             this.SemesterComboBox.FormattingEnabled = true;
-            this.SemesterComboBox.Location = new System.Drawing.Point(409, 1);
+            this.SemesterComboBox.Location = new System.Drawing.Point(794, 1);
             this.SemesterComboBox.Name = "SemesterComboBox";
             this.SemesterComboBox.Size = new System.Drawing.Size(158, 26);
             this.SemesterComboBox.TabIndex = 3;
@@ -100,17 +101,32 @@
             this.SectionComboBox.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SectionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
             this.SectionComboBox.FormattingEnabled = true;
-            this.SectionComboBox.Location = new System.Drawing.Point(587, 1);
+            this.SectionComboBox.Location = new System.Drawing.Point(972, 1);
             this.SectionComboBox.Name = "SectionComboBox";
             this.SectionComboBox.Size = new System.Drawing.Size(158, 26);
             this.SectionComboBox.TabIndex = 4;
             this.SectionComboBox.Text = "Section";
+            // 
+            // ProgramComboBox
+            // 
+            this.ProgramComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ProgramComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ProgramComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.ProgramComboBox.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProgramComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(145)))), ((int)(((byte)(164)))));
+            this.ProgramComboBox.FormattingEnabled = true;
+            this.ProgramComboBox.Location = new System.Drawing.Point(49, 1);
+            this.ProgramComboBox.Name = "ProgramComboBox";
+            this.ProgramComboBox.Size = new System.Drawing.Size(368, 26);
+            this.ProgramComboBox.TabIndex = 5;
+            this.ProgramComboBox.Text = "Program";
             // 
             // FilterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.Controls.Add(this.ProgramComboBox);
             this.Controls.Add(this.SectionComboBox);
             this.Controls.Add(this.SemesterComboBox);
             this.Controls.Add(this.YearLevelComboBox);
@@ -132,5 +148,6 @@
         private System.Windows.Forms.ComboBox YearLevelComboBox;
         private System.Windows.Forms.ComboBox SemesterComboBox;
         private System.Windows.Forms.ComboBox SectionComboBox;
+        private System.Windows.Forms.ComboBox ProgramComboBox;
     }
 }
