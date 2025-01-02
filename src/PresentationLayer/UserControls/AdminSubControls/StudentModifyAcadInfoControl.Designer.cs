@@ -53,8 +53,8 @@
             this.InstructorAcadInfoButton = new System.Windows.Forms.Button();
             this.FilterEditorButton = new System.Windows.Forms.Button();
             this.CloseEditorButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ExitButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).BeginInit();
             this.MainControlHolder.SuspendLayout();
@@ -231,6 +231,7 @@
             this.InfoTable.EnableHeadersVisualStyles = false;
             this.InfoTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.InfoTable.Location = new System.Drawing.Point(10, 10);
+            this.InfoTable.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.InfoTable.Name = "InfoTable";
             this.InfoTable.ReadOnly = true;
             this.InfoTable.RowHeadersVisible = false;
@@ -409,17 +410,6 @@
             this.CloseEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CloseEditorButton.UseVisualStyleBackColor = false;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.MainControlHolder);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(1280, 658);
-            this.panel1.TabIndex = 4;
-            // 
             // ExitButton
             // 
             this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
@@ -436,6 +426,17 @@
             this.ExitButton.Text = "Exit";
             this.ExitButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ExitButton.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.MainControlHolder);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(1280, 658);
+            this.panel1.TabIndex = 4;
             // 
             // StudentModifyAcadInfoControl
             // 

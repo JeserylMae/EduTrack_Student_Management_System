@@ -18,6 +18,7 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler SearchSrCodeButtonClicked;
         event EventHandler FileDropDownButtonClicked;
         event EventHandler InfoTableSelectionChanged;
+        event EventHandler FilterEditorButtonClicked;
         event EventHandler OpenModifyFormButtonClicked;
         event EventHandler InstructorAcadInfoButtonClicked;
         event EventHandler StudentPersonalInfoButtonClicked;
@@ -33,6 +34,7 @@ namespace PresentationLayer.UserControls.MainControls
         DataGridView AccessInfoTable             { get; }
         TextBox AccessSearchSrCodeTextbox        { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
-        IStudentAcadInfoControl CurrentUserControl           { get; set; }
+        UserControl AccessFilterEditor              { get; set; }
+        IStudentAcadInfoControl CurrentUserControl  { get; set; }
     }
 }

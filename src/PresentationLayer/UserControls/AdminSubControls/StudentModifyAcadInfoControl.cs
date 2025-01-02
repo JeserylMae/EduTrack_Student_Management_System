@@ -64,6 +64,16 @@ namespace PresentationLayer.UserControls.MainControls
                 _addedUserControl.Dock = DockStyle.Left;
             }
         }
+        public UserControl AccessFilterEditor
+        {
+            get => _filterControl;
+            set
+            {
+                _filterControl = value;
+                MainControlHolder.Controls.Add(_filterControl);
+                _filterControl.Dock = DockStyle.Top;
+            }                   
+        }
 
         public DataGridView AccessInfoTable             { get => InfoTable;           }
         public TextBox AccessSearchSrCodeTextbox        { get => SearchSrCodeTextbox; }
@@ -77,6 +87,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler OpenDropFormButtonClicked;
         public event EventHandler SearchSrCodeButtonClicked;
         public event EventHandler InfoTableSelectionChanged;
+        public event EventHandler FilterEditorButtonClicked;
         public event EventHandler OpenModifyFormButtonClicked;
         public event EventHandler InstructorAcadInfoButtonClicked;
         public event EventHandler StudentPersonalInfoButtonClicked;
@@ -84,6 +95,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event KeyEventHandler SearchSrCodeTextboxPressed;
 
 
+        private UserControl _filterControl;
         private UserControl _addedUserControl;
         private TaskCompletionSource<bool> InfoTableCreated;
         private TaskCompletionSource<bool> OpenAddFormButtonCreated;

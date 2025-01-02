@@ -33,11 +33,12 @@ namespace PresentationLayer.UserControls.MainControls
             FileDropDownButton.Click += delegate { FileDropDownButtonClicked?.Invoke(this, EventArgs.Empty); };
 
             await FileDropDownLayoutCreated.Task;
-            CloseEditorButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty); };
-            FilterEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
+            ExitButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty); };
+            CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
             InstructorAcadInfoButton.Click     += delegate { InstructorAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
             StudentPersonalInfoButton.Click    += delegate { StudentPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
             InstructorPersonalInfoButton.Click += delegate { InstructorPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            FilterEditorButton.Click           += delegate { FilterEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
 
             await OpenAddFormButtonCreated.Task;
             OpenAddFormButton.Click += delegate { OpenAddFormButtonClicked?.Invoke(this, EventArgs.Empty); };
