@@ -118,6 +118,9 @@
     <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.Designer.cs">
       <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\General\FilterControl.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="UserControls\General\FilterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
