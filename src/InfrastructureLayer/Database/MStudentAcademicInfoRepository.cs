@@ -16,6 +16,20 @@ namespace InfrastructureLayer.Database
         }
 
 
+        public async Task<List<string>> GetAllSections()
+        {
+            string procedure = _studentQuery.spGetAllSections;
+
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                var result = await connection.QueryAsync<string>(
+                    procedure, 
+                    commandType: CommandType.Text);   
+
+                return result.ToList();
+            }
+        }
+
         public async Task<List<PStudentAcademicInfoModel<PNameModel>>> GetAll()
         {
             string procedure = _studentQuery.spGetAll;
@@ -96,8 +110,6 @@ namespace InfrastructureLayer.Database
             }
         }
 
-
-        // in updating, get first the id of the row usign GetParams before updating (IN SERVICES).
         public async Task<int> Update(PStudentAcademicInfoModel<string> studentModel, int dataId)
         {
             string procedure = _studentQuery.spUpdate;

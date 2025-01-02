@@ -4,6 +4,7 @@ namespace InfrastructureLayer.Database
 {
     public interface IStudentAcademicInfoRepository
     {
+        Task<List<string>> GetAllSections();
         Task<List<PStudentAcademicInfoModel<PNameModel>>> GetAll();
         Task<int> GetRecordId(PRStudentAcademicInfoParams paramsModel);
         Task<int> DeleteStudent(PRStudentAcademicInfoParams paramsModel);
