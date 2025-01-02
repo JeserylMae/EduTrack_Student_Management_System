@@ -12,6 +12,7 @@ using PresentationLayer.UserControls.HomeSubControls;
 using PresentationLayer.UserControls.MainControls;
 using System.Activities;
 using PresentationLayer.Presenters.Enumerations;
+using PresentationLayer.UserControls.General;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -35,6 +36,7 @@ namespace PresentationLayer.Presenters.Admin
             _studentAcadInfoControl.SearchSrCodeButtonClicked           += SeachSrCodeButton_Clicked;
             _studentAcadInfoControl.SearchSrCodeTextboxPressed          += SearchSrCodeTextBox_Pressed;
             _studentAcadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
+            _studentAcadInfoControl.FilterEditorButtonClicked           += FilterEditorButton_Clicked;
         }
 
         private async void InfoTableSelection_Changed(object sender, EventArgs e)
@@ -175,6 +177,22 @@ namespace PresentationLayer.Presenters.Admin
             else
                 _studentAcadInfoControl.AccessFileDropDownLayout.Visible = true;
         }
+
+        private void FilterEditorButton_Clicked(object sender, EventArgs e)
+        {
+            if (_studentAcadInfoControl.AccessFilterEditor == null)
+            {
+                IFilterControl filterControl = new FilterControl();
+                new FilterPresenter(filterControl);
+
+                _studentAcadInfoControl.AccessFilterEditor = (UserControl)filterControl;
+            }
+            else
+            {
+                _studentAcadInfoControl.AccessFilterEditor.Dispose();
+            }
+        }
+
 
         public async void StudentAcadControl_Load(object sender, EventArgs e)
         {
