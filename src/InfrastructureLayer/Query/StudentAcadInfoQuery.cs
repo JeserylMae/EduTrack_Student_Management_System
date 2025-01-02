@@ -22,6 +22,13 @@ namespace InfrastructureLayer.Query
                 NameTbl StudentName ON StudentAIT.StudentNameId = StudentName.UserId;
         ");
 
+        public readonly string spGetAllSections => (@"
+            SELECT 
+                DISTINCT Section
+            FROM
+                StudentAcademicInfoTbl;
+        ");
+
         public readonly string spGetRecordId => (@"
             SELECT Id
             FROM StudentAcademicInfoTbl
