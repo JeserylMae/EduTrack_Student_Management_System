@@ -21,6 +21,24 @@ namespace ServiceLayer.Database
         }
 
 
+        public async Task<List<string>> GetAllSections()
+        {
+            string request = $"{_webAddress}/GetAllSections";
+            Uri endpoint = new Uri(request);
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync(endpoint);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonReponse = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<List<string>>(jsonReponse);
+                }
+                else { return new List<string>(); }
+            }
+        }
+
         public async Task<List<PStudentAcademicInfoModel<PNameModel>>> GetAll()
         {
             string request = $"{_webAddress}/GetAll";
