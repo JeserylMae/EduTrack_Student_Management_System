@@ -186,6 +186,7 @@ namespace PresentationLayer.Presenters.Admin
                 filterControl.AccessStudentControl = _studentAcadInfoControl;
 
                 new FilterPresenter(filterControl);
+                FileDropDownButton_Clicked(sender, e);
 
                 _studentAcadInfoControl.AccessFilterEditor = (UserControl)filterControl;
             }
