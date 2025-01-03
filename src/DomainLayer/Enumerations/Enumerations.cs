@@ -33,4 +33,14 @@ namespace PresentationLayer.Presenters.Enumerations
         GETALL,
         GETBYPARAMS
     }
+
+    public enum FilterFrom
+    {
+        AcademicYear,
+        YearLevel,
+        Semester,
+        Section,
+        Program,
+        None
+    }
 }
