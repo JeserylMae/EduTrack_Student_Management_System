@@ -191,9 +191,9 @@ namespace PresentationLayer.Presenters.Admin
             else
             {
                 _studentAcadInfoControl.AccessFilterEditor.Dispose();
+                _studentAcadInfoControl.AccessFilterEditor = null;
             }
         }
-
 
         public async void StudentAcadControl_Load(object sender, EventArgs e)
         {
