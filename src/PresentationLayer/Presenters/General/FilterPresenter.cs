@@ -18,10 +18,10 @@ namespace PresentationLayer.Presenters.General
         public FilterPresenter(IFilterControl filterControl)
         {
             _filterControl = filterControl;
-            _previousComboBox = FilterFrom.None;
-            _filteredContents = new List<DataGridViewRow>();
-            _filterBy = new Dictionary<string, List<string>>();
             _unfilteredContents = _filterControl.InfoTableContents;
+
+            _filterBy         = new Dictionary<string, List<string>>();
+            _filteredContents = new List<DataGridViewRow>();
 
 
             _filterControl.ControlLoad += FilterControl_Load;
@@ -42,24 +42,28 @@ namespace PresentationLayer.Presenters.General
         private void YearLevelComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
             string filterValue = _filterControl.AccessYearLevelComboBox.Text;
+            
             HandleComboBoxSelectionChanged(filterValue, "YearLevel", FilterFrom.YearLevel);
         }
 
         private void SemesterComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
             string filterValue = _filterControl.AccessSemesterComboBox.Text;
+            
             HandleComboBoxSelectionChanged(filterValue, "Semester", FilterFrom.Semester);
         }
 
         private void SectionComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
             string filterValue = _filterControl.AccessSectionComboBox.Text;
+            
             HandleComboBoxSelectionChanged(filterValue, "Section", FilterFrom.Section);
         }
 
         private void ProgramComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
             string filterValue = _filterControl.AccessProgramComboBox.Text;
+            
             HandleComboBoxSelectionChanged(filterValue, "Program", FilterFrom.Program);
         }
 
@@ -77,47 +81,50 @@ namespace PresentationLayer.Presenters.General
         #region Helpers
         private void FilterDataByCondition(FilterFrom senderComboBox)
         {
-            GetUnfilteredContents(ref _filteredContents);
-
             List<DataGridViewRow> temp = new List<DataGridViewRow>();
             FilterData(ref temp, ref _filteredContents);
 
             _filteredContents.Clear();
             _filteredContents = temp;
-            _previousComboBox = senderComboBox;
         }
 
         private void FilterData(ref List<DataGridViewRow> outputContainer,
                                 ref List<DataGridViewRow> inputContainer)
         {
-            if (_filterBy.Count <= 0) outputContainer.AddRange(inputContainer);
-
             foreach (var kpv in _filterBy)
             {
+                if (kpv.Value[0] == "ALL") continue;
+
                 int columnIndex = int.Parse(kpv.Value[1]);
                 string filterValue = kpv.Value[0];
 
-                outputContainer.AddRange(inputContainer.Cast<DataGridViewRow>()
+                outputContainer = inputContainer.Cast<DataGridViewRow>()
                     .Where(row => row.Cells[columnIndex]?.Value.ToString() == filterValue)
-                    .ToList()
-                );
+                    .Select(row => row)
+                    .ToList();
+
+                inputContainer.Clear();
+                inputContainer.AddRange(outputContainer);
+            }
+
+            if (_filterBy.Count >= 1 && outputContainer.Count == 0)
+            {
+                outputContainer.AddRange(inputContainer);
             }
         }
 
-        private void HandleComboBoxSelectionChanged(string filterValue, string columnName, FilterFrom senderComboBox)
+        private void HandleComboBoxSelectionChanged(string filterValue,
+                                                    string columnName,
+                                                    FilterFrom senderComboBox)
         {
             if (_filterControl.AccessStudentControl.AccessInfoTable.Rows.Count <= 0) return;
-            
+
             int targetColIdx = _filterControl.AccessStudentControl.AccessInfoTable.Rows[0].Cells[columnName].ColumnIndex;
-            
+            GetUnfilteredContents(ref _filteredContents);
 
-            if (filterValue == "ALL" && _filterBy.Count <= 0)
-                _filterBy.Remove(columnName);
-            else
-                _filterBy[columnName] = new List<string> { filterValue, targetColIdx.ToString() };
-            
+            _filterBy[columnName] = new List<string> { filterValue, targetColIdx.ToString() };
 
-            FilterDataByCondition(senderComboBox);
+            FilterDataByCondition(senderComboBox)
             AddFilteredContentsToInfoTable(_filteredContents);
         }
 
@@ -200,11 +207,9 @@ namespace PresentationLayer.Presenters.General
         #endregion
 
 
-        private Dictionary<string, List<string>> _filterBy;
-        private string _previousFilterColumn;
-        private FilterFrom _previousComboBox;
         private IFilterControl _filterControl;
-        private List<DataGridViewRow> _unfilteredContents;
         private List<DataGridViewRow> _filteredContents;
+        private List<DataGridViewRow> _unfilteredContents;
+        private Dictionary<string, List<string>> _filterBy;
     }
 }
