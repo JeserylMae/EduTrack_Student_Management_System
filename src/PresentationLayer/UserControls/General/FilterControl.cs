@@ -38,6 +38,20 @@ namespace PresentationLayer.UserControls.General
             get => _studentControl; 
             set => _studentControl = value; 
         }
+        public List<DataGridViewRow> InfoTableContents 
+        {
+            get
+            {
+                List<DataGridViewRow> dataList = new List<DataGridViewRow>();
+                DataGridViewRowCollection rowList = AccessStudentControl.AccessInfoTable.Rows;
+
+                dataList = rowList.Cast<DataGridViewRow>()
+                    .Select(row => row)
+                    .ToList();
+
+                return dataList;
+            }
+        }
 
         
         public event EventHandler ControlLoad;

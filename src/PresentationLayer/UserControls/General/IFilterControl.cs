@@ -23,6 +23,7 @@ namespace PresentationLayer.UserControls.General
         ComboBox AccessSemesterComboBox     { get; }
         ComboBox AccessSectionComboBox      { get; }
         ComboBox AccessProgramComboBox      { get; }
+        List<DataGridViewRow> InfoTableContents { get; }
         IStudentModifyAcadInfoControl AccessStudentControl { get; set; }
     }
 }
