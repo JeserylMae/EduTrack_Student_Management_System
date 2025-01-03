@@ -12,11 +12,11 @@ namespace PresentationLayer.UserControls.General
     internal interface IFilterControl
     {
         event EventHandler ControlLoad;
-        event EventHandler ProgramComboBoxDropDownClosed;
-        event EventHandler SectionComboBoxDropDownClosed;
-        event EventHandler SemesterComboBoxDropDownClosed;
-        event EventHandler YearLevelComboBoxDropDownClosed;
-        event EventHandler AcademicYearComboBoxDropDownClosed;
+        event EventHandler ProgramComboBoxSelectedIndexChanged;
+        event EventHandler SectionComboBoxSelectedIndexChanged;
+        event EventHandler SemesterComboBoxSelectedIndexChanged;
+        event EventHandler YearLevelComboBoxSelectedIndexChanged;
+        event EventHandler AcademicYearComboBoxSelectedIndexChanged;
 
         ComboBox AccessAcademicYearComboBox { get; }
         ComboBox AccessYearLevelComboBox    { get; }

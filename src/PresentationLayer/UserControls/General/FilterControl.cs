@@ -41,11 +41,11 @@ namespace PresentationLayer.UserControls.General
 
         
         public event EventHandler ControlLoad;
-        public event EventHandler ProgramComboBoxDropDownClosed;
-        public event EventHandler SectionComboBoxDropDownClosed;
-        public event EventHandler SemesterComboBoxDropDownClosed;
-        public event EventHandler YearLevelComboBoxDropDownClosed;
-        public event EventHandler AcademicYearComboBoxDropDownClosed;
+        public event EventHandler ProgramComboBoxSelectedIndexChanged;
+        public event EventHandler SectionComboBoxSelectedIndexChanged;
+        public event EventHandler SemesterComboBoxSelectedIndexChanged;
+        public event EventHandler YearLevelComboBoxSelectedIndexChanged;
+        public event EventHandler AcademicYearComboBoxSelectedIndexChanged;
 
 
         private IStudentModifyAcadInfoControl _studentControl;

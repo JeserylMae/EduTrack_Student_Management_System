@@ -20,19 +20,19 @@ namespace PresentationLayer.UserControls.General
         private async Task InitializeEventSubscribers()
         {
             await ProgramComboBoxCreated.Task;
-            ProgramComboBox.DropDownClosed += delegate { ProgramComboBoxDropDownClosed?.Invoke(this, EventArgs.Empty); };
+            ProgramComboBox.SelectedIndexChanged += delegate { ProgramComboBoxSelectedIndexChanged?.Invoke(this, EventArgs.Empty); };
 
             await SectionComboBoxCreated.Task;
-            SectionComboBox.DropDownClosed += delegate { SectionComboBoxDropDownClosed?.Invoke(this, EventArgs.Empty); };
+            SectionComboBox.SelectedIndexChanged += delegate { SectionComboBoxSelectedIndexChanged?.Invoke(this, EventArgs.Empty); };
             
             await SemesterComboBoxCreated.Task;
-            SemesterComboBox.DropDownClosed += delegate { SemesterComboBoxDropDownClosed?.Invoke(this, EventArgs.Empty); };
+            SemesterComboBox.SelectedIndexChanged += delegate { SemesterComboBoxSelectedIndexChanged?.Invoke(this, EventArgs.Empty); };
 
             await YearLevelComboBoxCreated.Task;
-            YearLevelComboBox.DropDownClosed += delegate { YearLevelComboBoxDropDownClosed?.Invoke(this, EventArgs.Empty); };
+            YearLevelComboBox.SelectedIndexChanged += delegate { YearLevelComboBoxSelectedIndexChanged?.Invoke(this, EventArgs.Empty); };
 
             await AcademicYearComboBoxCreated.Task;
-            AcademicYearComboBox.DropDownClosed += delegate { AcademicYearComboBoxDropDownClosed?.Invoke(this, EventArgs.Empty); };
+            AcademicYearComboBox.SelectedIndexChanged += delegate { AcademicYearComboBoxSelectedIndexChanged?.Invoke(this, EventArgs.Empty); };
             
             this.Load += delegate { ControlLoad?.Invoke(this, EventArgs.Empty); };
         }
