@@ -70,8 +70,12 @@ namespace PresentationLayer.UserControls.MainControls
             set
             {
                 _filterControl = value;
-                MainControlHolder.Controls.Add(_filterControl);
-                _filterControl.Dock = DockStyle.Top;
+
+                if (value != null)
+                {
+                    MainControlHolder.Controls.Add(_filterControl);
+                    _filterControl.Dock = DockStyle.Top;
+                }
             }                   
         }
 
