@@ -184,6 +184,7 @@ namespace PresentationLayer.Presenters.Admin
             {
                 IFilterControl filterControl = new FilterControl();
                 filterControl.AccessStudentControl = _studentAcadInfoControl;
+
                 new FilterPresenter(filterControl);
 
                 _studentAcadInfoControl.AccessFilterEditor = (UserControl)filterControl;
