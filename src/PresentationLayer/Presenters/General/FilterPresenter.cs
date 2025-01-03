@@ -4,6 +4,7 @@ using ServiceLayer.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
@@ -19,8 +20,8 @@ namespace PresentationLayer.Presenters.General
             _filterControl = filterControl;
             _previousComboBox = FilterFrom.None;
             _filteredContents = new List<DataGridViewRow>();
-            _unfilteredContents = new List<DataGridViewRow>();
-            _allInfoTableContents = _filterControl.AccessStudentControl.AccessInfoTable.Rows;
+            _filterBy = new Dictionary<string, List<string>>();
+            _unfilteredContents = _filterControl.InfoTableContents;
 
 
             _filterControl.ControlLoad += FilterControl_Load;
@@ -33,105 +34,114 @@ namespace PresentationLayer.Presenters.General
 
         private void AcademicYearComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
-            int targetColIdx = _allInfoTableContents[0].Cells["AcademicYear"].ColumnIndex;
-            string selectedAcadYear = _filterControl.AccessAcademicYearComboBox.Text;
-            
-            FilterDataByCondition(FilterFrom.AcademicYear, selectedAcadYear, targetColIdx);
-            AddFilteredContentsToInfoTable();
+            string filterValue = _filterControl.AccessAcademicYearComboBox.Text;
+
+            HandleComboBoxSelectionChanged(filterValue, "AcademicYear", FilterFrom.AcademicYear);
         }
 
         private void YearLevelComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
-            int targetColIdx = _allInfoTableContents[0].Cells["YearLevel"].ColumnIndex;
-            string selectedYearLevel = _filterControl.AccessYearLevelComboBox.Text;
-
-            FilterDataByCondition(FilterFrom.YearLevel, selectedYearLevel, targetColIdx);
-            AddFilteredContentsToInfoTable();
+            string filterValue = _filterControl.AccessYearLevelComboBox.Text;
+            HandleComboBoxSelectionChanged(filterValue, "YearLevel", FilterFrom.YearLevel);
         }
 
         private void SemesterComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string filterValue = _filterControl.AccessSemesterComboBox.Text;
+            HandleComboBoxSelectionChanged(filterValue, "Semester", FilterFrom.Semester);
         }
 
         private void SectionComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string filterValue = _filterControl.AccessSectionComboBox.Text;
+            HandleComboBoxSelectionChanged(filterValue, "Section", FilterFrom.Section);
         }
 
         private void ProgramComboBoxSelectedIndex_Changed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string filterValue = _filterControl.AccessProgramComboBox.Text;
+            HandleComboBoxSelectionChanged(filterValue, "Program", FilterFrom.Program);
         }
 
-        private void FilterControl_Load(object sender, EventArgs e)
+        private async void FilterControl_Load(object sender, EventArgs e)
         {
-            LoadComboBoxOptions();
+            LoadAcademicYearOptions();
+            LoadYearLevelOptions();
+            LoadSemesterOptions();
+
+            await LoadSectionOptions();
+            await LoadProgramOptions();
         }
 
 
         #region Helpers
-        private void FilterDataByCondition(FilterFrom senderComboBox, 
-                                string filterValue, 
-                                int targetColIdx)
+        private void FilterDataByCondition(FilterFrom senderComboBox)
         {
-            if ((_filteredContents.Count == 0 && _previousComboBox == FilterFrom.None) ||
-                (_filteredContents.Count != 0 && _previousComboBox == senderComboBox))
-            { 
-                List<DataGridViewRow> temp = new List<DataGridViewRow>();
-                FilterData(ref temp, _allInfoTableContents, filterValue, targetColIdx);
+            GetUnfilteredContents(ref _filteredContents);
 
-                Console.WriteLine($"ALL COUNT: {_allInfoTableContents.Count}");
-                Console.WriteLine($"UF COUNT: {_unfilteredContents.Count}");
-                Console.WriteLine($"F COUNT: {_filteredContents.Count}");
+            List<DataGridViewRow> temp = new List<DataGridViewRow>();
+            FilterData(ref temp, ref _filteredContents);
 
-                _filteredContents.Clear();
-                _filteredContents = temp;
-                _previousComboBox = senderComboBox;
-            }
-            else
-            {
-                List<DataGridViewRow> temp = new List<DataGridViewRow>();
-                FilterData(ref temp, _filteredContents, filterValue, targetColIdx);
-
-                _filteredContents.Clear();
-                _filteredContents = temp;
-                _previousComboBox = senderComboBox;
-            }
-        }
-
-        private void FilterData(ref List<DataGridViewRow> outputContainer, 
-                                DataGridViewRowCollection inputContainer, 
-                                string filterValue, 
-                                int columnIndex)
-        {
-            outputContainer.AddRange(inputContainer.Cast<DataGridViewRow>()
-                .Where(row => row.Cells[columnIndex].Value.ToString() == filterValue)
-                .ToList()
-            );
-
-            _unfilteredContents.AddRange(inputContainer.Cast<DataGridViewRow>()
-                .Where(row => row.Cells[columnIndex].Value.ToString() != filterValue)
-                .ToList()
-            );
+            _filteredContents.Clear();
+            _filteredContents = temp;
+            _previousComboBox = senderComboBox;
         }
 
         private void FilterData(ref List<DataGridViewRow> outputContainer,
-                                List<DataGridViewRow> inputContainer,
-                                string filterValue,
-                                int columnInndex)
+                                ref List<DataGridViewRow> inputContainer)
         {
-            outputContainer.AddRange(inputContainer.Cast<DataGridViewRow>()
-                .Where(row => row.Cells[columnInndex].Value.ToString() == filterValue)
-                .ToList()
-            );
+            if (_filterBy.Count <= 0) outputContainer.AddRange(inputContainer);
+
+            foreach (var kpv in _filterBy)
+            {
+                int columnIndex = int.Parse(kpv.Value[1]);
+                string filterValue = kpv.Value[0];
+
+                outputContainer.AddRange(inputContainer.Cast<DataGridViewRow>()
+                    .Where(row => row.Cells[columnIndex]?.Value.ToString() == filterValue)
+                    .ToList()
+                );
+            }
         }
 
-        private void AddFilteredContentsToInfoTable()
+        private void HandleComboBoxSelectionChanged(string filterValue, string columnName, FilterFrom senderComboBox)
+        {
+            if (_filterControl.AccessStudentControl.AccessInfoTable.Rows.Count <= 0) return;
+            
+            int targetColIdx = _filterControl.AccessStudentControl.AccessInfoTable.Rows[0].Cells[columnName].ColumnIndex;
+            
+
+            if (filterValue == "ALL" && _filterBy.Count <= 0)
+                _filterBy.Remove(columnName);
+            else
+                _filterBy[columnName] = new List<string> { filterValue, targetColIdx.ToString() };
+            
+
+            FilterDataByCondition(senderComboBox);
+            AddFilteredContentsToInfoTable(_filteredContents);
+        }
+
+        private void GetUnfilteredContents(ref List<DataGridViewRow> filteredContents)
+        {
+            filteredContents.Clear();
+            filteredContents = _unfilteredContents
+                .Select(row => {
+                    var clonedRow = (DataGridViewRow)row.Clone();
+
+                    row.Cells.Cast<DataGridViewCell>()
+                        .Select((cell, index) => clonedRow.Cells[index].Value = cell.Value)
+                        .ToList();
+
+                    return clonedRow;
+                })
+                .ToList();
+        }
+
+        private void AddFilteredContentsToInfoTable(List<DataGridViewRow> data)
         {
             _filterControl.AccessStudentControl.AccessInfoTable.Rows.Clear();
 
-            List<object[]> contents = _filteredContents.Cast<DataGridViewRow>()
+            List<object[]> contents = data.Cast<DataGridViewRow>()
                 .Select(row => row.Cells.Cast<DataGridViewCell>()
                     .Select(cell => cell.Value)
                     .ToArray()
@@ -140,39 +150,61 @@ namespace PresentationLayer.Presenters.General
             contents.ForEach(row => _filterControl.AccessStudentControl.InfoTableRowData = row);
         }
 
-        private async void LoadComboBoxOptions()
+        private void LoadSemesterOptions()
         {
-            // Semester
-            string[] semesterOptions = { "FIRST", "SECOND", "SUMMER" };
+            string[] semesterOptions = { "ALL", "FIRST", "SECOND", "SUMMER" };
+
             _filterControl.AccessSemesterComboBox.Items.AddRange(semesterOptions);
+        }
 
-            // Year Level
-            string[] yearOptions = { "FIRST", "SECOND", "THIRD", "FOURTH", "FIFTH" };
+        private void LoadYearLevelOptions()
+        {
+            string[] yearOptions = { "ALL", "FIRST", "SECOND", "THIRD", "FOURTH", "FIFTH" };
+
             _filterControl.AccessYearLevelComboBox.Items.AddRange(yearOptions);
+        }
 
-            // Academic Year
+        private void LoadAcademicYearOptions()
+        {
             int startingYear = DateTime.Now.Year + 1;
-            string[] academicYearOptions = Enumerable.Range(0, 9)
-                .Select(i => $"A.Y. {startingYear - (i+1)}-{startingYear-i}")
-                .ToArray();
+
+            string[] academicYearOptions = new[] { "ALL" }
+                .Concat(Enumerable.Range(0, 9)
+                    .Select(i => $"A.Y. {startingYear - (i + 1)}-{startingYear - i}")
+                ).ToArray();
+
             _filterControl.AccessAcademicYearComboBox.Items.AddRange(academicYearOptions);
+        }
+        
+        private async Task LoadSectionOptions()
+        {
+            StudentAcademicInfoServices studentServices = new StudentAcademicInfoServices();
 
-            // Section
-            StudentAcademicInfoServices studentServices = new StudentAcademicInfoServices();   
-            List<string> sectionOptions = await studentServices.GetAllSections();
+            List<string> sectionOptions = new List<string> { "ALL" };
+            sectionOptions.AddRange(await studentServices.GetAllSections());
+            
             _filterControl.AccessSectionComboBox.Items.AddRange(sectionOptions.ToArray());
+        }
 
-            // Program
+        private async Task LoadProgramOptions()
+        {
             ProrgamServices services = new ProrgamServices();
-            Dictionary<string, string> programOptions = await services.GetAllProgram();
-            _filterControl.AccessProgramComboBox.Items.AddRange(programOptions.Values.ToArray());
+
+            Dictionary<string, string> response = await services.GetAllProgram();
+
+            List<string> programOptions = new List<string> { "ALL" };
+            programOptions.AddRange(response.Values);
+
+            _filterControl.AccessProgramComboBox.Items.AddRange(programOptions.ToArray());
         }
         #endregion
 
+
+        private Dictionary<string, List<string>> _filterBy;
+        private string _previousFilterColumn;
         private FilterFrom _previousComboBox;
         private IFilterControl _filterControl;
         private List<DataGridViewRow> _unfilteredContents;
         private List<DataGridViewRow> _filteredContents;
-        private DataGridViewRowCollection _allInfoTableContents;
     }
 }
