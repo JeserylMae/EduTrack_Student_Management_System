@@ -103,14 +103,15 @@ namespace PresentationLayer.Presenters.General
                     .Select(row => row)
                     .ToList();
 
-                inputContainer.Clear();
-                inputContainer.AddRange(outputContainer);
+                if (outputContainer.Count > 0)
+                {
+                    inputContainer.Clear();
+                    inputContainer.AddRange(outputContainer);
+                }
             }
 
             if (_filterBy.Count >= 1 && outputContainer.Count == 0)
-            {
                 outputContainer.AddRange(inputContainer);
-            }
         }
 
         private void HandleComboBoxSelectionChanged(string filterValue,
@@ -147,6 +148,8 @@ namespace PresentationLayer.Presenters.General
         private void AddFilteredContentsToInfoTable(List<DataGridViewRow> data)
         {
             _filterControl.AccessStudentControl.AccessInfoTable.Rows.Clear();
+
+            if (data.Count <= 0) return;
 
             List<object[]> contents = data.Cast<DataGridViewRow>()
                 .Select(row => row.Cells.Cast<DataGridViewCell>()
