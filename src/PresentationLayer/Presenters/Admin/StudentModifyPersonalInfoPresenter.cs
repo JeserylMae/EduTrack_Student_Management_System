@@ -223,8 +223,8 @@ namespace PresentationLayer.Presenters.Admin
         private void AssignValuesToObject(ref PStudentPersonalInfoParams codes, string srCode)
         {
             codes.SrCode              = srCode;
-            codes.StudentNameCode     = $"{srCode}-STU";
-            codes.StudentAddressCode  = $"{srCode}-STU";
+            codes.UserNameCode     = $"{srCode}-STU";
+            codes.UserAddressCode  = $"{srCode}-STU";
             codes.GuardianNameCode    = $"{srCode}-GUA";
             codes.GuardianAddressCode = $"{srCode}-GUA";
         }
