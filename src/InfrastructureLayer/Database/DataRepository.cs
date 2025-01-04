@@ -23,13 +23,17 @@ namespace InfrastructureLayer.Database
             return result;
         }
 
-        public async Task<List<TModel>> GetAll<TModel>(string procedure) where TModel : class
+        public async Task<List<TModel>> GetAll<TModel>(string procedure) 
+            where TModel : class
         {
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
-                var result = await connection.QueryAsync<TModel>(
+                IEnumerable<TModel> result = new List<TModel>();
+                
+                result = await connection.QueryAsync<TModel>(
                     procedure, commandType: CommandType.Text
                 );
+
                 return result.ToList();
             }
         }
