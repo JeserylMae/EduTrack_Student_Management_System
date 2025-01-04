@@ -1,15 +1,22 @@
-﻿using DomainLayer.DataModels;
+﻿using Dapper;
+using DomainLayer.DataModels;
+using PresentationLayer.Presenters.Enumerations;
 
 namespace InfrastructureLayer.Database
 {
     public interface IStudentAcademicInfoRepository
     {
-        Task<List<string>> GetAllDistinct(string procedure);
         Task<List<PStudentAcademicInfoModel<PNameModel>>> GetAll();
-        Task<int> GetRecordId(PRStudentAcademicInfoParams paramsModel);
         Task<int> DeleteStudent(PRStudentAcademicInfoParams paramsModel);
-        Task<int> InsertNew(PStudentAcademicInfoModel<string> studentModel);
-        Task<int> Update(PStudentAcademicInfoModel<string> studentModel, int dataId);
+        
         Task<PStudentAcademicInfoModel<PNameModel>> GetByParams(PRStudentAcademicInfoParams paramsModel);
+        
+        void AddDynamicParameters(ref DynamicParameters parameters,
+                    PStudentAcademicInfoModel<string> studentModel,
+                    RequestType request, int? dataId = null);
+
+        void AddDynamicParameters(ref DynamicParameters parameters,
+                            StudentAcadParams parameterType,
+                            PRStudentAcademicInfoParams studentModel);
     }
 }
