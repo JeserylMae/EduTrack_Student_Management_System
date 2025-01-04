@@ -124,7 +124,7 @@ namespace PresentationLayer.Presenters.General
 
             _filterBy[columnName] = new List<string> { filterValue, targetColIdx.ToString() };
 
-            FilterDataByCondition(senderComboBox)
+            FilterDataByCondition(senderComboBox);
             AddFilteredContentsToInfoTable(_filteredContents);
         }
 
