@@ -8,20 +8,21 @@ namespace InfrastructureLayer.Controllers
     [ApiController]
     public class EndpointController : ControllerBase
     {
-        public EndpointController(IEndpointRepository endpointRepository)
+        public EndpointController(IDataRepository dataRepository)
         {
-            _endpointRepository = endpointRepository;
+            _repository = dataRepository;
         }
 
         [HttpGet("Health")]
         public async Task<IActionResult> HealthAsync()
         {
-            int result = await _endpointRepository.CheckDatabaseConnection();
+            int result = await _repository.CheckDatabaseConnection();
 
             if (result == 1) return Ok(result);
             else return BadRequest("Database connection failed.");
         }
 
-        private IEndpointRepository _endpointRepository;
+
+        private IDataRepository _repository;
     }
 }

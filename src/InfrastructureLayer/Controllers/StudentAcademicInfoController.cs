@@ -1,8 +1,9 @@
-﻿using DomainLayer.DataModels;
+﻿using Dapper;
+using DomainLayer.DataModels;
 using InfrastructureLayer.Database;
 using InfrastructureLayer.Query;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer.Presenters.Enumerations;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 
@@ -12,18 +13,20 @@ namespace InfrastructureLayer.Controllers
     [ApiController]
     public class StudentAcademicInfoController : ControllerBase
     {
-        public StudentAcademicInfoController(IStudentAcademicInfoRepository studentAcademicInfoRepository)
+        public StudentAcademicInfoController(IDataRepository dataRepository, 
+                    IStudentAcademicInfoRepository studentAcademicRepository)
         {
-            _studentAcademicRepository = studentAcademicInfoRepository;
-            _studentQuery = new StudentAcadInfoQuery();
+            _repository = dataRepository;
+            _query = new StudentAcadInfoQuery();
+            _studentRepository = studentAcademicRepository;
         }
 
 
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            List<PStudentAcademicInfoModel<PNameModel>> response = await _studentAcademicRepository.GetAll();
-
+            List<PStudentAcademicInfoModel<PNameModel>> response = await _studentRepository.GetAll();
+                       
             if (response.Count > 0) return Ok(response);
             return NotFound(new { Message = "An error occurred. Failed to load Student Academic Information page." });
         }
@@ -31,8 +34,8 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAllSections")]
         public async Task<IActionResult> GetAllSections()
         {
-            string procedure = _studentQuery.spGetAllDistict("Section");
-            var response = await _studentAcademicRepository.GetAllDistinct(procedure);
+            string procedure = _query.spGetAllDistict("Section");
+            var response = await _repository.GetAll<string>(procedure);
 
             if (response.Count > 0 && response != null) return Ok(response);
             return NotFound(new { Message = "Failed to retrieve sections." });
@@ -41,7 +44,14 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetRecordId")]
         public async Task<IActionResult> GetRecordId([FromQuery]PRStudentAcademicInfoParams paramsModel)
         {
-            int response = await _studentAcademicRepository.GetRecordId(paramsModel);
+            string procedure = _query.spGetRecordId;
+
+            DynamicParameters parameters = new DynamicParameters();
+            _studentRepository.AddDynamicParameters(ref parameters,
+                StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester,
+                paramsModel);
+
+            int response = await _repository.GetSingle<int>(procedure, parameters);
 
             if (response > 0) return Ok(new { RecordId = response });
             return NotFound(new { Message = "Failed to find record id." });
@@ -52,7 +62,7 @@ namespace InfrastructureLayer.Controllers
         {
             if (studentModel == null) return BadRequest(new { Message = "At least one parameter must be filled." });
 
-            PStudentAcademicInfoModel<PNameModel> response = await _studentAcademicRepository.GetByParams(studentModel);
+            PStudentAcademicInfoModel<PNameModel> response = await _studentRepository.GetByParams(studentModel);
 
             if (response != null) return Ok(response);
             return NotFound(new { Message = $"Student with Sr-Code {studentModel.SrCode} not found." });
@@ -61,7 +71,16 @@ namespace InfrastructureLayer.Controllers
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PStudentAcademicInfoModel<string> studentModel)
         {
-            int response = await _studentAcademicRepository.InsertNew(studentModel);
+            string procedure = _query.spInsertNew;
+
+            DynamicParameters parameters = new DynamicParameters();
+            _studentRepository.AddDynamicParameters(
+                ref parameters, 
+                studentModel, 
+                RequestType.INSERT
+            );
+
+            int response = await _repository.Execute(procedure, parameters);
 
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"An error occured! Failed to add student with Sr-Code {studentModel.SrCode}." });
@@ -70,7 +89,17 @@ namespace InfrastructureLayer.Controllers
         [HttpPatch("Update")]
         public async Task<IActionResult> Update([FromBody]PStudentAcademicInfoModel<string> studentModel, [FromQuery]int dataId)
         {
-            int response = await _studentAcademicRepository.Update(studentModel, dataId);
+            string procedure = _query.spUpdate;
+
+            DynamicParameters parameters = new DynamicParameters();
+            _studentRepository.AddDynamicParameters(
+                ref parameters, 
+                studentModel, 
+                RequestType.UPDATE, 
+                dataId
+            );
+
+            int response = await _repository.Execute(procedure, parameters);
 
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"An error occured! Failed to update student with Sr-Code {studentModel.SrCode}" });
@@ -82,14 +111,15 @@ namespace InfrastructureLayer.Controllers
             if (studentModel == null)
                 return BadRequest(new { Message = "At least one parameter must be filled." });
 
-            int response = await _studentAcademicRepository.DeleteStudent(studentModel);
+            int response = await _studentRepository.DeleteStudent(studentModel);
 
             if (response != null) return Ok(response);
             return NotFound(new { Message = $"Failed to delete student with Sr-Code {studentModel.SrCode}." });
         }
 
 
-        private StudentAcadInfoQuery _studentQuery;
-        private IStudentAcademicInfoRepository _studentAcademicRepository;
+        private StudentAcadInfoQuery _query;
+        private IDataRepository _repository;
+        private IStudentAcademicInfoRepository _studentRepository;
     }
 }

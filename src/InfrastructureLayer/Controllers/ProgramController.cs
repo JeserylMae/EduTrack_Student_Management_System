@@ -1,5 +1,7 @@
-﻿using DomainLayer.DataModels;
+﻿using Dapper;
+using DomainLayer.DataModels;
 using InfrastructureLayer.Database;
+using InfrastructureLayer.Query;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InfrastructureLayer.Controllers
@@ -8,16 +10,18 @@ namespace InfrastructureLayer.Controllers
     [ApiController]
     public class ProgramController : ControllerBase
     {
-        public ProgramController(IProgramRepository programRepository)
+        public ProgramController(IDataRepository dataRepository)
         {
-            _programRepository = programRepository; 
+            _query = new ProgramQuery();
+            _repository = dataRepository;
         }
 
 
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _programRepository.GetAll();
+            string procedure = _query.GetAll;
+            List<PRProgramModel> response = await _repository.GetAll<PRProgramModel>(procedure);
 
             if (response.Count() > 0) return Ok(response);
             return NotFound(new { Message = "Failed to get program informations."});
@@ -26,7 +30,8 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAllProgram")]
         public async Task<IActionResult> GetAllProgram()
         {
-            var response = await _programRepository.GetAllProgram();
+            string procedure = _query.GetAllProgram;
+            Dictionary<dynamic, dynamic> response = await _repository.GetAll(procedure);
 
             if (response.Count() > 0) return Ok(response);
             return NotFound(new { Message = "Failed to get program list."});
@@ -35,7 +40,12 @@ namespace InfrastructureLayer.Controllers
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PRProgramModel programModel)
         {
-            var response = await _programRepository.InsertNew(programModel);
+            string procedure = _query.InsertNew;
+
+            DynamicParameters parameters = new DynamicParameters();
+            AddDynamicParameters(ref parameters, programModel);
+
+            int response = await _repository.Execute(procedure, parameters);
 
             if(response != 0) return Ok(response);
             return BadRequest(new { Message = $"Failed to add program with ID {programModel.ProgramId}" });
@@ -44,7 +54,12 @@ namespace InfrastructureLayer.Controllers
         [HttpPatch("Update")]
         public async Task<IActionResult> Update(PRProgramModel programModel)
         {
-            var response = await _programRepository.Update(programModel);
+            string procedure = _query.Update;
+            
+            DynamicParameters parameters = new DynamicParameters();
+            AddDynamicParameters(ref parameters, programModel);
+
+            int response = await _repository.Execute(procedure, parameters);
 
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"Failed to update program with ID {programModel.ProgramId}" });
@@ -53,7 +68,12 @@ namespace InfrastructureLayer.Controllers
         [HttpPatch("UpdateProgramId")]
         public async Task<IActionResult> UpdateProgramId(PRProgramModel programModel)
         {
-            var response = await _programRepository.UpdateProgramId(programModel);
+            string procedure = _query.UpdateProgramId;
+
+            DynamicParameters parameters = new DynamicParameters();
+            AddDynamicParameters(ref parameters, programModel);
+
+            int response = await _repository.Execute(procedure, parameters);
 
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"Failed to update program {programModel.ProgramName}." });
@@ -62,12 +82,31 @@ namespace InfrastructureLayer.Controllers
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(string programId)
         {
-            var response = await _programRepository.Delete(programId);
+            string procedure = _query.Delete;
+
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@p_ProgramId", programId);
+
+            int response = await _repository.Execute(procedure, parameters);
 
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"Failed to delete program with ID {programId}." });
         }
 
-        private IProgramRepository _programRepository;
+
+        #region Helpers
+        private void AddDynamicParameters(ref DynamicParameters parameters, 
+                                          PRProgramModel programModel)
+        {
+            parameters.Add("@p_ProgramId", programModel.ProgramId);
+            parameters.Add("@p_ProgramName", programModel.ProgramName);
+            parameters.Add("@p_DepartmentId", programModel.DepartmentId);
+            parameters.Add("@p_DepartmentName", programModel.DepartmentName);
+        }
+        #endregion
+
+
+        private ProgramQuery _query;
+        private IDataRepository _repository;
     }
 }
