@@ -16,10 +16,8 @@ namespace InfrastructureLayer.Database
         }
 
 
-        public async Task<List<string>> GetAllSections()
+        public async Task<List<string>> GetAllDistinct(string procedure)
         {
-            string procedure = _studentQuery.spGetAllSections;
-
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 var result = await connection.QueryAsync<string>(

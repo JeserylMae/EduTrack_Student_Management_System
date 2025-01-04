@@ -22,10 +22,10 @@ namespace InfrastructureLayer.Query
                 NameTbl StudentName ON StudentAIT.StudentNameId = StudentName.UserId;
         ");
 
-        public readonly string spGetAllSections => (@"
+        public readonly string spGetAllDistict(string column) => ($@"
             SELECT 
-                DISTINCT Section
-            FROM
+                DISTINCT {column}
+            FROM 
                 StudentAcademicInfoTbl;
         ");
 

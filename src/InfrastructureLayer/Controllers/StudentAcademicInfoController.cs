@@ -1,5 +1,6 @@
 ﻿using DomainLayer.DataModels;
 using InfrastructureLayer.Database;
+using InfrastructureLayer.Query;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
@@ -14,6 +15,7 @@ namespace InfrastructureLayer.Controllers
         public StudentAcademicInfoController(IStudentAcademicInfoRepository studentAcademicInfoRepository)
         {
             _studentAcademicRepository = studentAcademicInfoRepository;
+            _studentQuery = new StudentAcadInfoQuery();
         }
 
 
@@ -29,7 +31,8 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAllSections")]
         public async Task<IActionResult> GetAllSections()
         {
-            var response = await _studentAcademicRepository.GetAllSections();
+            string procedure = _studentQuery.spGetAllDistict("Section");
+            var response = await _studentAcademicRepository.GetAllDistinct(procedure);
 
             if (response.Count > 0 && response != null) return Ok(response);
             return NotFound(new { Message = "Failed to retrieve sections." });
@@ -86,6 +89,7 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+        private StudentAcadInfoQuery _studentQuery;
         private IStudentAcademicInfoRepository _studentAcademicRepository;
     }
 }
