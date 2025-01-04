@@ -43,14 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataModels\PNameModel.cs" />
-    <Compile Include="DataModels\PRProgramModel.cs" />
-    <Compile Include="DataModels\PStudentAcademicInfoModel.cs" />
-    <Compile Include="DataModels\PRStudentAcademicInfoParams.cs" />
-    <Compile Include="DataModels\PStudentPersonalInfoModel.cs" />
-    <Compile Include="DataModels\PStudentPersonalInfoParams.cs" />
-    <Compile Include="DataModels\RStudentPersonalInfoModel.cs" />
-    <Compile Include="DataModels\PRUserModel.cs" />
+    <Compile Include="DataModels\General\PNameModel.cs" />
+    <Compile Include="DataModels\General\PRProgramModel.cs" />
+    <Compile Include="DataModels\Instructor\PInstructorPersonalInfoModel.cs" />
+    <Compile Include="DataModels\Instructor\PInstructorPersonalInfoParams.cs" />
+    <Compile Include="DataModels\Instructor\RInstructorPersonalInfoModel.cs" />
+    <Compile Include="DataModels\Student\PStudentAcademicInfoModel.cs" />
+    <Compile Include="DataModels\Student\PRStudentAcademicInfoParams.cs" />
+    <Compile Include="DataModels\Student\PStudentPersonalInfoModel.cs" />
+    <Compile Include="DataModels\Student\PStudentPersonalInfoParams.cs" />
+    <Compile Include="DataModels\Student\RStudentPersonalInfoModel.cs" />
+    <Compile Include="DataModels\General\PRUserModel.cs" />
     <Compile Include="Enumerations\Enumerations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebModels\ServerInfoModel.cs" />
