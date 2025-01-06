@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public interface IModifyPersonalInfoControl
+    public interface IStudentModifyPersonalInfoControl
     {
         event EventHandler ControlLoad;
         event EventHandler ViewAddForm;
