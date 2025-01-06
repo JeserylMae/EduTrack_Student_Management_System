@@ -43,4 +43,11 @@ namespace PresentationLayer.Presenters.Enumerations
         Program,
         None
     }
+
+    public enum AccessType
+    {
+        ADMIN,
+        INSTRUCTOR, 
+        STUDENT
+    }
 }
