@@ -33,7 +33,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         DataGridViewRowCollection InfoTableRows  { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
         UserControl MainControlHolderControl     { get; set; }
-        IStudentPersonalInfoControl PersonalInfoControl { get; set; }
+        IPersonalInfoControl PersonalInfoControl { get; set; }
         DataGridViewSelectedRowCollection SelectedRowCollection { get; }
     }
 }

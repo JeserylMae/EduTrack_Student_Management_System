@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public interface IStudentPersonalInfoControl
+    public interface IPersonalInfoControl
     {
         void ShowAddButton();
         void DestroyControl();

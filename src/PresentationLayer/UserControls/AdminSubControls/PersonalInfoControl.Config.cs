@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    partial class StudentPersonalInfoControl
+    partial class PersonalInfoControl
     {
 		private void InitializeButtonsAsHidden()
 		{

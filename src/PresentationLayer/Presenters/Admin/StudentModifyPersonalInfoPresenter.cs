@@ -109,7 +109,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
-            IStudentPersonalInfoControl personalInfoControl = new StudentPersonalInfoControl();
+            IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
             personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
 
             new PersonalInfoPresenter(personalInfoControl);
@@ -123,7 +123,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
-            IStudentPersonalInfoControl personalInfoControl = new StudentPersonalInfoControl();
+            IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
             personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
 
             new PersonalInfoPresenter (personalInfoControl);

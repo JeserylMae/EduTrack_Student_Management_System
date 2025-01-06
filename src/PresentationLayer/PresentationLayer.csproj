@@ -84,8 +84,8 @@
     <Compile Include="UserControls\AdminSubControls\IStudentModifyAcadInfoControl.cs">
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IStudentPersonalInfoControl.cs">
-      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
+    <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Config.cs">
       <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
@@ -108,7 +108,7 @@
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.Config.cs">
-      <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon> 
+      <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.cs">
@@ -117,11 +117,11 @@
     <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.Designer.cs">
       <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.Designer.cs">
-      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Designer.cs">
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\General\FilterControl.Config.cs">
       <SubType>UserControl</SubType>
@@ -174,7 +174,7 @@
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\IModifyPersonalInfoControl.cs">
-      <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon> 
+      <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainControls\IHomePage.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
@@ -248,8 +248,8 @@
     <EmbeddedResource Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.resx">
       <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminSubControls\StudentPersonalInfoControl.resx">
-      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AdminSubControls\PersonalInfoControl.resx">
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\General\FilterControl.resx">
       <DependentUpon>FilterControl.cs</DependentUpon>
@@ -302,8 +302,8 @@
     <Content Include="secrets.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.Config.cs">
-      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Config.cs">
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon> 
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
