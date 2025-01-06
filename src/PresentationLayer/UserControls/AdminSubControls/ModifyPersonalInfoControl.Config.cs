@@ -101,6 +101,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         private void ModifyDataGridViewColumnWidth()
         {
             InfoTable.Columns["SrCode"].Width                 = 120;
+            InfoTable.Columns["InstructorCode"].Width         = 120;
             InfoTable.Columns["LastName"].Width               = 180;
             InfoTable.Columns["FirstName"].Width              = 180;
             InfoTable.Columns["MiddleName"].Width             = 180;
