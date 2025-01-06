@@ -108,7 +108,7 @@
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.Config.cs">
-      <!-- <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon> -->
+      <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon> 
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.cs">
@@ -174,7 +174,7 @@
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\IModifyPersonalInfoControl.cs">
-      <!-- <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon> -->
+      <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon> 
     </Compile>
     <Compile Include="Views\MainControls\IHomePage.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
