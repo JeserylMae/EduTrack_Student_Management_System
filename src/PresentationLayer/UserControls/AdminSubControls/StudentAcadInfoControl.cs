@@ -60,7 +60,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         public DataGridView AccessInfoTable                 { get; set; }
         public FormRequestType CurrentRequestType           { get; set; }
-        public IStudentModifyAcadInfoControl StudentControl {  get; set; }
+        public IModifyAcadInfoControl StudentControl {  get; set; }
 
 
         private TaskCompletionSource<bool> CloseButtonCreated;

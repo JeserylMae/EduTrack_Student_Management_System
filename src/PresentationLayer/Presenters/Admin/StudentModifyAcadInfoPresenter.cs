@@ -18,7 +18,7 @@ namespace PresentationLayer.Presenters.Admin
 {
     internal class StudentModifyAcadInfoPresenter
     {
-        public StudentModifyAcadInfoPresenter(IStudentModifyAcadInfoControl studentAcadInfoControl)
+        public StudentModifyAcadInfoPresenter(IModifyAcadInfoControl studentAcadInfoControl)
         {
             _studentAcadInfoControl = studentAcadInfoControl;
             _studentControlReady    = new TaskCompletionSource<bool>();
@@ -295,6 +295,6 @@ namespace PresentationLayer.Presenters.Admin
 
         private TaskCompletionSource<bool> _studentControlReady;
         private PStudentAcademicInfoModel<PNameModel> _studentModel;
-        private IStudentModifyAcadInfoControl _studentAcadInfoControl;
+        private IModifyAcadInfoControl _studentAcadInfoControl;
     }
 }

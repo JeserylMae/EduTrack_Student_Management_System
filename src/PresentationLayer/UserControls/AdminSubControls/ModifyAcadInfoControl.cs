@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.MainControls
 {
-    public partial class StudentModifyAcadInfoControl : UserControl, IStudentModifyAcadInfoControl
+    public partial class ModifyAcadInfoControl : UserControl, IModifyAcadInfoControl
     {
-        public StudentModifyAcadInfoControl()
+        public ModifyAcadInfoControl()
         {
             InfoTableCreated            = new TaskCompletionSource<bool>();
             OpenAddFormButtonCreated    = new TaskCompletionSource<bool>();

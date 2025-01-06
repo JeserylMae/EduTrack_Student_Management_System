@@ -33,7 +33,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            IStudentModifyAcadInfoControl studentModifyAcadInfoControl = new StudentModifyAcadInfoControl();
+            IModifyAcadInfoControl studentModifyAcadInfoControl = new ModifyAcadInfoControl();
             new StudentModifyAcadInfoPresenter(studentModifyAcadInfoControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)studentModifyAcadInfoControl;

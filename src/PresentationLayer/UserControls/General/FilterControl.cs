@@ -33,7 +33,7 @@ namespace PresentationLayer.UserControls.General
         public ComboBox AccessSemesterComboBox     { get => SemesterComboBox;     }
         public ComboBox AccessYearLevelComboBox    { get => YearLevelComboBox;    }
         public ComboBox AccessAcademicYearComboBox { get => AcademicYearComboBox; }
-        public IStudentModifyAcadInfoControl AccessStudentControl 
+        public IModifyAcadInfoControl AccessStudentControl 
         { 
             get => _studentControl; 
             set => _studentControl = value; 
@@ -62,7 +62,7 @@ namespace PresentationLayer.UserControls.General
         public event EventHandler AcademicYearComboBoxSelectedIndexChanged;
 
 
-        private IStudentModifyAcadInfoControl _studentControl;
+        private IModifyAcadInfoControl _studentControl;
         private TaskCompletionSource<bool> ProgramComboBoxCreated;
         private TaskCompletionSource<bool> SectionComboBoxCreated;
         private TaskCompletionSource<bool> SemesterComboBoxCreated;

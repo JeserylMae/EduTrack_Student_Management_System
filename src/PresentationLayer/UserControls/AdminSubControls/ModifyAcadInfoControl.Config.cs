@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.MainControls
 {
-    partial class StudentModifyAcadInfoControl
+    partial class ModifyAcadInfoControl
     {
         private void InvokeElementCreated()
         {

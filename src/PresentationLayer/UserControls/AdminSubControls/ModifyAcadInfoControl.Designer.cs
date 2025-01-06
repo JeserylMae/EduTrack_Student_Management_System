@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.UserControls.MainControls
 {
-    partial class StudentModifyAcadInfoControl
+    partial class ModifyAcadInfoControl
     {
         /// <summary> 
         /// Required designer variable.

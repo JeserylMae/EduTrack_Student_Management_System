@@ -47,7 +47,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            IStudentModifyAcadInfoControl userControl = new StudentModifyAcadInfoControl();
+            IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
             new StudentModifyAcadInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;

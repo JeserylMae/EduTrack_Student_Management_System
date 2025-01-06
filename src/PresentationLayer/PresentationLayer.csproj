@@ -81,11 +81,11 @@
     <Compile Include="UserControls\AdminSubControls\IStudentAcadInfoControl.cs">
       <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IStudentModifyAcadInfoControl.cs">
-      <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\IModifyAcadInfoControl.cs">
+      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon> 
     </Compile>
     <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
-    <DependentUpon>PersonalInfoControl.cs</DependentUpon>
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Config.cs">
       <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
@@ -97,15 +97,15 @@
     <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Designer.cs">
       <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.Config.cs">
-      <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Config.cs">
+      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon> 
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.Designer.cs">
-      <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Designer.cs">
+      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.Config.cs">
       <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon>
@@ -242,8 +242,8 @@
     <EmbeddedResource Include="UserControls\AdminSubControls\StudentAcadInfoControl.resx">
       <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.resx">
-      <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AdminSubControls\ModifyAcadInfoControl.resx">
+      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.resx">
       <DependentUpon>ModifyPersonalInfoControl.cs</DependentUpon>
@@ -303,7 +303,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Config.cs">
-      <DependentUpon>PersonalInfoControl.cs</DependentUpon> 
+      <DependentUpon>PersonalInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

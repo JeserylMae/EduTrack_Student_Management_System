@@ -39,6 +39,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         DataGridView AccessInfoTable       { get; set; }
         FormRequestType CurrentRequestType { get; set; }
-        IStudentModifyAcadInfoControl StudentControl { get; set; }
+        IModifyAcadInfoControl StudentControl { get; set; }
     }
 }
