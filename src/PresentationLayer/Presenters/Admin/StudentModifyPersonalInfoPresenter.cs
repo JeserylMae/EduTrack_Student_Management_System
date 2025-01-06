@@ -16,7 +16,7 @@ namespace PresentationLayer.Presenters.Admin
 {
     public class StudentModifyPersonalInfoPresenter
     {
-        public StudentModifyPersonalInfoPresenter(IModifyPersonalInfoControl adminModifyInfoControl)
+        public StudentModifyPersonalInfoPresenter(IStudentModifyPersonalInfoControl adminModifyInfoControl)
         {
             _adminModifyInfoControl = adminModifyInfoControl;
 
@@ -292,6 +292,6 @@ namespace PresentationLayer.Presenters.Admin
 
 
         private UserControl _openUserControl;
-        private IModifyPersonalInfoControl _adminModifyInfoControl;
+        private IStudentModifyPersonalInfoControl _adminModifyInfoControl;
     }
 }

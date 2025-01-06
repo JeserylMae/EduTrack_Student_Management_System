@@ -78,7 +78,11 @@ namespace PresentationLayer.Presenters.General
                 throw new Exception($"No user with id {e_User.UserID} found.");
 
             if (User.AccountPassword != e_User.AccountPassword)
+            {
+                Console.WriteLine("User: " + User.AccountPassword);
+                Console.WriteLine("e_User: " + e_User.AccountPassword);
                 throw new Exception("Incorrect password.");
+            }
 
             if (User.EmailAddress != e_User.EmailAddress)
                 throw new Exception("Incorrect email address.");

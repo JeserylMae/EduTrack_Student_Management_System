@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public interface IModifyPersonalInfoControl
+    public interface IStudentModifyPersonalInfoControl
     {
         event EventHandler ControlLoad;
         event EventHandler ViewAddForm;
@@ -30,7 +30,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
         string SearchSrCodeText    { get; }
         object[] InfoTableRowData  { set; }
 
-        DataGridView AccessInfoTable             { get; }
         DataGridViewRowCollection InfoTableRows  { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
         UserControl MainControlHolderControl     { get; set; }
