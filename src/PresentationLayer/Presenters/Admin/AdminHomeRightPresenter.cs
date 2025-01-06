@@ -5,6 +5,7 @@ using PresentationLayer.UserControls.AdminSubControls;
 using System;
 using System.Windows.Forms;
 using PresentationLayer.Presenters.General;
+using PresentationLayer.Presenters.Enumerations;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -34,7 +35,7 @@ namespace PresentationLayer.Presenters.Admin
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
         {
             IModifyAcadInfoControl studentModifyAcadInfoControl = new ModifyAcadInfoControl();
-            new StudentModifyAcadInfoPresenter(studentModifyAcadInfoControl);
+            new ModifyAcadInfoPresenter(studentModifyAcadInfoControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)studentModifyAcadInfoControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
@@ -44,13 +45,23 @@ namespace PresentationLayer.Presenters.Admin
 
         private void ItrPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IModifyPersonalInfoControl ModifyInfoControl = new ModifyPersonalInfoControl();
+            ModifyInfoControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            new ModifyPersonalInfoPresenter(ModifyInfoControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)ModifyInfoControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
+
+            _adminHomeRightControl.DestroyControl();
         }
 
         private void StudPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
             IModifyPersonalInfoControl studentModifyInfoControl = new ModifyPersonalInfoControl();
-            new StudentModifyPersonalInfoPresenter(studentModifyInfoControl);
+            studentModifyInfoControl.ModifyUser = AccessType.STUDENT;
+
+            new ModifyPersonalInfoPresenter(studentModifyInfoControl);
 
             GeneralPresenter.NewWindowControl = (UserControl) studentModifyInfoControl;
             GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
