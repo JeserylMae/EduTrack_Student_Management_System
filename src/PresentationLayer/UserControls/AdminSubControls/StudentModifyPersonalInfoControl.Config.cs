@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    partial class StudentModifyPersonalInfoControl
+    partial class ModifyPersonalInfoControl
     {
         private void OnTopBarButtonsCreated()
         {

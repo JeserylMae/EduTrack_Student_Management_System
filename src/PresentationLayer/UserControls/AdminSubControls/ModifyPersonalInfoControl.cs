@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public partial class StudentModifyPersonalInfoControl : UserControl, IStudentModifyPersonalInfoControl
+    public partial class ModifyPersonalInfoControl : UserControl, IModifyPersonalInfoControl
     {
-        public StudentModifyPersonalInfoControl()
+        public ModifyPersonalInfoControl()
         {
             InfoTableCreated               = new TaskCompletionSource<bool>();
             SearchButtonCreated            = new TaskCompletionSource<bool>();
@@ -51,6 +51,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         }
 
         public string SearchSrCodeText                                 { get => SearchSrCodeTextbox.Text; }
+        public DataGridView AccessInfoTable                            { get => InfoTable;                }
         public IStudentPersonalInfoControl PersonalInfoControl         { get; set;                        }
         public DataGridViewRowCollection InfoTableRows                 { get => InfoTable.Rows;           }
         public FlowLayoutPanel AccessFileDropDownLayout                { get => FileDropDownLayout;       }
