@@ -38,7 +38,15 @@
             this.CloseEditorButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.InfoTable = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.SearchSrCodeButton = new FontAwesome.Sharp.IconButton();
+            this.SearchSrCodeTextbox = new System.Windows.Forms.TextBox();
+            this.OpenModifyFormButton = new FontAwesome.Sharp.IconButton();
+            this.OpenDropFormButton = new FontAwesome.Sharp.IconButton();
+            this.OpenAddFormButton = new FontAwesome.Sharp.IconButton();
+            this.FileDropDownButton = new FontAwesome.Sharp.IconButton();
             this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstructorCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,13 +61,6 @@
             this.EmergencyContactPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPersonAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactPersonNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.SearchSrCodeButton = new FontAwesome.Sharp.IconButton();
-            this.SearchSrCodeTextbox = new System.Windows.Forms.TextBox();
-            this.OpenModifyFormButton = new FontAwesome.Sharp.IconButton();
-            this.OpenDropFormButton = new FontAwesome.Sharp.IconButton();
-            this.OpenAddFormButton = new FontAwesome.Sharp.IconButton();
-            this.FileDropDownButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.MainControlHolder.SuspendLayout();
             this.FileDropDownLayout.SuspendLayout();
@@ -208,6 +209,7 @@
             this.InfoTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InfoTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SRCODE,
+            this.InstructorCode,
             this.LastName,
             this.FirstName,
             this.MiddleName,
@@ -232,111 +234,6 @@
             this.InfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.InfoTable.Size = new System.Drawing.Size(1220, 598);
             this.InfoTable.TabIndex = 0;
-            // 
-            // SRCODE
-            // 
-            this.SRCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SRCODE.HeaderText = "Sr Code";
-            this.SRCODE.Name = "SRCODE";
-            this.SRCODE.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LastName.HeaderText = "Last Name";
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FirstName.HeaderText = "First Name";
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // MiddleName
-            // 
-            this.MiddleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.MiddleName.HeaderText = "Middle Name";
-            this.MiddleName.Name = "MiddleName";
-            this.MiddleName.ReadOnly = true;
-            // 
-            // BirthDate
-            // 
-            this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.BirthDate.HeaderText = "Birth Date";
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.ReadOnly = true;
-            // 
-            // Gender
-            // 
-            this.Gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            this.Gender.ReadOnly = true;
-            // 
-            // ContactNumber
-            // 
-            this.ContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactNumber.HeaderText = "ContactNumber";
-            this.ContactNumber.Name = "ContactNumber";
-            this.ContactNumber.ReadOnly = true;
-            // 
-            // EmailAddress
-            // 
-            this.EmailAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EmailAddress.HeaderText = "Email Address";
-            this.EmailAddress.Name = "EmailAddress";
-            this.EmailAddress.ReadOnly = true;
-            // 
-            // HouseNumber
-            // 
-            this.HouseNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.HouseNumber.HeaderText = "House Number";
-            this.HouseNumber.Name = "HouseNumber";
-            this.HouseNumber.ReadOnly = true;
-            // 
-            // Barangay
-            // 
-            this.Barangay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Barangay.HeaderText = "Barangay";
-            this.Barangay.Name = "Barangay";
-            this.Barangay.ReadOnly = true;
-            // 
-            // Municipality
-            // 
-            this.Municipality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Municipality.HeaderText = "Municipality";
-            this.Municipality.Name = "Municipality";
-            this.Municipality.ReadOnly = true;
-            // 
-            // Province
-            // 
-            this.Province.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Province.HeaderText = "Province";
-            this.Province.Name = "Province";
-            this.Province.ReadOnly = true;
-            // 
-            // EmergencyContactPerson
-            // 
-            this.EmergencyContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.EmergencyContactPerson.HeaderText = "Emergency Contact Person";
-            this.EmergencyContactPerson.Name = "EmergencyContactPerson";
-            this.EmergencyContactPerson.ReadOnly = true;
-            // 
-            // ContactPersonAddress
-            // 
-            this.ContactPersonAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactPersonAddress.HeaderText = "Contact Person Address";
-            this.ContactPersonAddress.Name = "ContactPersonAddress";
-            this.ContactPersonAddress.ReadOnly = true;
-            // 
-            // ContactPersonNumber
-            // 
-            this.ContactPersonNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactPersonNumber.HeaderText = "Contact Person Number";
-            this.ContactPersonNumber.Name = "ContactPersonNumber";
-            this.ContactPersonNumber.ReadOnly = true;
             // 
             // panel2
             // 
@@ -476,7 +373,118 @@
             this.FileDropDownButton.Text = "File";
             this.FileDropDownButton.UseVisualStyleBackColor = true;
             // 
-            // AdminModifyInfoControl
+            // SRCODE
+            // 
+            this.SRCODE.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.SRCODE.HeaderText = "Sr Code";
+            this.SRCODE.Name = "SRCODE";
+            this.SRCODE.ReadOnly = true;
+            // 
+            // InstructorCode
+            // 
+            this.InstructorCode.HeaderText = "Instructor Code";
+            this.InstructorCode.Name = "InstructorCode";
+            this.InstructorCode.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LastName.HeaderText = "Last Name";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FirstName.HeaderText = "First Name";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // MiddleName
+            // 
+            this.MiddleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.MiddleName.HeaderText = "Middle Name";
+            this.MiddleName.Name = "MiddleName";
+            this.MiddleName.ReadOnly = true;
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.BirthDate.HeaderText = "Birth Date";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
+            // 
+            // Gender
+            // 
+            this.Gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Gender.HeaderText = "Gender";
+            this.Gender.Name = "Gender";
+            this.Gender.ReadOnly = true;
+            // 
+            // ContactNumber
+            // 
+            this.ContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactNumber.HeaderText = "ContactNumber";
+            this.ContactNumber.Name = "ContactNumber";
+            this.ContactNumber.ReadOnly = true;
+            // 
+            // EmailAddress
+            // 
+            this.EmailAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EmailAddress.HeaderText = "Email Address";
+            this.EmailAddress.Name = "EmailAddress";
+            this.EmailAddress.ReadOnly = true;
+            // 
+            // HouseNumber
+            // 
+            this.HouseNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.HouseNumber.HeaderText = "House Number";
+            this.HouseNumber.Name = "HouseNumber";
+            this.HouseNumber.ReadOnly = true;
+            // 
+            // Barangay
+            // 
+            this.Barangay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Barangay.HeaderText = "Barangay";
+            this.Barangay.Name = "Barangay";
+            this.Barangay.ReadOnly = true;
+            // 
+            // Municipality
+            // 
+            this.Municipality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Municipality.HeaderText = "Municipality";
+            this.Municipality.Name = "Municipality";
+            this.Municipality.ReadOnly = true;
+            // 
+            // Province
+            // 
+            this.Province.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Province.HeaderText = "Province";
+            this.Province.Name = "Province";
+            this.Province.ReadOnly = true;
+            // 
+            // EmergencyContactPerson
+            // 
+            this.EmergencyContactPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.EmergencyContactPerson.HeaderText = "Emergency Contact Person";
+            this.EmergencyContactPerson.Name = "EmergencyContactPerson";
+            this.EmergencyContactPerson.ReadOnly = true;
+            // 
+            // ContactPersonAddress
+            // 
+            this.ContactPersonAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactPersonAddress.HeaderText = "Contact Person Address";
+            this.ContactPersonAddress.Name = "ContactPersonAddress";
+            this.ContactPersonAddress.ReadOnly = true;
+            // 
+            // ContactPersonNumber
+            // 
+            this.ContactPersonNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ContactPersonNumber.HeaderText = "Contact Person Number";
+            this.ContactPersonNumber.Name = "ContactPersonNumber";
+            this.ContactPersonNumber.ReadOnly = true;
+            // 
+            // ModifyPersonalInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -486,7 +494,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "AdminModifyInfoControl";
+            this.Name = "ModifyPersonalInfoControl";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel1.ResumeLayout(false);
@@ -511,7 +519,15 @@
         private FontAwesome.Sharp.IconButton SearchSrCodeButton;
         private System.Windows.Forms.Panel MainControlHolder;
         private System.Windows.Forms.DataGridView InfoTable;
+        private FontAwesome.Sharp.IconButton FileDropDownButton;
+        private System.Windows.Forms.FlowLayoutPanel FileDropDownLayout;
+        private System.Windows.Forms.Button StudentAcadInfoButton;
+        private System.Windows.Forms.Button InstructorPersonalInfoButton;
+        private System.Windows.Forms.Button InstructorAcadInfoButton;
+        private System.Windows.Forms.Button CloseEditorButton;
+        private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn SRCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InstructorCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MiddleName;
@@ -526,12 +542,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EmergencyContactPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactPersonAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactPersonNumber;
-        private FontAwesome.Sharp.IconButton FileDropDownButton;
-        private System.Windows.Forms.FlowLayoutPanel FileDropDownLayout;
-        private System.Windows.Forms.Button StudentAcadInfoButton;
-        private System.Windows.Forms.Button InstructorPersonalInfoButton;
-        private System.Windows.Forms.Button InstructorAcadInfoButton;
-        private System.Windows.Forms.Button CloseEditorButton;
-        private System.Windows.Forms.Button ExitButton;
     }
 }
