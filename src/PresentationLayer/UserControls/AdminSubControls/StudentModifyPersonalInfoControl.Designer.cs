@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.UserControls.AdminSubControls
 {
-    partial class StudentModifyPersonalInfoControl
+    partial class ModifyPersonalInfoControl
     {
         /// <summary> 
         /// Required designer variable.

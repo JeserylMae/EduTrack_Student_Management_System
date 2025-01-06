@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public partial class StudentModifyPersonalInfoControl : UserControl, IStudentModifyPersonalInfoControl
+    public partial class ModifyPersonalInfoControl : UserControl, IModifyPersonalInfoControl
     {
-        public StudentModifyPersonalInfoControl()
+        public ModifyPersonalInfoControl()
         {
             InfoTableCreated               = new TaskCompletionSource<bool>();
             SearchButtonCreated            = new TaskCompletionSource<bool>();
