@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public interface IStudentAcadInfoControl
+    public interface IAcademicInfoControl
     {
         void DisposeControl();
 

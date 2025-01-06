@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    partial class StudentAcadInfoControl
+    partial class AcademicInfoControl
     {
         private void InvokeElementCreated()
         {

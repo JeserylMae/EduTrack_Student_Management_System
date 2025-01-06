@@ -16,9 +16,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public partial class StudentAcadInfoControl : UserControl, IStudentAcadInfoControl
+    public partial class AcademicInfoControl : UserControl, IAcademicInfoControl
     {
-        public StudentAcadInfoControl()
+        public AcademicInfoControl()
         {
             CloseButtonCreated        = new TaskCompletionSource<bool>();
             SubmitAddButtonCreated    = new TaskCompletionSource<bool>();

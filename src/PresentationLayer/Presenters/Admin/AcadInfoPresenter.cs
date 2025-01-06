@@ -16,7 +16,7 @@ namespace PresentationLayer.Presenters.Admin
 {
     internal class AcadInfoPresenter
     {
-        public AcadInfoPresenter(IStudentAcadInfoControl studentAcadInfoControl)
+        public AcadInfoPresenter(IAcademicInfoControl studentAcadInfoControl)
         {
             _studentAcadInfoControl = studentAcadInfoControl;
 
@@ -206,6 +206,6 @@ namespace PresentationLayer.Presenters.Admin
         #endregion
 
 
-        private IStudentAcadInfoControl _studentAcadInfoControl;
+        private IAcademicInfoControl _studentAcadInfoControl;
     }
 }

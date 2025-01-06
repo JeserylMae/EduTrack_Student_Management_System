@@ -54,9 +54,9 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
             }
         }
-        public IStudentAcadInfoControl CurrentUserControl
+        public IAcademicInfoControl CurrentUserControl
         {
-            get { return (IStudentAcadInfoControl)_addedUserControl; }
+            get { return (IAcademicInfoControl)_addedUserControl; }
             set
             {
                 _addedUserControl = (UserControl)value;

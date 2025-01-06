@@ -35,6 +35,6 @@ namespace PresentationLayer.UserControls.MainControls
         TextBox AccessSearchSrCodeTextbox        { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
         UserControl AccessFilterEditor              { get; set; }
-        IStudentAcadInfoControl CurrentUserControl  { get; set; }
+        IAcademicInfoControl CurrentUserControl  { get; set; }
     }
 }

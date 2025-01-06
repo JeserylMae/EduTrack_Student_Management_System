@@ -78,27 +78,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IStudentAcadInfoControl.cs">
-      <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\IAcademicInfoControl.cs">
+      <DependentUpon>AcademicInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\IModifyAcadInfoControl.cs">
-      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon> 
+      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
       <DependentUpon>PersonalInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Config.cs">
-      <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\AcademicInfoControl.Config.cs">
+      <DependentUpon>AcademicInfoControl.cs</DependentUpon> 
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\AcademicInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Designer.cs">
-      <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+    <Compile Include="UserControls\AdminSubControls\AcademicInfoControl.Designer.cs">
+      <DependentUpon>AcademicInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Config.cs">
-      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon> 
+      <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.cs">
@@ -239,8 +239,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminSubControls\StudentAcadInfoControl.resx">
-      <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\AdminSubControls\AcademicInfoControl.resx">
+      <DependentUpon>AcademicInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\ModifyAcadInfoControl.resx">
       <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>

@@ -83,7 +83,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
-            IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            IAcademicInfoControl studentControl = new AcademicInfoControl();
             studentControl.StudentControl = _studentAcadInfoControl;
             studentControl.CurrentRequestType = FormRequestType.UPDATE;
             studentControl.AccessInfoTable = _studentAcadInfoControl.AccessInfoTable;
@@ -119,7 +119,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
-            IStudentAcadInfoControl studentControl = new StudentAcadInfoControl();
+            IAcademicInfoControl studentControl = new AcademicInfoControl();
             studentControl.CurrentRequestType = FormRequestType.ADD;
             studentControl.StudentControl = _studentAcadInfoControl;
 
@@ -280,7 +280,7 @@ namespace PresentationLayer.Presenters.Admin
             studentObj[8] = studentInfo.AcademicYear;
         }
 
-        private void SetSubmitButtonVisibility(IStudentAcadInfoControl studentControl, string button)
+        private void SetSubmitButtonVisibility(IAcademicInfoControl studentControl, string button)
         {
             studentControl.AccessSubmitAddButton.Visible = false;
             studentControl.AccessSubmitUpdateButton.Visible = false;
