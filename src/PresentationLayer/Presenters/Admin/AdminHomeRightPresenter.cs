@@ -49,7 +49,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            IStudentModifyPersonalInfoControl studentModifyInfoControl = new StudentModifyPersonalInfoControl();
+            IModifyPersonalInfoControl studentModifyInfoControl = new ModifyPersonalInfoControl();
             new StudentModifyPersonalInfoPresenter(studentModifyInfoControl);
 
             GeneralPresenter.NewWindowControl = (UserControl) studentModifyInfoControl;
