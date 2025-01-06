@@ -1,4 +1,5 @@
 ﻿
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.AdminSubControls;
 using System;
 using System.Collections.Generic;
@@ -30,8 +31,10 @@ namespace PresentationLayer.UserControls.AdminSubControls
         string SearchSrCodeText    { get; }
         object[] InfoTableRowData  { set; }
 
+        DataGridView AccessInfoTable             { get; }
         DataGridViewRowCollection InfoTableRows  { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
+        AccessType ModifyUser                    { get; set; }
         UserControl MainControlHolderControl     { get; set; }
         IPersonalInfoControl PersonalInfoControl { get; set; }
         DataGridViewSelectedRowCollection SelectedRowCollection { get; }

@@ -1,4 +1,5 @@
 ﻿
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.AdminSubControls;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,14 @@ namespace PresentationLayer.UserControls.AdminSubControls
         }
 
 
+        public object[] InfoTableRowData 
+        {
+            set 
+            { 
+                InfoTable.Rows.Add(value);
+                InfoTable.Rows[InfoTable.RowCount - 1].Height = 28;
+            } 
+        }
         public UserControl MainControlHolderControl
         {
             get { return _addedControl; }
@@ -41,17 +50,10 @@ namespace PresentationLayer.UserControls.AdminSubControls
             }
         }
 
-        public object[] InfoTableRowData 
-        {
-            set 
-            { 
-                InfoTable.Rows.Add(value);
-                InfoTable.Rows[InfoTable.RowCount - 1].Height = 28;
-            } 
-        }
-
+        public DataGridView AccessInfoTable                            { get => InfoTable;                }
+        public AccessType ModifyUser                                   { get; set;                        }
         public string SearchSrCodeText                                 { get => SearchSrCodeTextbox.Text; }
-        public IPersonalInfoControl PersonalInfoControl         { get; set;                        }
+        public IPersonalInfoControl PersonalInfoControl                { get; set;                        }
         public DataGridViewRowCollection InfoTableRows                 { get => InfoTable.Rows;           }
         public FlowLayoutPanel AccessFileDropDownLayout                { get => FileDropDownLayout;       }
         public DataGridViewSelectedRowCollection SelectedRowCollection { get => InfoTable.SelectedRows;   }
