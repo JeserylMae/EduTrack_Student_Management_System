@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public interface IModifyPersonalInfoControl
+    public interface IStudentModifyPersonalInfoControl
     {
         event EventHandler ControlLoad;
         event EventHandler ViewAddForm;
@@ -33,7 +33,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         DataGridViewRowCollection InfoTableRows  { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
         UserControl MainControlHolderControl     { get; set; }
-        IPersonalInfoControl PersonalInfoControl { get; set; }
+        IStudentPersonalInfoControl PersonalInfoControl { get; set; }
         DataGridViewSelectedRowCollection SelectedRowCollection { get; }
     }
 }

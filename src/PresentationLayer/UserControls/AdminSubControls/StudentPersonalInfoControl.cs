@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    public partial class StudentPersonalInfoControl : UserControl, IPersonalInfoControl
+    public partial class StudentPersonalInfoControl : UserControl, IStudentPersonalInfoControl
     {
         public StudentPersonalInfoControl()
         {

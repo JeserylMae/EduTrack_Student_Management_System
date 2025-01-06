@@ -84,8 +84,8 @@
     <Compile Include="UserControls\AdminSubControls\IStudentModifyAcadInfoControl.cs">
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IPersonalInfoControl.cs">
-      <!-- <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon> -->
+    <Compile Include="UserControls\AdminSubControls\IStudentPersonalInfoControl.cs">
+      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentAcadInfoControl.Config.cs">
       <DependentUpon>StudentAcadInfoControl.cs</DependentUpon>
@@ -107,21 +107,21 @@
     <Compile Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.Designer.cs">
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\PersonalInfoControl.Config.cs">
-      <!-- <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon> -->
+    <Compile Include="UserControls\AdminSubControls\StudentModifyPersonalInfoControl.Config.cs">
+      <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.cs">
+    <Compile Include="UserControls\AdminSubControls\StudentModifyPersonalInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.Designer.cs">
-      <!-- <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon> -->
+    <Compile Include="UserControls\AdminSubControls\StudentModifyPersonalInfoControl.Designer.cs">
+      <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.Designer.cs">
-      <!-- <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon> -->
+      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\General\FilterControl.Config.cs">
       <SubType>UserControl</SubType>
@@ -173,8 +173,8 @@
     <Compile Include="UserControls\HomeSubControls\StudItrHomeRightControl.Designer.cs">
       <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IModifyPersonalInfoControl.cs">
-      <!-- <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon> -->
+    <Compile Include="UserControls\AdminSubControls\IStudentModifyPersonalInfoControl.cs">
+      <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainControls\IHomePage.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
@@ -245,8 +245,8 @@
     <EmbeddedResource Include="UserControls\AdminSubControls\StudentModifyAcadInfoControl.resx">
       <DependentUpon>StudentModifyAcadInfoControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\AdminSubControls\ModifyPersonalInfoControl.resx">
-      <!-- <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon> -->
+    <EmbeddedResource Include="UserControls\AdminSubControls\StudentModifyPersonalInfoControl.resx">
+      <DependentUpon>StudentModifyPersonalInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\StudentPersonalInfoControl.resx">
       <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
@@ -303,7 +303,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Compile Include="UserControls\AdminSubControls\StudentPersonalInfoControl.Config.cs">
-      <!-- <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon> -->
+      <DependentUpon>StudentPersonalInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

@@ -151,7 +151,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudentPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            IModifyPersonalInfoControl studentControl = new ModifyPersonalInfoControl();
+            IStudentModifyPersonalInfoControl studentControl = new StudentModifyPersonalInfoControl();
             new StudentModifyPersonalInfoPresenter(studentControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)studentControl;
