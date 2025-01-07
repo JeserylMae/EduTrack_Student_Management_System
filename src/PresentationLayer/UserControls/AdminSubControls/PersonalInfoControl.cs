@@ -1,4 +1,5 @@
 ﻿
+using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
             InitializeButtonsAsHidden();
             _ = InitializeControlSubcribers();
         }
+        
+        public AccessType ModifyUser {  get; set; }
         
         public string MonthComboBoxText     
         {
