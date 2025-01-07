@@ -1,5 +1,7 @@
 ﻿
 using DomainLayer.DataModels;
+using DomainLayer.DataModels.Instructor;
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.AdminSubControls;
 using ServiceLayer.Database;
 using ServiceLayer.Services;
@@ -35,6 +37,8 @@ namespace PresentationLayer.Presenters.Admin
 
             _personalInfoControl.YearComboBoxDataSource = yearsCollection;
             _personalInfoControl.YearComboBoxText = null;
+
+            SetPageHeaders();
         }
 
         private void CloseCancelButton_Clicked(object sender, EventArgs e)
@@ -46,21 +50,12 @@ namespace PresentationLayer.Presenters.Admin
         {
             try
             {
-                RStudentPersonalInfoModel studentPersonalInfoModel = new RStudentPersonalInfoModel();
-                PStudentPersonalInfoModel<RStudentPersonalInfoModel> model = new PStudentPersonalInfoModel<RStudentPersonalInfoModel>();
-
-                AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
-                AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
-
-                ParameterAuthentication authentication = new ParameterAuthentication();
-                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-
-                Task completed = await authentication.ValidateParameter(model, "ADD");
-                bool response  = await services.InsertNew(model);
-
-                ConfirmMessage(response, studentPersonalInfoModel.SrCode, 0);
-                _personalInfoControl.TriggerInfoTableReload();
-                ClearTextBoxes();
+                if (_personalInfoControl.ModifyUser == AccessType.STUDENT)
+                    await HandleStudentSubmitAdd();
+                else if (_personalInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+                    await HandleInstructorSubmitAdd();
+                else
+                    throw new Exception(message: "Invalid user type!");
             }
             catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Add"); }
             catch (HttpRequestException ex) { DisplayError(ex.Message, "Add"); }
@@ -71,21 +66,12 @@ namespace PresentationLayer.Presenters.Admin
         {
             try
             {
-                RStudentPersonalInfoModel studentPersonalInfoModel = new RStudentPersonalInfoModel();
-                PStudentPersonalInfoModel<RStudentPersonalInfoModel> model = new PStudentPersonalInfoModel<RStudentPersonalInfoModel>();
-
-                AddValuesToStudentPersonalInfoModel(ref studentPersonalInfoModel);
-                AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
-
-                ParameterAuthentication authentication = new ParameterAuthentication();
-                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-
-                Task completed = await authentication.ValidateParameter(model, "UPDATE");
-                bool response = await services.Update(model);
-
-                ConfirmMessage(response, studentPersonalInfoModel.SrCode, 1);
-                _personalInfoControl.TriggerInfoTableReload();
-                ClearTextBoxes();
+                if (_personalInfoControl.ModifyUser == AccessType.STUDENT)
+                    await HandleStudentSubmitUpdate();
+                else if (_personalInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+                    await HandleInstructorSubmitUpdate();
+                else
+                    throw new Exception(message: "Invalid user type!");
             }
             catch (TargetInvocationException ex) { Console.WriteLine(ex.Message); }
             catch (TargetParameterCountException ex) { DisplayError(ex.Message, "Update"); }
@@ -96,6 +82,92 @@ namespace PresentationLayer.Presenters.Admin
 
 
         #region Helper Methods
+        private async Task HandleStudentSubmitUpdate()
+        {
+            RStudentPersonalInfoModel studentPersonalInfoModel = new RStudentPersonalInfoModel();
+            PStudentPersonalInfoModel<RStudentPersonalInfoModel> model = new PStudentPersonalInfoModel<RStudentPersonalInfoModel>();
+
+            AddValuesToPersonalInfoModel(ref studentPersonalInfoModel);
+            AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
+
+            ParameterAuthentication authentication = new ParameterAuthentication();
+            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+
+            Task completed = await authentication.ValidateParameter(model, "UPDATE");
+            bool response = await services.Update(model);
+
+            ConfirmMessage(response, studentPersonalInfoModel.SrCode, 1);
+            _personalInfoControl.TriggerInfoTableReload();
+            ClearTextBoxes();
+        }
+
+        private async Task HandleInstructorSubmitUpdate()
+        {
+            RInstructorPersonalInfoModel instructorPersonalInfoModel = new RInstructorPersonalInfoModel();
+            PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> model = new PInstructorPersonalInfoModel<RInstructorPersonalInfoModel>();
+
+            AddValuesToPersonalInfoModel(ref instructorPersonalInfoModel);
+            AddValuesToPersonalInfoModel(instructorPersonalInfoModel, ref model);
+
+            ParameterAuthentication authentication = new ParameterAuthentication();
+            InstructorPersonalInfoServices services = new InstructorPersonalInfoServices();
+
+            Task completed = await authentication.ValidateParameter(model, "UPDATE");
+            bool response = await services.Update(model);
+
+            ConfirmMessage(response, instructorPersonalInfoModel.ItrCode, 1);
+            _personalInfoControl.TriggerInfoTableReload();
+            ClearTextBoxes();
+        }
+
+        private async Task HandleStudentSubmitAdd()
+        {
+            RStudentPersonalInfoModel studentPersonalInfoModel = new RStudentPersonalInfoModel();
+            PStudentPersonalInfoModel<RStudentPersonalInfoModel> model = new PStudentPersonalInfoModel<RStudentPersonalInfoModel>();
+
+            AddValuesToPersonalInfoModel(ref studentPersonalInfoModel);
+            AddValuesToPersonalInfoModel(studentPersonalInfoModel, ref model);
+
+            ParameterAuthentication authentication = new ParameterAuthentication();
+            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+
+            Task completed = await authentication.ValidateParameter(model, "ADD");
+            bool response = await services.InsertNew(model);
+
+            ConfirmMessage(response, studentPersonalInfoModel.SrCode, 0);
+            _personalInfoControl.TriggerInfoTableReload();
+            ClearTextBoxes();
+        }
+
+        private async Task HandleInstructorSubmitAdd()
+        {
+            RInstructorPersonalInfoModel instructorPersonalInfoModel = new RInstructorPersonalInfoModel();
+            PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> model = new PInstructorPersonalInfoModel<RInstructorPersonalInfoModel>();
+
+            AddValuesToPersonalInfoModel(ref instructorPersonalInfoModel);
+            AddValuesToPersonalInfoModel(instructorPersonalInfoModel, ref model);
+
+            ParameterAuthentication authentication = new ParameterAuthentication();
+            InstructorPersonalInfoServices services = new InstructorPersonalInfoServices();
+
+            Task completed = await authentication.ValidateParameter(model, "ADD");
+            bool response = await services.InsertNew(model);
+
+            ConfirmMessage(response, instructorPersonalInfoModel.ItrCode, 0);
+            _personalInfoControl.TriggerInfoTableReload();
+            ClearTextBoxes();
+        }
+
+        private void SetPageHeaders()
+        {
+            if (AccessType.INSTRUCTOR != _personalInfoControl.ModifyUser)
+                return;
+
+            _personalInfoControl.PageIndicatorLabelText = "Instructor Personal Information Form";
+            _personalInfoControl.BasicInfoIndicatorLabelText = "Instructor Basic Information";
+            _personalInfoControl.UserCodeIndicatorLabelText = "Instructor Code";
+        }
+
         private void SetYearOptions(ref IList<string> years)
         {
             int currentYear = DateTime.Now.Year;
@@ -108,7 +180,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void DisplayError(string message, string commandName)
         {
-            MessageBox.Show(message, $"Student Peronal Information - {commandName}",
+            MessageBox.Show(message, $"{_personalInfoControl.ModifyUser.ToString()} PERSONAL INFORMATION - {commandName}",
                             MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
@@ -119,8 +191,8 @@ namespace PresentationLayer.Presenters.Admin
             string mod     = modification == 0 ? "Add"   : "Update";
             string message = modification == 0 ? "added" : "updated";
             
-            MessageBox.Show($"Successfully {message} student with SR Code {srcode}.",
-                            $"Student Personal Information - {mod}",
+            MessageBox.Show($"Successfully {message} {_personalInfoControl.ModifyUser.ToString().ToLower()} with Code {srcode}.",
+                            $"{_personalInfoControl.ModifyUser} PERSONAL INFORMATION - {mod}",
                             MessageBoxButton.OK,
                             MessageBoxImage.Information); 
         }
@@ -136,7 +208,18 @@ namespace PresentationLayer.Presenters.Admin
             model.GuardianCode = student.SrCode + "-GUA";
         }
 
-        private void AddValuesToStudentPersonalInfoModel(ref RStudentPersonalInfoModel student)
+        private void AddValuesToPersonalInfoModel(RInstructorPersonalInfoModel instrcutor,
+                             ref PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> model)
+        {
+            model.InfoModel = instrcutor;
+            model.DefaultPassword = string.IsNullOrEmpty(_personalInfoControl.DefaultPasswordTextboxText) ?
+                                                "null" : _personalInfoControl.DefaultPasswordTextboxText;
+            model.Position = "INSTRUCTOR";
+            model.UserId = instrcutor.ItrCode + "-ITR";
+            model.GuardianCode = instrcutor.ItrCode + "-GUA";
+        }
+
+        private void AddValuesToPersonalInfoModel(ref RStudentPersonalInfoModel student)
         {
             student.BirthDate = _personalInfoControl.YearComboBoxText + "-"
                               + _personalInfoControl.MonthComboBoxText + "-"
@@ -161,6 +244,33 @@ namespace PresentationLayer.Presenters.Admin
             student.GuardianMiddleName    = _personalInfoControl.GuardianMiddleNameTextboxText;
             student.GuardianMunicipality  = _personalInfoControl.GuardianMunicipalityTextboxText;
             student.GuardianContactNumber = _personalInfoControl.GuardianContactNumberTextboxText;
+        }
+
+        private void AddValuesToPersonalInfoModel(ref RInstructorPersonalInfoModel instructor)
+        {
+            instructor.BirthDate = _personalInfoControl.YearComboBoxText + "-"
+                              + _personalInfoControl.MonthComboBoxText + "-"
+                              + _personalInfoControl.DayComboBoxText;
+
+            instructor.ItrCode = _personalInfoControl.UserCodeTextboxText;
+            instructor.LastName = _personalInfoControl.LastNameTextboxText;
+            instructor.Gender = _personalInfoControl.GenderComboBoxText;
+            instructor.HouseNumber = _personalInfoControl.ZipCodeTextboxText;
+            instructor.Barangay = _personalInfoControl.BarangayTextboxText;
+            instructor.Province = _personalInfoControl.ProvinceTextboxText;
+            instructor.FirstName = _personalInfoControl.FirstNameTextboxText;
+            instructor.MiddleName = _personalInfoControl.MiddleNameTextboxText;
+            instructor.EmailAddress = _personalInfoControl.EmailAddresTextboxText;
+            instructor.Municipality = _personalInfoControl.MunicipalityTextboxText;
+            instructor.ContactNumber = _personalInfoControl.ContactNumberTextboxText;
+            instructor.GuardianHouseNumber = _personalInfoControl.GuardianZipCodeTextboxText;
+            instructor.GuardianBarangay = _personalInfoControl.GuardianBarangayTextboxText;
+            instructor.GuardianLastName = _personalInfoControl.GuardianLastNameTextboxText;
+            instructor.GuardianProvince = _personalInfoControl.GuardianProvinceTextboxText;
+            instructor.GuardianFirstName = _personalInfoControl.GuardianFirstNameTextboxText;
+            instructor.GuardianMiddleName = _personalInfoControl.GuardianMiddleNameTextboxText;
+            instructor.GuardianMunicipality = _personalInfoControl.GuardianMunicipalityTextboxText;
+            instructor.GuardianContactNumber = _personalInfoControl.GuardianContactNumberTextboxText;
         }
 
         private void ClearTextBoxes()
