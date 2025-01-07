@@ -19,18 +19,28 @@ namespace PresentationLayer
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            AppSettings appSettings = new AppSettings();
-            SplashScreen splashScreen = new SplashScreen();
-            IServerInfoForm serverInfoForm = new ServerInfoForm();
-            IEdutrackMainForm edutrackMainForm = EdutrackMainForm.GetInstance(serverInfoForm);
+                AppSettings appSettings = new AppSettings();
+                SplashScreen splashScreen = new SplashScreen();
+                IServerInfoForm serverInfoForm = new ServerInfoForm();
+                IEdutrackMainForm edutrackMainForm = EdutrackMainForm.GetInstance(serverInfoForm);
 
-            new ServerInfoPresenter(serverInfoForm, edutrackMainForm, splashScreen, appSettings);
-            new EdutrackMainFormPresenter(edutrackMainForm);
+                new ServerInfoPresenter(serverInfoForm, edutrackMainForm, splashScreen, appSettings);
+                new EdutrackMainFormPresenter(edutrackMainForm);
 
-            Application.Run((Form)edutrackMainForm);
+                Application.Run((Form)edutrackMainForm);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Message: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+                Console.WriteLine($"Inner Message: {ex.InnerException.Message}");
+                Console.WriteLine($"Inner StackTrace: {ex.InnerException.StackTrace}");
+            }
         }
     }
 }
