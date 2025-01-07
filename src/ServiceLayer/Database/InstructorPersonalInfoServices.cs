@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -55,7 +56,7 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> InsertNew(PInstructorPersonalInfoModel<PNameModel> instructor)
+        public async Task<bool> InsertNew(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructor)
         {
             string request = $"{_webAddress}/InsertNew";
 
@@ -69,19 +70,19 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<bool> Update(PInstructorPersonalInfoModel<PNameModel> instructor)
+        public async Task<bool> Update(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructor)
         {
-            string request = $"{_webAddress}/Update";
+            Uri request = new Uri($"{_webAddress}/Update");
 
             string jsonParameter = JsonConvert.SerializeObject(instructor, Formatting.Indented);
-            StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
+            StringContent content = new StringContent(jsonParameter, Encoding.UTF8, "application/json");
 
             using (HttpClient client = new HttpClient())
             {
                 HttpRequestMessage requestMessage = new HttpRequestMessage
                 {
                     Method = new HttpMethod("Patch"),
-                    RequestUri = new Uri(request),
+                    RequestUri = request,
                     Content = content
                 };
 
@@ -92,10 +93,10 @@ namespace ServiceLayer.Database
 
         public async Task<bool> Delete(PInstructorPersonalInfoParams instructor)
         {
-            string request = $"{_webAddress}/Delete";
+            string request = $"{_webAddress}/DELETE";
 
             string jsonParameter = JsonConvert.SerializeObject(instructor, Formatting.Indented);
-            StringContent content = new StringContent(request, Encoding.UTF8, "application/json");
+            StringContent content = new StringContent(jsonParameter, Encoding.UTF8, "application/json");
 
             using (HttpClient client = new HttpClient())
             {
