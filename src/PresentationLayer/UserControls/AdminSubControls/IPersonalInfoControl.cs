@@ -1,4 +1,5 @@
 ﻿
+using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
 
@@ -25,6 +26,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         string BasicInfoIndicatorLabelText   { set; }
         IList<string> YearComboBoxDataSource { set; }
 
+        AccessType ModifyUser                   { get; set; }
         string UserCodeTextboxText              { get; set; }
         string LastNameTextboxText              { get; set; }
         string FirstNameTextboxText             { get; set; }
