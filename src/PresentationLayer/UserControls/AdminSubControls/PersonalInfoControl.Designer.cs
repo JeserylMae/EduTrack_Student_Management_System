@@ -1659,7 +1659,7 @@
             this.label3.Size = new System.Drawing.Size(459, 52);
             this.label3.TabIndex = 19;
             // 
-            // StudentPersonalInfoControl
+            // PersonalInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1670,7 +1670,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.Name = "StudentPersonalInfoControl";
+            this.Name = "PersonalInfoControl";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Size = new System.Drawing.Size(535, 600);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
