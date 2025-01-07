@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System;
 using ServiceLayer.Database;
+using DomainLayer.DataModels.Instructor;
 
 
 namespace ServiceLayer.Services
@@ -26,6 +27,25 @@ namespace ServiceLayer.Services
             if (!string.IsNullOrEmpty(model.SrCode) && validateFrom == "ADD")
             {
                 throw new Exception($"Student with SR Code {parameters.InfoModel.SrCode} already exists.");
+            }
+
+            return Task.CompletedTask;
+        }
+
+        public async Task<Task> ValidateParameter(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> parameters,
+                                                  string validateFrom)
+        {
+            if (HasNullOrEmptyString(parameters) || HasNullOrEmptyString(parameters.InfoModel))
+            {
+                throw new TargetParameterCountException("Parameter count mismatch. "
+                                        + "Ensure that all are fields are filled.");
+            }
+
+            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+            RStudentPersonalInfoModel model = await services.GetById(parameters.InfoModel.ItrCode);
+            if (!string.IsNullOrEmpty(model.SrCode) && validateFrom == "ADD")
+            {
+                throw new Exception($"Instructor with Code {parameters.InfoModel.ItrCode} already exists.");
             }
 
             return Task.CompletedTask;
