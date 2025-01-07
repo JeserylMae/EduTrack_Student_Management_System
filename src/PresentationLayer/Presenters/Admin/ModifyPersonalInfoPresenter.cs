@@ -79,12 +79,14 @@ namespace PresentationLayer.Presenters.Admin
             {
                 if (_adminModifyInfoControl.ModifyUser == AccessType.STUDENT)
                 {
-                    _adminModifyInfoControl.AccessInfoTable.Columns.Remove("InstructorCode");
+                    if (_adminModifyInfoControl.AccessInfoTable.Columns.Contains("InstructorCode"))
+                        _adminModifyInfoControl.AccessInfoTable.Columns.Remove("InstructorCode");
                     _ = LoadStudentInfoTable();
                 }
                 else if (_adminModifyInfoControl.ModifyUser == AccessType.INSTRUCTOR)
                 {
-                    _adminModifyInfoControl.AccessInfoTable.Columns.Remove("SrCode");
+                    if (_adminModifyInfoControl.AccessInfoTable.Columns.Contains("SrCode"))
+                        _adminModifyInfoControl.AccessInfoTable.Columns.Remove("SrCode");
                     _ = LoadInstructorInfoTable();
                 }
             }
@@ -97,21 +99,18 @@ namespace PresentationLayer.Presenters.Admin
                 return;
 
             DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
-            string UserId               = selectedRow.Cells["SrCode"].Value.ToString();
-
-            RStudentPersonalInfoModel student     = new RStudentPersonalInfoModel();
-            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-
-            student = await services.GetById(UserId);
-
-            _adminModifyInfoControl.PersonalInfoControl.DisableDefaultPasswordTextBox();
-            DisplaySelectedToPersonalInfoControl(student);
+            
+            if (_adminModifyInfoControl.ModifyUser == AccessType.STUDENT)
+                await HandleStudentSelectionChanged(selectedRow);
+            else if (_adminModifyInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+                await HandleInstructorSelectionChanged(selectedRow);
         }
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
             IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
             personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
+            personalInfoControl.ModifyUser = _adminModifyInfoControl.ModifyUser;
 
             new PersonalInfoPresenter(personalInfoControl);
             personalInfoControl.ShowAddButton();
@@ -126,6 +125,7 @@ namespace PresentationLayer.Presenters.Admin
         {
             IPersonalInfoControl personalInfoControl = new PersonalInfoControl();
             personalInfoControl.InfoTableReloadTriggered += InfoTable_OnLoadAsync;
+            personalInfoControl.ModifyUser = _adminModifyInfoControl.ModifyUser;
 
             new PersonalInfoPresenter (personalInfoControl);
             personalInfoControl.ShowUpdateButton();
@@ -185,6 +185,32 @@ namespace PresentationLayer.Presenters.Admin
 
 
         #region Helper methods
+        private async Task HandleInstructorSelectionChanged(DataGridViewRow selectedRow)
+        {
+            string UserId = selectedRow.Cells["InstructorCode"].Value.ToString();
+
+            RInstructorPersonalInfoModel student = new RInstructorPersonalInfoModel();
+            InstructorPersonalInfoServices services = new InstructorPersonalInfoServices();
+
+            student = await services.GetById(UserId);
+
+            _adminModifyInfoControl.PersonalInfoControl.DisableDefaultPasswordTextBox();
+            DisplaySelectedToPersonalInfoControl(student);
+        }
+
+        private async Task HandleStudentSelectionChanged(DataGridViewRow selectedRow)
+        {
+            string UserId = selectedRow.Cells["SrCode"].Value.ToString();
+
+            RStudentPersonalInfoModel student = new RStudentPersonalInfoModel();
+            StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+
+            student = await services.GetById(UserId);
+
+            _adminModifyInfoControl.PersonalInfoControl.DisableDefaultPasswordTextBox();
+            DisplaySelectedToPersonalInfoControl(student);
+        }
+
         private void HighlightSearchRow(string srCode)
         {
             for (int i = 0; i < _adminModifyInfoControl.InfoTableRows.Count; i++)
