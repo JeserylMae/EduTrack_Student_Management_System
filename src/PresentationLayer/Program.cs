@@ -38,8 +38,8 @@ namespace PresentationLayer
             {
                 Console.WriteLine($"Message: {ex.Message}");
                 Console.WriteLine($"StackTrace: {ex.StackTrace}");
-                Console.WriteLine($"Inner Message: {ex.InnerException.Message}");
-                Console.WriteLine($"Inner StackTrace: {ex.InnerException.StackTrace}");
+                //Console.WriteLine($"Inner Message: {ex.InnerException.Message}");
+                //Console.WriteLine($"Inner StackTrace: {ex.InnerException.StackTrace}");
             }
         }
     }
