@@ -152,6 +152,8 @@ namespace PresentationLayer.Presenters.Admin
         private void StudentPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
             IModifyPersonalInfoControl studentControl = new ModifyPersonalInfoControl();
+            studentControl.ModifyUser = AccessType.STUDENT;
+            
             new ModifyPersonalInfoPresenter(studentControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)studentControl;
@@ -162,7 +164,15 @@ namespace PresentationLayer.Presenters.Admin
 
         private void InstructorPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IModifyPersonalInfoControl userControl = new ModifyPersonalInfoControl();
+            userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            new ModifyPersonalInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
+
+            _studentAcadInfoControl.DisposeControl();
         }
 
         private void InstructorAcadInfoButton_Clicked(object sender, EventArgs e)
