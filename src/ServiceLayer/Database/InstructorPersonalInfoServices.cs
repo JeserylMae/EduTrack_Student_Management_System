@@ -87,7 +87,7 @@ namespace ServiceLayer.Database
 
         public async Task<bool> Delete(PInstructorPersonalInfoParams instructor)
         {
-            string request = $"{_webAddress}/DELETE";
+            string request = $"{_webAddress}/Delete";
 
             string jsonParameter = JsonConvert.SerializeObject(instructor, Formatting.Indented);
             StringContent content = new StringContent(jsonParameter, Encoding.UTF8, "application/json");
