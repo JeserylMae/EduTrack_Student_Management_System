@@ -87,7 +87,7 @@ namespace ServiceLayer.Database
 
         public async Task<bool> Delete(PInstructorPersonalInfoParams instructor)
         {
-            string request = $"{_webAddress}/Delete";
+            Uri request = new Uri($"{_webAddress}/Delete");
 
             string jsonParameter = JsonConvert.SerializeObject(instructor, Formatting.Indented);
             StringContent content = new StringContent(jsonParameter, Encoding.UTF8, "application/json");
@@ -97,11 +97,13 @@ namespace ServiceLayer.Database
                 HttpRequestMessage requestMessage = new HttpRequestMessage
                 {
                     Method = HttpMethod.Delete,
-                    RequestUri = new Uri(request),
+                    RequestUri = request,
                     Content = content
                 };
 
                 HttpResponseMessage response = await client.SendAsync(requestMessage);
+                response.EnsureSuccessStatusCode();
+
                 return response.IsSuccessStatusCode;
             }
         }
