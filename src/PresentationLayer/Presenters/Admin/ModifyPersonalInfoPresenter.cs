@@ -31,17 +31,45 @@ namespace PresentationLayer.Presenters.Admin
             _adminModifyInfoControl.SearchButtonClicked  += SearchButton_Clicked;
             _adminModifyInfoControl.SearchTextBoxKeyDown += SearchTextBox_KeyDown;
 
-            _adminModifyInfoControl.ExitButtonClicked            += GeneralPresenter.TriggerAppExit;
-            _adminModifyInfoControl.FileDropDownButtonClicked    += FileDropDownButton_Clicked;
-            _adminModifyInfoControl.CloseEditorButtonClicked     += CloseEditorButton_Clicked;
-            _adminModifyInfoControl.StudAcadInfoButtonClicked    += StudAcadInfoButton_Clicked;
-            _adminModifyInfoControl.ItrAcadInfoButtonClicked     += ItrAcadInfoButton_Clicked;
-            _adminModifyInfoControl.ItrPersonalInfoButtonClicked += ItrPersonalInfoButton_Clicked;
+            _adminModifyInfoControl.ExitButtonClicked             += GeneralPresenter.TriggerAppExit;
+            _adminModifyInfoControl.FileDropDownButtonClicked     += FileDropDownButton_Clicked;
+            _adminModifyInfoControl.CloseEditorButtonClicked      += CloseEditorButton_Clicked;
+            _adminModifyInfoControl.StudAcadInfoButtonClicked     += StudAcadInfoButton_Clicked;
+            _adminModifyInfoControl.ItrAcadInfoButtonClicked      += ItrAcadInfoButton_Clicked;
+            _adminModifyInfoControl.ItrPersonalInfoButtonClicked  += ItrPersonalInfoButton_Clicked;
+            _adminModifyInfoControl.StudPersonalInfoButtonClicked += StudPersonalInfoButton_Clicked;
+        }
+
+        private void StudPersonalInfoButton_Clicked(object sender, EventArgs e)
+        {
+            if (_adminModifyInfoControl.ModifyUser != AccessType.INSTRUCTOR)
+                return;
+
+            IModifyPersonalInfoControl userControl = new ModifyPersonalInfoControl();
+            userControl.ModifyUser = AccessType.STUDENT;
+
+            new ModifyPersonalInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
+
+            _adminModifyInfoControl.DisposeControl();
         }
 
         private void ItrPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_adminModifyInfoControl.ModifyUser != AccessType.STUDENT)
+                return;
+
+            IModifyPersonalInfoControl userControl = new ModifyPersonalInfoControl();
+            userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            new ModifyPersonalInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
+
+            _adminModifyInfoControl.DisposeControl();
         }
 
         private void ItrAcadInfoButton_Clicked(object sender, EventArgs e)
@@ -88,6 +116,9 @@ namespace PresentationLayer.Presenters.Admin
                 {
                     if (_adminModifyInfoControl.AccessInfoTable.Columns.Contains("SrCode"))
                         _adminModifyInfoControl.AccessInfoTable.Columns.Remove("SrCode");
+
+                    _adminModifyInfoControl.AccessSearchUsrCodeButton.Text = "Search Itr-Code";
+                    _adminModifyInfoControl.AccessPageLabel.Text = "Instructor Personal Information";
                     _ = LoadInstructorInfoTable();
                 }
             }
@@ -151,11 +182,11 @@ namespace PresentationLayer.Presenters.Admin
 
         private void SearchButton_Clicked(object sender, EventArgs e)
         {
-            string srCode = _adminModifyInfoControl.SearchSrCodeText;
+            string usrCode = _adminModifyInfoControl.SearchUsrCodeText;
 
-            if (String.IsNullOrEmpty(srCode)) return;
+            if (String.IsNullOrEmpty(usrCode)) return;
 
-            HighlightSearchRow(srCode);
+            HighlightSearchRow(usrCode);
         }
 
         private void SearchTextBox_KeyDown(object sender, KeyEventArgs e) 
@@ -241,13 +272,16 @@ namespace PresentationLayer.Presenters.Admin
             DisplaySelectedToPersonalInfoControl(student);
         }
 
-        private void HighlightSearchRow(string srCode)
+        private void HighlightSearchRow(string usrCode)
         {
             for (int i = 0; i < _adminModifyInfoControl.InfoTableRows.Count; i++)
             {
-                string tempSrCode = _adminModifyInfoControl.InfoTableRows[i].Cells["SrCode"].Value.ToString();
+                string columnName = (_adminModifyInfoControl.ModifyUser == AccessType.STUDENT)
+                                  ? "SrCode" : "InstructorCode";
 
-                if (tempSrCode == srCode)
+                string tempSrCode = _adminModifyInfoControl.InfoTableRows[i].Cells[columnName].Value.ToString();
+
+                if (tempSrCode == usrCode)
                     _adminModifyInfoControl.InfoTableRows [i].Selected = true;
                 else
                     _adminModifyInfoControl.InfoTableRows[i].Selected = false;
