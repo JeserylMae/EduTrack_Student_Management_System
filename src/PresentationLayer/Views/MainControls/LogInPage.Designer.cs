@@ -77,7 +77,7 @@ namespace PresentationLayer.UserControls.MainControls
             this.UserIdTextbox.Location = new System.Drawing.Point(114, 184);
             this.UserIdTextbox.Name = "UserIdTextbox";
             this.UserIdTextbox.Size = new System.Drawing.Size(347, 24);
-            this.UserIdTextbox.TabIndex = 10;
+            this.UserIdTextbox.TabIndex = 5;
             // 
             // label4
             // 
@@ -134,7 +134,7 @@ namespace PresentationLayer.UserControls.MainControls
             this.LogInButton.Location = new System.Drawing.Point(62, 458);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(195, 45);
-            this.LogInButton.TabIndex = 5;
+            this.LogInButton.TabIndex = 8;
             this.LogInButton.Text = "LOGIN";
             this.LogInButton.UseVisualStyleBackColor = false;
             // 
