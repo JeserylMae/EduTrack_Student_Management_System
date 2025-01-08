@@ -23,20 +23,25 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler FileDropDownButtonClicked;
         event EventHandler StudAcadInfoButtonClicked;
         event EventHandler ItrPersonalInfoButtonClicked;
+        event EventHandler StudPersonalInfoButtonClicked;
 
         void ClearInfoTable();
         void DisposeControl();
         void TriggerInfoTableReload();
 
-        string SearchSrCodeText    { get; }
+        string SearchUsrCodeText { get; }
         object[] InfoTableRowData  { set; }
 
+        Label AccessPageLabel                    { get; }
         DataGridView AccessInfoTable             { get; }
         DataGridViewRowCollection InfoTableRows  { get; }
         FlowLayoutPanel AccessFileDropDownLayout { get; }
+
         AccessType ModifyUser                    { get; set; }
         UserControl MainControlHolderControl     { get; set; }
         IPersonalInfoControl PersonalInfoControl { get; set; }
+
+        FontAwesome.Sharp.IconButton AccessSearchUsrCodeButton  { get; }
         DataGridViewSelectedRowCollection SelectedRowCollection { get; }
     }
 }

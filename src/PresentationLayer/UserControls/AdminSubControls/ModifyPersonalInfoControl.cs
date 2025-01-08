@@ -50,34 +50,41 @@ namespace PresentationLayer.UserControls.AdminSubControls
             }
         }
 
-        public DataGridView AccessInfoTable                            { get => InfoTable;                }
         public AccessType ModifyUser                                   { get; set;                        }
-        public string SearchSrCodeText                                 { get => SearchSrCodeTextbox.Text; }
         public IPersonalInfoControl PersonalInfoControl                { get; set;                        }
+
+        public Label AccessPageLabel                                   { get => PageLabel;                }
+        public DataGridView AccessInfoTable                            { get => InfoTable;                }
+        public string SearchUsrCodeText                                { get => SearchUsrCodeTextbox.Text;}
         public DataGridViewRowCollection InfoTableRows                 { get => InfoTable.Rows;           }
         public FlowLayoutPanel AccessFileDropDownLayout                { get => FileDropDownLayout;       }
+        public FontAwesome.Sharp.IconButton AccessSearchUsrCodeButton  { get => SearchUsrCodeButton;      }
         public DataGridViewSelectedRowCollection SelectedRowCollection { get => InfoTable.SelectedRows;   }
 
 
-        public void TriggerInfoTableReload() { ControlLoad?.Invoke(this, EventArgs.Empty); }
-        public void ClearInfoTable() { InfoTable.Rows.Clear(); InfoTable.Refresh(); }
+        public void ClearInfoTable() 
+        { 
+            InfoTable.Rows.Clear(); 
+            InfoTable.Refresh(); 
+        }
         public void DisposeControl() { this.Dispose(); }
+        public void TriggerInfoTableReload() { ControlLoad?.Invoke(this, EventArgs.Empty); }
 
 
         public event EventHandler ControlLoad;
         public event EventHandler ViewAddForm;
         public event EventHandler ViewUpdateForm;
+        public event EventHandler ExitButtonClicked;
         public event EventHandler DeleteSelectedRow;
         public event EventHandler SelectedRowChanged;
         public event EventHandler SearchButtonClicked;
         public event KeyEventHandler SearchTextBoxKeyDown;
+        public event EventHandler CloseEditorButtonClicked;
         public event EventHandler ItrAcadInfoButtonClicked;
         public event EventHandler FileDropDownButtonClicked;
         public event EventHandler StudAcadInfoButtonClicked;
         public event EventHandler ItrPersonalInfoButtonClicked;
-        public event EventHandler ExitButtonClicked;
-        public event EventHandler CloseEditorButtonClicked;
-
+        public event EventHandler StudPersonalInfoButtonClicked;
 
         private UserControl _addedControl;
         private TaskCompletionSource<bool> InfoTableCreated;
