@@ -72,21 +72,15 @@ namespace ServiceLayer.Database
 
         public async Task<bool> Update(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructor)
         {
-            Uri request = new Uri($"{_webAddress}/Update");
+            string request = $"{_webAddress}/Update";
 
             string jsonParameter = JsonConvert.SerializeObject(instructor, Formatting.Indented);
             StringContent content = new StringContent(jsonParameter, Encoding.UTF8, "application/json");
 
             using (HttpClient client = new HttpClient())
             {
-                HttpRequestMessage requestMessage = new HttpRequestMessage
-                {
-                    Method = new HttpMethod("Patch"),
-                    RequestUri = request,
-                    Content = content
-                };
+                HttpResponseMessage response = await client.PostAsync(request, content);
 
-                HttpResponseMessage response = await client.SendAsync(requestMessage);
                 return response.IsSuccessStatusCode;
             }
         }

@@ -58,7 +58,7 @@ namespace InfrastructureLayer.Controllers
             return BadRequest(new { Message = $"Failed to add instructor with Itr-Code {instructorModel.InfoModel.ItrCode}" });
         }
 
-        [HttpPatch("Update")]
+        [HttpPost("Update")]
         public async Task<IActionResult> Update(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructorModel)
         {
             string procedure = _query.spUpdate;
