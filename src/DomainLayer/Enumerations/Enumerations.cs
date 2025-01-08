@@ -25,6 +25,16 @@ namespace PresentationLayer.Presenters.Enumerations
         SrCodeAndAcadYearAndYearLevelAndSemester
     }
 
+    public enum InstructorAcadParams
+    {
+        None,
+        ItrCode,
+        ItrCodeAndAcademicYear,
+        ItrCodeAndAcademicYearAndYearLevel,
+        ItrCodeAndAcademicYearAndYearLevelAndSection,
+        ItrCodeAndAcademicYearAndYearLevelAndSectionAndCourse
+    }
+
     public enum RequestType
     {
         INSERT,
