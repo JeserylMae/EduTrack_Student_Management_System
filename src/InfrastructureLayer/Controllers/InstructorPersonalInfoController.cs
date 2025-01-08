@@ -72,7 +72,7 @@ namespace InfrastructureLayer.Controllers
             return BadRequest(new { Message = $"Failed to update instrucotr with Itr-Code {instructorModel.InfoModel.ItrCode}." });
         }
 
-        [HttpDelete]
+        [HttpDelete("Delete")]
         public async Task<IActionResult> Delete([FromBody] PInstructorPersonalInfoParams instructorModel)
         {
             string procedure = _query.spDelete;
