@@ -10,8 +10,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
     {
         private void OnTopBarButtonsCreated()
         {
-            if (SearchSrCodeButton != null)   { SearchButtonCreated.TrySetResult(true); }
-            if (SearchSrCodeTextbox != null)  { SearchTextBoxCreated.TrySetResult(true); }
+            if (SearchUsrCodeButton != null)   { SearchButtonCreated.TrySetResult(true); }
+            if (SearchUsrCodeTextbox != null)  { SearchTextBoxCreated.TrySetResult(true); }
             if (OpenAddFormButton != null)    { OpenAddFormButtonCreated.TrySetResult(true); }
             if (FileDropDownLayout != null)   { FileDropDownLayoutCreated.TrySetResult(true); }
             if (FileDropDownButton != null)   { FileDropDownButtonCreated.TrySetResult(true); }
@@ -36,7 +36,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
             OpenDropFormButton.Click += delegate { DeleteSelectedRow?.Invoke(this, EventArgs.Empty); };
 
             await SearchButtonCreated.Task;
-            SearchSrCodeButton.Click += delegate { SearchButtonClicked?.Invoke(this, EventArgs.Empty); };
+            SearchUsrCodeButton.Click += delegate { SearchButtonClicked?.Invoke(this, EventArgs.Empty); };
 
 
             await FileDropDownButtonCreated.Task;
@@ -47,10 +47,11 @@ namespace PresentationLayer.UserControls.AdminSubControls
             CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
             StudentAcadInfoButton.Click        += delegate { StudAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
             InstructorAcadInfoButton.Click     += delegate { ItrAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            StudentPersonalInfoButton.Click    += delegate { StudPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
             InstructorPersonalInfoButton.Click += delegate { ItrPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
 
             await SearchTextBoxCreated.Task;
-            SearchSrCodeTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchTextBoxKeyDown?.Invoke(sender, e); };
+            SearchUsrCodeTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchTextBoxKeyDown?.Invoke(sender, e); };
         }
 
         private async void InitializeControlSubscriber()
