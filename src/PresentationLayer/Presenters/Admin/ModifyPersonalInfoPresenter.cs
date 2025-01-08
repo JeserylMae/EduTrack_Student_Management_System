@@ -13,6 +13,7 @@ using PresentationLayer.Presenters.General;
 using PresentationLayer.Presenters.Enumerations;
 using System.Threading.Tasks;
 using DomainLayer.DataModels.Instructor;
+using System.Runtime.CompilerServices;
 
 
 namespace PresentationLayer.Presenters.Admin
@@ -141,22 +142,11 @@ namespace PresentationLayer.Presenters.Admin
         private async void DeleteSelectedRowButton_Clicked(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = _adminModifyInfoControl.SelectedRowCollection[0];
-            PStudentPersonalInfoParams codes = new PStudentPersonalInfoParams();
-
-            string srCode = selectedRow.Cells["SrCode"].Value.ToString();
-
-            DialogResult result = ConfirmDelete(srCode);
-
-            if (result == DialogResult.Yes)
-            {
-                AssignValuesToObject(ref codes, srCode);
-                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
-
-                bool response = await services.Delete(codes);
-
-                DisplayDeleteConfirmationMessage(response, srCode);
-                _adminModifyInfoControl.TriggerInfoTableReload();
-            }
+            
+            if (AccessType.STUDENT ==_adminModifyInfoControl.ModifyUser)
+                await HandleStudentDeleteRequest(selectedRow);
+            else if (AccessType.INSTRUCTOR == _adminModifyInfoControl.ModifyUser)
+                await HandleInstructorDeleteRequest(selectedRow);
         }
 
         private void SearchButton_Clicked(object sender, EventArgs e)
@@ -185,6 +175,46 @@ namespace PresentationLayer.Presenters.Admin
 
 
         #region Helper methods
+        private async Task HandleStudentDeleteRequest(DataGridViewRow selectedRow)
+        {
+            PStudentPersonalInfoParams codes = new PStudentPersonalInfoParams();
+
+            string srCode = selectedRow.Cells["SrCode"].Value.ToString();
+
+            DialogResult result = ConfirmDelete(srCode);
+
+            if (result == DialogResult.Yes)
+            {
+                AssignValuesToObject(ref codes, srCode);
+                StudentPersonalInfoServices services = new StudentPersonalInfoServices();
+
+                bool response = await services.Delete(codes);
+
+                DisplayDeleteConfirmationMessage(response, srCode);
+                _adminModifyInfoControl.TriggerInfoTableReload();
+            }
+        }
+
+        private async Task HandleInstructorDeleteRequest(DataGridViewRow selectedRow)
+        {
+            PInstructorPersonalInfoParams codes = new PInstructorPersonalInfoParams();
+
+            string itrCode = selectedRow.Cells["InstructorCode"].Value.ToString();
+
+            DialogResult result = ConfirmDelete(itrCode);
+
+            if (result == DialogResult.Yes)
+            {
+                AssignValuesToObject(ref codes, itrCode);
+                InstructorPersonalInfoServices services = new InstructorPersonalInfoServices();
+
+                bool response = await services.Delete(codes);
+
+                DisplayDeleteConfirmationMessage(response, itrCode);
+                _adminModifyInfoControl.TriggerInfoTableReload();
+            }
+        }
+
         private async Task HandleInstructorSelectionChanged(DataGridViewRow selectedRow)
         {
             string UserId = selectedRow.Cells["InstructorCode"].Value.ToString();
@@ -224,24 +254,46 @@ namespace PresentationLayer.Presenters.Admin
             }
         }
 
-        private DialogResult ConfirmDelete(string srCode)
+        private DialogResult ConfirmDelete(string usrCode)
         {
-            return MessageBox.Show(
-                $"Are you sure you want to delete informations about student with Sr-Code {srCode}?",
-                "Student Personal Info - Delete",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
+            string message = "";
+            string header = "";
+            MessageBoxButtons buttons;
+
+            if (_adminModifyInfoControl.ModifyUser == AccessType.STUDENT)
+            {
+                message = $"Are you sure you want to delete informations about student with Sr-Code {usrCode}?";
+                header = "Student Personal Information - Delete";
+                buttons = MessageBoxButtons.YesNo;
+            }
+            else if (_adminModifyInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+            {
+                message = $"Are you sure you want to delete informations about instructor with code {usrCode}?";
+                header = "Instructor Personal Information - Delete";
+                buttons = MessageBoxButtons.YesNo;
+            }
+            else
+            {
+                message = $"Cannot modify current user type.";
+                header = $"{_adminModifyInfoControl.ModifyUser.ToString()} Personal Information - Delete";
+                buttons = MessageBoxButtons.OK;
+            }
+
+            return MessageBox.Show(message, header, buttons, MessageBoxIcon.Warning);
         }
 
-        private void DisplayDeleteConfirmationMessage(bool deleteSuccessful, string srCode)
+        private void DisplayDeleteConfirmationMessage(bool deleteSuccessful, string usrCode)
         {
-            string confirmationMessage = deleteSuccessful ?
-                    $"Successfully deleted student with SR-Code {srCode}." :
-                    $"Failed to delete student with Sr-Code {srCode}.";
+            string userType = (_adminModifyInfoControl.ModifyUser == AccessType.STUDENT)
+                            ? "Student|Sr-Code" : "Instructor|code";
 
-            MessageBox.Show(confirmationMessage,
-                "Student Personal Info - Delete",
+            string message = (deleteSuccessful)
+                ? $"Successfully deleted {userType.Split('|')[0].ToLower()} with {userType.Split('|')[1]} {usrCode}."
+                : $"Failed to delete {userType.Split('|')[0].ToLower()} with {userType.Split('|')[1]} {usrCode}.";
+
+            string header = $"{userType.Split('|')[0]} Personal Information - Delete";
+
+            MessageBox.Show(message, header,
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
@@ -250,10 +302,19 @@ namespace PresentationLayer.Presenters.Admin
         private void AssignValuesToObject(ref PStudentPersonalInfoParams codes, string srCode)
         {
             codes.SrCode              = srCode;
-            codes.UserNameCode     = $"{srCode}-STU";
-            codes.UserAddressCode  = $"{srCode}-STU";
+            codes.UserNameCode        = $"{srCode}-STU";
+            codes.UserAddressCode     = $"{srCode}-STU";
             codes.GuardianNameCode    = $"{srCode}-GUA";
             codes.GuardianAddressCode = $"{srCode}-GUA";
+        }
+
+        private void AssignValuesToObject(ref PInstructorPersonalInfoParams codes, string itrCode)
+        {
+            codes.ItrCode = itrCode;
+            codes.UserNameCode = $"{itrCode}-STU";
+            codes.UserAddressCode = $"{itrCode}-STU";
+            codes.GuardianNameCode = $"{itrCode}-GUA";
+            codes.GuardianAddressCode = $"{itrCode}-GUA";
         }
 
         private void AddStudentPersonalInfoToObject(ref object[] studentInfo,
