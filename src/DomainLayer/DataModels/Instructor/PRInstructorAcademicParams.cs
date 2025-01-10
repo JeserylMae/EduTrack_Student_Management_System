@@ -11,6 +11,7 @@ namespace DomainLayer.DataModels.Instructor
         public string ItrCode       { get; set; } 
         public string Course        { get; set; }
         public string Section       { get; set; }
+        public string Semester      { get; set; }    
         public string YearLevel     { get; set; }
         public string AcademicYear  { get; set; }
     }
