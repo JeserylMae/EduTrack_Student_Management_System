@@ -14,23 +14,23 @@ namespace InfrastructureLayer.Controllers
     [ApiController]
     public class InstructorAcademicInfoController : ControllerBase
     {
-        public InstructorAcademicInfoController(IDataRepository dataRepository)
+        public InstructorAcademicInfoController(IDataRepository dataRepository, 
+                                InstructorAcademicInfoRepository itrRepository)
         {
             _repository = dataRepository;
+            _itrRepository = itrRepository;
             _query = new InstructorAcademicInfoQuery();
         }
+
 
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            string procedure = _query.spGetAll;
-
-            var response = await _repository.GetAll<List<PInstructorAcademicInfoModel<PNameModel>>>(procedure);
+            var response = await _itrRepository.GetAll();
 
             if (response != null) return Ok(response);
             else return NotFound(new { Message = $"Failed to get list of instructor's academic info." });
         }
-
 
         [HttpGet("GellAllCourse")]
         public async Task<IActionResult> GetAllSection()
@@ -118,23 +118,33 @@ namespace InfrastructureLayer.Controllers
             else return BadRequest(new { Message = $"Failed to delete information of instructor with ID {instructor.ItrCode}." });
         }
 
+
         #region Helpers
         private InstructorAcadParams HandleParameters(PRInstructorAcademicParams parameters)
         {
             if (!string.IsNullOrEmpty(parameters.ItrCode)      &&
                 !string.IsNullOrEmpty(parameters.AcademicYear) &&
                 !string.IsNullOrEmpty(parameters.YearLevel)    &&
+                !string.IsNullOrEmpty(parameters.Semester)     &&
                 !string.IsNullOrEmpty(parameters.Section)      &&
                 !string.IsNullOrEmpty(parameters.Course))
             {
-                return InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSectionAndCourse;
+                return InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSemesterAndSectionAndCourse;
             }
             else if (!string.IsNullOrEmpty(parameters.ItrCode)      &&
                      !string.IsNullOrEmpty(parameters.AcademicYear) &&
                      !string.IsNullOrEmpty(parameters.YearLevel)    &&
+                     !string.IsNullOrEmpty (parameters.Semester)    &&
                      !string.IsNullOrEmpty(parameters.Section))
             {
-                return InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSection;
+                return InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSemesterAndSection;
+            }
+            else if (!string.IsNullOrEmpty(parameters.ItrCode)      &&
+                     !string.IsNullOrEmpty(parameters.AcademicYear) &&
+                     !string.IsNullOrEmpty(parameters.YearLevel)    &&
+                    !string.IsNullOrEmpty(parameters.Semester))
+            {
+                return InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSemester;
             }
             else if (!string.IsNullOrEmpty(parameters.ItrCode)      &&
                      !string.IsNullOrEmpty(parameters.AcademicYear) &&
@@ -142,7 +152,7 @@ namespace InfrastructureLayer.Controllers
             {
                 return InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevel;
             }
-            else if (!string.IsNullOrEmpty(parameters.ItrCode) &&
+            else if (!string.IsNullOrEmpty(parameters.ItrCode)      &&
                      !string.IsNullOrEmpty(parameters.AcademicYear))
             {
                 return InstructorAcadParams.ItrCodeAndAcademicYear;
@@ -160,6 +170,7 @@ namespace InfrastructureLayer.Controllers
             parameters.Add("@p_ItrCode", instructor.ItrCode);
             parameters.Add("@p_AcademicYear", instructor.AcademicYear);
             parameters.Add("@p_YearLevel", instructor.YearLevel);
+            parameters.Add("@p_Semester", instructor.Semester);
             parameters.Add("@p_Section", instructor.Section);
             parameters.Add("@p_Course", instructor.Course);
         }
@@ -167,17 +178,20 @@ namespace InfrastructureLayer.Controllers
         private void AddValuesToParameter<TModel>(ref DynamicParameters parameters,
                     PInstructorAcademicInfoModel<TModel> instructor)
         {
-            parameters.Add("@p_ItrCode", instructor.ItrCode);
-            parameters.Add("@p_Course", instructor.Course);
-            parameters.Add("@p_Program", instructor.Program);
-            parameters.Add("@p_Section", instructor.Section);
-            parameters.Add("@p_YearLevel", instructor.YearLevel);
-            parameters.Add("@p_AcademicYear", instructor.AcademicYear);
-            parameters.Add("@p_InstructorNameId", instructor.InstructorName);
+            parameters.Add("@p_ItrCode",            instructor.ItrCode          );
+            parameters.Add("@p_Course",             instructor.Course           );
+            parameters.Add("@p_Program",            instructor.Program          );
+            parameters.Add("@p_Section",            instructor.Section          );
+            parameters.Add("@p_Semester",           instructor.Semester         );
+            parameters.Add("@p_YearLevel",          instructor.YearLevel        );
+            parameters.Add("@p_AcademicYear",       instructor.AcademicYear     );
+            parameters.Add("@p_InstructorNameId",   instructor.InstructorName   );
         }
         #endregion
 
+
         private IDataRepository _repository;
         private InstructorAcademicInfoQuery _query;
+        private IInstructorAcademicInfoRepository _itrRepository;
     }
 }
