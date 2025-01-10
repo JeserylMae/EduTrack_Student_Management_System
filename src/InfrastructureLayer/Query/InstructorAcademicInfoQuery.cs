@@ -68,10 +68,10 @@ namespace InfrastructureLayer.Query
 
         public readonly string spInsertNew => (@"
             INSERT INTO InstructorAcademicInfoTbl(
-                ItrCode, InstructorNameId, Course, Program, Section, YearLevel, AcademicYear
+                ItrCode, InstructorNameId, Course, Program, Section, YearLevel, Semester, AcademicYear
             )
             VALUES(
-                @p_ItrCode, @p_InstructorNameId, @p_Course, @p_Program, @p_Section, @p_YearLevel, @p_AcademicYear
+                @p_ItrCode, @p_InstructorNameId, @p_Course, @p_Program, @p_Section, @p_YearLevel, @p_Semester, @p_AcademicYear
             );
         ");
 
@@ -83,6 +83,7 @@ namespace InfrastructureLayer.Query
                 Course = @p_Course,
                 Program = @p_Program,
                 Section = @p_Section,
+                Semester = @p_Semester, 
                 YearLevel = @p_YearLevel,
                 AcademicYear = @p_AcademicYear
             WHERE   
@@ -123,21 +124,32 @@ namespace InfrastructureLayer.Query
                             InstructorAIT.YearLevel = @p_YearLevel;
                     ";
                     break;
-                case InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSection:
+                case InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSemester:
                     query += @"
                         WHERE 
                             InstructorAIT.ItrCode = @p_ItrCode AND
                             InstructorAIT.AcademicYear = @p_AcademicYear AND
                             InstructorAIT.YearLevel = @p_YearLevel AND
+                            InstructorAIT.Semester = @p_Semester;
+                    ";
+                    break;
+                case InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSemesterAndSection:
+                    query += @"
+                        WHERE 
+                            InstructorAIT.ItrCode = @p_ItrCode AND
+                            InstructorAIT.AcademicYear = @p_AcademicYear AND
+                            InstructorAIT.YearLevel = @p_YearLevel AND
+                            InstructorAIT.Semester = @p_Semester AND
                             InstructorAIT.Section = @p_Section;
                     ";
                     break;
-                case InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSectionAndCourse:
+                case InstructorAcadParams.ItrCodeAndAcademicYearAndYearLevelAndSemesterAndSectionAndCourse:
                     query += @"
                         WHERE 
                             InstructorAIT.ItrCode = @p_ItrCode AND
                             InstructorAIT.AcademicYear = @p_AcademicYear AND
                             InstructorAIT.YearLevel = @p_YearLevel AND
+                            InstructorAIT.Semester = @p_Semester AND
                             InstructorAIT.Section = @p_Section AND
                             InstructorAIT.Course = @p_Course;
                     ";
