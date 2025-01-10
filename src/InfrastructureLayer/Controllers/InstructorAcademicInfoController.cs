@@ -15,7 +15,7 @@ namespace InfrastructureLayer.Controllers
     public class InstructorAcademicInfoController : ControllerBase
     {
         public InstructorAcademicInfoController(IDataRepository dataRepository, 
-                                InstructorAcademicInfoRepository itrRepository)
+                                IInstructorAcademicInfoRepository itrRepository)
         {
             _repository = dataRepository;
             _itrRepository = itrRepository;
@@ -37,31 +37,35 @@ namespace InfrastructureLayer.Controllers
         {
             string procedure = _query.spGetAllDistinct("Section");
 
-            var response = await _repository.GetAll<List<string>>(procedure);
+            var response = await _repository.GetAll<string>(procedure);
 
             if (response != null) return Ok(response);
             else return NotFound(new { Message = "Failed to get sections." });
         }
 
         [HttpGet("GetById")]
-        public async Task<IActionResult> GetById(PRInstructorAcademicParams? instructor)
+        public async Task<IActionResult> GetById([FromQuery] PRInstructorAcademicParams? instructor)
         {
-            if (instructor == null) return BadRequest(new { Message = "At least one parameter is required." });
+            try
+            {
+                if (instructor == null) return BadRequest(new { Message = "At least one parameter is required." });
 
-            InstructorAcadParams parametersType = HandleParameters(instructor);
-            string procedure = _query.spGetById(parametersType);
-            
-            DynamicParameters parameters = new DynamicParameters();
-            AddValuesToParameter(ref parameters, instructor);
+                InstructorAcadParams parametersType = HandleParameters(instructor);
+                string procedure = _query.spGetById(parametersType);
 
-            var response = await _repository.GetSingle<PInstructorAcademicInfoModel<PNameModel>>(procedure, parameters);
+                DynamicParameters parameters = new DynamicParameters();
+                AddValuesToParameter(ref parameters, instructor);
 
-            if (response != null) return Ok(response);
-            else return NotFound(new { Message = $"Failed to get instructor with ID {instructor.ItrCode}." });
+                var response = await _itrRepository.GetById(procedure, parameters);
+
+                if (response != null) return Ok(response);
+                else return NotFound(new { Message = $"Failed to get instructor with ID {instructor.ItrCode}." });
+            }
+            catch (Exception ex) { return NotFound("StackTrace: " + ex.StackTrace); }
         }
 
         [HttpGet("GetRecordId")]
-        public async Task<IActionResult> GetRecordId(PRInstructorAcademicParams instructor)
+        public async Task<IActionResult> GetRecordId([FromQuery] PRInstructorAcademicParams instructor)
         {
             string procedure = _query.spGetRecordId;
 
@@ -167,12 +171,12 @@ namespace InfrastructureLayer.Controllers
         private void AddValuesToParameter(ref DynamicParameters parameters, 
                                     PRInstructorAcademicParams instructor)
         {
-            parameters.Add("@p_ItrCode", instructor.ItrCode);
-            parameters.Add("@p_AcademicYear", instructor.AcademicYear);
-            parameters.Add("@p_YearLevel", instructor.YearLevel);
-            parameters.Add("@p_Semester", instructor.Semester);
-            parameters.Add("@p_Section", instructor.Section);
-            parameters.Add("@p_Course", instructor.Course);
+            parameters.Add("@p_ItrCode", instructor.ItrCode?? "");
+            parameters.Add("@p_AcademicYear", instructor.AcademicYear?? "");
+            parameters.Add("@p_YearLevel", instructor.YearLevel?? "");
+            parameters.Add("@p_Semester", instructor.Semester?? "");
+            parameters.Add("@p_Section", instructor.Section?? "");
+            parameters.Add("@p_Course", instructor.Course?? "");
         }
 
         private void AddValuesToParameter<TModel>(ref DynamicParameters parameters,
