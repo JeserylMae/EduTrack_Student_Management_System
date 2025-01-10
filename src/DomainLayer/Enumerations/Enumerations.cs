@@ -31,8 +31,9 @@ namespace PresentationLayer.Presenters.Enumerations
         ItrCode,
         ItrCodeAndAcademicYear,
         ItrCodeAndAcademicYearAndYearLevel,
-        ItrCodeAndAcademicYearAndYearLevelAndSection,
-        ItrCodeAndAcademicYearAndYearLevelAndSectionAndCourse
+        ItrCodeAndAcademicYearAndYearLevelAndSemester,
+        ItrCodeAndAcademicYearAndYearLevelAndSemesterAndSection,
+        ItrCodeAndAcademicYearAndYearLevelAndSemesterAndSectionAndCourse
     }
 
     public enum RequestType
