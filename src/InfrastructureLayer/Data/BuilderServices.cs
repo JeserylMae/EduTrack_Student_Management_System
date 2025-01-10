@@ -9,6 +9,7 @@ namespace InfrastructureLayer.Data
         {
             builder.Services.AddTransient<IDataRepository, DataRepository>();
             builder.Services.AddTransient<IStudentAcademicInfoRepository, StudentAcademicInfoRepository>();
+            builder.Services.AddTransient<IInstructorAcademicInfoRepository, InstructorAcademicInfoRepository>();
         }
     }
 }
