@@ -59,7 +59,7 @@ namespace InfrastructureLayer.Query
                 FROM
                     InstructorAcademicInfoTbl as InstructorAIT
                 LEFT JOIN 
-                    NameTbl InstructorName ON InstructorAIT.InstructorNameId = InstructorName.UserId;
+                    NameTbl InstructorName ON InstructorAIT.InstructorNameId = InstructorName.UserId
             ");
             HandleParameters(parameters, ref query);
 
