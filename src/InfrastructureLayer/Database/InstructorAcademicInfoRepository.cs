@@ -37,7 +37,27 @@ namespace InfrastructureLayer.Database
             }
         }
 
-       
+        public async Task<List<PInstructorAcademicInfoModel<PNameModel>>> GetById(string procedure, 
+                                                                DynamicParameters parameters)
+        {
+            using (IDbConnection connection = _databaseContext.CreateConnection())
+            {
+                var response = await connection.QueryAsync<PInstructorAcademicInfoModel<PNameModel>,
+                    PNameModel, PInstructorAcademicInfoModel<PNameModel>>(
+                    procedure, 
+                    (academicInfo, name) =>
+                    {
+                        if (name != null)
+                            academicInfo.InstructorName = name;
+                        return academicInfo;
+                    }, 
+                    splitOn: "LastName",
+                    commandType: CommandType.Text
+                );
+                
+                return response.ToList(); 
+            }
+        }
 
         private DatabaseContext _databaseContext;
         private InstructorAcademicInfoQuery _query;
