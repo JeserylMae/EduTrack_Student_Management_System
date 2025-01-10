@@ -9,12 +9,13 @@ namespace DomainLayer.DataModels.Instructor
 {
     public class PInstructorAcademicInfoModel<TModel>
     {
-        public string ItrCode { get; set; }
-        public string Course {  get; set; }
-        public string Program { get; set; }
-        public string Section { get; set; }
-        public string YearLevel { get; set; }
-        public string AcademicYear { get; set; }
-        public TModel InstructorName { get; set; }
+        public string ItrCode           { get; set; }
+        public string Course            { get; set; }
+        public string Program           { get; set; }
+        public string Section           { get; set; }
+        public string Semester          { get; set; }
+        public string YearLevel         { get; set; }
+        public string AcademicYear      { get; set; }
+        public TModel InstructorName    { get; set; }
     }
 }
