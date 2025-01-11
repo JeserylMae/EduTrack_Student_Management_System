@@ -18,6 +18,7 @@ namespace ServiceLayer.Database
         }
 
 
+
         public async Task<List<PInstructorAcademicInfoModel<PNameModel>>> GetAll()
         {
             Uri request = new Uri($"{_webAddress}/GetAll");
@@ -34,6 +35,7 @@ namespace ServiceLayer.Database
                 return new List<PInstructorAcademicInfoModel<PNameModel>>();
             }
         }
+
 
         public async Task<List<string>> GetAllCourse()
         {
@@ -52,13 +54,17 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<PInstructorAcademicInfoModel<PNameModel>> GetById(string itrCode)
+
+        public async Task<PInstructorAcademicInfoModel<PNameModel>> GetById(PRInstructorAcademicParams instructor)
         {
-            Uri request = new Uri($"{_webAddress}/GetById?ItrCode={itrCode}");
+            string request = $"{_webAddress}/GetById";
+            HandleRequestParameters(ref request, instructor);
+
+            Uri endpoint = new Uri(request);
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync(request);
+                HttpResponseMessage response = await client.GetAsync(endpoint);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -69,6 +75,7 @@ namespace ServiceLayer.Database
             }
         }
 
+
         public async Task<int> GetRecordId(PRInstructorAcademicParams instructor)
         {
             string request = $"{_webAddress}/GetRecordId";
@@ -78,7 +85,7 @@ namespace ServiceLayer.Database
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = new HttpResponseMessage();
+                HttpResponseMessage response = await client.GetAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -88,6 +95,7 @@ namespace ServiceLayer.Database
                 return -1;
             }
         }
+
 
         public async Task<bool> InsertNew(PInstructorAcademicInfoModel<string> instructor)
         {
@@ -102,6 +110,7 @@ namespace ServiceLayer.Database
                 return response.IsSuccessStatusCode;
             }
         } 
+
 
         public async Task<bool> Update(string recordId, PInstructorAcademicInfoModel<string> instructor)
         {
@@ -123,6 +132,7 @@ namespace ServiceLayer.Database
                 return responnse.IsSuccessStatusCode;
             }
         }
+
 
         public async Task<bool> Delete(PInstructorPersonalInfoParams instructor)
         {
@@ -146,14 +156,16 @@ namespace ServiceLayer.Database
         }
 
 
+
         #region Helpers
+
         private void HandleRequestParameters(ref string request, PRInstructorAcademicParams instructor)
         {
             if (!string.IsNullOrEmpty(instructor.ItrCode))
                 request += $"?ItrCode={instructor.ItrCode}";
 
             if (!string.IsNullOrEmpty(instructor.AcademicYear))
-                request += $"&AcademicYear={instructor.AcademicYear}";
+                request += $"&AcademicYear={Uri.EscapeDataString(instructor.AcademicYear)}";
             
             if (!string.IsNullOrEmpty(instructor.YearLevel))
                 request += $"&YearLevel={instructor.YearLevel}";
@@ -165,9 +177,12 @@ namespace ServiceLayer.Database
                 request += $"&Section={instructor.Section}";
 
             if (!string.IsNullOrEmpty(instructor.Course))
-                request += $"&Course={instructor.Course}";
+                request += $"&Course={Uri.EscapeDataString(instructor.Course)}";
         }
+        
         #endregion
+
+
 
         private string _webAddress;
     }
