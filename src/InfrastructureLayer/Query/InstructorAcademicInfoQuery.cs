@@ -10,6 +10,7 @@ namespace InfrastructureLayer.Query
                 InstructorAIT.Course,
                 InstructorAIT.Program,
                 InstructorAIT.Section,
+                InstructorAIT.Semester,
                 InstructorAIT.YearLevel,
                 InstructorAIT.AcademicYear,
                 InstructorName.LastName,
@@ -34,13 +35,14 @@ namespace InfrastructureLayer.Query
         public readonly string spGetRecordId => (@"
             SELECT
                 RecordId
-            FROM InstructorAcademicInfoTbl
+            FROM 
+                InstructorAcademicInfoTbl
             WHERE
-                ItrCode = @p_ItrCode AND
-                Course = @p_Course AND
-                Section = @p_Section AND
-                YearLevel = @p_YearLevel AND
-                AcademicYear = @p_AcademicYear;
+                (@p_ItrCode IS NULL OR ItrCode = @p_ItrCode) AND
+                (@p_Course IS NULL OR Course = @p_Course) AND
+                (@p_Section IS NULL OR Section = @p_Section) AND
+                (@p_YearLevel IS NULL OR YearLevel = @p_YearLevel) AND
+                (@p_AcademicYear IS NULL OR AcademicYear = @p_AcademicYear);
         ");
 
         public string spGetById(InstructorAcadParams parameters)
@@ -52,6 +54,7 @@ namespace InfrastructureLayer.Query
                     InstructorAIT.Program,
                     InstructorAIT.Section,
                     InstructorAIT.YearLevel,
+                    InstructorAIT.Semester,
                     InstructorAIT.AcademicYear,
                     InstructorName.LastName,
                     InstructorName.FirstName,
