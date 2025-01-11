@@ -19,6 +19,7 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -29,6 +30,7 @@ namespace InfrastructureLayer.Controllers
             if (response.Count > 0) return Ok(response);
             return NotFound(new { Message = "No instructor personal information was found." });
         }
+
 
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(string itrCode)
@@ -44,6 +46,7 @@ namespace InfrastructureLayer.Controllers
             return NotFound(new { Message = $"No personal information was found for instructor with code {itrCode}." });
         }
 
+
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructorModel)
         {
@@ -58,6 +61,7 @@ namespace InfrastructureLayer.Controllers
             return BadRequest(new { Message = $"Failed to add instructor with Itr-Code {instructorModel.InfoModel.ItrCode}" });
         }
 
+
         [HttpPost("Update")]
         public async Task<IActionResult> Update(PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructorModel)
         {
@@ -71,6 +75,7 @@ namespace InfrastructureLayer.Controllers
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"Failed to update instrucotr with Itr-Code {instructorModel.InfoModel.ItrCode}." });
         }
+
 
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete([FromBody] PInstructorPersonalInfoParams instructorModel)
@@ -87,7 +92,9 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+
         #region Helpers
+
         private void AddValuesToParameters(ref DynamicParameters parameters,
                                     ref PInstructorPersonalInfoParams codes)
         {
@@ -97,6 +104,7 @@ namespace InfrastructureLayer.Controllers
             parameters.Add("@p_GuardianNameCode",       codes.GuardianNameCode      );
             parameters.Add("@p_GuardianAddressCode",    codes.GuardianAddressCode   );
         }
+
 
         private void AddValuesToParameters(ref DynamicParameters parameters, 
             ref PInstructorPersonalInfoModel<RInstructorPersonalInfoModel> instructorModel,
@@ -137,7 +145,9 @@ namespace InfrastructureLayer.Controllers
                 parameters.Add("@p_Position",           instructorModel.Position        );
             }
         }
+
         #endregion
+
 
         private IDataRepository _repository;
         private InstructorPersonalInfoQuery _query;

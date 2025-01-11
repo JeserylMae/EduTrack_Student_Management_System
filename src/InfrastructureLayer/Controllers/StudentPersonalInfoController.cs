@@ -20,6 +20,8 @@ namespace InfrastructureLayer.Controllers
             _query = new StudentPersonalInfoQuery();
         }
 
+
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -29,6 +31,7 @@ namespace InfrastructureLayer.Controllers
             if (userList is not null) { return Ok(userList); }
             else { return NotFound(); }  
         }
+
 
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(string SrCode)
@@ -44,6 +47,7 @@ namespace InfrastructureLayer.Controllers
             else { return NotFound(new { Message = $"Student with SR Code {SrCode} is not found."}); }
         }
 
+
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student)
         {
@@ -58,6 +62,7 @@ namespace InfrastructureLayer.Controllers
             else { return BadRequest( new { Message = $"Failed to add student with SR-Code {student.InfoModel.SrCode}."}); }
         }
 
+
         [HttpPost("Update")]
         public async Task<IActionResult> UpdateStudentPersonalInfo(PStudentPersonalInfoModel<RStudentPersonalInfoModel> student)
         {
@@ -71,6 +76,7 @@ namespace InfrastructureLayer.Controllers
             if (result is not 0) { return Ok(result); }
             else { return BadRequest(new { Message = $"Failed to update student with SR-Code {student.InfoModel.SrCode}."}); }
         }
+
 
         [HttpDelete("Delete")]
         public async Task<IActionResult> DeleteStudentPersonalInfo([FromBody] PStudentPersonalInfoParams codes)
@@ -87,7 +93,9 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+
         #region Helper Methods
+
         private void AddValuesToParameters(ref DynamicParameters parameters,
                                     ref PStudentPersonalInfoParams codes)
         {
@@ -97,6 +105,7 @@ namespace InfrastructureLayer.Controllers
             parameters.Add("@p_GuardianNameCode",       codes.GuardianNameCode      );
             parameters.Add("@p_GuardianAddressCode",    codes.GuardianAddressCode   );
         }
+
 
         private void AddValuesToParameters(ref DynamicParameters parameters,
                     ref PStudentPersonalInfoModel<RStudentPersonalInfoModel> student,
@@ -137,7 +146,9 @@ namespace InfrastructureLayer.Controllers
                 parameters.Add("@p_Position",           student.Position        );
             }
         }
+
         #endregion
+
 
 
         private IDataRepository _repository;

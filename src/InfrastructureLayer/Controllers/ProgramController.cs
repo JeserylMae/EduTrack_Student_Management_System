@@ -17,6 +17,7 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -27,6 +28,7 @@ namespace InfrastructureLayer.Controllers
             return NotFound(new { Message = "Failed to get program informations."});
         }
 
+
         [HttpGet("GetAllProgram")]
         public async Task<IActionResult> GetAllProgram()
         {
@@ -36,6 +38,7 @@ namespace InfrastructureLayer.Controllers
             if (response.Count() > 0) return Ok(response);
             return NotFound(new { Message = "Failed to get program list."});
         }
+
 
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PRProgramModel programModel)
@@ -51,6 +54,7 @@ namespace InfrastructureLayer.Controllers
             return BadRequest(new { Message = $"Failed to add program with ID {programModel.ProgramId}" });
         }
 
+
         [HttpPatch("Update")]
         public async Task<IActionResult> Update(PRProgramModel programModel)
         {
@@ -65,6 +69,7 @@ namespace InfrastructureLayer.Controllers
             return BadRequest(new { Message = $"Failed to update program with ID {programModel.ProgramId}" });
         }
 
+
         [HttpPatch("UpdateProgramId")]
         public async Task<IActionResult> UpdateProgramId(PRProgramModel programModel)
         {
@@ -78,6 +83,7 @@ namespace InfrastructureLayer.Controllers
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"Failed to update program {programModel.ProgramName}." });
         }
+
 
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(string programId)
@@ -94,7 +100,9 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+
         #region Helpers
+
         private void AddDynamicParameters(ref DynamicParameters parameters, 
                                           PRProgramModel programModel)
         {
@@ -103,7 +111,9 @@ namespace InfrastructureLayer.Controllers
             parameters.Add("@p_DepartmentId", programModel.DepartmentId);
             parameters.Add("@p_DepartmentName", programModel.DepartmentName);
         }
+       
         #endregion
+
 
 
         private ProgramQuery _query;

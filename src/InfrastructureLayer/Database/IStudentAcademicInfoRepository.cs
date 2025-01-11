@@ -7,6 +7,7 @@ namespace InfrastructureLayer.Database
     public interface IStudentAcademicInfoRepository
     {
         Task<List<PStudentAcademicInfoModel<PNameModel>>> GetAll();
+        
         Task<int> DeleteStudent(PRStudentAcademicInfoParams paramsModel);
         
         Task<PStudentAcademicInfoModel<PNameModel>> GetByParams(PRStudentAcademicInfoParams paramsModel);

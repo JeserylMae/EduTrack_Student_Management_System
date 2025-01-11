@@ -64,14 +64,14 @@ namespace InfrastructureLayer.Database
 
                 var result = await connection.QueryAsync<PStudentAcademicInfoModel<PNameModel>,
                                             PNameModel, PStudentAcademicInfoModel<PNameModel>>(
-                                procedure,
-                                (academicInfo, name) =>
-                                {
-                                    academicInfo.StudentName = name;
-                                    return academicInfo;
-                                }, splitOn: "LastName",
-                                param: parameters,
-                                commandType: CommandType.Text
+                    procedure,
+                    (academicInfo, name) =>
+                    {
+                        academicInfo.StudentName = name;
+                        return academicInfo;
+                    }, splitOn: "LastName",
+                    param: parameters,
+                    commandType: CommandType.Text
                 );
                 return result.SingleOrDefault();
             }
@@ -79,6 +79,7 @@ namespace InfrastructureLayer.Database
 
 
         #region Helpers
+
         public void AddDynamicParameters(ref DynamicParameters parameters, 
                                     PStudentAcademicInfoModel<string> studentModel,
                                     RequestType request, int? dataId = null)
@@ -95,6 +96,7 @@ namespace InfrastructureLayer.Database
             else if (RequestType.UPDATE == request && null != dataId)
                 parameters.Add("@p_Id", dataId);
         }
+
 
         public void AddDynamicParameters(ref DynamicParameters parameters, 
                                           StudentAcadParams parameterType,
@@ -123,6 +125,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
+
         private StudentAcadParams HandleParameter(PRStudentAcademicInfoParams model)
         {
             if (!String.IsNullOrEmpty(model.Semester))
@@ -143,6 +146,7 @@ namespace InfrastructureLayer.Database
             }
             return StudentAcadParams.None;
         }
+        
         #endregion
 
 

@@ -22,6 +22,7 @@ namespace InfrastructureLayer.Controllers
         }
 
 
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -30,6 +31,7 @@ namespace InfrastructureLayer.Controllers
             if (response.Count > 0) return Ok(response);
             return NotFound(new { Message = "An error occurred. Failed to load Student Academic Information page." });
         }
+
 
         [HttpGet("GetAllSections")]
         public async Task<IActionResult> GetAllSections()
@@ -40,6 +42,7 @@ namespace InfrastructureLayer.Controllers
             if (response.Count > 0 && response != null) return Ok(response);
             return NotFound(new { Message = "Failed to retrieve sections." });
         }
+
 
         [HttpGet("GetRecordId")]
         public async Task<IActionResult> GetRecordId([FromQuery]PRStudentAcademicInfoParams paramsModel)
@@ -57,6 +60,7 @@ namespace InfrastructureLayer.Controllers
             return NotFound(new { Message = "Failed to find record id." });
         }
 
+
         [HttpGet("GetByParams")]
         public async Task<IActionResult> GetByParams([FromQuery]PRStudentAcademicInfoParams? studentModel)
         {
@@ -67,6 +71,7 @@ namespace InfrastructureLayer.Controllers
             if (response != null) return Ok(response);
             return NotFound(new { Message = $"Student with Sr-Code {studentModel.SrCode} not found." });
         }
+
 
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PStudentAcademicInfoModel<string> studentModel)
@@ -85,6 +90,7 @@ namespace InfrastructureLayer.Controllers
             if (response != 0) return Ok(response);
             return BadRequest(new { Message = $"An error occured! Failed to add student with Sr-Code {studentModel.SrCode}." });
         }
+
 
         [HttpPatch("Update")]
         public async Task<IActionResult> Update([FromBody]PStudentAcademicInfoModel<string> studentModel, [FromQuery]int dataId)
@@ -105,6 +111,7 @@ namespace InfrastructureLayer.Controllers
             return BadRequest(new { Message = $"An error occured! Failed to update student with Sr-Code {studentModel.SrCode}" });
         }
 
+
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(PRStudentAcademicInfoParams? studentModel)
         {
@@ -116,6 +123,7 @@ namespace InfrastructureLayer.Controllers
             if (response != null) return Ok(response);
             return NotFound(new { Message = $"Failed to delete student with Sr-Code {studentModel.SrCode}." });
         }
+
 
 
         private StudentAcadInfoQuery _query;

@@ -13,6 +13,7 @@ namespace InfrastructureLayer.Controllers
             _repository = dataRepository;
         }
 
+
         [HttpGet("Health")]
         public async Task<IActionResult> HealthAsync()
         {

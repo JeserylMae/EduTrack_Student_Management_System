@@ -13,6 +13,7 @@ namespace InfrastructureLayer.Database
         }
 
 
+
         public async Task<int> CheckDatabaseConnection()
         {
             string query = "SELECT 1";
@@ -22,6 +23,7 @@ namespace InfrastructureLayer.Database
 
             return result;
         }
+
 
         public async Task<List<TModel>> GetAll<TModel>(string procedure, 
                                     DynamicParameters? parameters = null) 
@@ -41,6 +43,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
+
         public async Task<Dictionary<dynamic, dynamic>> GetAll(string procedure)
         {
             using (IDbConnection connection = _databaseContext.CreateConnection())
@@ -55,6 +58,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
+
         public async Task<TModel> GetSingle<TModel>(string procedure, DynamicParameters parameters)
         {
             using (IDbConnection connection = _databaseContext.CreateConnection())
@@ -68,6 +72,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
+
         public async Task<int> Execute(string procedure, DynamicParameters parameters)
         {
             using (IDbConnection connection = _databaseContext.CreateConnection())
@@ -77,6 +82,7 @@ namespace InfrastructureLayer.Database
                     commandType: CommandType.Text);
             }
         }
+
 
 
         private DatabaseContext _databaseContext;
