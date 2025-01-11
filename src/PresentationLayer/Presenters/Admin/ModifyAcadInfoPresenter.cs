@@ -33,8 +33,8 @@ namespace PresentationLayer.Presenters.Admin
             _studentAcadInfoControl.InstructorAcadInfoButtonClicked     += InstructorAcadInfoButton_Clicked;
             _studentAcadInfoControl.StudentPersonalInfoButtonClicked    += StudentPersonalInfoButton_Clicked;
             _studentAcadInfoControl.InstructorPersonalInfoButtonClicked += InstructorPersonalInfoButton_Clicked;
-            _studentAcadInfoControl.SearchSrCodeButtonClicked           += SeachSrCodeButton_Clicked;
-            _studentAcadInfoControl.SearchSrCodeTextboxPressed          += SearchSrCodeTextBox_Pressed;
+            _studentAcadInfoControl.SearchUsrCodeButtonClicked          += SeachUsrCodeButton_Clicked;
+            _studentAcadInfoControl.SearchUsrCodeTextboxPressed         += SearchUsrCodeTextBox_Pressed;
             _studentAcadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
             _studentAcadInfoControl.FilterEditorButtonClicked           += FilterEditorButton_Clicked;
         }
@@ -56,16 +56,16 @@ namespace PresentationLayer.Presenters.Admin
             }
         }
 
-        private void SearchSrCodeTextBox_Pressed(object sender, KeyEventArgs e)
+        private void SearchUsrCodeTextBox_Pressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) return;
 
-            SeachSrCodeButton_Clicked(sender, e);
+            SeachUsrCodeButton_Clicked(sender, e);
         }
 
-        private void SeachSrCodeButton_Clicked(object sender, EventArgs e)
+        private void SeachUsrCodeButton_Clicked(object sender, EventArgs e)
         {
-            string SrCode = _studentAcadInfoControl.AccessSearchSrCodeTextbox.Text;
+            string SrCode = _studentAcadInfoControl.AccessSearchUsrCodeTextbox.Text;
             var infoTableRowList = _studentAcadInfoControl.AccessInfoTable.Rows;
 
             if (SrCode == null || infoTableRowList.Count == 0) return;
@@ -226,7 +226,7 @@ namespace PresentationLayer.Presenters.Admin
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Student Academic Information",
+                MessageBox.Show(ex.Message, $"{_studentAcadInfoControl.ModifyUser.ToString()} ACADEMIC INFORMATION",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -283,11 +283,11 @@ namespace PresentationLayer.Presenters.Admin
             studentObj[1] = studentInfo.StudentName.LastName;
             studentObj[2] = studentInfo.StudentName.FirstName;
             studentObj[3] = studentInfo.StudentName.MiddleName;
-            studentObj[4] = studentInfo.Program;
-            studentObj[5] = studentInfo.YearLevel;
-            studentObj[6] = studentInfo.Semester;
-            studentObj[7] = studentInfo.Section;
-            studentObj[8] = studentInfo.AcademicYear;
+            studentObj[4] = studentInfo.Section;
+            studentObj[5] = studentInfo.Semester;
+            studentObj[6] = studentInfo.YearLevel;
+            studentObj[7] = studentInfo.AcademicYear;
+            studentObj[8] = studentInfo.Program;
         }
 
         private void SetSubmitButtonVisibility(IAcademicInfoControl studentControl, string button)
