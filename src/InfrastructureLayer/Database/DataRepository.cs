@@ -23,15 +23,18 @@ namespace InfrastructureLayer.Database
             return result;
         }
 
-        public async Task<List<TModel>> GetAll<TModel>(string procedure) 
-            where TModel : class
+        public async Task<List<TModel>> GetAll<TModel>(string procedure, 
+                                    DynamicParameters? parameters = null) 
+                                    where TModel : class
         {
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 IEnumerable<TModel> result = new List<TModel>();
                 
                 result = await connection.QueryAsync<TModel>(
-                    procedure, commandType: CommandType.Text
+                    procedure, 
+                    param: parameters,
+                    commandType: CommandType.Text
                 );
 
                 return result.ToList();
@@ -54,7 +57,6 @@ namespace InfrastructureLayer.Database
 
         public async Task<TModel> GetSingle<TModel>(string procedure, DynamicParameters parameters)
         {
-
             using (IDbConnection connection = _databaseContext.CreateConnection())
             {
                 var response = await connection.QuerySingleOrDefaultAsync<TModel>(
@@ -62,9 +64,7 @@ namespace InfrastructureLayer.Database
                     commandType: CommandType.Text
                 );
 
-                if (response == null)
-                    throw new NullReferenceException("Failed to get any data.");
-                else return response;
+                return response;
             }
         }
 
