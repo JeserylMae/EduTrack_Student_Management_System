@@ -35,6 +35,8 @@ namespace PresentationLayer.Presenters.Admin
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
         {
             IModifyAcadInfoControl studentModifyAcadInfoControl = new ModifyAcadInfoControl();
+            studentModifyAcadInfoControl.ModifyUser = AccessType.STUDENT;
+
             new ModifyAcadInfoPresenter(studentModifyAcadInfoControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)studentModifyAcadInfoControl;
