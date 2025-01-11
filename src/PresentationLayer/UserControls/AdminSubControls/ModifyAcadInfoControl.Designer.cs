@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SearchSrCodeButton = new FontAwesome.Sharp.IconButton();
-            this.SearchSrCodeTextbox = new System.Windows.Forms.TextBox();
+            this.SearchUsrCodeButton = new FontAwesome.Sharp.IconButton();
+            this.SearchUsrCodeTextbox = new System.Windows.Forms.TextBox();
             this.OpenModifyFormButton = new FontAwesome.Sharp.IconButton();
             this.OpenDropFormButton = new FontAwesome.Sharp.IconButton();
             this.OpenAddFormButton = new FontAwesome.Sharp.IconButton();
@@ -38,17 +38,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.InfoTable = new System.Windows.Forms.DataGridView();
             this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InstructorCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.YearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Semester = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Semester = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AcademicYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Program = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainControlHolder = new System.Windows.Forms.Panel();
             this.FileDropDownLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.StudentPersonalInfoButton = new System.Windows.Forms.Button();
+            this.StudentAcademicInfoButton = new System.Windows.Forms.Button();
             this.InstructorPersonalInfoButton = new System.Windows.Forms.Button();
             this.InstructorAcadInfoButton = new System.Windows.Forms.Button();
             this.FilterEditorButton = new System.Windows.Forms.Button();
@@ -62,42 +65,42 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // SearchSrCodeButton
+            // SearchUsrCodeButton
             // 
-            this.SearchSrCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchSrCodeButton.AutoSize = true;
-            this.SearchSrCodeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.SearchSrCodeButton.FlatAppearance.BorderSize = 0;
-            this.SearchSrCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchSrCodeButton.Font = new System.Drawing.Font("Candara Light", 11.25F);
-            this.SearchSrCodeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SearchSrCodeButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.SearchSrCodeButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SearchSrCodeButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.SearchSrCodeButton.IconSize = 20;
-            this.SearchSrCodeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchSrCodeButton.Location = new System.Drawing.Point(822, 5);
-            this.SearchSrCodeButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SearchSrCodeButton.Name = "SearchSrCodeButton";
-            this.SearchSrCodeButton.Size = new System.Drawing.Size(131, 28);
-            this.SearchSrCodeButton.TabIndex = 6;
-            this.SearchSrCodeButton.Text = "Search Sr-Code";
-            this.SearchSrCodeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchSrCodeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.SearchSrCodeButton.UseVisualStyleBackColor = true;
+            this.SearchUsrCodeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchUsrCodeButton.AutoSize = true;
+            this.SearchUsrCodeButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.SearchUsrCodeButton.FlatAppearance.BorderSize = 0;
+            this.SearchUsrCodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SearchUsrCodeButton.Font = new System.Drawing.Font("Candara Light", 11.25F);
+            this.SearchUsrCodeButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchUsrCodeButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.SearchUsrCodeButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchUsrCodeButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.SearchUsrCodeButton.IconSize = 20;
+            this.SearchUsrCodeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchUsrCodeButton.Location = new System.Drawing.Point(822, 5);
+            this.SearchUsrCodeButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SearchUsrCodeButton.Name = "SearchUsrCodeButton";
+            this.SearchUsrCodeButton.Size = new System.Drawing.Size(131, 28);
+            this.SearchUsrCodeButton.TabIndex = 6;
+            this.SearchUsrCodeButton.Text = "Search Sr-Code";
+            this.SearchUsrCodeButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchUsrCodeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SearchUsrCodeButton.UseVisualStyleBackColor = true;
             // 
-            // SearchSrCodeTextbox
+            // SearchUsrCodeTextbox
             // 
-            this.SearchSrCodeTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchSrCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
-            this.SearchSrCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchSrCodeTextbox.Font = new System.Drawing.Font("Candara Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchSrCodeTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SearchSrCodeTextbox.Location = new System.Drawing.Point(962, 7);
-            this.SearchSrCodeTextbox.Name = "SearchSrCodeTextbox";
-            this.SearchSrCodeTextbox.Size = new System.Drawing.Size(307, 26);
-            this.SearchSrCodeTextbox.TabIndex = 5;
-            this.SearchSrCodeTextbox.WordWrap = false;
+            this.SearchUsrCodeTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchUsrCodeTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(73)))), ((int)(((byte)(113)))));
+            this.SearchUsrCodeTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SearchUsrCodeTextbox.Font = new System.Drawing.Font("Candara Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchUsrCodeTextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SearchUsrCodeTextbox.Location = new System.Drawing.Point(962, 7);
+            this.SearchUsrCodeTextbox.Name = "SearchUsrCodeTextbox";
+            this.SearchUsrCodeTextbox.Size = new System.Drawing.Size(307, 26);
+            this.SearchUsrCodeTextbox.TabIndex = 5;
+            this.SearchUsrCodeTextbox.WordWrap = false;
             // 
             // OpenModifyFormButton
             // 
@@ -198,8 +201,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.SearchSrCodeButton);
-            this.panel2.Controls.Add(this.SearchSrCodeTextbox);
+            this.panel2.Controls.Add(this.SearchUsrCodeButton);
+            this.panel2.Controls.Add(this.SearchUsrCodeTextbox);
             this.panel2.Controls.Add(this.OpenModifyFormButton);
             this.panel2.Controls.Add(this.OpenDropFormButton);
             this.panel2.Controls.Add(this.OpenAddFormButton);
@@ -219,14 +222,16 @@
             this.InfoTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InfoTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SRCODE,
+            this.InstructorCode,
             this.LastName,
             this.FirstName,
             this.MiddleName,
-            this.Program,
-            this.YearLevel,
-            this.Semester,
+            this.Course,
             this.Section,
-            this.AcademicYear});
+            this.Semester,
+            this.YearLevel,
+            this.AcademicYear,
+            this.Program});
             this.InfoTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InfoTable.EnableHeadersVisualStyles = false;
             this.InfoTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
@@ -245,6 +250,12 @@
             this.SRCODE.HeaderText = "Sr Code";
             this.SRCODE.Name = "SRCODE";
             this.SRCODE.ReadOnly = true;
+            // 
+            // InstructorCode
+            // 
+            this.InstructorCode.HeaderText = "Instructor Code";
+            this.InstructorCode.Name = "InstructorCode";
+            this.InstructorCode.ReadOnly = true;
             // 
             // LastName
             // 
@@ -267,24 +278,11 @@
             this.MiddleName.Name = "MiddleName";
             this.MiddleName.ReadOnly = true;
             // 
-            // Program
+            // Course
             // 
-            this.Program.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Program.HeaderText = "Program";
-            this.Program.Name = "Program";
-            this.Program.ReadOnly = true;
-            // 
-            // YearLevel
-            // 
-            this.YearLevel.HeaderText = "Year Level";
-            this.YearLevel.Name = "YearLevel";
-            this.YearLevel.ReadOnly = true;
-            // 
-            // Semester
-            // 
-            this.Semester.HeaderText = "Semester";
-            this.Semester.Name = "Semester";
-            this.Semester.ReadOnly = true;
+            this.Course.HeaderText = "Course";
+            this.Course.Name = "Course";
+            this.Course.ReadOnly = true;
             // 
             // Section
             // 
@@ -292,11 +290,30 @@
             this.Section.Name = "Section";
             this.Section.ReadOnly = true;
             // 
+            // Semester
+            // 
+            this.Semester.HeaderText = "Semester";
+            this.Semester.Name = "Semester";
+            this.Semester.ReadOnly = true;
+            // 
+            // YearLevel
+            // 
+            this.YearLevel.HeaderText = "Year Level";
+            this.YearLevel.Name = "YearLevel";
+            this.YearLevel.ReadOnly = true;
+            // 
             // AcademicYear
             // 
             this.AcademicYear.HeaderText = "Academic Year";
             this.AcademicYear.Name = "AcademicYear";
             this.AcademicYear.ReadOnly = true;
+            // 
+            // Program
+            // 
+            this.Program.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Program.HeaderText = "Program";
+            this.Program.Name = "Program";
+            this.Program.ReadOnly = true;
             // 
             // MainControlHolder
             // 
@@ -314,6 +331,7 @@
             // 
             this.FileDropDownLayout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
             this.FileDropDownLayout.Controls.Add(this.StudentPersonalInfoButton);
+            this.FileDropDownLayout.Controls.Add(this.StudentAcademicInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorPersonalInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorAcadInfoButton);
             this.FileDropDownLayout.Controls.Add(this.FilterEditorButton);
@@ -321,7 +339,7 @@
             this.FileDropDownLayout.Controls.Add(this.ExitButton);
             this.FileDropDownLayout.Location = new System.Drawing.Point(299, 0);
             this.FileDropDownLayout.Name = "FileDropDownLayout";
-            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 173);
+            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 206);
             this.FileDropDownLayout.TabIndex = 1;
             this.FileDropDownLayout.Visible = false;
             // 
@@ -342,6 +360,23 @@
             this.StudentPersonalInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StudentPersonalInfoButton.UseVisualStyleBackColor = false;
             // 
+            // StudentAcademicInfoButton
+            // 
+            this.StudentAcademicInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
+            this.StudentAcademicInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.StudentAcademicInfoButton.FlatAppearance.BorderSize = 0;
+            this.StudentAcademicInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StudentAcademicInfoButton.ForeColor = System.Drawing.Color.White;
+            this.StudentAcademicInfoButton.Location = new System.Drawing.Point(0, 28);
+            this.StudentAcademicInfoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.StudentAcademicInfoButton.Name = "StudentAcademicInfoButton";
+            this.StudentAcademicInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
+            this.StudentAcademicInfoButton.Size = new System.Drawing.Size(259, 28);
+            this.StudentAcademicInfoButton.TabIndex = 1;
+            this.StudentAcademicInfoButton.Text = "Student Academic Information";
+            this.StudentAcademicInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.StudentAcademicInfoButton.UseVisualStyleBackColor = false;
+            // 
             // InstructorPersonalInfoButton
             // 
             this.InstructorPersonalInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
@@ -349,12 +384,12 @@
             this.InstructorPersonalInfoButton.FlatAppearance.BorderSize = 0;
             this.InstructorPersonalInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InstructorPersonalInfoButton.ForeColor = System.Drawing.Color.White;
-            this.InstructorPersonalInfoButton.Location = new System.Drawing.Point(0, 28);
+            this.InstructorPersonalInfoButton.Location = new System.Drawing.Point(0, 56);
             this.InstructorPersonalInfoButton.Margin = new System.Windows.Forms.Padding(0);
             this.InstructorPersonalInfoButton.Name = "InstructorPersonalInfoButton";
             this.InstructorPersonalInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.InstructorPersonalInfoButton.Size = new System.Drawing.Size(259, 28);
-            this.InstructorPersonalInfoButton.TabIndex = 1;
+            this.InstructorPersonalInfoButton.TabIndex = 2;
             this.InstructorPersonalInfoButton.Text = "Instructor Personal Information";
             this.InstructorPersonalInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstructorPersonalInfoButton.UseVisualStyleBackColor = false;
@@ -366,12 +401,12 @@
             this.InstructorAcadInfoButton.FlatAppearance.BorderSize = 0;
             this.InstructorAcadInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.InstructorAcadInfoButton.ForeColor = System.Drawing.Color.White;
-            this.InstructorAcadInfoButton.Location = new System.Drawing.Point(0, 56);
+            this.InstructorAcadInfoButton.Location = new System.Drawing.Point(0, 84);
             this.InstructorAcadInfoButton.Margin = new System.Windows.Forms.Padding(0);
             this.InstructorAcadInfoButton.Name = "InstructorAcadInfoButton";
             this.InstructorAcadInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.InstructorAcadInfoButton.Size = new System.Drawing.Size(259, 28);
-            this.InstructorAcadInfoButton.TabIndex = 2;
+            this.InstructorAcadInfoButton.TabIndex = 3;
             this.InstructorAcadInfoButton.Text = "Instructor Academic Information";
             this.InstructorAcadInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstructorAcadInfoButton.UseVisualStyleBackColor = false;
@@ -383,12 +418,12 @@
             this.FilterEditorButton.FlatAppearance.BorderSize = 0;
             this.FilterEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilterEditorButton.ForeColor = System.Drawing.Color.White;
-            this.FilterEditorButton.Location = new System.Drawing.Point(0, 84);
+            this.FilterEditorButton.Location = new System.Drawing.Point(0, 112);
             this.FilterEditorButton.Margin = new System.Windows.Forms.Padding(0);
             this.FilterEditorButton.Name = "FilterEditorButton";
             this.FilterEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.FilterEditorButton.Size = new System.Drawing.Size(259, 28);
-            this.FilterEditorButton.TabIndex = 3;
+            this.FilterEditorButton.TabIndex = 4;
             this.FilterEditorButton.Text = "Filter";
             this.FilterEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.FilterEditorButton.UseVisualStyleBackColor = false;
@@ -400,12 +435,12 @@
             this.CloseEditorButton.FlatAppearance.BorderSize = 0;
             this.CloseEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseEditorButton.ForeColor = System.Drawing.Color.White;
-            this.CloseEditorButton.Location = new System.Drawing.Point(0, 112);
+            this.CloseEditorButton.Location = new System.Drawing.Point(0, 140);
             this.CloseEditorButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseEditorButton.Name = "CloseEditorButton";
             this.CloseEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.CloseEditorButton.Size = new System.Drawing.Size(259, 28);
-            this.CloseEditorButton.TabIndex = 4;
+            this.CloseEditorButton.TabIndex = 5;
             this.CloseEditorButton.Text = "Close Editor";
             this.CloseEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CloseEditorButton.UseVisualStyleBackColor = false;
@@ -417,12 +452,12 @@
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(0, 140);
+            this.ExitButton.Location = new System.Drawing.Point(0, 168);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(0);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
             this.ExitButton.Size = new System.Drawing.Size(259, 28);
-            this.ExitButton.TabIndex = 5;
+            this.ExitButton.TabIndex = 6;
             this.ExitButton.Text = "Exit";
             this.ExitButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ExitButton.UseVisualStyleBackColor = false;
@@ -438,7 +473,7 @@
             this.panel1.Size = new System.Drawing.Size(1280, 658);
             this.panel1.TabIndex = 4;
             // 
-            // StudentModifyAcadInfoControl
+            // ModifyAcadInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -447,7 +482,7 @@
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Candara Light", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "StudentModifyAcadInfoControl";
+            this.Name = "ModifyAcadInfoControl";
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -461,8 +496,8 @@
 
         #endregion
 
-        private FontAwesome.Sharp.IconButton SearchSrCodeButton;
-        private System.Windows.Forms.TextBox SearchSrCodeTextbox;
+        private FontAwesome.Sharp.IconButton SearchUsrCodeButton;
+        private System.Windows.Forms.TextBox SearchUsrCodeTextbox;
         private FontAwesome.Sharp.IconButton OpenModifyFormButton;
         private FontAwesome.Sharp.IconButton OpenDropFormButton;
         private FontAwesome.Sharp.IconButton OpenAddFormButton;
@@ -478,15 +513,18 @@
         private System.Windows.Forms.Button FilterEditorButton;
         private System.Windows.Forms.Button CloseEditorButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button StudentAcademicInfoButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn SRCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InstructorCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MiddleName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Program;
-        private System.Windows.Forms.DataGridViewTextBoxColumn YearLevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Semester;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Course;
         private System.Windows.Forms.DataGridViewTextBoxColumn Section;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Semester;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcademicYear;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Program;
     }
 }
