@@ -1,4 +1,5 @@
-﻿using PresentationLayer.UserControls.AdminSubControls;
+﻿using PresentationLayer.Presenters.Enumerations;
+using PresentationLayer.UserControls.AdminSubControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,26 +16,33 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler CloseEditorButtonClicked;
         event EventHandler OpenAddFormButtonClicked;
         event EventHandler OpenDropFormButtonClicked;
-        event EventHandler SearchSrCodeButtonClicked;
+        event EventHandler SearchUsrCodeButtonClicked;
         event EventHandler FileDropDownButtonClicked;
         event EventHandler InfoTableSelectionChanged;
         event EventHandler FilterEditorButtonClicked;
         event EventHandler OpenModifyFormButtonClicked;
         event EventHandler InstructorAcadInfoButtonClicked;
         event EventHandler StudentPersonalInfoButtonClicked;
+        event EventHandler StudentAcademicInfoButtonClicked;
         event EventHandler InstructorPersonalInfoButtonClicked;
-        event KeyEventHandler SearchSrCodeTextboxPressed;
+        event KeyEventHandler SearchUsrCodeTextboxPressed;
 
 
         void ClearInfoTable();
         void DisposeControl();
         void TriggerInfoTableReload();
 
-        object[] InfoTableRowData                { set; }
-        DataGridView AccessInfoTable             { get; }
-        TextBox AccessSearchSrCodeTextbox        { get; }
-        FlowLayoutPanel AccessFileDropDownLayout { get; }
+
+        AccessType ModifyUser                       { get; set; }
         UserControl AccessFilterEditor              { get; set; }
-        IAcademicInfoControl CurrentUserControl  { get; set; }
+        IAcademicInfoControl CurrentUserControl     { get; set; }
+
+
+        object[] InfoTableRowData                              { set; }
+        Label AccessPageLabel                                  { get; }
+        DataGridView AccessInfoTable                           { get; }
+        TextBox AccessSearchUsrCodeTextbox                     { get; }
+        FlowLayoutPanel AccessFileDropDownLayout               { get; }
+        FontAwesome.Sharp.IconButton AccessSearchUsrCodeButton { get; }
     }
 }
