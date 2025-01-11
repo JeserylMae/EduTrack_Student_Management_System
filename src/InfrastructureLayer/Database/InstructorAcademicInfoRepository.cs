@@ -52,6 +52,7 @@ namespace InfrastructureLayer.Database
                         return academicInfo;
                     }, 
                     splitOn: "LastName",
+                    param: parameters,
                     commandType: CommandType.Text
                 );
                 
