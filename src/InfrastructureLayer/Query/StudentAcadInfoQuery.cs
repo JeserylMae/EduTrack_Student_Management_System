@@ -34,6 +34,7 @@ namespace InfrastructureLayer.Query
             FROM StudentAcademicInfoTbl
             WHERE 
                 SrCode = @p_SrCode AND
+                Section = @p_Section AND
                 Semester = @p_Semester AND
                 YearLevel = @p_YearLevel AND
                 AcademicYear = @p_AcademicYear;
@@ -115,6 +116,16 @@ namespace InfrastructureLayer.Query
                             StudentAIT.AcademicYear = @p_AcademicYear AND
                             StudentAIT.YearLevel = @p_YearLevel AND
                             StudentAIT.Semester = @p_Semester;
+                    ";
+                    break;
+                case StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemesterAndSection:
+                    query += @"
+                        WHERE
+                            StudentAIT.SrCode = @p_SrCode AND
+                            StudentAIT.AcademicYear = @p_AcademicYear AND
+                            StudentAIT.YearLevel = @p_YearLevel AND
+                            StudentAIT.Semester = @p_Semester AND
+                            StudentAIT.Section = @p_Section;
                     ";
                     break;
                 case StudentAcadParams.None:
