@@ -46,12 +46,12 @@ namespace InfrastructureLayer.Controllers
 
         [HttpGet("GetRecordId")]
         public async Task<IActionResult> GetRecordId([FromQuery]PRStudentAcademicInfoParams paramsModel)
-        {
+        { 
             string procedure = _query.spGetRecordId;
 
             DynamicParameters parameters = new DynamicParameters();
             _studentRepository.AddDynamicParameters(ref parameters,
-                StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester,
+                StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemesterAndSection,
                 paramsModel);
 
             int response = await _repository.GetSingle<int>(procedure, parameters);
