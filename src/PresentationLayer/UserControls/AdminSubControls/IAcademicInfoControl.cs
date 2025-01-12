@@ -24,16 +24,17 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
 
         UserControl CurrentControl          { get; }
-        TextBox AccessSrCodeTextBox         { get; }
+        TextBox AccessCourseTextBox         { get; }
+        TextBox AccessUsrCodeTextBox        { get; }
         TextBox AccessSectionTextBox        { get; }
         TextBox AccessLastNameTextBox       { get; }
         TextBox AccessFirstNameTextBox      { get; }
         TextBox AccessMiddleNameTextBox     { get; }
+        Panel AccessCoursePanel             { get; }
         Label AccessPageLabel               { get; }
         Label AccessUsrCodeLabel            { get; }
         Label AccessFullNameLabel           { get; }
         ComboBox AccessYearComboBox         { get; }
-        ComboBox AccessCourseComboBox       { get; }
         ComboBox AccessProgramComboBox      { get; }
         ComboBox AccessSemesterComboBox     { get; }
         ComboBox AccessAcademicYearComboBox { get; }
