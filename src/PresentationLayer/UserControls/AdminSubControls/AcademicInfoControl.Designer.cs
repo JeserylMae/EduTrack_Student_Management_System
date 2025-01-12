@@ -55,8 +55,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.SectionTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.CourseComboBox = new System.Windows.Forms.ComboBox();
+            this.coursePanel = new System.Windows.Forms.Panel();
+            this.CourseTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.SemesterComboBox = new System.Windows.Forms.ComboBox();
@@ -73,7 +73,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.coursePanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -224,7 +224,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.Black;
             this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseButton.IconSize = 24;
-            this.CloseButton.Location = new System.Drawing.Point(456, 26);
+            this.CloseButton.Location = new System.Drawing.Point(457, 26);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(32, 32);
             this.CloseButton.TabIndex = 141;
@@ -343,7 +343,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.coursePanel);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel6);
@@ -416,25 +416,26 @@
             this.label10.Text = "Section";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel3
+            // coursePanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.CourseComboBox);
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Location = new System.Drawing.Point(3, 89);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(420, 37);
-            this.panel3.TabIndex = 2;
+            this.coursePanel.BackColor = System.Drawing.Color.Transparent;
+            this.coursePanel.Controls.Add(this.CourseTextBox);
+            this.coursePanel.Controls.Add(this.label14);
+            this.coursePanel.Location = new System.Drawing.Point(3, 89);
+            this.coursePanel.Name = "coursePanel";
+            this.coursePanel.Size = new System.Drawing.Size(420, 37);
+            this.coursePanel.TabIndex = 2;
             // 
-            // CourseComboBox
+            // CourseTextBox
             // 
-            this.CourseComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.CourseComboBox.FormattingEnabled = true;
-            this.CourseComboBox.Location = new System.Drawing.Point(113, 5);
-            this.CourseComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.CourseComboBox.Name = "CourseComboBox";
-            this.CourseComboBox.Size = new System.Drawing.Size(300, 26);
-            this.CourseComboBox.TabIndex = 5;
+            this.CourseTextBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.CourseTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.CourseTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CourseTextBox.Location = new System.Drawing.Point(113, 5);
+            this.CourseTextBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.CourseTextBox.Name = "CourseTextBox";
+            this.CourseTextBox.Size = new System.Drawing.Size(300, 26);
+            this.CourseTextBox.TabIndex = 5;
             // 
             // label14
             // 
@@ -587,8 +588,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.coursePanel.ResumeLayout(false);
+            this.coursePanel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -628,7 +629,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox SectionTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel coursePanel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox SemesterComboBox;
@@ -639,6 +640,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox AcademicYearComboBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox CourseComboBox;
+        private System.Windows.Forms.TextBox CourseTextBox;
     }
 }
