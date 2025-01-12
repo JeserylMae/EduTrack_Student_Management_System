@@ -29,7 +29,11 @@ namespace PresentationLayer.UserControls.AdminSubControls
         TextBox AccessLastNameTextBox       { get; }
         TextBox AccessFirstNameTextBox      { get; }
         TextBox AccessMiddleNameTextBox     { get; }
+        Label AccessPageLabel               { get; }
+        Label AccessUsrCodeLabel            { get; }
+        Label AccessFullNameLabel           { get; }
         ComboBox AccessYearComboBox         { get; }
+        ComboBox AccessCourseComboBox       { get; }
         ComboBox AccessProgramComboBox      { get; }
         ComboBox AccessSemesterComboBox     { get; }
         ComboBox AccessAcademicYearComboBox { get; }
@@ -37,8 +41,9 @@ namespace PresentationLayer.UserControls.AdminSubControls
         IconButton AccessSubmitUpdateButton { get; }
 
 
-        DataGridView AccessInfoTable       { get; set; }
-        FormRequestType CurrentRequestType { get; set; }
-        IModifyAcadInfoControl StudentControl { get; set; }
+        AccessType ModifyUser                   { get; set; }
+        DataGridView AccessInfoTable            { get; set; }
+        FormRequestType CurrentRequestType      { get; set; }
+        IModifyAcadInfoControl StudentControl   { get; set; }
     }
 }
