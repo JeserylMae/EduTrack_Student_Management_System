@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PageIndicatorLabel = new System.Windows.Forms.Label();
+            this.PageLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.SrCodeLabel = new System.Windows.Forms.Label();
-            this.SrCodeTextBox = new System.Windows.Forms.TextBox();
+            this.UsrCodeLabel = new System.Windows.Forms.Label();
+            this.UsrCodeTextBox = new System.Windows.Forms.TextBox();
             this.FullNameLabel = new System.Windows.Forms.Label();
             this.LastNameLabel = new System.Windows.Forms.Label();
             this.FirstNameLabel = new System.Windows.Forms.Label();
@@ -45,35 +45,51 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.ProgramComboBox = new System.Windows.Forms.ComboBox();
-            this.SectionTextBox = new System.Windows.Forms.TextBox();
-            this.SemesterComboBox = new System.Windows.Forms.ComboBox();
-            this.YearComboBox = new System.Windows.Forms.ComboBox();
-            this.AcademicYearComboBox = new System.Windows.Forms.ComboBox();
             this.CancelSubmitButton = new FontAwesome.Sharp.IconButton();
             this.SubmitAddButton = new FontAwesome.Sharp.IconButton();
             this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ProgramComboBox = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.SectionTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.CourseComboBox = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.SemesterComboBox = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.YearComboBox = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.AcademicYearComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // PageIndicatorLabel
+            // PageLabel
             // 
-            this.PageIndicatorLabel.AutoSize = true;
-            this.PageIndicatorLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PageIndicatorLabel.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PageIndicatorLabel.ForeColor = System.Drawing.Color.Black;
-            this.PageIndicatorLabel.Location = new System.Drawing.Point(39, 61);
-            this.PageIndicatorLabel.Name = "PageIndicatorLabel";
-            this.PageIndicatorLabel.Size = new System.Drawing.Size(438, 33);
-            this.PageIndicatorLabel.TabIndex = 142;
-            this.PageIndicatorLabel.Text = "Student Academic Information Form";
+            this.PageLabel.AutoSize = true;
+            this.PageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PageLabel.Font = new System.Drawing.Font("Candara", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PageLabel.ForeColor = System.Drawing.Color.Black;
+            this.PageLabel.Location = new System.Drawing.Point(39, 61);
+            this.PageLabel.Name = "PageLabel";
+            this.PageLabel.Size = new System.Drawing.Size(438, 33);
+            this.PageLabel.TabIndex = 142;
+            this.PageLabel.Text = "Student Academic Information Form";
             // 
             // label1
             // 
@@ -83,28 +99,28 @@
             this.label1.Size = new System.Drawing.Size(470, 1);
             this.label1.TabIndex = 143;
             // 
-            // SrCodeLabel
+            // UsrCodeLabel
             // 
-            this.SrCodeLabel.AutoSize = true;
-            this.SrCodeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
-            this.SrCodeLabel.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SrCodeLabel.ForeColor = System.Drawing.Color.Black;
-            this.SrCodeLabel.Location = new System.Drawing.Point(49, 155);
-            this.SrCodeLabel.Name = "SrCodeLabel";
-            this.SrCodeLabel.Size = new System.Drawing.Size(73, 19);
-            this.SrCodeLabel.TabIndex = 145;
-            this.SrCodeLabel.Text = "SR-CODE:";
+            this.UsrCodeLabel.AutoSize = true;
+            this.UsrCodeLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
+            this.UsrCodeLabel.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsrCodeLabel.ForeColor = System.Drawing.Color.Black;
+            this.UsrCodeLabel.Location = new System.Drawing.Point(49, 155);
+            this.UsrCodeLabel.Name = "UsrCodeLabel";
+            this.UsrCodeLabel.Size = new System.Drawing.Size(73, 19);
+            this.UsrCodeLabel.TabIndex = 145;
+            this.UsrCodeLabel.Text = "SR-CODE:";
             // 
-            // SrCodeTextBox
+            // UsrCodeTextBox
             // 
-            this.SrCodeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
-            this.SrCodeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SrCodeTextBox.Font = new System.Drawing.Font("Candara", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SrCodeTextBox.Location = new System.Drawing.Point(141, 142);
-            this.SrCodeTextBox.Name = "SrCodeTextBox";
-            this.SrCodeTextBox.ReadOnly = true;
-            this.SrCodeTextBox.Size = new System.Drawing.Size(314, 43);
-            this.SrCodeTextBox.TabIndex = 146;
+            this.UsrCodeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(207)))), ((int)(((byte)(212)))));
+            this.UsrCodeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UsrCodeTextBox.Font = new System.Drawing.Font("Candara", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsrCodeTextBox.Location = new System.Drawing.Point(141, 142);
+            this.UsrCodeTextBox.Name = "UsrCodeTextBox";
+            this.UsrCodeTextBox.ReadOnly = true;
+            this.UsrCodeTextBox.Size = new System.Drawing.Size(314, 43);
+            this.UsrCodeTextBox.TabIndex = 146;
             // 
             // FullNameLabel
             // 
@@ -161,8 +177,9 @@
             this.MiddleNameTextBox.ForeColor = System.Drawing.Color.Black;
             this.MiddleNameTextBox.Location = new System.Drawing.Point(173, 291);
             this.MiddleNameTextBox.Name = "MiddleNameTextBox";
+            this.MiddleNameTextBox.ReadOnly = true;
             this.MiddleNameTextBox.Size = new System.Drawing.Size(148, 19);
-            this.MiddleNameTextBox.TabIndex = 151;
+            this.MiddleNameTextBox.TabIndex = 2;
             // 
             // FirstNameTextBox
             // 
@@ -171,8 +188,9 @@
             this.FirstNameTextBox.ForeColor = System.Drawing.Color.Black;
             this.FirstNameTextBox.Location = new System.Drawing.Point(173, 266);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.ReadOnly = true;
             this.FirstNameTextBox.Size = new System.Drawing.Size(148, 19);
-            this.FirstNameTextBox.TabIndex = 152;
+            this.FirstNameTextBox.TabIndex = 1;
             // 
             // LastNameTextBox
             // 
@@ -181,8 +199,9 @@
             this.LastNameTextBox.ForeColor = System.Drawing.Color.Black;
             this.LastNameTextBox.Location = new System.Drawing.Point(173, 242);
             this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.ReadOnly = true;
             this.LastNameTextBox.Size = new System.Drawing.Size(148, 19);
-            this.LastNameTextBox.TabIndex = 153;
+            this.LastNameTextBox.TabIndex = 0;
             // 
             // StudentProfilePictureBox
             // 
@@ -205,7 +224,7 @@
             this.CloseButton.IconColor = System.Drawing.Color.Black;
             this.CloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseButton.IconSize = 24;
-            this.CloseButton.Location = new System.Drawing.Point(429, 26);
+            this.CloseButton.Location = new System.Drawing.Point(456, 26);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(32, 32);
             this.CloseButton.TabIndex = 141;
@@ -236,7 +255,7 @@
             this.pictureBox3.Image = global::PresentationLayer.Properties.Resources.group_box_border;
             this.pictureBox3.Location = new System.Drawing.Point(38, 346);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(446, 234);
+            this.pictureBox3.Size = new System.Drawing.Size(446, 312);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 157;
             this.pictureBox3.TabStop = false;
@@ -253,115 +272,6 @@
             this.label3.TabIndex = 158;
             this.label3.Text = "ACADEMIC INFORMATION";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(71, 373);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 18);
-            this.label4.TabIndex = 159;
-            this.label4.Text = "Program";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(77, 413);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 18);
-            this.label5.TabIndex = 160;
-            this.label5.Text = "Section";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(64, 455);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 18);
-            this.label6.TabIndex = 161;
-            this.label6.Text = "Semester";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(96, 496);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(36, 18);
-            this.label7.TabIndex = 162;
-            this.label7.Text = "Year";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(54, 522);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 48);
-            this.label8.TabIndex = 163;
-            this.label8.Text = "Academic Year";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ProgramComboBox
-            // 
-            this.ProgramComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.ProgramComboBox.FormattingEnabled = true;
-            this.ProgramComboBox.Location = new System.Drawing.Point(155, 368);
-            this.ProgramComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.ProgramComboBox.Name = "ProgramComboBox";
-            this.ProgramComboBox.Size = new System.Drawing.Size(300, 26);
-            this.ProgramComboBox.TabIndex = 164;
-            // 
-            // SectionTextBox
-            // 
-            this.SectionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SectionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SectionTextBox.Location = new System.Drawing.Point(155, 409);
-            this.SectionTextBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.SectionTextBox.Name = "SectionTextBox";
-            this.SectionTextBox.Size = new System.Drawing.Size(300, 26);
-            this.SectionTextBox.TabIndex = 165;
-            // 
-            // SemesterComboBox
-            // 
-            this.SemesterComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.SemesterComboBox.FormattingEnabled = true;
-            this.SemesterComboBox.Location = new System.Drawing.Point(155, 450);
-            this.SemesterComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.SemesterComboBox.Name = "SemesterComboBox";
-            this.SemesterComboBox.Size = new System.Drawing.Size(300, 26);
-            this.SemesterComboBox.TabIndex = 166;
-            // 
-            // YearComboBox
-            // 
-            this.YearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.YearComboBox.FormattingEnabled = true;
-            this.YearComboBox.Location = new System.Drawing.Point(155, 491);
-            this.YearComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.YearComboBox.Name = "YearComboBox";
-            this.YearComboBox.Size = new System.Drawing.Size(300, 26);
-            this.YearComboBox.TabIndex = 167;
-            // 
-            // AcademicYearComboBox
-            // 
-            this.AcademicYearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.AcademicYearComboBox.FormattingEnabled = true;
-            this.AcademicYearComboBox.Location = new System.Drawing.Point(155, 532);
-            this.AcademicYearComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
-            this.AcademicYearComboBox.Name = "AcademicYearComboBox";
-            this.AcademicYearComboBox.Size = new System.Drawing.Size(300, 26);
-            this.AcademicYearComboBox.TabIndex = 168;
-            // 
             // CancelSubmitButton
             // 
             this.CancelSubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -375,11 +285,11 @@
             this.CancelSubmitButton.IconColor = System.Drawing.Color.Black;
             this.CancelSubmitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CancelSubmitButton.IconSize = 32;
-            this.CancelSubmitButton.Location = new System.Drawing.Point(177, 635);
+            this.CancelSubmitButton.Location = new System.Drawing.Point(231, 685);
             this.CancelSubmitButton.Name = "CancelSubmitButton";
             this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.CancelSubmitButton.Size = new System.Drawing.Size(126, 44);
-            this.CancelSubmitButton.TabIndex = 169;
+            this.CancelSubmitButton.TabIndex = 9;
             this.CancelSubmitButton.Text = "Cancel";
             this.CancelSubmitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.CancelSubmitButton.UseVisualStyleBackColor = false;
@@ -397,11 +307,11 @@
             this.SubmitAddButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitAddButton.IconSize = 32;
-            this.SubmitAddButton.Location = new System.Drawing.Point(319, 635);
+            this.SubmitAddButton.Location = new System.Drawing.Point(373, 685);
             this.SubmitAddButton.Name = "SubmitAddButton";
             this.SubmitAddButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.SubmitAddButton.Size = new System.Drawing.Size(126, 44);
-            this.SubmitAddButton.TabIndex = 170;
+            this.SubmitAddButton.TabIndex = 11;
             this.SubmitAddButton.Text = "Add";
             this.SubmitAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SubmitAddButton.UseVisualStyleBackColor = false;
@@ -419,37 +329,233 @@
             this.SubmitUpdateButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.SubmitUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SubmitUpdateButton.IconSize = 32;
-            this.SubmitUpdateButton.Location = new System.Drawing.Point(319, 635);
+            this.SubmitUpdateButton.Location = new System.Drawing.Point(373, 685);
             this.SubmitUpdateButton.Name = "SubmitUpdateButton";
             this.SubmitUpdateButton.Padding = new System.Windows.Forms.Padding(15, 2, 15, 2);
             this.SubmitUpdateButton.Size = new System.Drawing.Size(126, 44);
-            this.SubmitUpdateButton.TabIndex = 171;
+            this.SubmitUpdateButton.TabIndex = 10;
             this.SubmitUpdateButton.Text = "Update";
             this.SubmitUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SubmitUpdateButton.UseVisualStyleBackColor = false;
             // 
-            // StudentAcadInfoControl
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Controls.Add(this.panel6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(49, 368);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(423, 272);
+            this.flowLayoutPanel1.TabIndex = 172;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.ProgramComboBox);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(420, 37);
+            this.panel1.TabIndex = 0;
+            // 
+            // ProgramComboBox
+            // 
+            this.ProgramComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.ProgramComboBox.FormattingEnabled = true;
+            this.ProgramComboBox.Location = new System.Drawing.Point(113, 5);
+            this.ProgramComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.ProgramComboBox.Name = "ProgramComboBox";
+            this.ProgramComboBox.Size = new System.Drawing.Size(300, 26);
+            this.ProgramComboBox.TabIndex = 3;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(29, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 18);
+            this.label9.TabIndex = 165;
+            this.label9.Text = "Program";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.SectionTextBox);
+            this.panel2.Controls.Add(this.label10);
+            this.panel2.Location = new System.Drawing.Point(3, 46);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(420, 37);
+            this.panel2.TabIndex = 1;
+            // 
+            // SectionTextBox
+            // 
+            this.SectionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SectionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SectionTextBox.Location = new System.Drawing.Point(113, 5);
+            this.SectionTextBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.SectionTextBox.Name = "SectionTextBox";
+            this.SectionTextBox.Size = new System.Drawing.Size(300, 26);
+            this.SectionTextBox.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(35, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 18);
+            this.label10.TabIndex = 166;
+            this.label10.Text = "Section";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.CourseComboBox);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Location = new System.Drawing.Point(3, 89);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(420, 37);
+            this.panel3.TabIndex = 2;
+            // 
+            // CourseComboBox
+            // 
+            this.CourseComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.CourseComboBox.FormattingEnabled = true;
+            this.CourseComboBox.Location = new System.Drawing.Point(113, 5);
+            this.CourseComboBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.CourseComboBox.Name = "CourseComboBox";
+            this.CourseComboBox.Size = new System.Drawing.Size(300, 26);
+            this.CourseComboBox.TabIndex = 5;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(35, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 18);
+            this.label14.TabIndex = 168;
+            this.label14.Text = "Course";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.SemesterComboBox);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Location = new System.Drawing.Point(3, 132);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(420, 37);
+            this.panel4.TabIndex = 3;
+            // 
+            // SemesterComboBox
+            // 
+            this.SemesterComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.SemesterComboBox.FormattingEnabled = true;
+            this.SemesterComboBox.Location = new System.Drawing.Point(113, 5);
+            this.SemesterComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.SemesterComboBox.Name = "SemesterComboBox";
+            this.SemesterComboBox.Size = new System.Drawing.Size(300, 26);
+            this.SemesterComboBox.TabIndex = 6;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(21, 10);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 18);
+            this.label11.TabIndex = 167;
+            this.label11.Text = "Semester";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.YearComboBox);
+            this.panel5.Controls.Add(this.label12);
+            this.panel5.Location = new System.Drawing.Point(3, 175);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(420, 37);
+            this.panel5.TabIndex = 4;
+            // 
+            // YearComboBox
+            // 
+            this.YearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.YearComboBox.FormattingEnabled = true;
+            this.YearComboBox.Location = new System.Drawing.Point(113, 5);
+            this.YearComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.YearComboBox.Name = "YearComboBox";
+            this.YearComboBox.Size = new System.Drawing.Size(300, 26);
+            this.YearComboBox.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(53, 10);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(36, 18);
+            this.label12.TabIndex = 168;
+            this.label12.Text = "Year";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.AcademicYearComboBox);
+            this.panel6.Controls.Add(this.label13);
+            this.panel6.Location = new System.Drawing.Point(3, 218);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(420, 54);
+            this.panel6.TabIndex = 5;
+            // 
+            // AcademicYearComboBox
+            // 
+            this.AcademicYearComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.AcademicYearComboBox.FormattingEnabled = true;
+            this.AcademicYearComboBox.Location = new System.Drawing.Point(113, 13);
+            this.AcademicYearComboBox.Margin = new System.Windows.Forms.Padding(3, 15, 3, 0);
+            this.AcademicYearComboBox.Name = "AcademicYearComboBox";
+            this.AcademicYearComboBox.Size = new System.Drawing.Size(300, 26);
+            this.AcademicYearComboBox.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(12, 3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(78, 48);
+            this.label13.TabIndex = 169;
+            this.label13.Text = "Academic Year";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // AcademicInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.AutoScrollMinSize = new System.Drawing.Size(0, 800);
+            this.AutoScrollMinSize = new System.Drawing.Size(0, 1000);
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::PresentationLayer.Properties.Resources.panel_border_with_thick_bottom;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.SubmitUpdateButton);
             this.Controls.Add(this.SubmitAddButton);
             this.Controls.Add(this.CancelSubmitButton);
-            this.Controls.Add(this.AcademicYearComboBox);
-            this.Controls.Add(this.YearComboBox);
-            this.Controls.Add(this.SemesterComboBox);
-            this.Controls.Add(this.SectionTextBox);
-            this.Controls.Add(this.ProgramComboBox);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.StudentProfilePictureBox);
@@ -460,22 +566,34 @@
             this.Controls.Add(this.FirstNameLabel);
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.FullNameLabel);
-            this.Controls.Add(this.SrCodeTextBox);
-            this.Controls.Add(this.SrCodeLabel);
+            this.Controls.Add(this.UsrCodeTextBox);
+            this.Controls.Add(this.UsrCodeLabel);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.PageIndicatorLabel);
+            this.Controls.Add(this.PageLabel);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Candara", 11.25F);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "StudentAcadInfoControl";
+            this.Name = "AcademicInfoControl";
             this.Padding = new System.Windows.Forms.Padding(10, 10, 50, 10);
-            this.Size = new System.Drawing.Size(501, 600);
+            this.Size = new System.Drawing.Size(535, 600);
             ((System.ComponentModel.ISupportInitialize)(this.StudentProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,11 +602,11 @@
         #endregion
 
         private FontAwesome.Sharp.IconButton CloseButton;
-        private System.Windows.Forms.Label PageIndicatorLabel;
+        private System.Windows.Forms.Label PageLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label SrCodeLabel;
-        private System.Windows.Forms.TextBox SrCodeTextBox;
+        private System.Windows.Forms.Label UsrCodeLabel;
+        private System.Windows.Forms.TextBox UsrCodeTextBox;
         private System.Windows.Forms.Label FullNameLabel;
         private System.Windows.Forms.Label LastNameLabel;
         private System.Windows.Forms.Label FirstNameLabel;
@@ -500,18 +618,27 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox ProgramComboBox;
-        private System.Windows.Forms.TextBox SectionTextBox;
-        private System.Windows.Forms.ComboBox SemesterComboBox;
-        private System.Windows.Forms.ComboBox YearComboBox;
-        private System.Windows.Forms.ComboBox AcademicYearComboBox;
         private FontAwesome.Sharp.IconButton CancelSubmitButton;
         private FontAwesome.Sharp.IconButton SubmitAddButton;
         private FontAwesome.Sharp.IconButton SubmitUpdateButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox ProgramComboBox;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox SectionTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox SemesterComboBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox YearComboBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox AcademicYearComboBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox CourseComboBox;
     }
 }
