@@ -105,22 +105,29 @@ namespace InfrastructureLayer.Database
             switch (parameterType)
             {
                 case StudentAcadParams.SrCode:
-                    parameters.Add("@p_SrCode", studentModel.SrCode);
+                    parameters.Add("@p_SrCode",         studentModel.SrCode         );
                     break;
                 case StudentAcadParams.SrCodeAndAcadYear:
-                    parameters.Add("@p_SrCode", studentModel.SrCode);
-                    parameters.Add("@p_AcademicYear", studentModel.AcademicYear);
+                    parameters.Add("@p_SrCode",         studentModel.SrCode         );
+                    parameters.Add("@p_AcademicYear",   studentModel.AcademicYear   );
                     break;
                 case StudentAcadParams.SrCodeAndAcadYearAndYearLevel:
-                    parameters.Add("@p_SrCode", studentModel.SrCode);
-                    parameters.Add("@p_AcademicYear", studentModel.AcademicYear);
-                    parameters.Add("@p_YearLevel", studentModel.YearLevel);
+                    parameters.Add("@p_SrCode",         studentModel.SrCode         );
+                    parameters.Add("@p_AcademicYear",   studentModel.AcademicYear   );
+                    parameters.Add("@p_YearLevel",      studentModel.YearLevel      );
                     break;
                 case StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester:
-                    parameters.Add("@p_SrCode", studentModel.SrCode);
-                    parameters.Add("@p_AcademicYear", studentModel.AcademicYear);
-                    parameters.Add("@p_YearLevel", studentModel.YearLevel);
-                    parameters.Add("@p_Semester", studentModel.Semester);
+                    parameters.Add("@p_SrCode",         studentModel.SrCode         );
+                    parameters.Add("@p_AcademicYear",   studentModel.AcademicYear   );
+                    parameters.Add("@p_YearLevel",      studentModel.YearLevel      );
+                    parameters.Add("@p_Semester",       studentModel.Semester       );
+                    break;
+                case StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemesterAndSection:
+                    parameters.Add("@p_SrCode",         studentModel.SrCode         );
+                    parameters.Add("@p_AcademicYear",   studentModel.AcademicYear   );
+                    parameters.Add("@p_YearLevel",      studentModel.YearLevel      );
+                    parameters.Add("@p_Semester",       studentModel.Semester       );
+                    parameters.Add("@p_Section",        studentModel.Section        );
                     break;
             }
         }
@@ -128,7 +135,11 @@ namespace InfrastructureLayer.Database
 
         private StudentAcadParams HandleParameter(PRStudentAcademicInfoParams model)
         {
-            if (!String.IsNullOrEmpty(model.Semester))
+            if (!String.IsNullOrEmpty(model.Section))
+            {
+                return StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemesterAndSection;
+            }
+            else if (!String.IsNullOrEmpty(model.Semester))
             {
                 return StudentAcadParams.SrCodeAndAcadYearAndYearLevelAndSemester;
             }
