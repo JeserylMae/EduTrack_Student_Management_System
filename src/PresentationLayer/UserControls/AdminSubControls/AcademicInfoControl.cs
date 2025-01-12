@@ -45,16 +45,17 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
 
         public UserControl CurrentControl           { get => this;                 }
+        public Panel AccessCoursePanel              { get => coursePanel;          }
         public Label AccessPageLabel                { get => PageLabel;            }
         public Label AccessUsrCodeLabel             { get => UsrCodeLabel;         }
         public Label AccessFullNameLabel            { get => FullNameLabel;        }
-        public TextBox AccessSrCodeTextBox          { get => UsrCodeTextBox;       }
+        public TextBox AccessCourseTextBox          { get => CourseTextBox;        }
+        public TextBox AccessUsrCodeTextBox         { get => UsrCodeTextBox;       }
         public TextBox AccessLastNameTextBox        { get => LastNameTextBox;      }
         public TextBox AccessSectionTextBox         { get => SectionTextBox;       }
         public TextBox AccessFirstNameTextBox       { get => FirstNameTextBox;     }
         public TextBox AccessMiddleNameTextBox      { get => MiddleNameTextBox;    }
         public ComboBox AccessYearComboBox          { get => YearComboBox;         }
-        public ComboBox AccessCourseComboBox        { get => CourseComboBox;       }
         public ComboBox AccessProgramComboBox       { get => ProgramComboBox;      }
         public ComboBox AccessSemesterComboBox      { get => SemesterComboBox;     }
         public ComboBox AccessAcademicYearComboBox  { get => AcademicYearComboBox; }
