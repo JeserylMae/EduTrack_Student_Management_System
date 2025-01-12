@@ -90,7 +90,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return int.Parse(JsonConvert.DeserializeObject<string>(jsonResponse));
+                    List<string> responseList = JsonConvert.DeserializeObject<List<string>>(jsonResponse);
+
+                    return int.Parse(responseList[0]);
                 }
                 return -1;
             }
@@ -112,9 +114,9 @@ namespace ServiceLayer.Database
         } 
 
 
-        public async Task<bool> Update(string recordId, PInstructorAcademicInfoModel<string> instructor)
+        public async Task<bool> Update(int recordId, PInstructorAcademicInfoModel<string> instructor)
         {
-            Uri request = new Uri($"{_webAddress}/Update?RecordId={recordId}");
+            Uri request = new Uri($"{_webAddress}/Update?RecordId={recordId.ToString()}");
 
             string jsonContent = JsonConvert.SerializeObject(instructor, Formatting.Indented);
             StringContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
@@ -134,7 +136,7 @@ namespace ServiceLayer.Database
         }
 
 
-        public async Task<bool> Delete(PInstructorPersonalInfoParams instructor)
+        public async Task<bool> Delete(PRInstructorAcademicParams instructor)
         {
             Uri request = new Uri($"{_webAddress}/Delete");
 
