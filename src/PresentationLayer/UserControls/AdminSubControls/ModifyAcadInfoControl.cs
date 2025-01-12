@@ -56,11 +56,6 @@ namespace PresentationLayer.UserControls.MainControls
                 InfoTable.Rows[InfoTable.Rows.Count - 1].Height = 28;
             }
         }
-        public AccessType ModifyUser 
-        { 
-            get => ModifyUser; 
-            set => ModifyUser = value; 
-        }
         public UserControl AccessFilterEditor
         {
             get => _filterControl;
@@ -87,6 +82,7 @@ namespace PresentationLayer.UserControls.MainControls
         }
 
 
+        public AccessType ModifyUser                    { get; set;                    }
         public Label AccessPageLabel                    { get => PageLabel;            }
         public DataGridView AccessInfoTable             { get => InfoTable;            }
         public TextBox AccessSearchSrCodeTextbox        { get => SearchUsrCodeTextbox; }
@@ -112,6 +108,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event KeyEventHandler SearchUsrCodeTextboxPressed;
 
 
+        private AccessType _modifyUser;
         private UserControl _filterControl;
         private UserControl _addedUserControl;
         private TaskCompletionSource<bool> InfoTableCreated;
