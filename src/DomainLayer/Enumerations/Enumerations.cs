@@ -22,7 +22,8 @@ namespace PresentationLayer.Presenters.Enumerations
         SrCode,
         SrCodeAndAcadYear,
         SrCodeAndAcadYearAndYearLevel,
-        SrCodeAndAcadYearAndYearLevelAndSemester
+        SrCodeAndAcadYearAndYearLevelAndSemester,
+        SrCodeAndAcadYearAndYearLevelAndSemesterAndSection
     }
 
     public enum InstructorAcadParams
