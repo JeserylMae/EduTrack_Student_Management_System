@@ -13,6 +13,7 @@ using PresentationLayer.UserControls.MainControls;
 using System.Activities;
 using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.General;
+using DomainLayer.DataModels.Instructor;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -20,37 +21,35 @@ namespace PresentationLayer.Presenters.Admin
     {
         public ModifyAcadInfoPresenter(IModifyAcadInfoControl studentAcadInfoControl)
         {
-            _studentAcadInfoControl = studentAcadInfoControl;
+            _acadInfoControl = studentAcadInfoControl;
             _studentControlReady    = new TaskCompletionSource<bool>();
 
-            _studentAcadInfoControl.ControlLoad                         += StudentAcadControl_Load;
-            _studentAcadInfoControl.CloseEditorButtonClicked            += CloseEditorButton_Clicked;
-            _studentAcadInfoControl.ExitButtonClicked                   += GeneralPresenter.TriggerAppExit;
-            _studentAcadInfoControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
-            _studentAcadInfoControl.OpenAddFormButtonClicked            += OpenAddFormButton_Clicked;
-            _studentAcadInfoControl.OpenDropFormButtonClicked           += OpenDropFormButton_Clicked;
-            _studentAcadInfoControl.OpenModifyFormButtonClicked         += OpenModifyFormButton_Clicked;
-            _studentAcadInfoControl.InstructorAcadInfoButtonClicked     += InstructorAcadInfoButton_Clicked;
-            _studentAcadInfoControl.StudentPersonalInfoButtonClicked    += StudentPersonalInfoButton_Clicked;
-            _studentAcadInfoControl.InstructorPersonalInfoButtonClicked += InstructorPersonalInfoButton_Clicked;
-            _studentAcadInfoControl.SearchUsrCodeButtonClicked          += SeachUsrCodeButton_Clicked;
-            _studentAcadInfoControl.SearchUsrCodeTextboxPressed         += SearchUsrCodeTextBox_Pressed;
-            _studentAcadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
-            _studentAcadInfoControl.FilterEditorButtonClicked           += FilterEditorButton_Clicked;
+            _acadInfoControl.ControlLoad                         += StudentAcadControl_Load;
+            _acadInfoControl.CloseEditorButtonClicked            += CloseEditorButton_Clicked;
+            _acadInfoControl.ExitButtonClicked                   += GeneralPresenter.TriggerAppExit;
+            _acadInfoControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
+            _acadInfoControl.OpenAddFormButtonClicked            += OpenAddFormButton_Clicked;
+            _acadInfoControl.OpenDropFormButtonClicked           += OpenDropFormButton_Clicked;
+            _acadInfoControl.OpenModifyFormButtonClicked         += OpenModifyFormButton_Clicked;
+            _acadInfoControl.InstructorAcadInfoButtonClicked     += InstructorAcadInfoButton_Clicked;
+            _acadInfoControl.StudentPersonalInfoButtonClicked    += StudentPersonalInfoButton_Clicked;
+            _acadInfoControl.StudentAcademicInfoButtonClicked    += StudentAcademicInfoControl_Clicked;
+            _acadInfoControl.InstructorPersonalInfoButtonClicked += InstructorPersonalInfoButton_Clicked;
+            _acadInfoControl.SearchUsrCodeButtonClicked          += SeachUsrCodeButton_Clicked;
+            _acadInfoControl.SearchUsrCodeTextboxPressed         += SearchUsrCodeTextBox_Pressed;
+            _acadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
+            _acadInfoControl.FilterEditorButtonClicked           += FilterEditorButton_Clicked;
         }
 
         private async void InfoTableSelection_Changed(object sender, EventArgs e)
         {
             if (await _studentControlReady.Task)
             {
-                var selectedRowList = _studentAcadInfoControl.AccessInfoTable.SelectedRows;
+                var selectedRowList = _acadInfoControl.AccessInfoTable.SelectedRows;
 
                 if (selectedRowList == null || selectedRowList.Count == 0) return;
 
                 var selectedRows = selectedRowList[0];
-
-                PNameModel nameModel = new PNameModel();
-                _studentModel = new PStudentAcademicInfoModel<PNameModel>();
 
                 DisplayValuesToUserControl(selectedRows);
             }
@@ -65,36 +64,42 @@ namespace PresentationLayer.Presenters.Admin
 
         private void SeachUsrCodeButton_Clicked(object sender, EventArgs e)
         {
-            string SrCode = _studentAcadInfoControl.AccessSearchUsrCodeTextbox.Text;
-            var infoTableRowList = _studentAcadInfoControl.AccessInfoTable.Rows;
+            string usrCode = _acadInfoControl.AccessSearchUsrCodeTextbox.Text;
+            string columnName = (_acadInfoControl.ModifyUser == AccessType.STUDENT)
+                             ? "SrCode" : "InstructorCode";
 
-            if (SrCode == null || infoTableRowList.Count == 0) return;
+
+            var infoTableRowList = _acadInfoControl.AccessInfoTable.Rows;
+
+            if (usrCode == null || infoTableRowList.Count == 0) return;
 
             for (int i = 0; i < infoTableRowList.Count; i++)
             {
-                string SrCodeCell = infoTableRowList[i].Cells["SrCode"].Value.ToString();
+                string usrCodeCell = infoTableRowList[i].Cells["SrCode"].Value.ToString();
 
-                if (SrCodeCell == SrCode)
-                    _studentAcadInfoControl.AccessInfoTable.Rows[i].Selected = true;
+                if (usrCodeCell == usrCode)
+                    _acadInfoControl.AccessInfoTable.Rows[i].Selected = true;
                 else
-                    _studentAcadInfoControl.AccessInfoTable.Rows[i].Selected = false;
+                    _acadInfoControl.AccessInfoTable.Rows[i].Selected = false;
             }
         }
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
-            IAcademicInfoControl studentControl = new AcademicInfoControl();
-            studentControl.StudentControl = _studentAcadInfoControl;
-            studentControl.CurrentRequestType = FormRequestType.UPDATE;
-            studentControl.AccessInfoTable = _studentAcadInfoControl.AccessInfoTable;
+            IAcademicInfoControl userControl = new AcademicInfoControl();
 
-            new AcademicInfoPresenter(studentControl);
+            userControl.StudentControl = _acadInfoControl;
+            userControl.ModifyUser = _acadInfoControl.ModifyUser;
+            userControl.CurrentRequestType = FormRequestType.UPDATE;
+            userControl.AccessInfoTable = _acadInfoControl.AccessInfoTable;
 
-            if (_studentAcadInfoControl.CurrentUserControl != null)
-                _studentAcadInfoControl.CurrentUserControl.DisposeControl();
+            new AcademicInfoPresenter(userControl);
 
-            _studentAcadInfoControl.CurrentUserControl = studentControl;
-            SetSubmitButtonVisibility(studentControl, "UPDATE");
+            if (_acadInfoControl.CurrentUserControl != null)
+                _acadInfoControl.CurrentUserControl.DisposeControl();
+
+            _acadInfoControl.CurrentUserControl = userControl;
+            SetSubmitButtonVisibility(userControl, "UPDATE");
 
             _studentControlReady.TrySetResult(true);
         }
@@ -109,7 +114,7 @@ namespace PresentationLayer.Presenters.Admin
                 bool result = await services.Delete(parameters);
 
                 DisplayConfirmation($"Successfully deleted student with Sr-Code {parameters.SrCode}.", "ADD");
-                _studentAcadInfoControl.TriggerInfoTableReload();
+                _acadInfoControl.TriggerInfoTableReload();
             }
             catch (Exception ex)
             {
@@ -119,17 +124,19 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
-            IAcademicInfoControl studentControl = new AcademicInfoControl();
-            studentControl.CurrentRequestType = FormRequestType.ADD;
-            studentControl.StudentControl = _studentAcadInfoControl;
+            IAcademicInfoControl userControl = new AcademicInfoControl();
 
-            new AcademicInfoPresenter(studentControl);
+            userControl.StudentControl = _acadInfoControl;
+            userControl.CurrentRequestType = FormRequestType.ADD;
+            userControl.ModifyUser = _acadInfoControl.ModifyUser;
 
-            if (_studentAcadInfoControl.CurrentUserControl != null)
-                _studentAcadInfoControl.CurrentUserControl.DisposeControl();
+            new AcademicInfoPresenter(userControl);
 
-            _studentAcadInfoControl.CurrentUserControl = studentControl;
-            SetSubmitButtonVisibility(studentControl, "ADD");
+            if (_acadInfoControl.CurrentUserControl != null)
+                _acadInfoControl.CurrentUserControl.DisposeControl();
+
+            _acadInfoControl.CurrentUserControl = userControl;
+            SetSubmitButtonVisibility(userControl, "ADD");
 
             _studentControlReady.TrySetResult(true);
         }
@@ -144,9 +151,9 @@ namespace PresentationLayer.Presenters.Admin
             new AdminHomeRightPresenter(adminControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)homePage;
-            GeneralPresenter.TriggerWindowControlChange(_studentAcadInfoControl, e);
+            GeneralPresenter.TriggerWindowControlChange(_acadInfoControl, e);
 
-            _studentAcadInfoControl.DisposeControl();
+            _acadInfoControl.DisposeControl();
         }
 
         private void StudentPersonalInfoButton_Clicked(object sender, EventArgs e)
@@ -157,9 +164,25 @@ namespace PresentationLayer.Presenters.Admin
             new ModifyPersonalInfoPresenter(studentControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)studentControl;
-            GeneralPresenter.TriggerWindowControlChange(_studentAcadInfoControl, e);
+            GeneralPresenter.TriggerWindowControlChange(_acadInfoControl, e);
 
-            _studentAcadInfoControl.DisposeControl();
+            _acadInfoControl.DisposeControl();
+        }
+
+        private void StudentAcademicInfoControl_Clicked(object sender, EventArgs e)
+        {
+            if (_acadInfoControl.ModifyUser != AccessType.STUDENT) return;
+
+
+            IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
+            userControl.ModifyUser = AccessType.STUDENT;
+
+            new ModifyAcadInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _acadInfoControl.DisposeControl();
         }
 
         private void InstructorPersonalInfoButton_Clicked(object sender, EventArgs e)
@@ -172,67 +195,115 @@ namespace PresentationLayer.Presenters.Admin
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, EventArgs.Empty);
 
-            _studentAcadInfoControl.DisposeControl();
+            _acadInfoControl.DisposeControl();
         }
 
         private void InstructorAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_acadInfoControl.ModifyUser != AccessType.INSTRUCTOR) return;
+
+
+            IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
+            userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            new ModifyAcadInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _acadInfoControl.DisposeControl();
         }
 
         private void FileDropDownButton_Clicked(object sender, EventArgs e)
         {
-            if (_studentAcadInfoControl.AccessFileDropDownLayout.Visible)
-                _studentAcadInfoControl.AccessFileDropDownLayout.Visible = false;
+            if (_acadInfoControl.AccessFileDropDownLayout.Visible)
+                _acadInfoControl.AccessFileDropDownLayout.Visible = false;
             else
-                _studentAcadInfoControl.AccessFileDropDownLayout.Visible = true;
+                _acadInfoControl.AccessFileDropDownLayout.Visible = true;
         }
 
         private void FilterEditorButton_Clicked(object sender, EventArgs e)
         {
-            if (_studentAcadInfoControl.AccessFilterEditor == null)
+            if (_acadInfoControl.AccessFilterEditor == null)
             {
                 IFilterControl filterControl = new FilterControl();
-                filterControl.AccessStudentControl = _studentAcadInfoControl;
+                filterControl.AccessStudentControl = _acadInfoControl;
 
                 new FilterPresenter(filterControl);
                 FileDropDownButton_Clicked(sender, e);
 
-                _studentAcadInfoControl.AccessFilterEditor = (UserControl)filterControl;
+                _acadInfoControl.AccessFilterEditor = (UserControl)filterControl;
             }
             else
             {
-                _studentAcadInfoControl.AccessFilterEditor.Dispose();
-                _studentAcadInfoControl.AccessFilterEditor = null;
+                _acadInfoControl.AccessFilterEditor.Dispose();
+                _acadInfoControl.AccessFilterEditor = null;
             }
         }
 
-        public async void StudentAcadControl_Load(object sender, EventArgs e)
+        public void StudentAcadControl_Load(object sender, EventArgs e)
         {
             try
             {
-                StudentAcademicInfoServices services = new StudentAcademicInfoServices();
-                List<PStudentAcademicInfoModel<PNameModel>> studentList = await services.GetAll();
-
-                _studentAcadInfoControl.ClearInfoTable();
-
-                foreach (var student in studentList)
-                {
-                    object[] studentInfo = new object[9];
-
-                    AddStudentAcademicInfoToObject(ref studentInfo, student);
-                    _studentAcadInfoControl.InfoTableRowData = studentInfo;
-                }
+                if (_acadInfoControl.ModifyUser == AccessType.STUDENT)
+                    _ = HandleStudentControlLoad();
+                else if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+                    _ = HandleInstructorControlLoad();
+                else
+                    throw new Exception(message: "Cannot modify chosen user type.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, $"{_studentAcadInfoControl.ModifyUser.ToString()} ACADEMIC INFORMATION",
+                MessageBox.Show(ex.Message, $"{_acadInfoControl.ModifyUser.ToString()} ACADEMIC INFORMATION",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
 
         #region Helpers
+        private async Task HandleStudentControlLoad()
+        {
+            if (_acadInfoControl.AccessInfoTable.Columns.Contains("InstructorCode"))
+                _acadInfoControl.AccessInfoTable.Columns.Remove("InstructorCode");
+
+            if (_acadInfoControl.AccessInfoTable.Columns.Contains("Course"))
+                _acadInfoControl.AccessInfoTable.Columns.Remove("Course");
+
+
+            StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+            List<PStudentAcademicInfoModel<PNameModel>> studentList = await services.GetAll();
+
+            _acadInfoControl.ClearInfoTable();
+
+            foreach (var student in studentList)
+            {
+                object[] studentInfo = new object[9];
+
+                AddStudentAcademicInfoToObject(ref studentInfo, student);
+                _acadInfoControl.InfoTableRowData = studentInfo;
+            }
+        }
+
+        private async Task HandleInstructorControlLoad()
+        {
+            if (_acadInfoControl.AccessInfoTable.Columns.Contains("SrCode"))
+                _acadInfoControl.AccessInfoTable.Columns.Remove("SrCode");
+
+
+            InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
+            List<PInstructorAcademicInfoModel<PNameModel>> studentList = await services.GetAll();
+
+            _acadInfoControl.ClearInfoTable();
+
+            foreach (var student in studentList)
+            {
+                object[] studentInfo = new object[10];
+
+                AddStudentAcademicInfoToObject(ref studentInfo, student);
+                _acadInfoControl.InfoTableRowData = studentInfo;
+            }
+        }
+
         private void DisplayConfirmation(string message, string action)
         {
             MessageBoxIcon messageBoxIcon = (action.ToUpper() == "DELETE") 
@@ -247,7 +318,7 @@ namespace PresentationLayer.Presenters.Admin
         {
             PRStudentAcademicInfoParams parameters = new PRStudentAcademicInfoParams();
 
-            var selectedRows = _studentAcadInfoControl.AccessInfoTable.SelectedRows[0];
+            var selectedRows = _acadInfoControl.AccessInfoTable.SelectedRows[0];
 
             parameters.SrCode = selectedRows.Cells["SrCode"].Value.ToString();
             parameters.Semester = selectedRows.Cells["Semester"].Value.ToString();
@@ -261,18 +332,28 @@ namespace PresentationLayer.Presenters.Admin
         {
             if (selectedRows == null) return;
 
-            _studentAcadInfoControl.CurrentUserControl.AccessSrCodeTextBox.Text = selectedRows.Cells["SrCode"].Value.ToString();
-            _studentAcadInfoControl.CurrentUserControl.AccessLastNameTextBox.Text = selectedRows.Cells["LastName"].Value.ToString();
-            _studentAcadInfoControl.CurrentUserControl.AccessFirstNameTextBox.Text = selectedRows.Cells["FirstName"].Value.ToString();
-            _studentAcadInfoControl.CurrentUserControl.AccessMiddleNameTextBox.Text = selectedRows.Cells["MiddleName"].Value.ToString();
+            _acadInfoControl.CurrentUserControl.AccessLastNameTextBox.Text   = selectedRows.Cells["LastName"].Value.ToString();
+            _acadInfoControl.CurrentUserControl.AccessFirstNameTextBox.Text  = selectedRows.Cells["FirstName"].Value.ToString();
+            _acadInfoControl.CurrentUserControl.AccessMiddleNameTextBox.Text = selectedRows.Cells["MiddleName"].Value.ToString();
 
-            if (_studentAcadInfoControl.CurrentUserControl.CurrentRequestType == FormRequestType.UPDATE)
+            
+            if (_acadInfoControl.ModifyUser == AccessType.STUDENT)
             {
-                _studentAcadInfoControl.CurrentUserControl.AccessSectionTextBox.Text = selectedRows.Cells["Section"].Value.ToString();
-                _studentAcadInfoControl.CurrentUserControl.AccessYearComboBox.Text = selectedRows.Cells["YearLevel"].Value.ToString();
-                _studentAcadInfoControl.CurrentUserControl.AccessProgramComboBox.Text = selectedRows.Cells["Program"].Value.ToString();
-                _studentAcadInfoControl.CurrentUserControl.AccessSemesterComboBox.Text = selectedRows.Cells["Semester"].Value.ToString();
-                _studentAcadInfoControl.CurrentUserControl.AccessAcademicYearComboBox.Text = selectedRows.Cells["AcademicYear"].Value.ToString();
+                _acadInfoControl.CurrentUserControl.AccessSrCodeTextBox.Text = selectedRows.Cells["SrCode"].Value.ToString();
+            }
+            else if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+            {
+                _acadInfoControl.CurrentUserControl.AccessSrCodeTextBox.Text = selectedRows.Cells["InstructorCode"].Value.ToString();
+                _acadInfoControl.CurrentUserControl.AccessSrCodeTextBox.Text = selectedRows.Cells["Course"].Value.ToString();                
+            }
+            
+            if (_acadInfoControl.CurrentUserControl.CurrentRequestType == FormRequestType.UPDATE)
+            {
+                _acadInfoControl.CurrentUserControl.AccessSectionTextBox.Text       = selectedRows.Cells["Section"].Value.ToString();
+                _acadInfoControl.CurrentUserControl.AccessYearComboBox.Text         = selectedRows.Cells["YearLevel"].Value.ToString();
+                _acadInfoControl.CurrentUserControl.AccessProgramComboBox.Text      = selectedRows.Cells["Program"].Value.ToString();
+                _acadInfoControl.CurrentUserControl.AccessSemesterComboBox.Text     = selectedRows.Cells["Semester"].Value.ToString();
+                _acadInfoControl.CurrentUserControl.AccessAcademicYearComboBox.Text = selectedRows.Cells["AcademicYear"].Value.ToString();
             }
         }
 
@@ -290,6 +371,21 @@ namespace PresentationLayer.Presenters.Admin
             studentObj[8] = studentInfo.Program;
         }
 
+        private void AddStudentAcademicInfoToObject(ref object[] studentObj,
+                        PInstructorAcademicInfoModel<PNameModel> instructorInfo)
+        {
+            studentObj[0] = instructorInfo.ItrCode;
+            studentObj[1] = instructorInfo.InstructorName.LastName;
+            studentObj[2] = instructorInfo.InstructorName.FirstName;
+            studentObj[3] = instructorInfo.InstructorName.MiddleName;
+            studentObj[4] = instructorInfo.Course;
+            studentObj[5] = instructorInfo.Section;
+            studentObj[6] = instructorInfo.Semester;
+            studentObj[7] = instructorInfo.YearLevel;
+            studentObj[8] = instructorInfo.AcademicYear;
+            studentObj[9] = instructorInfo.Program;
+        }
+
         private void SetSubmitButtonVisibility(IAcademicInfoControl studentControl, string button)
         {
             studentControl.AccessSubmitAddButton.Visible = false;
@@ -303,8 +399,7 @@ namespace PresentationLayer.Presenters.Admin
         #endregion
 
 
+        private IModifyAcadInfoControl _acadInfoControl;
         private TaskCompletionSource<bool> _studentControlReady;
-        private PStudentAcademicInfoModel<PNameModel> _studentModel;
-        private IModifyAcadInfoControl _studentAcadInfoControl;
     }
 }
