@@ -74,7 +74,15 @@ namespace PresentationLayer.Presenters.Admin
 
         private void ItrAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
+            userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            new ModifyAcadInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _adminModifyInfoControl.DisposeControl();
         }
 
         private void StudAcadInfoButton_Clicked(object sender, EventArgs e)
