@@ -1,4 +1,5 @@
 ﻿using DomainLayer.DataModels;
+using DomainLayer.DataModels.Instructor;
 using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.Presenters.General;
 using PresentationLayer.UserControls.AdminSubControls;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters.Admin
@@ -18,13 +20,13 @@ namespace PresentationLayer.Presenters.Admin
     {
         public AcademicInfoPresenter(IAcademicInfoControl studentAcadInfoControl)
         {
-            _studentAcadInfoControl = studentAcadInfoControl;
+            _acadInfoControl = studentAcadInfoControl;
 
-            _studentAcadInfoControl.ControlLoad               += StudentAcadInfoControl_Load;
-            _studentAcadInfoControl.CloseButtonClicked        += CloseButton_Clicked;
-            _studentAcadInfoControl.SubmitAddButtonClicked    += SubmitAddButton_Clicked;
-            _studentAcadInfoControl.SubmitUpdateButtonClicked += SubmitUpdateButton_Clicked;
-            _studentAcadInfoControl.CancelSubmitButtonClicked += CancelSubmitButton_Clicked;
+            _acadInfoControl.ControlLoad               += StudentAcadInfoControl_Load;
+            _acadInfoControl.CloseButtonClicked        += CloseButton_Clicked;
+            _acadInfoControl.SubmitAddButtonClicked    += SubmitAddButton_Clicked;
+            _acadInfoControl.SubmitUpdateButtonClicked += SubmitUpdateButton_Clicked;
+            _acadInfoControl.CancelSubmitButtonClicked += CancelSubmitButton_Clicked;
         }
 
         private void CancelSubmitButton_Clicked(object sender, EventArgs e)
@@ -40,39 +42,22 @@ namespace PresentationLayer.Presenters.Admin
         private DialogResult DisplayWarning(string message, FormRequestType requestType)
         {
              return MessageBox.Show(message,
-                $"Student Academic Information - {requestType}",
+                $"{_acadInfoControl.ModifyUser.ToString()} ACADEMIC INFORMATION - {requestType}",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning
             );
         }
 
-        private async void SubmitUpdateButton_Clicked(object sender, EventArgs e)
+        private void SubmitUpdateButton_Clicked(object sender, EventArgs e)
         {
             try
             {
-                PRStudentAcademicInfoParams parameters = new PRStudentAcademicInfoParams();
-                StudentAcademicInfoServices services = new StudentAcademicInfoServices();
-                PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
-
-                AddValuesToObject(ref parameters);
-                int recordId = await services.GetRecordId(parameters);
-
-                if (recordId == -1) 
-                    throw new Exception(message: $"Cannot find student with Sr-Code {parameters.SrCode}.");
-
-                AddValuesToObject(ref student);
-                bool response = await services.Update(student, recordId);
-
-                if (response)
-                {
-                    DisplayConfimation(
-                        $"Successfully updated student with Sr-Code {student.SrCode}.",
-                        FormRequestType.UPDATE,
-                        RequestStatus.SUCCESS
-                    );
-                    _studentAcadInfoControl.StudentControl.TriggerInfoTableReload();
-                }
-                else throw new Exception(message: $"Failed to update student with Sr-Code {student.SrCode}.");
+                if (_acadInfoControl.ModifyUser == AccessType.STUDENT)
+                    _ = HandleStudentUpdate();
+                else if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+                    _ = HandleInstructorUpdate();
+                else
+                    throw new Exception("Cannot modify current user.");
             }
             catch (Exception ex) 
             { 
@@ -83,27 +68,16 @@ namespace PresentationLayer.Presenters.Admin
             }
         }
 
-        private async void SubmitAddButton_Clicked(object sender, EventArgs e)
+        private void SubmitAddButton_Clicked(object sender, EventArgs e)
         {
             try
             {
-                StudentAcademicInfoServices services = new StudentAcademicInfoServices();
-                PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
-
-                AddValuesToObject(ref student);
-
-                bool response = await services.InsertNew(student);
-
-                if (response)
-                {
-                    DisplayConfimation(
-                        $"Successfully to inserted student with Sr-Code {student.SrCode}.",
-                        FormRequestType.ADD,
-                        RequestStatus.SUCCESS
-                    );
-                    _studentAcadInfoControl.StudentControl.TriggerInfoTableReload();
-                }
-                else throw new Exception(message: $"Failed to insert student with Sr-Code {student.SrCode}.");
+                if (_acadInfoControl.ModifyUser == AccessType.STUDENT)
+                    _ = HandleStudentInsert();
+                else if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+                    _ = HandleInstructorInsert();
+                else
+                    throw new Exception("Cannot modify current user.");
             }
             catch (Exception ex)
             {
@@ -116,19 +90,120 @@ namespace PresentationLayer.Presenters.Admin
 
         private void CloseButton_Clicked(object sender, EventArgs e)
         {
-            _studentAcadInfoControl.CurrentControl.Dispose();
+            _acadInfoControl.CurrentControl.Dispose();
         }
 
         private void StudentAcadInfoControl_Load(object sender, EventArgs e)
         {
-            if (_studentAcadInfoControl.CurrentRequestType == FormRequestType.UPDATE)
+            if (_acadInfoControl.CurrentRequestType == FormRequestType.UPDATE)
                 SetNameTextBoxToReadOnly();
 
-            LoadComboBoxOptions();
+            ModifyDisplayedElements();
+
+            LoadYearComboBoxOptions();
+            LoadSemesterComboBoxOptions();
+            LoadAcademicYearComboBoxOptions();
+            LoadProgramComboBoxOptions();
         }
 
 
         #region Helpers
+        private async Task HandleStudentInsert()
+        {
+            StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+            PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
+
+            AddValuesToObject(ref student);
+
+            bool response = await services.InsertNew(student);
+
+            if (response)
+            {
+                DisplayConfimation(
+                    $"Successfully to inserted student with Sr-Code {student.SrCode}.",
+                    FormRequestType.ADD,
+                    RequestStatus.SUCCESS
+                );
+                _acadInfoControl.StudentControl.TriggerInfoTableReload();
+            }
+            else throw new Exception(message: $"Failed to insert student with Sr-Code {student.SrCode}.");
+        }
+
+        private async Task HandleInstructorInsert()
+        {
+            InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
+            PInstructorAcademicInfoModel<string> instructor = new PInstructorAcademicInfoModel<string>();
+
+            AddValuesToObject(ref instructor);
+
+            bool response = await services.InsertNew(instructor);
+
+            if (response)
+            {
+                DisplayConfimation(
+                    $"Successfully to inserted instructor with Itr-Code {instructor.ItrCode}.",
+                    FormRequestType.ADD,
+                    RequestStatus.SUCCESS
+                );
+                _acadInfoControl.StudentControl.TriggerInfoTableReload();
+            }
+            else throw new Exception(message: $"Failed to insert instructor with Itr-Code {instructor.ItrCode}.");
+        }
+
+        private async Task HandleStudentUpdate()
+        {
+            PRStudentAcademicInfoParams parameters = new PRStudentAcademicInfoParams();
+            StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+            PStudentAcademicInfoModel<string> student = new PStudentAcademicInfoModel<string>();
+
+            AddValuesToObject(ref parameters);
+            int recordId = await services.GetRecordId(parameters);
+
+            if (recordId == -1)
+                throw new Exception(message: $"Cannot find student with Sr-Code {parameters.SrCode}.");
+
+            AddValuesToObject(ref student);
+            bool response = await services.Update(student, recordId);
+
+            if (response)
+            {
+                DisplayConfimation(
+                    $"Successfully updated student with Sr-Code {student.SrCode}.",
+                    FormRequestType.UPDATE,
+                    RequestStatus.SUCCESS
+                );
+                _acadInfoControl.StudentControl.TriggerInfoTableReload();
+            }
+            else throw new Exception(message: $"Failed to update student with Sr-Code {student.SrCode}.");
+        }
+
+        private async Task HandleInstructorUpdate()
+        {
+            PRInstructorAcademicParams parameters = new PRInstructorAcademicParams();
+            InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
+            PInstructorAcademicInfoModel<string> instructor = new PInstructorAcademicInfoModel<string>();
+
+            AddValuesToObject(ref parameters);
+            int recordId = await services.GetRecordId(parameters);
+
+            if (recordId == -1)
+                throw new Exception(message: $"Cannot find instructor with Itr-Code {parameters.ItrCode}.");
+
+            AddValuesToObject(ref instructor);
+            bool response = await services.Update(recordId, instructor);
+
+            if (response)
+            {
+                DisplayConfimation(
+                    $"Successfully updated instructor with Itr-Code {instructor.ItrCode}.",
+                    FormRequestType.UPDATE,
+                    RequestStatus.SUCCESS
+                );
+                _acadInfoControl.StudentControl.TriggerInfoTableReload();
+            }
+            else throw new Exception(message: $"Failed to update instructor with Itr-Code {instructor.ItrCode}.");
+        }
+
         private void DisplayConfimation(string message, FormRequestType requestType, 
                                         RequestStatus status)
         {
@@ -145,67 +220,125 @@ namespace PresentationLayer.Presenters.Admin
 
         private void AddValuesToObject(ref PRStudentAcademicInfoParams parameters)
         {
-            var selectedRows = _studentAcadInfoControl.AccessInfoTable.SelectedRows[0];
+            var selectedRows = _acadInfoControl.AccessInfoTable.SelectedRows[0];
 
-            parameters.SrCode = selectedRows.Cells["SrCode"].Value.ToString();
-            parameters.Semester = selectedRows.Cells["Semester"].Value.ToString();
-            parameters.YearLevel = selectedRows.Cells["YearLevel"].Value.ToString();
+            parameters.SrCode       = selectedRows.Cells["SrCode"].Value.ToString();
+            parameters.Section      = selectedRows.Cells["Section"].Value.ToString();
+            parameters.Semester     = selectedRows.Cells["Semester"].Value.ToString();
+            parameters.YearLevel    = selectedRows.Cells["YearLevel"].Value.ToString();
             parameters.AcademicYear = selectedRows.Cells["AcademicYear"].Value.ToString();
+        }
+
+        private void AddValuesToObject(ref PRInstructorAcademicParams parameters)
+        {
+            var selectedRows = _acadInfoControl.AccessInfoTable.SelectedRows[0];
+
+            parameters.Course       = (selectedRows.Cells["Course"].Value.ToString() == "-")
+                                    ? "" : selectedRows.Cells["Course"].Value.ToString();
+
+            parameters.ItrCode      = selectedRows.Cells["InstructorCode"].Value.ToString();
+
+            parameters.Section      = (selectedRows.Cells["Section"].Value.ToString() == "-")
+                                    ? "" : selectedRows.Cells["Section"].Value.ToString();
+
+            parameters.Semester     = (selectedRows.Cells["Semester"].Value.ToString() == "-")
+                ? "" : selectedRows.Cells["Semester"].Value.ToString();
+
+            parameters.YearLevel    = (selectedRows.Cells["YearLevel"].Value.ToString() == "-") 
+                                    ? "" : selectedRows.Cells["YearLevel"].Value.ToString();
+
+            parameters.AcademicYear = (selectedRows.Cells["AcademicYear"].Value.ToString() == "-") 
+                                    ? "" : selectedRows.Cells["AcademicYear"].Value.ToString();
         }
 
         private void AddValuesToObject(ref PStudentAcademicInfoModel<string> model)
         {
-            model.SrCode = _studentAcadInfoControl.AccessSrCodeTextBox.Text;
-            model.Program = _studentAcadInfoControl.AccessProgramComboBox.Text;
-            model.YearLevel = _studentAcadInfoControl.AccessYearComboBox.Text;
-            model.Section = _studentAcadInfoControl.AccessSectionTextBox.Text;
-            model.Semester = _studentAcadInfoControl.AccessSemesterComboBox.Text;
-            model.AcademicYear = _studentAcadInfoControl.AccessAcademicYearComboBox.Text;
-            model.StudentName = model.SrCode + "-STU";
+            model.SrCode        = _acadInfoControl.AccessUsrCodeTextBox.Text;
+            model.Program       = _acadInfoControl.AccessProgramComboBox.Text;
+            model.YearLevel     = _acadInfoControl.AccessYearComboBox.Text;
+            model.Section       = _acadInfoControl.AccessSectionTextBox.Text;
+            model.Semester      = _acadInfoControl.AccessSemesterComboBox.Text;
+            model.AcademicYear  = _acadInfoControl.AccessAcademicYearComboBox.Text;
+            model.StudentName   = model.SrCode + "-STU";
+        }
+
+        private void AddValuesToObject(ref PInstructorAcademicInfoModel<string> model)
+        {
+            model.ItrCode           = _acadInfoControl.AccessUsrCodeTextBox.Text;
+            model.Course            = _acadInfoControl.AccessCourseTextBox.Text;
+            model.Program           = _acadInfoControl.AccessProgramComboBox.Text;
+            model.YearLevel         = _acadInfoControl.AccessYearComboBox.Text;
+            model.Section           = _acadInfoControl.AccessSectionTextBox.Text;
+            model.Semester          = _acadInfoControl.AccessSemesterComboBox.Text;
+            model.AcademicYear      = _acadInfoControl.AccessAcademicYearComboBox.Text;
+            model.InstructorName    = model.ItrCode + "-ITR";
         }
 
         private void ClearTexboxes()
         {
-            _studentAcadInfoControl.AccessSrCodeTextBox.Clear();
-            _studentAcadInfoControl.AccessSectionTextBox.Clear();
-            _studentAcadInfoControl.AccessLastNameTextBox.Clear();
-            _studentAcadInfoControl.AccessFirstNameTextBox.Clear();
-            _studentAcadInfoControl.AccessMiddleNameTextBox.Clear();
-            _studentAcadInfoControl.AccessYearComboBox.Text = string.Empty;
-            _studentAcadInfoControl.AccessProgramComboBox.Text = string.Empty;
-            _studentAcadInfoControl.AccessSemesterComboBox.Text = string.Empty;
-            _studentAcadInfoControl.AccessAcademicYearComboBox.Text = string.Empty;
+            _acadInfoControl.AccessUsrCodeTextBox.Clear();
+            _acadInfoControl.AccessSectionTextBox.Clear();
+            _acadInfoControl.AccessLastNameTextBox.Clear();
+            _acadInfoControl.AccessFirstNameTextBox.Clear();
+            _acadInfoControl.AccessMiddleNameTextBox.Clear();
+            _acadInfoControl.AccessYearComboBox.Text = string.Empty;
+            _acadInfoControl.AccessProgramComboBox.Text = string.Empty;
+            _acadInfoControl.AccessSemesterComboBox.Text = string.Empty;
+            _acadInfoControl.AccessAcademicYearComboBox.Text = string.Empty;
         }
 
-        private async void LoadComboBoxOptions()
+        private void LoadYearComboBoxOptions()
         {
             string[] yearOptions = { "FIRST", "SECOND", "THIRD", "FOURTH", "FIFTH"};
-            _studentAcadInfoControl.AccessYearComboBox.Items.AddRange(yearOptions);
+            _acadInfoControl.AccessYearComboBox.Items.AddRange(yearOptions);
+        }
 
-            string[] semesterOptions = { "FISRT", "SECOND", "SUMMER" };
-            _studentAcadInfoControl.AccessSemesterComboBox.Items.AddRange(semesterOptions);
+        private void LoadSemesterComboBoxOptions()
+        {
+            string[] semesterOptions = { "FIRST", "SECOND", "SUMMER" };
+            _acadInfoControl.AccessSemesterComboBox.Items.AddRange(semesterOptions);
+        }
 
+        private void LoadAcademicYearComboBoxOptions()
+        {
             int startingYear = DateTime.Now.Year + 1;
             string[] acadYearOptions = Enumerable.Range(0, 9)
                 .Select(i => $"A.Y. {startingYear - (i + 1)}-{startingYear - i}")
                 .ToArray();
-            _studentAcadInfoControl.AccessAcademicYearComboBox.Items.AddRange(acadYearOptions);
+            _acadInfoControl.AccessAcademicYearComboBox.Items.AddRange(acadYearOptions);
+        }
 
+        private async void LoadProgramComboBoxOptions()
+        {
             ProrgamServices services = new ProrgamServices();
             Dictionary<string, string> programList = await services.GetAllProgram();
             string[] programOptions = programList.Values.ToArray();
-            _studentAcadInfoControl.AccessProgramComboBox.Items.AddRange(programOptions);
+            _acadInfoControl.AccessProgramComboBox.Items.AddRange(programOptions);
         }
 
         private void SetNameTextBoxToReadOnly()
         {
-            _studentAcadInfoControl.AccessLastNameTextBox.ReadOnly = true;
-            _studentAcadInfoControl.AccessFirstNameTextBox.ReadOnly = true;
-            _studentAcadInfoControl.AccessMiddleNameTextBox.ReadOnly = true;
+            _acadInfoControl.AccessLastNameTextBox.ReadOnly = true;
+            _acadInfoControl.AccessFirstNameTextBox.ReadOnly = true;
+            _acadInfoControl.AccessMiddleNameTextBox.ReadOnly = true;
+        }
+
+        private void ModifyDisplayedElements()
+        {
+            if (_acadInfoControl.ModifyUser == AccessType.STUDENT)
+            {
+                _acadInfoControl.AccessCoursePanel.Dispose();
+            }
+            else if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR)
+            {
+                _acadInfoControl.AccessPageLabel.Text = "Instructor Academic Information Form";
+                _acadInfoControl.AccessUsrCodeLabel.Text = "ITR-CODE:";
+                _acadInfoControl.AccessFullNameLabel.Text = "INSTRUCTOR FULL NAME";
+            }
         }
         #endregion
 
 
-        private IAcademicInfoControl _studentAcadInfoControl;
+        private IAcademicInfoControl _acadInfoControl;
     }
 }
