@@ -170,6 +170,9 @@ namespace ServiceLayer.Database
 
             if (!String.IsNullOrEmpty(paramsModel.Semester))
                 request += $"&Semester={paramsModel.Semester}";
+
+            if (!String.IsNullOrEmpty(paramsModel.Section))
+                request += $"&Section={paramsModel.Section}";
         }
         #endregion
 
