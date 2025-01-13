@@ -171,7 +171,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudentAcademicInfoControl_Clicked(object sender, EventArgs e)
         {
-            if (_acadInfoControl.ModifyUser == AccessType.STUDENT) return;
+            if (_acadInfoControl.ModifyUser != AccessType.INSTRUCTOR) return;
 
 
             IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
@@ -200,7 +200,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void InstructorAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR) return;
+            if (_acadInfoControl.ModifyUser != AccessType.STUDENT) return;
 
 
             IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
