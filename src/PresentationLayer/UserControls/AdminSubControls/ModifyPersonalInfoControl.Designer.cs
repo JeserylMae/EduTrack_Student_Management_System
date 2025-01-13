@@ -32,11 +32,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.MainControlHolder = new System.Windows.Forms.Panel();
             this.FileDropDownLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.CloseEditorButton = new System.Windows.Forms.Button();
+            this.ProgramInfoButton = new System.Windows.Forms.Button();
             this.StudentPersonalInfoButton = new System.Windows.Forms.Button();
             this.StudentAcadInfoButton = new System.Windows.Forms.Button();
             this.InstructorPersonalInfoButton = new System.Windows.Forms.Button();
             this.InstructorAcadInfoButton = new System.Windows.Forms.Button();
+            this.CloseEditorButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.InfoTable = new System.Windows.Forms.DataGridView();
             this.SRCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,30 +111,31 @@
             this.FileDropDownLayout.Controls.Add(this.StudentAcadInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorPersonalInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorAcadInfoButton);
+            this.FileDropDownLayout.Controls.Add(this.ProgramInfoButton);
             this.FileDropDownLayout.Controls.Add(this.CloseEditorButton);
             this.FileDropDownLayout.Controls.Add(this.ExitButton);
             this.FileDropDownLayout.Location = new System.Drawing.Point(299, 0);
             this.FileDropDownLayout.Name = "FileDropDownLayout";
-            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 174);
+            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 200);
             this.FileDropDownLayout.TabIndex = 1;
             this.FileDropDownLayout.Visible = false;
             // 
-            // CloseEditorButton
+            // ProgramInfoButton
             // 
-            this.CloseEditorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
-            this.CloseEditorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CloseEditorButton.FlatAppearance.BorderSize = 0;
-            this.CloseEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseEditorButton.ForeColor = System.Drawing.Color.White;
-            this.CloseEditorButton.Location = new System.Drawing.Point(0, 112);
-            this.CloseEditorButton.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseEditorButton.Name = "CloseEditorButton";
-            this.CloseEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
-            this.CloseEditorButton.Size = new System.Drawing.Size(259, 28);
-            this.CloseEditorButton.TabIndex = 5;
-            this.CloseEditorButton.Text = "Close Editor";
-            this.CloseEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CloseEditorButton.UseVisualStyleBackColor = false;
+            this.ProgramInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
+            this.ProgramInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ProgramInfoButton.FlatAppearance.BorderSize = 0;
+            this.ProgramInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProgramInfoButton.ForeColor = System.Drawing.Color.White;
+            this.ProgramInfoButton.Location = new System.Drawing.Point(0, 112);
+            this.ProgramInfoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ProgramInfoButton.Name = "ProgramInfoButton";
+            this.ProgramInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
+            this.ProgramInfoButton.Size = new System.Drawing.Size(259, 28);
+            this.ProgramInfoButton.TabIndex = 7;
+            this.ProgramInfoButton.Text = "Program Information";
+            this.ProgramInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProgramInfoButton.UseVisualStyleBackColor = false;
             // 
             // StudentPersonalInfoButton
             // 
@@ -203,6 +205,23 @@
             this.InstructorAcadInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstructorAcadInfoButton.UseVisualStyleBackColor = false;
             // 
+            // CloseEditorButton
+            // 
+            this.CloseEditorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
+            this.CloseEditorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CloseEditorButton.FlatAppearance.BorderSize = 0;
+            this.CloseEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseEditorButton.ForeColor = System.Drawing.Color.White;
+            this.CloseEditorButton.Location = new System.Drawing.Point(0, 140);
+            this.CloseEditorButton.Margin = new System.Windows.Forms.Padding(0);
+            this.CloseEditorButton.Name = "CloseEditorButton";
+            this.CloseEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
+            this.CloseEditorButton.Size = new System.Drawing.Size(259, 28);
+            this.CloseEditorButton.TabIndex = 5;
+            this.CloseEditorButton.Text = "Close Editor";
+            this.CloseEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CloseEditorButton.UseVisualStyleBackColor = false;
+            // 
             // ExitButton
             // 
             this.ExitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
@@ -210,7 +229,7 @@
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(0, 140);
+            this.ExitButton.Location = new System.Drawing.Point(0, 168);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(0);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
@@ -562,5 +581,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactPersonAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactPersonNumber;
         private System.Windows.Forms.Button StudentPersonalInfoButton;
+        private System.Windows.Forms.Button ProgramInfoButton;
     }
 }
