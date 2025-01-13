@@ -25,6 +25,7 @@ namespace PresentationLayer.Presenters.Admin
         private void CourseInfoButton_Clicked(object sender, EventArgs e)
         {
             IProgramInfoControl userControl = new ProgramInfoControl();
+            new ProgramInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
