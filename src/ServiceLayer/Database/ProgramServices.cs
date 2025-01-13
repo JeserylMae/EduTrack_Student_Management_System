@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace ServiceLayer.Database
 {
-    public class ProrgamServices
+    public class ProgramServices
     {
-        public ProrgamServices()
+        public ProgramServices()
         {
             _webAddress = $"{DatabaseConnection.GetWebAddress()}/Program";
         }
