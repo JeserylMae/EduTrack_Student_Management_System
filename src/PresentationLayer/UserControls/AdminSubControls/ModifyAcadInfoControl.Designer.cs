@@ -58,6 +58,7 @@
             this.CloseEditorButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ProgramInfoButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoTable)).BeginInit();
             this.MainControlHolder.SuspendLayout();
@@ -334,12 +335,13 @@
             this.FileDropDownLayout.Controls.Add(this.StudentAcademicInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorPersonalInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorAcadInfoButton);
+            this.FileDropDownLayout.Controls.Add(this.ProgramInfoButton);
             this.FileDropDownLayout.Controls.Add(this.FilterEditorButton);
             this.FileDropDownLayout.Controls.Add(this.CloseEditorButton);
             this.FileDropDownLayout.Controls.Add(this.ExitButton);
             this.FileDropDownLayout.Location = new System.Drawing.Point(299, 0);
             this.FileDropDownLayout.Name = "FileDropDownLayout";
-            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 206);
+            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 225);
             this.FileDropDownLayout.TabIndex = 1;
             this.FileDropDownLayout.Visible = false;
             // 
@@ -418,7 +420,7 @@
             this.FilterEditorButton.FlatAppearance.BorderSize = 0;
             this.FilterEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FilterEditorButton.ForeColor = System.Drawing.Color.White;
-            this.FilterEditorButton.Location = new System.Drawing.Point(0, 112);
+            this.FilterEditorButton.Location = new System.Drawing.Point(0, 140);
             this.FilterEditorButton.Margin = new System.Windows.Forms.Padding(0);
             this.FilterEditorButton.Name = "FilterEditorButton";
             this.FilterEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
@@ -435,7 +437,7 @@
             this.CloseEditorButton.FlatAppearance.BorderSize = 0;
             this.CloseEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseEditorButton.ForeColor = System.Drawing.Color.White;
-            this.CloseEditorButton.Location = new System.Drawing.Point(0, 140);
+            this.CloseEditorButton.Location = new System.Drawing.Point(0, 168);
             this.CloseEditorButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseEditorButton.Name = "CloseEditorButton";
             this.CloseEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
@@ -452,7 +454,7 @@
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(0, 168);
+            this.ExitButton.Location = new System.Drawing.Point(0, 196);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(0);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
@@ -472,6 +474,23 @@
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(1280, 658);
             this.panel1.TabIndex = 4;
+            // 
+            // ProgramInfoButton
+            // 
+            this.ProgramInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
+            this.ProgramInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ProgramInfoButton.FlatAppearance.BorderSize = 0;
+            this.ProgramInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProgramInfoButton.ForeColor = System.Drawing.Color.White;
+            this.ProgramInfoButton.Location = new System.Drawing.Point(0, 112);
+            this.ProgramInfoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ProgramInfoButton.Name = "ProgramInfoButton";
+            this.ProgramInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
+            this.ProgramInfoButton.Size = new System.Drawing.Size(259, 28);
+            this.ProgramInfoButton.TabIndex = 7;
+            this.ProgramInfoButton.Text = "Program Information";
+            this.ProgramInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProgramInfoButton.UseVisualStyleBackColor = false;
             // 
             // ModifyAcadInfoControl
             // 
@@ -526,5 +545,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn YearLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn AcademicYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn Program;
+        private System.Windows.Forms.Button ProgramInfoButton;
     }
 }
