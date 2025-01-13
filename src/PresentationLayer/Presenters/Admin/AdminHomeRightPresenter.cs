@@ -24,7 +24,12 @@ namespace PresentationLayer.Presenters.Admin
 
         private void CourseInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IProgramInfoControl userControl = new ProgramInfoControl();
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _adminHomeRightControl.DestroyControl();
         }
 
         private void ItrAcadInfoButton_Clicked(object sender, EventArgs e)
