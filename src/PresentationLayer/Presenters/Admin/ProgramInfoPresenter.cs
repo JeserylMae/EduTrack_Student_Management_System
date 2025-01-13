@@ -1,4 +1,5 @@
-﻿using PresentationLayer.Presenters.General;
+﻿using PresentationLayer.Presenters.Enumerations;
+using PresentationLayer.Presenters.General;
 using PresentationLayer.UserControls.AdminSubControls;
 using PresentationLayer.UserControls.HomeSubControls;
 using PresentationLayer.UserControls.MainControls;
@@ -51,22 +52,46 @@ namespace PresentationLayer.Presenters.Admin
 
         private void InstructorPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IPersonalInfoControl userControl = new PersonalInfoControl();
+            userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _programControl.DisposeControl();
         }
 
         private void InstructorAcademicInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IAcademicInfoControl userControl = new AcademicInfoControl();
+            userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _programControl.DisposeControl();
         }
 
         private void StudentPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IPersonalInfoControl userControl = new PersonalInfoControl();
+            userControl.ModifyUser = AccessType.STUDENT;
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _programControl.DisposeControl();   
         }
 
         private void StudentAcademicInfoButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IAcademicInfoControl userControl = new AcademicInfoControl();
+            userControl.ModifyUser = AccessType.STUDENT;
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _programControl.DisposeControl();
         }
 
         private void SearchProgramIdTextBox_Pressed(object sender, KeyboardEventArgs e)
