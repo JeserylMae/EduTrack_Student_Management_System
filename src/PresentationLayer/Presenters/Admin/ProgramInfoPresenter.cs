@@ -55,6 +55,8 @@ namespace PresentationLayer.Presenters.Admin
             IPersonalInfoControl userControl = new PersonalInfoControl();
             userControl.ModifyUser = AccessType.INSTRUCTOR;
 
+            new PersonalInfoPresenter(userControl);
+
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
 
@@ -65,6 +67,8 @@ namespace PresentationLayer.Presenters.Admin
         {
             IAcademicInfoControl userControl = new AcademicInfoControl();
             userControl.ModifyUser = AccessType.INSTRUCTOR;
+
+            new AcademicInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
@@ -77,6 +81,8 @@ namespace PresentationLayer.Presenters.Admin
             IPersonalInfoControl userControl = new PersonalInfoControl();
             userControl.ModifyUser = AccessType.STUDENT;
 
+            new PersonalInfoPresenter(userControl);
+
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
 
@@ -87,6 +93,8 @@ namespace PresentationLayer.Presenters.Admin
         {
             IAcademicInfoControl userControl = new AcademicInfoControl();
             userControl.ModifyUser = AccessType.STUDENT;
+
+            new AcademicInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
