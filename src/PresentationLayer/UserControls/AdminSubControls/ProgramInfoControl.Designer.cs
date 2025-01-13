@@ -42,7 +42,7 @@
             this.StudentAcademicInfoButton = new System.Windows.Forms.Button();
             this.InstructorPersonalInfoButton = new System.Windows.Forms.Button();
             this.InstructorAcadInfoButton = new System.Windows.Forms.Button();
-            this.FilterEditorButton = new System.Windows.Forms.Button();
+            this.ProgramInfoButton = new System.Windows.Forms.Button();
             this.CloseEditorButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.InfoTable = new System.Windows.Forms.DataGridView();
@@ -50,7 +50,6 @@
             this.ProgramName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProgramInfoButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.MainControlHolder.SuspendLayout();
             this.FileDropDownLayout.SuspendLayout();
@@ -86,12 +85,12 @@
             this.SearchProgramIdButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.SearchProgramIdButton.IconSize = 20;
             this.SearchProgramIdButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchProgramIdButton.Location = new System.Drawing.Point(822, 5);
+            this.SearchProgramIdButton.Location = new System.Drawing.Point(800, 5);
             this.SearchProgramIdButton.Margin = new System.Windows.Forms.Padding(0);
             this.SearchProgramIdButton.Name = "SearchProgramIdButton";
-            this.SearchProgramIdButton.Size = new System.Drawing.Size(131, 28);
+            this.SearchProgramIdButton.Size = new System.Drawing.Size(153, 28);
             this.SearchProgramIdButton.TabIndex = 5;
-            this.SearchProgramIdButton.Text = "Search Sr-Code";
+            this.SearchProgramIdButton.Text = "Search Program ID";
             this.SearchProgramIdButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SearchProgramIdButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SearchProgramIdButton.UseVisualStyleBackColor = true;
@@ -226,12 +225,11 @@
             this.FileDropDownLayout.Controls.Add(this.InstructorPersonalInfoButton);
             this.FileDropDownLayout.Controls.Add(this.InstructorAcadInfoButton);
             this.FileDropDownLayout.Controls.Add(this.ProgramInfoButton);
-            this.FileDropDownLayout.Controls.Add(this.FilterEditorButton);
             this.FileDropDownLayout.Controls.Add(this.CloseEditorButton);
             this.FileDropDownLayout.Controls.Add(this.ExitButton);
             this.FileDropDownLayout.Location = new System.Drawing.Point(299, 0);
             this.FileDropDownLayout.Name = "FileDropDownLayout";
-            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 226);
+            this.FileDropDownLayout.Size = new System.Drawing.Size(262, 203);
             this.FileDropDownLayout.TabIndex = 1;
             this.FileDropDownLayout.Visible = false;
             // 
@@ -303,22 +301,22 @@
             this.InstructorAcadInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.InstructorAcadInfoButton.UseVisualStyleBackColor = false;
             // 
-            // FilterEditorButton
+            // ProgramInfoButton
             // 
-            this.FilterEditorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
-            this.FilterEditorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.FilterEditorButton.FlatAppearance.BorderSize = 0;
-            this.FilterEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterEditorButton.ForeColor = System.Drawing.Color.White;
-            this.FilterEditorButton.Location = new System.Drawing.Point(0, 140);
-            this.FilterEditorButton.Margin = new System.Windows.Forms.Padding(0);
-            this.FilterEditorButton.Name = "FilterEditorButton";
-            this.FilterEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
-            this.FilterEditorButton.Size = new System.Drawing.Size(259, 28);
-            this.FilterEditorButton.TabIndex = 12;
-            this.FilterEditorButton.Text = "Filter";
-            this.FilterEditorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.FilterEditorButton.UseVisualStyleBackColor = false;
+            this.ProgramInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
+            this.ProgramInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ProgramInfoButton.FlatAppearance.BorderSize = 0;
+            this.ProgramInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProgramInfoButton.ForeColor = System.Drawing.Color.White;
+            this.ProgramInfoButton.Location = new System.Drawing.Point(0, 112);
+            this.ProgramInfoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ProgramInfoButton.Name = "ProgramInfoButton";
+            this.ProgramInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
+            this.ProgramInfoButton.Size = new System.Drawing.Size(259, 28);
+            this.ProgramInfoButton.TabIndex = 11;
+            this.ProgramInfoButton.Text = "Program Information";
+            this.ProgramInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ProgramInfoButton.UseVisualStyleBackColor = false;
             // 
             // CloseEditorButton
             // 
@@ -327,7 +325,7 @@
             this.CloseEditorButton.FlatAppearance.BorderSize = 0;
             this.CloseEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseEditorButton.ForeColor = System.Drawing.Color.White;
-            this.CloseEditorButton.Location = new System.Drawing.Point(0, 168);
+            this.CloseEditorButton.Location = new System.Drawing.Point(0, 140);
             this.CloseEditorButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseEditorButton.Name = "CloseEditorButton";
             this.CloseEditorButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
@@ -344,7 +342,7 @@
             this.ExitButton.FlatAppearance.BorderSize = 0;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Location = new System.Drawing.Point(0, 196);
+            this.ExitButton.Location = new System.Drawing.Point(0, 168);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(0);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
@@ -402,23 +400,6 @@
             this.DepartmentName.Name = "DepartmentName";
             this.DepartmentName.ReadOnly = true;
             // 
-            // ProgramInfoButton
-            // 
-            this.ProgramInfoButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(52)))), ((int)(((byte)(86)))));
-            this.ProgramInfoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ProgramInfoButton.FlatAppearance.BorderSize = 0;
-            this.ProgramInfoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProgramInfoButton.ForeColor = System.Drawing.Color.White;
-            this.ProgramInfoButton.Location = new System.Drawing.Point(0, 112);
-            this.ProgramInfoButton.Margin = new System.Windows.Forms.Padding(0);
-            this.ProgramInfoButton.Name = "ProgramInfoButton";
-            this.ProgramInfoButton.Padding = new System.Windows.Forms.Padding(15, 1, 15, 1);
-            this.ProgramInfoButton.Size = new System.Drawing.Size(259, 28);
-            this.ProgramInfoButton.TabIndex = 11;
-            this.ProgramInfoButton.Text = "Program Information";
-            this.ProgramInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ProgramInfoButton.UseVisualStyleBackColor = false;
-            // 
             // ProgramInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -427,7 +408,7 @@
             this.Controls.Add(this.MainControlHolder);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Candara Light", 11.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProgramInfoControl";
             this.Size = new System.Drawing.Size(1280, 688);
             this.panel2.ResumeLayout(false);
@@ -455,7 +436,6 @@
         private System.Windows.Forms.Button StudentAcademicInfoButton;
         private System.Windows.Forms.Button InstructorPersonalInfoButton;
         private System.Windows.Forms.Button InstructorAcadInfoButton;
-        private System.Windows.Forms.Button FilterEditorButton;
         private System.Windows.Forms.Button CloseEditorButton;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.DataGridView InfoTable;
