@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
@@ -14,11 +13,12 @@ namespace PresentationLayer.UserControls.AdminSubControls
         void TriggerInfoTableReload();
 
 
-        object[] AccessInfoTableRowData      { set; }
-        DataGridView AccessInfoTable         { get; }
-        TextBox AccessSearchProgramIdTextbox { get; }
-        
-        
+        object[] AccessInfoTableRowData             { set; }
+        DataGridView AccessInfoTable                { get; }
+        TextBox AccessSearchProgramIdTextbox        { get; }
+        FlowLayoutPanel AccessFileDropDownLayout    { get; }
+
+
         event EventHandler OnControlLoad;
         event EventHandler ExitButtonClicked;
         event EventHandler CloseEditorButtonClicked;
@@ -32,6 +32,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler StudentAcademicInfoButtonClicked;
         event EventHandler StudentPersonalInfoButtonClicked;
         event EventHandler InstructorPersonalInfoButtonClicked;
-        event KeyboardEventHandler SearchProgramIdTextboxPressed;
+        event KeyEventHandler SearchProgramIdTextboxPressed;
     }
 }
