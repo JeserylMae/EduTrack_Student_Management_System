@@ -2,18 +2,18 @@
 {
     public struct ProgramQuery
     {
-        public readonly string GetAll => (@"
+        public readonly string spGetAll => (@"
             SELECT * FROM ProgramTbl;
         ");
 
-        public readonly string GetAllProgram => (@"
+        public readonly string spGetAllProgram => (@"
             SELECT 
                 ProgramId, ProgramName
             From 
                 ProgramTbl;
         ");
 
-        public readonly string InsertNew => (@"
+        public readonly string spInsertNew => (@"
             INSERT INTO ProgramTbl(
                 ProgramId, 
                 ProgramName, 
@@ -28,7 +28,7 @@
             );
         ");
 
-        public readonly string Update => (@"
+        public readonly string spUpdate => (@"
             UPDATE 
                 ProgramTbl
             SET 
@@ -39,7 +39,7 @@
                 ProgramId = @p_ProgramId;
         ");
 
-        public readonly string UpdateProgramId => (@"
+        public readonly string spUpdateProgramId => (@"
             UPDATE 
                 ProgramTbl
             SET 
@@ -48,7 +48,7 @@
                 ProgramName = @p_ProgramName;
         ");
 
-        public readonly string Delete => (@"
+        public readonly string spDelete => (@"
             DELETE FROM 
                 ProgramTbl
             WHERE 
