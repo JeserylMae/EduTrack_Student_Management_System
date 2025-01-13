@@ -100,6 +100,8 @@ namespace PresentationLayer.Presenters.Admin
 
         private void CloseEditorButton_Clicked(object sender, EventArgs e)
         {
+            _adminModifyInfoControl.DisposeControl();
+
             HomePage homePage = new HomePage();
             new HomePagePresenter(homePage);
 
