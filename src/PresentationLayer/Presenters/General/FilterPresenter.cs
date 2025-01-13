@@ -198,7 +198,7 @@ namespace PresentationLayer.Presenters.General
 
         private async Task LoadProgramOptions()
         {
-            ProrgamServices services = new ProrgamServices();
+            ProgramServices services = new ProgramServices();
 
             Dictionary<string, string> response = await services.GetAllProgram();
 
