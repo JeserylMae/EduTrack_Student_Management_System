@@ -65,6 +65,7 @@
     <Compile Include="Presenters\Admin\AcademicInfoPresenter.cs" />
     <Compile Include="Presenters\Admin\AdminHomeRightPresenter.cs" />
     <Compile Include="Presenters\Admin\ModifyPersonalInfoPresenter.cs" />
+    <Compile Include="Presenters\Admin\ProgramInfoPresenter.cs" />
     <Compile Include="Presenters\General\EdutrackMainFormPresenter.cs" />
     <Compile Include="Presenters\General\FilterPresenter.cs" />
     <Compile Include="Presenters\General\GeneralPresenter.cs" />
