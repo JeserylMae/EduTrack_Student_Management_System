@@ -21,7 +21,7 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            string procedure = _query.GetAll;
+            string procedure = _query.spGetAll;
             List<PRProgramModel> response = await _repository.GetAll<PRProgramModel>(procedure);
 
             if (response.Count() > 0) return Ok(response);
@@ -32,7 +32,7 @@ namespace InfrastructureLayer.Controllers
         [HttpGet("GetAllProgram")]
         public async Task<IActionResult> GetAllProgram()
         {
-            string procedure = _query.GetAllProgram;
+            string procedure = _query.spGetAllProgram;
             Dictionary<dynamic, dynamic> response = await _repository.GetAll(procedure);
 
             if (response.Count() > 0) return Ok(response);
@@ -43,7 +43,7 @@ namespace InfrastructureLayer.Controllers
         [HttpPost("InsertNew")]
         public async Task<IActionResult> InsertNew(PRProgramModel programModel)
         {
-            string procedure = _query.InsertNew;
+            string procedure = _query.spInsertNew;
 
             DynamicParameters parameters = new DynamicParameters();
             AddDynamicParameters(ref parameters, programModel);
@@ -58,7 +58,7 @@ namespace InfrastructureLayer.Controllers
         [HttpPatch("Update")]
         public async Task<IActionResult> Update(PRProgramModel programModel)
         {
-            string procedure = _query.Update;
+            string procedure = _query.spUpdate;
             
             DynamicParameters parameters = new DynamicParameters();
             AddDynamicParameters(ref parameters, programModel);
@@ -73,7 +73,7 @@ namespace InfrastructureLayer.Controllers
         [HttpPatch("UpdateProgramId")]
         public async Task<IActionResult> UpdateProgramId(PRProgramModel programModel)
         {
-            string procedure = _query.UpdateProgramId;
+            string procedure = _query.spUpdateProgramId;
 
             DynamicParameters parameters = new DynamicParameters();
             AddDynamicParameters(ref parameters, programModel);
@@ -88,7 +88,7 @@ namespace InfrastructureLayer.Controllers
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(string programId)
         {
-            string procedure = _query.Delete;
+            string procedure = _query.spDelete;
 
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add("@p_ProgramId", programId);
