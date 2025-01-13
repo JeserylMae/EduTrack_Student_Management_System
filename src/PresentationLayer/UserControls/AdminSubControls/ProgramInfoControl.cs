@@ -18,6 +18,18 @@ namespace PresentationLayer.UserControls.AdminSubControls
             InitializeComponent();
         }
 
+
+        public void DisposeControl() 
+        { 
+            this.Dispose(); 
+        }
+
+        public void TriggerInfoTableReload()
+        {
+            OnControlLoad?.Invoke(this, EventArgs.Empty);
+        }
+
+
         public object[] AccessInfoTableRowData 
         { 
             set
@@ -38,6 +50,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         }
 
 
+        public event EventHandler OnControlLoad;
         public event EventHandler ExitButtonClicked;
         public event EventHandler CloseEditorButtonClicked;
         public event EventHandler ProgramInfoButtonClicked;
