@@ -276,16 +276,12 @@ namespace PresentationLayer.Presenters.Admin
 
         private async Task HandleInstructorDelete()
         {
-            Console.WriteLine("INSIDE 1");
             InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
             PRInstructorAcademicParams parameters = new PRInstructorAcademicParams();
 
-            Console.WriteLine("INSIDE 2");
             AddValuesToObject(ref parameters);
-            Console.WriteLine("INSIDE 3");
 
             bool result = await services.Delete(parameters);
-            Console.WriteLine("INSIDE 4");
 
             DisplayConfirmation($"Successfully deleted instructor with Itr-Code {parameters.ItrCode}.", "ADD");
             _acadInfoControl.TriggerInfoTableReload();
@@ -427,7 +423,7 @@ namespace PresentationLayer.Presenters.Admin
         {
             var selectedRows = _acadInfoControl.AccessInfoTable.SelectedRows[0];
 
-            parameters.ItrCode = selectedRows.Cells["ItrCode"].Value.ToString();
+            parameters.ItrCode = selectedRows.Cells["InstructorCode"].Value.ToString();
             parameters.Course = selectedRows.Cells["Course"].Value.ToString();
             parameters.Section = selectedRows.Cells["Section"].Value.ToString();
             parameters.Semester = selectedRows.Cells["Semester"].Value.ToString();
