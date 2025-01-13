@@ -113,7 +113,7 @@
     <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="Database\InstructorAcademicInfoServices.cs" />
     <Compile Include="Database\InstructorPersonalInfoServices.cs" />
-    <Compile Include="Database\ProrgamServices.cs" />
+    <Compile Include="Database\ProgramServices.cs" />
     <Compile Include="Database\StudentAcademicInfoServices.cs" />
     <Compile Include="Database\StudentPersonalInfoServices.cs" />
     <Compile Include="Database\UserServices.cs" />
