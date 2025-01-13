@@ -1,15 +1,17 @@
-﻿using PresentationLayer.Presenters.Enumerations;
+﻿using DomainLayer.DataModels;
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.Presenters.General;
 using PresentationLayer.UserControls.AdminSubControls;
 using PresentationLayer.UserControls.HomeSubControls;
 using PresentationLayer.UserControls.MainControls;
+using ServiceLayer.Database;
 using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -52,10 +54,10 @@ namespace PresentationLayer.Presenters.Admin
 
         private void InstructorPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            IPersonalInfoControl userControl = new PersonalInfoControl();
+            IModifyPersonalInfoControl userControl = new ModifyPersonalInfoControl();
             userControl.ModifyUser = AccessType.INSTRUCTOR;
 
-            new PersonalInfoPresenter(userControl);
+            new ModifyPersonalInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
@@ -65,10 +67,10 @@ namespace PresentationLayer.Presenters.Admin
 
         private void InstructorAcademicInfoButton_Clicked(object sender, EventArgs e)
         {
-            IAcademicInfoControl userControl = new AcademicInfoControl();
+            IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
             userControl.ModifyUser = AccessType.INSTRUCTOR;
 
-            new AcademicInfoPresenter(userControl);
+            new ModifyAcadInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
@@ -78,10 +80,10 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudentPersonalInfoButton_Clicked(object sender, EventArgs e)
         {
-            IPersonalInfoControl userControl = new PersonalInfoControl();
+            IModifyPersonalInfoControl userControl = new ModifyPersonalInfoControl();
             userControl.ModifyUser = AccessType.STUDENT;
 
-            new PersonalInfoPresenter(userControl);
+            new ModifyPersonalInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
@@ -91,10 +93,10 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudentAcademicInfoButton_Clicked(object sender, EventArgs e)
         {
-            IAcademicInfoControl userControl = new AcademicInfoControl();
+            IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
             userControl.ModifyUser = AccessType.STUDENT;
 
-            new AcademicInfoPresenter(userControl);
+            new ModifyAcadInfoPresenter(userControl);
 
             GeneralPresenter.NewWindowControl = (UserControl)userControl;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
@@ -102,7 +104,7 @@ namespace PresentationLayer.Presenters.Admin
             _programControl.DisposeControl();
         }
 
-        private void SearchProgramIdTextBox_Pressed(object sender, KeyboardEventArgs e)
+        private void SearchProgramIdTextBox_Pressed(object sender, KeyEventArgs e)
         {
             throw new NotImplementedException();
         }
@@ -129,14 +131,38 @@ namespace PresentationLayer.Presenters.Admin
 
         private void FileDropDownButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (!_programControl.AccessFileDropDownLayout.Visible)
+                _programControl.AccessFileDropDownLayout.Visible = true;
+            else
+                _programControl.AccessFileDropDownLayout.Visible = false;
         }
 
-        private void OnProgramInfoControl_Load(object sender, EventArgs e)
+        private async void OnProgramInfoControl_Load(object sender, EventArgs e)
         {
-            throw new NotFiniteNumberException();
+            ProgramServices services = new ProgramServices();
+            List<PRProgramModel> programList = await services.GetAll();
+
+            foreach (PRProgramModel program in programList)
+            {
+                object[] programObject = new object[4];
+                AddValuesToObject(ref programObject, program);
+
+                _programControl.AccessInfoTableRowData = programObject;
+            }
         }
 
+
+        #region Helpers
+        private void AddValuesToObject(ref object[] obj, PRProgramModel program)
+        {
+            if (obj == null || obj.Length <= 0) return;
+            
+            obj[0] = program.ProgramId;
+            obj[1] = program.ProgramName;
+            obj[2] = program.DepartmentId;
+            obj[3] = program.DepartmentName;
+        }
+        #endregion
 
 
         IProgramInfoControl _programControl;
