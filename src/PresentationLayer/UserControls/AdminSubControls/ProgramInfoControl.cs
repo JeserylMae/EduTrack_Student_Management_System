@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
@@ -15,7 +14,18 @@ namespace PresentationLayer.UserControls.AdminSubControls
     {
         public ProgramInfoControl()
         {
+            FileDropDownLayoutCreated = new TaskCompletionSource<bool>();
+            OpenAddFormButtonCreated = new TaskCompletionSource<bool>();
+            OpenDropFormButtonCreated = new TaskCompletionSource<bool>();
+            OpenModifyFormButtonCreated = new TaskCompletionSource<bool>();
+            SearchProgramIdButtonCreated = new TaskCompletionSource<bool>();
+            SearchProgramIdTextBoxCraeted = new TaskCompletionSource<bool>();
+
+
             InitializeComponent();
+            InitializeInfoTable();
+            InitializedElementCreated();
+            _ = InitializedButtonSubscriber();
         }
 
 
@@ -49,6 +59,11 @@ namespace PresentationLayer.UserControls.AdminSubControls
             get => SearchProgramIdTextbox;
         }
 
+        public FlowLayoutPanel AccessFileDropDownLayout
+        {
+            get => FileDropDownLayout;
+        }
+
 
         public event EventHandler OnControlLoad;
         public event EventHandler ExitButtonClicked;
@@ -63,6 +78,14 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public event EventHandler StudentAcademicInfoButtonClicked;
         public event EventHandler StudentPersonalInfoButtonClicked;
         public event EventHandler InstructorPersonalInfoButtonClicked;
-        public event KeyboardEventHandler SearchProgramIdTextboxPressed;
+        public event KeyEventHandler SearchProgramIdTextboxPressed;
+
+
+        private TaskCompletionSource<bool> FileDropDownLayoutCreated;
+        private TaskCompletionSource<bool> OpenAddFormButtonCreated;
+        private TaskCompletionSource<bool> OpenDropFormButtonCreated;
+        private TaskCompletionSource<bool> OpenModifyFormButtonCreated;
+        private TaskCompletionSource<bool> SearchProgramIdButtonCreated;
+        private TaskCompletionSource<bool> SearchProgramIdTextBoxCraeted;
     }
 }
