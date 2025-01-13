@@ -310,7 +310,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private async void LoadProgramComboBoxOptions()
         {
-            ProrgamServices services = new ProrgamServices();
+            ProgramServices services = new ProgramServices();
             Dictionary<string, string> programList = await services.GetAllProgram();
             string[] programOptions = programList.Values.ToArray();
             _acadInfoControl.AccessProgramComboBox.Items.AddRange(programOptions);
