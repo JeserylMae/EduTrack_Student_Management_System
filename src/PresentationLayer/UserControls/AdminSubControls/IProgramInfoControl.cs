@@ -10,6 +10,16 @@ namespace PresentationLayer.UserControls.AdminSubControls
 {
     internal interface IProgramInfoControl
     {
+        void DisposeControl();
+        void TriggerInfoTableReload();
+
+
+        object[] AccessInfoTableRowData      { set; }
+        DataGridView AccessInfoTable         { get; }
+        TextBox AccessSearchProgramIdTextbox { get; }
+        
+        
+        event EventHandler OnControlLoad;
         event EventHandler ExitButtonClicked;
         event EventHandler CloseEditorButtonClicked;
         event EventHandler ProgramInfoButtonClicked;
@@ -23,9 +33,5 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler StudentPersonalInfoButtonClicked;
         event EventHandler InstructorPersonalInfoButtonClicked;
         event KeyboardEventHandler SearchProgramIdTextboxPressed;
-
-        object[] AccessInfoTableRowData      { set; }
-        DataGridView AccessInfoTable         { get; }
-        TextBox AccessSearchProgramIdTextbox { get; }
     }
 }
