@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.SearchProgramIdButton = new FontAwesome.Sharp.IconButton();
             this.SearchProgramIdTextbox = new System.Windows.Forms.TextBox();
@@ -68,7 +70,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1280, 30);
+            this.panel2.Size = new System.Drawing.Size(1280, 37);
             this.panel2.TabIndex = 0;
             // 
             // SearchProgramIdButton
@@ -211,10 +213,10 @@
             this.MainControlHolder.Controls.Add(this.FileDropDownLayout);
             this.MainControlHolder.Controls.Add(this.InfoTable);
             this.MainControlHolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainControlHolder.Location = new System.Drawing.Point(0, 30);
+            this.MainControlHolder.Location = new System.Drawing.Point(0, 37);
             this.MainControlHolder.Name = "MainControlHolder";
             this.MainControlHolder.Padding = new System.Windows.Forms.Padding(10);
-            this.MainControlHolder.Size = new System.Drawing.Size(1280, 658);
+            this.MainControlHolder.Size = new System.Drawing.Size(1280, 651);
             this.MainControlHolder.TabIndex = 0;
             // 
             // FileDropDownLayout
@@ -372,12 +374,14 @@
             this.InfoTable.ReadOnly = true;
             this.InfoTable.RowHeadersVisible = false;
             this.InfoTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.InfoTable.Size = new System.Drawing.Size(1260, 638);
+            this.InfoTable.Size = new System.Drawing.Size(1260, 631);
             this.InfoTable.TabIndex = 0;
             // 
             // ProgramId
             // 
             this.ProgramId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ProgramId.DefaultCellStyle = dataGridViewCellStyle1;
             this.ProgramId.HeaderText = "Program ID";
             this.ProgramId.Name = "ProgramId";
             this.ProgramId.ReadOnly = true;
@@ -390,6 +394,8 @@
             // 
             // DepartmentId
             // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DepartmentId.DefaultCellStyle = dataGridViewCellStyle2;
             this.DepartmentId.HeaderText = "Department ID";
             this.DepartmentId.Name = "DepartmentId";
             this.DepartmentId.ReadOnly = true;
@@ -439,10 +445,10 @@
         private System.Windows.Forms.Button CloseEditorButton;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.DataGridView InfoTable;
+        private System.Windows.Forms.Button ProgramInfoButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProgramId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProgramName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartmentId;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartmentName;
-        private System.Windows.Forms.Button ProgramInfoButton;
     }
 }
