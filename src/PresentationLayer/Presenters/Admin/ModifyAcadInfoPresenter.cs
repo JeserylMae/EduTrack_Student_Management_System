@@ -171,7 +171,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void StudentAcademicInfoControl_Clicked(object sender, EventArgs e)
         {
-            if (_acadInfoControl.ModifyUser != AccessType.STUDENT) return;
+            if (_acadInfoControl.ModifyUser == AccessType.STUDENT) return;
 
 
             IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
@@ -200,7 +200,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void InstructorAcadInfoButton_Clicked(object sender, EventArgs e)
         {
-            if (_acadInfoControl.ModifyUser != AccessType.INSTRUCTOR) return;
+            if (_acadInfoControl.ModifyUser == AccessType.INSTRUCTOR) return;
 
 
             IModifyAcadInfoControl userControl = new ModifyAcadInfoControl();
@@ -276,12 +276,16 @@ namespace PresentationLayer.Presenters.Admin
 
         private async Task HandleInstructorDelete()
         {
+            Console.WriteLine("INSIDE 1");
             InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
             PRInstructorAcademicParams parameters = new PRInstructorAcademicParams();
 
+            Console.WriteLine("INSIDE 2");
             AddValuesToObject(ref parameters);
+            Console.WriteLine("INSIDE 3");
 
             bool result = await services.Delete(parameters);
+            Console.WriteLine("INSIDE 4");
 
             DisplayConfirmation($"Successfully deleted instructor with Itr-Code {parameters.ItrCode}.", "ADD");
             _acadInfoControl.TriggerInfoTableReload();
