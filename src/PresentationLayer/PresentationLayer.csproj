@@ -101,6 +101,7 @@
     <Compile Include="UserControls\AdminSubControls\IProgramInfoControl.cs">
       <DependentUpon>ProgramInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdminSubControls\IProgramInfoFormControl.cs" />
     <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Config.cs">
       <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -136,6 +137,9 @@
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoControl.Designer.cs">
       <DependentUpon>ProgramInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminSubControls\ProgramInfoFormControl.Config.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoFormControl.cs">
       <SubType>UserControl</SubType>
