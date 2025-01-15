@@ -135,9 +135,23 @@ namespace PresentationLayer.Presenters.Admin
             throw new NotImplementedException();
         }
 
-        private void OpenDropFormButton_Clicked(object sender, EventArgs e)
+        private async void OpenDropFormButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataGridViewRow selectedRow = _programControl.AccessInfoTable.SelectedRows[0];
+            string programId = selectedRow.Cells["ProgramId"].Value.ToString();
+
+            DialogResult deletionConfirmed = DisplayWarning($"Are you sure you want to delete informations about program {programId}?");
+
+            if (deletionConfirmed == DialogResult.No) return;
+
+            ProgramServices services = new ProgramServices();
+            bool response = await services.Delete(programId);
+
+            if (response)
+                DisplayConfirmation($"Successfully deleted program with ID {programId}.", FormRequestType.DELETE, RequestStatus.SUCCESS);
+            else 
+                DisplayConfirmation($"Failed to delete program with ID {programId}.", FormRequestType.DELETE, RequestStatus.ERROR);
+
         }
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
@@ -177,6 +191,28 @@ namespace PresentationLayer.Presenters.Admin
             obj[1] = program.ProgramName;
             obj[2] = program.DepartmentId;
             obj[3] = program.DepartmentName;
+        }
+
+        private DialogResult DisplayWarning(string message)
+        {
+            return MessageBox.Show(message,
+                "PROGRAM INFORMATION - DELETE",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+        }
+
+        private void DisplayConfirmation(string message, FormRequestType requestType, RequestStatus status)
+        {
+            MessageBoxIcon icon = (status == RequestStatus.SUCCESS)
+                                ? MessageBoxIcon. Information : MessageBoxIcon.Error;
+
+            MessageBox.Show(
+                message,
+                $"PROGRAM INFORMATION - {requestType.ToString().ToUpper()}",
+                MessageBoxButtons.OK,
+                icon
+            );
         }
         #endregion
 
