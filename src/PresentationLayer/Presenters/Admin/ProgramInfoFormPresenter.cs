@@ -1,10 +1,13 @@
-﻿using PresentationLayer.Presenters.Enumerations;
+﻿using DomainLayer.DataModels;
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.AdminSubControls;
+using ServiceLayer.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -24,17 +27,39 @@ namespace PresentationLayer.Presenters.Admin
 
         private void CancelSubmitButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            ClearTextBoxes();
         }
 
-        private void SubmitUpdateButton_Clicked(object sender, EventArgs e)
+        private async void SubmitUpdateButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            PRProgramModel program = new PRProgramModel();
+            AssignValuesToModel(ref program);
+
+            ProgramServices service = new ProgramServices();
+            bool response = await service.Update(program);
+
+            _programControl.ProgramControl.TriggerInfoTableReload();
+
+            if (response)
+                DisplayConfirmation("Successfully updated program.", FormRequestType.UPDATE, RequestStatus.SUCCESS);
+            else
+                DisplayConfirmation("Failed to update program.", FormRequestType.UPDATE, RequestStatus.ERROR);
         }
 
-        private void SubmitAddButton_Clicked(object sender, EventArgs e)
+        private async void SubmitAddButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            PRProgramModel program = new PRProgramModel();
+            AssignValuesToModel(ref program);
+
+            ProgramServices service = new ProgramServices();
+            bool response = await service.InsertNew(program);
+
+            _programControl.ProgramControl.TriggerInfoTableReload();
+
+            if (response)
+                DisplayConfirmation("Successfully added new program.", FormRequestType.ADD, RequestStatus.SUCCESS);
+            else
+                DisplayConfirmation("Failed to add program.", FormRequestType.ADD, RequestStatus.ERROR);
         }
 
         private void CloseButton_Clicked(object sender, EventArgs e)
@@ -49,6 +74,42 @@ namespace PresentationLayer.Presenters.Admin
             else if (_programControl.AccessFormRequestType != FormRequestType.ADD)
                 _programControl.AccessSubmitUpdateButton.Dispose();
         }
+
+
+        #region Helpers
+        private void DisplayConfirmation(string message, 
+                                         FormRequestType request, 
+                                         RequestStatus status)
+        {
+            MessageBoxIcon icon = (status == RequestStatus.SUCCESS)
+                                ? MessageBoxIcon.Information
+                                : MessageBoxIcon.Error;
+
+            MessageBox.Show(
+                message,
+                $"PROGRAM INFORMATION - {request.ToString().ToUpper()}",
+                MessageBoxButtons.OK,
+                icon
+            );
+        }
+
+        private void AssignValuesToModel(ref PRProgramModel model)
+        {
+            model.ProgramId = _programControl.AccessProgramId.Text;
+            model.ProgramName = _programControl.AccessProgramName.Text;
+            model.DepartmentId = _programControl.AccessDepartmentId.Text;
+            model.DepartmentName = _programControl.AccessDepartmentName.Text;
+        }
+
+        private void ClearTextBoxes()
+        {
+            _programControl.AccessProgramId.Text = string.Empty;
+            _programControl.AccessProgramName.Text = string.Empty;
+            _programControl.AccessDepartmentId.Text = string.Empty;
+            _programControl.AccessDepartmentName.Text = string.Empty;
+        }
+        #endregion
+
 
         private IProgramInfoFormControl _programControl;
     }
