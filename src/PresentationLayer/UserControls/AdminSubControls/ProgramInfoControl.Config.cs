@@ -49,6 +49,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
             SearchProgramIdTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchProgramIdTextboxPressed?.Invoke(sender, e); };
 
             this.Load += delegate { OnControlLoad?.Invoke(this, EventArgs.Empty); };
+            InfoTable.SelectionChanged += delegate { SelectionChanged?.Invoke(this, EventArgs.Empty); };
         }
 
         private void InitializeInfoTable()
