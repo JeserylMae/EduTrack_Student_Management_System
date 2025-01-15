@@ -31,6 +31,10 @@ namespace PresentationLayer.UserControls.AdminSubControls
         {
             this.Dispose();
         }
+        public void InfoTableReload()
+        {
+            InfoTableReloadTriggered?.Invoke(this, EventArgs.Empty);    
+        }
 
 
         public TextBox AccessProgramId => ProgramIdTextBox;
@@ -42,15 +46,22 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public IconButton AccessSubmitUpdateButton => SubmitUpdateButton;
 
         public IProgramInfoControl ProgramControl     { get; set; }
-        public FormRequestType AccessFormRequestType  { get; set; }
+        public FormRequestType AccessFormRequestType  
+        { 
+            get => _formRequestType; 
+            set => _formRequestType = value; 
+        }
+
 
         public event EventHandler OnControlLoad;
         public event EventHandler CloseButtonClicked;
         public event EventHandler SubmitAddButtonClicked;
+        public event EventHandler InfoTableReloadTriggered;
         public event EventHandler SubmitUpdateButtonClicked;
         public event EventHandler CancelSubmitButtonClicked;
 
 
+        private FormRequestType _formRequestType;
         private TaskCompletionSource<bool> CloseButtonCreated;
         private TaskCompletionSource<bool> SubmitAddButtonCreated;
         private TaskCompletionSource<bool> SubmitUpdateButtonCreated;
