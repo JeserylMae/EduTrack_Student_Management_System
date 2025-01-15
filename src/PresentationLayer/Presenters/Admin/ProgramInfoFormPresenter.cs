@@ -38,12 +38,12 @@ namespace PresentationLayer.Presenters.Admin
             ProgramServices service = new ProgramServices();
             bool response = await service.Update(program);
 
-            _programControl.ProgramControl.TriggerInfoTableReload();
-
             if (response)
+            {
                 DisplayConfirmation("Successfully updated program.", FormRequestType.UPDATE, RequestStatus.SUCCESS);
-            else
-                DisplayConfirmation("Failed to update program.", FormRequestType.UPDATE, RequestStatus.ERROR);
+                _programControl.InfoTableReload();
+            }
+            else DisplayConfirmation("Failed to update program.", FormRequestType.UPDATE, RequestStatus.ERROR);
         }
 
         private async void SubmitAddButton_Clicked(object sender, EventArgs e)
@@ -54,12 +54,12 @@ namespace PresentationLayer.Presenters.Admin
             ProgramServices service = new ProgramServices();
             bool response = await service.InsertNew(program);
 
-            _programControl.ProgramControl.TriggerInfoTableReload();
-
             if (response)
+            {
                 DisplayConfirmation("Successfully added new program.", FormRequestType.ADD, RequestStatus.SUCCESS);
-            else
-                DisplayConfirmation("Failed to add program.", FormRequestType.ADD, RequestStatus.ERROR);
+                _programControl.InfoTableReload();
+            }
+            else DisplayConfirmation("Failed to add program.", FormRequestType.ADD, RequestStatus.ERROR);
         }
 
         private void CloseButton_Clicked(object sender, EventArgs e)
@@ -70,9 +70,10 @@ namespace PresentationLayer.Presenters.Admin
         private void OnProgramControl_Load(object sender, EventArgs e)
         {
             if (_programControl.AccessFormRequestType == FormRequestType.UPDATE)
-                _programControl.AccessSubmitAddButton.Dispose();
-            else if (_programControl.AccessFormRequestType != FormRequestType.ADD)
-                _programControl.AccessSubmitUpdateButton.Dispose();
+                _programControl.AccessSubmitAddButton.Visible = false;
+
+            else if (_programControl.AccessFormRequestType == FormRequestType.ADD)
+                _programControl.AccessSubmitUpdateButton.Visible = false;
         }
 
 
