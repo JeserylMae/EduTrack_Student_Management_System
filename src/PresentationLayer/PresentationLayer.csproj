@@ -98,7 +98,9 @@
     <Compile Include="UserControls\AdminSubControls\AcademicInfoControl.Designer.cs">
       <DependentUpon>AcademicInfoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\AdminSubControls\IProgramInfoControl.cs" />
+	  <Compile Include="UserControls\AdminSubControls\IProgramInfoControl.cs">
+		  <DependentUpon>ProgramInfoControl.cs</DependentUpon>
+	  </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Config.cs">
       <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -127,6 +129,7 @@
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoControl.Config.cs">
       <SubType>UserControl</SubType>
+		<DependentUpon>ProgramInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoControl.cs">
       <SubType>UserControl</SubType>
