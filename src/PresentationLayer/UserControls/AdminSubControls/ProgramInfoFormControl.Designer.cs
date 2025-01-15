@@ -283,9 +283,9 @@
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(45, 306);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(194, 19);
+            this.label7.Size = new System.Drawing.Size(158, 19);
             this.label7.TabIndex = 158;
-            this.label7.Text = "Program Basic Information";
+            this.label7.Text = "Affiliated Department";
             // 
             // pictureBox2
             // 
