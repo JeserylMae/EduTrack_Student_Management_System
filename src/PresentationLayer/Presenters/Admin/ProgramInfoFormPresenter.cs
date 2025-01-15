@@ -39,7 +39,7 @@ namespace PresentationLayer.Presenters.Admin
 
         private void CloseButton_Clicked(object sender, EventArgs e)
         {
-            
+            _programControl.DisposeControl();
         }
 
         private void OnProgramControl_Load(object sender, EventArgs e)
