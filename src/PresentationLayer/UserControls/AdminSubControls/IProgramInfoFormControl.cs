@@ -20,8 +20,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
         IconButton AccessSubmitAddButton    { get; }
         IconButton AccessSubmitUpdateButton { get; }
 
+        IProgramInfoControl ProgramControl     { get; set; }
         FormRequestType AccessFormRequestType  { get; set; }
-        IProgramInfoFormControl ProgramControl { get; set; }
 
         event EventHandler OnControlLoad; 
         event EventHandler CloseButtonClicked;
