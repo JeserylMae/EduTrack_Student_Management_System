@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    internal interface IProgramInfoControl
+    public interface IProgramInfoControl
     {
         void DisposeControl();
         void TriggerInfoTableReload();
