@@ -18,6 +18,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         private async Task InitializeEventSubscriber()
         {
+            this.Load += delegate { OnControlLoad?.Invoke(this, EventArgs.Empty); };
+            
             await CloseButtonCreated.Task;
             CloseButton.Click += delegate { CloseButtonClicked?.Invoke(this, EventArgs.Empty); };
 
@@ -29,8 +31,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
             await CancelSubmitButtonCreated.Task;
             CancelSubmitButton.Click += delegate { CancelSubmitButtonClicked?.Invoke(this, EventArgs.Empty); };
-
-            this.Load += delegate { OnControlLoad?.Invoke(this, EventArgs.Empty); };
         }
     }
 }
