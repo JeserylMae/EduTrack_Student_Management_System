@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,13 @@ namespace PresentationLayer.UserControls.AdminSubControls
             _ = InitializeEventSubscriber();
         }
 
+
+        public void DisposeControl()
+        {
+            this.Dispose();
+        }
+
+
         public TextBox AccessProgramId => ProgramIdTextBox;
         public TextBox AccessProgramName => ProgramNameTextBox;
         public TextBox AccessDepartmentId => DepartmentIdTextBox;
@@ -33,6 +41,8 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public IconButton AccessSubmitAddButton => SubmitAddButton;
         public IconButton AccessSubmitUpdateButton => SubmitUpdateButton;
 
+        public FormRequestType AccessFormRequestType  { get; set; }
+        public IProgramInfoFormControl ProgramControl { get; set; }
 
         public event EventHandler OnControlLoad;
         public event EventHandler CloseButtonClicked;
