@@ -98,9 +98,9 @@
     <Compile Include="UserControls\AdminSubControls\AcademicInfoControl.Designer.cs">
       <DependentUpon>AcademicInfoControl.cs</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\AdminSubControls\IProgramInfoControl.cs">
-		  <DependentUpon>ProgramInfoControl.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\AdminSubControls\IProgramInfoControl.cs">
+      <DependentUpon>ProgramInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Config.cs">
       <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -129,13 +129,19 @@
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoControl.Config.cs">
       <SubType>UserControl</SubType>
-		<DependentUpon>ProgramInfoControl.cs</DependentUpon>
+      <DependentUpon>ProgramInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoControl.Designer.cs">
       <DependentUpon>ProgramInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdminSubControls\ProgramInfoFormControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdminSubControls\ProgramInfoFormControl.Designer.cs">
+      <DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\General\FilterControl.Config.cs">
       <SubType>UserControl</SubType>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdminSubControls\ProgramInfoControl.resx">
       <DependentUpon>ProgramInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdminSubControls\ProgramInfoFormControl.resx">
+      <DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\General\FilterControl.resx">
       <DependentUpon>FilterControl.cs</DependentUpon>
