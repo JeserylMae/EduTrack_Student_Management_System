@@ -30,7 +30,7 @@
         {
             this.mainPanel = new System.Windows.Forms.Panel();
             this.SubmitAddButton = new FontAwesome.Sharp.IconButton();
-            this.CancelButton = new FontAwesome.Sharp.IconButton();
+            this.CancelSubmitButton = new FontAwesome.Sharp.IconButton();
             this.SubmitUpdateButton = new FontAwesome.Sharp.IconButton();
             this.DepartmentNameTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -38,7 +38,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.DepartmentId = new System.Windows.Forms.TextBox();
+            this.DepartmentIdTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
@@ -51,7 +51,7 @@
             this.ProgramNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.ProgramIdTextbox = new System.Windows.Forms.TextBox();
+            this.ProgramIdTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             this.mainPanel.AutoScrollMinSize = new System.Drawing.Size(0, 800);
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
             this.mainPanel.Controls.Add(this.SubmitAddButton);
-            this.mainPanel.Controls.Add(this.CancelButton);
+            this.mainPanel.Controls.Add(this.CancelSubmitButton);
             this.mainPanel.Controls.Add(this.SubmitUpdateButton);
             this.mainPanel.Controls.Add(this.DepartmentNameTextBox);
             this.mainPanel.Controls.Add(this.label14);
@@ -82,7 +82,7 @@
             this.mainPanel.Controls.Add(this.label13);
             this.mainPanel.Controls.Add(this.textBox2);
             this.mainPanel.Controls.Add(this.label8);
-            this.mainPanel.Controls.Add(this.DepartmentId);
+            this.mainPanel.Controls.Add(this.DepartmentIdTextBox);
             this.mainPanel.Controls.Add(this.label9);
             this.mainPanel.Controls.Add(this.label11);
             this.mainPanel.Controls.Add(this.iconPictureBox2);
@@ -95,7 +95,7 @@
             this.mainPanel.Controls.Add(this.ProgramNameTextBox);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Controls.Add(this.label2);
-            this.mainPanel.Controls.Add(this.ProgramIdTextbox);
+            this.mainPanel.Controls.Add(this.ProgramIdTextBox);
             this.mainPanel.Controls.Add(this.label12);
             this.mainPanel.Controls.Add(this.label10);
             this.mainPanel.Controls.Add(this.label18);
@@ -133,25 +133,25 @@
             this.SubmitAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.SubmitAddButton.UseVisualStyleBackColor = false;
             // 
-            // CancelButton
+            // CancelSubmitButton
             // 
-            this.CancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
-            this.CancelButton.FlatAppearance.BorderSize = 0;
-            this.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelButton.ForeColor = System.Drawing.Color.Black;
-            this.CancelButton.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
-            this.CancelButton.IconColor = System.Drawing.Color.Black;
-            this.CancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.CancelButton.IconSize = 30;
-            this.CancelButton.Location = new System.Drawing.Point(177, 513);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.CancelButton.Size = new System.Drawing.Size(135, 44);
-            this.CancelButton.TabIndex = 5;
-            this.CancelButton.Text = "CANCEL";
-            this.CancelButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.CancelButton.UseVisualStyleBackColor = false;
+            this.CancelSubmitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(178)))), ((int)(((byte)(183)))));
+            this.CancelSubmitButton.FlatAppearance.BorderSize = 0;
+            this.CancelSubmitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelSubmitButton.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelSubmitButton.ForeColor = System.Drawing.Color.Black;
+            this.CancelSubmitButton.IconChar = FontAwesome.Sharp.IconChar.CircleXmark;
+            this.CancelSubmitButton.IconColor = System.Drawing.Color.Black;
+            this.CancelSubmitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.CancelSubmitButton.IconSize = 30;
+            this.CancelSubmitButton.Location = new System.Drawing.Point(177, 513);
+            this.CancelSubmitButton.Name = "CancelSubmitButton";
+            this.CancelSubmitButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.CancelSubmitButton.Size = new System.Drawing.Size(135, 44);
+            this.CancelSubmitButton.TabIndex = 5;
+            this.CancelSubmitButton.Text = "CANCEL";
+            this.CancelSubmitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.CancelSubmitButton.UseVisualStyleBackColor = false;
             // 
             // SubmitUpdateButton
             // 
@@ -234,16 +234,16 @@
             this.label8.Size = new System.Drawing.Size(313, 25);
             this.label8.TabIndex = 164;
             // 
-            // DepartmentId
+            // DepartmentIdTextBox
             // 
-            this.DepartmentId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.DepartmentId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DepartmentId.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
-            this.DepartmentId.ForeColor = System.Drawing.Color.Black;
-            this.DepartmentId.Location = new System.Drawing.Point(154, 382);
-            this.DepartmentId.Name = "DepartmentId";
-            this.DepartmentId.Size = new System.Drawing.Size(299, 17);
-            this.DepartmentId.TabIndex = 3;
+            this.DepartmentIdTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.DepartmentIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DepartmentIdTextBox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.DepartmentIdTextBox.ForeColor = System.Drawing.Color.Black;
+            this.DepartmentIdTextBox.Location = new System.Drawing.Point(154, 382);
+            this.DepartmentIdTextBox.Name = "DepartmentIdTextBox";
+            this.DepartmentIdTextBox.Size = new System.Drawing.Size(299, 17);
+            this.DepartmentIdTextBox.TabIndex = 3;
             // 
             // label9
             // 
@@ -363,16 +363,16 @@
             this.label2.Size = new System.Drawing.Size(313, 25);
             this.label2.TabIndex = 151;
             // 
-            // ProgramIdTextbox
+            // ProgramIdTextBox
             // 
-            this.ProgramIdTextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
-            this.ProgramIdTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ProgramIdTextbox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
-            this.ProgramIdTextbox.ForeColor = System.Drawing.Color.Black;
-            this.ProgramIdTextbox.Location = new System.Drawing.Point(154, 178);
-            this.ProgramIdTextbox.Name = "ProgramIdTextbox";
-            this.ProgramIdTextbox.Size = new System.Drawing.Size(299, 17);
-            this.ProgramIdTextbox.TabIndex = 1;
+            this.ProgramIdTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(238)))), ((int)(((byte)(253)))));
+            this.ProgramIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ProgramIdTextBox.Font = new System.Drawing.Font("Candara", 10F, System.Drawing.FontStyle.Bold);
+            this.ProgramIdTextBox.ForeColor = System.Drawing.Color.Black;
+            this.ProgramIdTextBox.Location = new System.Drawing.Point(154, 178);
+            this.ProgramIdTextBox.Name = "ProgramIdTextBox";
+            this.ProgramIdTextBox.Size = new System.Drawing.Size(299, 17);
+            this.ProgramIdTextBox.TabIndex = 1;
             // 
             // label12
             // 
@@ -502,7 +502,7 @@
         private System.Windows.Forms.TextBox ProgramNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ProgramIdTextbox;
+        private System.Windows.Forms.TextBox ProgramIdTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
@@ -512,7 +512,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox DepartmentId;
+        private System.Windows.Forms.TextBox DepartmentIdTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
@@ -523,6 +523,6 @@
         private System.Windows.Forms.TextBox DepartmentNameTextBox;
         private FontAwesome.Sharp.IconButton SubmitUpdateButton;
         private FontAwesome.Sharp.IconButton SubmitAddButton;
-        private FontAwesome.Sharp.IconButton CancelButton;
+        private FontAwesome.Sharp.IconButton CancelSubmitButton;
     }
 }
