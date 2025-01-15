@@ -12,6 +12,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
     public interface IProgramInfoFormControl
     {
         void DisposeControl();
+        void InfoTableReload();
 
         TextBox AccessProgramId             { get; }
         TextBox AccessProgramName           { get; }
@@ -26,6 +27,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event EventHandler OnControlLoad; 
         event EventHandler CloseButtonClicked;
         event EventHandler SubmitAddButtonClicked;
+        event EventHandler InfoTableReloadTriggered;
         event EventHandler SubmitUpdateButtonClicked;
         event EventHandler CancelSubmitButtonClicked;
     }
