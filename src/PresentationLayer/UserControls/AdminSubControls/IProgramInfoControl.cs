@@ -10,6 +10,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
     public interface IProgramInfoControl
     {
         void DisposeControl();
+        void ClearInfoTable();
         void TriggerInfoTableReload();
 
 
@@ -18,8 +19,11 @@ namespace PresentationLayer.UserControls.AdminSubControls
         TextBox AccessSearchProgramIdTextbox        { get; }
         FlowLayoutPanel AccessFileDropDownLayout    { get; }
 
+        IProgramInfoFormControl ProgramControl { get; set; }
+
 
         event EventHandler OnControlLoad;
+        event EventHandler SelectionChanged;
         event EventHandler ExitButtonClicked;
         event EventHandler CloseEditorButtonClicked;
         event EventHandler ProgramInfoButtonClicked;
