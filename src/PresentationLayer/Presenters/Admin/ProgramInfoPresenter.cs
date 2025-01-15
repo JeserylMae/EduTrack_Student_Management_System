@@ -28,7 +28,7 @@ namespace PresentationLayer.Presenters.Admin
             _programControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
             _programControl.OpenDropFormButtonClicked           += OpenDropFormButton_Clicked;
             _programControl.OpenModifyFormButtonClicked         += OpenModifyFormButton_Clicked;
-            _programControl.SearchProgramIdButtonClicked        += SearchProgramIfButton_Clicked;
+            _programControl.SearchProgramIdButtonClicked        += SearchProgramIdButton_Clicked;
             _programControl.SearchProgramIdTextboxPressed       += SearchProgramIdTextBox_Pressed;
             _programControl.InstructorAcadInfoButtonClicked     += InstructorAcademicInfoButton_Clicked;
             _programControl.StudentAcademicInfoButtonClicked    += StudentAcademicInfoButton_Clicked;
@@ -106,12 +106,28 @@ namespace PresentationLayer.Presenters.Admin
 
         private void SearchProgramIdTextBox_Pressed(object sender, KeyEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.KeyCode != Keys.Enter) return;
+
+            SearchProgramIdButton_Clicked(sender, e);
         }
 
-        private void SearchProgramIfButton_Clicked(object sender, EventArgs e)
+        private void SearchProgramIdButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            string programId = _programControl.AccessSearchProgramIdTextbox.Text;
+
+            if (string.IsNullOrEmpty(programId)) return;
+
+            DataGridViewRowCollection infoTableRows = _programControl.AccessInfoTable.Rows;
+
+            for (int i = 0; i < infoTableRows.Count; i++)
+            {
+                string tempProgramId = infoTableRows[i].Cells["ProgramId"].Value.ToString();
+
+                if (tempProgramId == programId)
+                    infoTableRows[i].Selected = true;
+                else
+                    infoTableRows[i].Selected = false;
+            }
         }
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
