@@ -34,6 +34,15 @@ namespace PresentationLayer.UserControls.AdminSubControls
             this.Dispose(); 
         }
 
+        public void ClearInfoTable()
+        {
+            if (InfoTable.Rows.Count > 0) 
+            { 
+                InfoTable.Rows.Clear();
+                InfoTable.Refresh();
+            }
+        }
+
         public void TriggerInfoTableReload()
         {
             OnControlLoad?.Invoke(this, EventArgs.Empty);
@@ -64,8 +73,25 @@ namespace PresentationLayer.UserControls.AdminSubControls
             get => FileDropDownLayout;
         }
 
+        public IProgramInfoFormControl ProgramControl 
+        {
+            get => _programControl;
+            set
+            {
+                if (ProgramControl != null)
+                    ProgramControl.DisposeControl();
+
+                _programControl = value;
+                UserControl control = (UserControl) value;
+
+                MainControlHolder.Controls.Add(control);
+                control.Dock = DockStyle.Left;   
+            }
+        }
+
 
         public event EventHandler OnControlLoad;
+        public event EventHandler SelectionChanged;
         public event EventHandler ExitButtonClicked;
         public event EventHandler CloseEditorButtonClicked;
         public event EventHandler ProgramInfoButtonClicked;
@@ -81,6 +107,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public event KeyEventHandler SearchProgramIdTextboxPressed;
 
 
+        private IProgramInfoFormControl _programControl;
         private TaskCompletionSource<bool> FileDropDownLayoutCreated;
         private TaskCompletionSource<bool> OpenAddFormButtonCreated;
         private TaskCompletionSource<bool> OpenDropFormButtonCreated;
