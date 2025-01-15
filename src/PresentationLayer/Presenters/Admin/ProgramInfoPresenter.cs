@@ -23,6 +23,7 @@ namespace PresentationLayer.Presenters.Admin
 
             _programControl.ExitButtonClicked                   += GeneralPresenter.TriggerAppExit;
             _programControl.OnControlLoad                       += OnProgramInfoControl_Load;
+            _programControl.SelectionChanged                    += InfoTable_SelectionChanged;
             _programControl.OpenAddFormButtonClicked            += OpenAddFormButton_Clicked;
             _programControl.CloseEditorButtonClicked            += CloseEditorButton_Clicked;
             _programControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
@@ -50,6 +51,15 @@ namespace PresentationLayer.Presenters.Admin
 
             GeneralPresenter.NewWindowControl = (UserControl)homePage;
             GeneralPresenter.TriggerWindowControlChange(sender, e);
+        }
+
+        private void InfoTable_SelectionChanged(object sender, EventArgs e)
+        {
+            if (_programControl.ProgramControl == null) return;
+
+            DataGridViewRow selectedRow = _programControl.AccessInfoTable.SelectedRows[0];
+
+            DisplayValuesToProgramControl(selectedRow);
         }
 
         private void InstructorPersonalInfoButton_Clicked(object sender, EventArgs e)
@@ -132,7 +142,15 @@ namespace PresentationLayer.Presenters.Admin
 
         private void OpenModifyFormButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IProgramInfoFormControl userControl = new ProgramInfoFormControl();
+
+            userControl.ProgramControl           = _programControl;
+            userControl.AccessFormRequestType    = FormRequestType.UPDATE;
+            userControl.InfoTableReloadTriggered += OnProgramInfoControl_Load;
+
+            new ProgramInfoFormPresenter(userControl);
+            
+            _programControl.ProgramControl = userControl;
         }
 
         private async void OpenDropFormButton_Clicked(object sender, EventArgs e)
@@ -148,15 +166,25 @@ namespace PresentationLayer.Presenters.Admin
             bool response = await services.Delete(programId);
 
             if (response)
+            {
                 DisplayConfirmation($"Successfully deleted program with ID {programId}.", FormRequestType.DELETE, RequestStatus.SUCCESS);
-            else 
-                DisplayConfirmation($"Failed to delete program with ID {programId}.", FormRequestType.DELETE, RequestStatus.ERROR);
+                _programControl.TriggerInfoTableReload();
+            }
+            else DisplayConfirmation($"Failed to delete program with ID {programId}.", FormRequestType.DELETE, RequestStatus.ERROR);
 
         }
 
         private void OpenAddFormButton_Clicked(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            IProgramInfoFormControl userControl = new ProgramInfoFormControl();
+
+            userControl.ProgramControl           = _programControl;
+            userControl.AccessFormRequestType    = FormRequestType.ADD;
+            userControl.InfoTableReloadTriggered += OnProgramInfoControl_Load;
+
+            new ProgramInfoFormPresenter(userControl);
+            
+            _programControl.ProgramControl = userControl;   
         }
 
         private void FileDropDownButton_Clicked(object sender, EventArgs e)
@@ -172,17 +200,27 @@ namespace PresentationLayer.Presenters.Admin
             ProgramServices services = new ProgramServices();
             List<PRProgramModel> programList = await services.GetAll();
 
+            _programControl.ClearInfoTable();
+
             foreach (PRProgramModel program in programList)
             {
                 object[] programObject = new object[4];
-                AddValuesToObject(ref programObject, program);
 
+                AddValuesToObject(ref programObject, program);
                 _programControl.AccessInfoTableRowData = programObject;
             }
         }
 
 
         #region Helpers
+        private void DisplayValuesToProgramControl(DataGridViewRow selectedRow)
+        {
+            _programControl.ProgramControl.AccessProgramId.Text         = selectedRow.Cells["ProgramId"].Value.ToString();
+            _programControl.ProgramControl.AccessProgramName.Text       = selectedRow.Cells["ProgramName"].Value.ToString();
+            _programControl.ProgramControl.AccessDepartmentId.Text      = selectedRow.Cells["DepartmentId"].Value.ToString();
+            _programControl.ProgramControl.AccessDepartmentName.Text    = selectedRow.Cells["DepartmentName"].Value.ToString();
+        }
+
         private void AddValuesToObject(ref object[] obj, PRProgramModel program)
         {
             if (obj == null || obj.Length <= 0) return;
