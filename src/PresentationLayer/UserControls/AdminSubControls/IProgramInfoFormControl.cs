@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using PresentationLayer.Presenters.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,19 @@ using System.Windows.Forms;
 
 namespace PresentationLayer.UserControls.AdminSubControls
 {
-    internal interface IProgramInfoFormControl
+    public interface IProgramInfoFormControl
     {
+        void DisposeControl();
+
         TextBox AccessProgramId             { get; }
         TextBox AccessProgramName           { get; }
         TextBox AccessDepartmentId          { get; } 
         TextBox AccessDepartmentName        { get; }
         IconButton AccessSubmitAddButton    { get; }
         IconButton AccessSubmitUpdateButton { get; }
+
+        FormRequestType AccessFormRequestType  { get; set; }
+        IProgramInfoFormControl ProgramControl { get; set; }
 
         event EventHandler OnControlLoad; 
         event EventHandler CloseButtonClicked;
