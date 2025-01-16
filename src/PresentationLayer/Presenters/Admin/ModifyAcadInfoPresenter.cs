@@ -15,6 +15,7 @@ using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.General;
 using DomainLayer.DataModels.Instructor;
 using System.Windows.Controls.Primitives;
+using System.Xml.Serialization;
 
 namespace PresentationLayer.Presenters.Admin
 {
@@ -28,18 +29,19 @@ namespace PresentationLayer.Presenters.Admin
             _acadInfoControl.ControlLoad                         += StudentAcadControl_Load;
             _acadInfoControl.CloseEditorButtonClicked            += CloseEditorButton_Clicked;
             _acadInfoControl.ExitButtonClicked                   += GeneralPresenter.TriggerAppExit;
-            _acadInfoControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
+            _acadInfoControl.ProgramInfoButtonClicked            += ProgramInfoButton_Clicked;
             _acadInfoControl.OpenAddFormButtonClicked            += OpenAddFormButton_Clicked;
             _acadInfoControl.OpenDropFormButtonClicked           += OpenDropFormButton_Clicked;
+            _acadInfoControl.FileDropDownButtonClicked           += FileDropDownButton_Clicked;
+            _acadInfoControl.SearchUsrCodeButtonClicked          += SeachUsrCodeButton_Clicked;
+            _acadInfoControl.FilterEditorButtonClicked           += FilterEditorButton_Clicked;
+            _acadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
+            _acadInfoControl.SearchUsrCodeTextboxPressed         += SearchUsrCodeTextBox_Pressed;
             _acadInfoControl.OpenModifyFormButtonClicked         += OpenModifyFormButton_Clicked;
             _acadInfoControl.InstructorAcadInfoButtonClicked     += InstructorAcadInfoButton_Clicked;
             _acadInfoControl.StudentPersonalInfoButtonClicked    += StudentPersonalInfoButton_Clicked;
             _acadInfoControl.StudentAcademicInfoButtonClicked    += StudentAcademicInfoControl_Clicked;
             _acadInfoControl.InstructorPersonalInfoButtonClicked += InstructorPersonalInfoButton_Clicked;
-            _acadInfoControl.SearchUsrCodeButtonClicked          += SeachUsrCodeButton_Clicked;
-            _acadInfoControl.SearchUsrCodeTextboxPressed         += SearchUsrCodeTextBox_Pressed;
-            _acadInfoControl.InfoTableSelectionChanged           += InfoTableSelection_Changed;
-            _acadInfoControl.FilterEditorButtonClicked           += FilterEditorButton_Clicked;
         }
 
         private async void InfoTableSelection_Changed(object sender, EventArgs e)
@@ -152,6 +154,17 @@ namespace PresentationLayer.Presenters.Admin
 
             GeneralPresenter.NewWindowControl = (UserControl)homePage;
             GeneralPresenter.TriggerWindowControlChange(_acadInfoControl, e);
+
+            _acadInfoControl.DisposeControl();
+        }
+
+        private void ProgramInfoButton_Clicked(object sender, EventArgs e)
+        {
+            IProgramInfoControl userControl = new ProgramInfoControl();
+            new ProgramInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
 
             _acadInfoControl.DisposeControl();
         }
