@@ -34,6 +34,7 @@ namespace PresentationLayer.UserControls.MainControls
 
             await FileDropDownLayoutCreated.Task;
             ExitButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty); };
+            ProgramInfoButton.Click            += delegate { ProgramInfoButtonClicked.Invoke(this, EventArgs.Empty); };
             CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
             FilterEditorButton.Click           += delegate { FilterEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
             InstructorAcadInfoButton.Click     += delegate { InstructorAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
