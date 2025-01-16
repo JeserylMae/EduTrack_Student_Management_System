@@ -31,10 +31,6 @@ namespace PresentationLayer.UserControls.AdminSubControls
         {
             this.Dispose();
         }
-        public void InfoTableReload()
-        {
-            InfoTableReloadTriggered?.Invoke(this, EventArgs.Empty);    
-        }
 
 
         public TextBox AccessProgramId => ProgramIdTextBox;
