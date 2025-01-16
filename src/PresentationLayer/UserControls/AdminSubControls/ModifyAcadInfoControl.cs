@@ -95,6 +95,7 @@ namespace PresentationLayer.UserControls.MainControls
         public event EventHandler ExitButtonClicked;
         public event EventHandler CloseEditorButtonClicked;
         public event EventHandler OpenAddFormButtonClicked;
+        public event EventHandler ProgramInfoButtonClicked;
         public event EventHandler FileDropDownButtonClicked;
         public event EventHandler OpenDropFormButtonClicked;
         public event EventHandler SearchUsrCodeButtonClicked;
