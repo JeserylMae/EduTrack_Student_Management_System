@@ -20,6 +20,7 @@ namespace PresentationLayer.UserControls.AdminSubControls
         event KeyEventHandler SearchTextBoxKeyDown;
         event EventHandler CloseEditorButtonClicked;
         event EventHandler ItrAcadInfoButtonClicked;
+        event EventHandler ProgramInfoButtonClicked;
         event EventHandler FileDropDownButtonClicked;
         event EventHandler StudAcadInfoButtonClicked;
         event EventHandler ItrPersonalInfoButtonClicked;
