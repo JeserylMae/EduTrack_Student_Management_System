@@ -57,6 +57,8 @@ namespace PresentationLayer.Presenters.Admin
         {
             if (_programControl.ProgramControl == null) return;
 
+            if (_programControl.AccessInfoTable.SelectedRows.Count <= 0) return;
+
             DataGridViewRow selectedRow = _programControl.AccessInfoTable.SelectedRows[0];
 
             DisplayValuesToProgramControl(selectedRow);
