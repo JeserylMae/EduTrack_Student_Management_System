@@ -102,9 +102,9 @@
     <Compile Include="UserControls\AdminSubControls\IProgramInfoControl.cs">
       <DependentUpon>ProgramInfoControl.cs</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\AdminSubControls\IProgramInfoFormControl.cs">
-		  <DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\AdminSubControls\IProgramInfoFormControl.cs">
+      <DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AdminSubControls\ModifyAcadInfoControl.Config.cs">
       <DependentUpon>ModifyAcadInfoControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -142,7 +142,7 @@
       <DependentUpon>ProgramInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoFormControl.Config.cs">
-		<DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
+      <DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AdminSubControls\ProgramInfoFormControl.cs">
@@ -421,6 +421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="UserControls\StuItrSubControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
