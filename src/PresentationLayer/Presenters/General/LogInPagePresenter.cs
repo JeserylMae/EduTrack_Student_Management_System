@@ -42,10 +42,12 @@ namespace PresentationLayer.Presenters.General
             }
             catch (Exception ex) 
             {
-                Console.WriteLine(ex.StackTrace);
                 MessageBox.Show(
-                    "Ensure all credentials are correct.", 
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ex.Message, 
+                    "LOGIN - ERROR", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Error
+                );
             }
         }
 
@@ -63,8 +65,11 @@ namespace PresentationLayer.Presenters.General
             }
             else if (User.Position == "INSTRUCTOR" || User.Position == "STUDENT")
             {
-                homePage.RightUserControlPage = new StudItrHomeRightControl();
-                homePage.BottomUserControlPage = new StudItrHomeBottomControl();
+                StudItrHomeRightControl rightControl   = new StudItrHomeRightControl();
+                StudItrHomeBottomControl bottomControl = new StudItrHomeBottomControl();
+
+                homePage.RightUserControlPage = (UserControl)rightControl;
+                homePage.BottomUserControlPage = (UserControl)bottomControl;
             }
 
             _logInPage.DisposeForm();
@@ -79,13 +84,11 @@ namespace PresentationLayer.Presenters.General
 
             if (User.AccountPassword != e_User.AccountPassword)
             {
-                Console.WriteLine("User: " + User.AccountPassword);
-                Console.WriteLine("e_User: " + e_User.AccountPassword);
-                throw new Exception("Incorrect password.");
+                throw new Exception("Password is incorrect.");
             }
 
             if (User.EmailAddress != e_User.EmailAddress)
-                throw new Exception("Incorrect email address.");
+                throw new Exception("Email address is incorrect.");
         }
 
         ILogInPage _logInPage;
