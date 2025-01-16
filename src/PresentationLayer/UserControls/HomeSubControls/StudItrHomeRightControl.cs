@@ -8,7 +8,7 @@ namespace PresentationLayer.UserControls.HomeSubControls
         public StudItrHomeRightControl()
         {
             InitializeComponent();
-            InitializeDataGridView();
+            //InitializeDataGridView();
         }
 
         public void DestroyControl() { this.Dispose(); }
