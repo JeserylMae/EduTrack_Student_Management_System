@@ -32,12 +32,25 @@ namespace PresentationLayer.Presenters.Admin
             _adminModifyInfoControl.SearchTextBoxKeyDown += SearchTextBox_KeyDown;
 
             _adminModifyInfoControl.ExitButtonClicked             += GeneralPresenter.TriggerAppExit;
-            _adminModifyInfoControl.FileDropDownButtonClicked     += FileDropDownButton_Clicked;
             _adminModifyInfoControl.CloseEditorButtonClicked      += CloseEditorButton_Clicked;
-            _adminModifyInfoControl.StudAcadInfoButtonClicked     += StudAcadInfoButton_Clicked;
+            _adminModifyInfoControl.ProgramInfoButtonClicked      += ProgramInfoButton_Clicked;
             _adminModifyInfoControl.ItrAcadInfoButtonClicked      += ItrAcadInfoButton_Clicked;
+            _adminModifyInfoControl.FileDropDownButtonClicked     += FileDropDownButton_Clicked;
+            _adminModifyInfoControl.StudAcadInfoButtonClicked     += StudAcadInfoButton_Clicked;
             _adminModifyInfoControl.ItrPersonalInfoButtonClicked  += ItrPersonalInfoButton_Clicked;
             _adminModifyInfoControl.StudPersonalInfoButtonClicked += StudPersonalInfoButton_Clicked;
+        }
+
+
+        private void ProgramInfoButton_Clicked(object sender, EventArgs e)
+        {
+            IProgramInfoControl userControl = new ProgramInfoControl();
+            new ProgramInfoPresenter(userControl);
+
+            GeneralPresenter.NewWindowControl = (UserControl)userControl;
+            GeneralPresenter.TriggerWindowControlChange(sender, e);
+
+            _adminModifyInfoControl.DisposeControl();
         }
 
         private void StudPersonalInfoButton_Clicked(object sender, EventArgs e)
