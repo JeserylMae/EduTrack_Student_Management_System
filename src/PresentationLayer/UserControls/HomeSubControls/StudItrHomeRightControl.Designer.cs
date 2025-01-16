@@ -49,8 +49,8 @@
             this.StudContactNumberHeader = new System.Windows.Forms.Label();
             this.StudContactNumberText = new System.Windows.Forms.Label();
             this.InstructorInfoMainPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.ItrCode = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ItrCodeHeader = new System.Windows.Forms.Label();
+            this.ItrCodeText = new System.Windows.Forms.Label();
             this.BirthDateHeader = new System.Windows.Forms.Label();
             this.BirthDateText = new System.Windows.Forms.Label();
             this.GenderHeader = new System.Windows.Forms.Label();
@@ -331,8 +331,8 @@
             // 
             // InstructorInfoMainPanel
             // 
-            this.InstructorInfoMainPanel.Controls.Add(this.ItrCode);
-            this.InstructorInfoMainPanel.Controls.Add(this.label4);
+            this.InstructorInfoMainPanel.Controls.Add(this.ItrCodeHeader);
+            this.InstructorInfoMainPanel.Controls.Add(this.ItrCodeText);
             this.InstructorInfoMainPanel.Controls.Add(this.BirthDateHeader);
             this.InstructorInfoMainPanel.Controls.Add(this.BirthDateText);
             this.InstructorInfoMainPanel.Controls.Add(this.GenderHeader);
@@ -348,32 +348,32 @@
             this.InstructorInfoMainPanel.Size = new System.Drawing.Size(270, 241);
             this.InstructorInfoMainPanel.TabIndex = 19;
             // 
-            // ItrCode
+            // ItrCodeHeader
             // 
-            this.ItrCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
-            this.ItrCode.ForeColor = System.Drawing.Color.White;
-            this.ItrCode.Location = new System.Drawing.Point(3, 0);
-            this.ItrCode.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.ItrCode.Name = "ItrCode";
-            this.ItrCode.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.ItrCode.Size = new System.Drawing.Size(90, 24);
-            this.ItrCode.TabIndex = 0;
-            this.ItrCode.Text = "Itr Code";
-            this.ItrCode.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ItrCodeHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
+            this.ItrCodeHeader.ForeColor = System.Drawing.Color.White;
+            this.ItrCodeHeader.Location = new System.Drawing.Point(3, 0);
+            this.ItrCodeHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.ItrCodeHeader.Name = "ItrCodeHeader";
+            this.ItrCodeHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.ItrCodeHeader.Size = new System.Drawing.Size(90, 24);
+            this.ItrCodeHeader.TabIndex = 0;
+            this.ItrCodeHeader.Text = "Itr Code";
+            this.ItrCodeHeader.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // ItrCodeText
             // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Location = new System.Drawing.Point(99, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.label4.Size = new System.Drawing.Size(168, 24);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "00-000-0000";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ItrCodeText.BackColor = System.Drawing.Color.Transparent;
+            this.ItrCodeText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ItrCodeText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ItrCodeText.Location = new System.Drawing.Point(99, 0);
+            this.ItrCodeText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.ItrCodeText.Name = "ItrCodeText";
+            this.ItrCodeText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.ItrCodeText.Size = new System.Drawing.Size(168, 24);
+            this.ItrCodeText.TabIndex = 1;
+            this.ItrCodeText.Text = "00-000-0000";
+            this.ItrCodeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BirthDateHeader
             // 
@@ -557,8 +557,8 @@
         private System.Windows.Forms.Label StudContactNumberHeader;
         private System.Windows.Forms.Label StudContactNumberText;
         private System.Windows.Forms.FlowLayoutPanel InstructorInfoMainPanel;
-        private System.Windows.Forms.Label ItrCode;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ItrCodeHeader;
+        private System.Windows.Forms.Label ItrCodeText;
         private System.Windows.Forms.Label BirthDateHeader;
         private System.Windows.Forms.Label BirthDateText;
         private System.Windows.Forms.Label GenderHeader;
