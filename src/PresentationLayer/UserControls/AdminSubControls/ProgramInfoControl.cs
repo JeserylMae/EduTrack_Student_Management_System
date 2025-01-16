@@ -36,16 +36,15 @@ namespace PresentationLayer.UserControls.AdminSubControls
 
         public void ClearInfoTable()
         {
-            if (InfoTable.Rows.Count > 0) 
-            { 
-                InfoTable.Rows.Clear();
-                InfoTable.Refresh();
-            }
+            if (InfoTable.Rows.Count <= 0) return;
+
+            InfoTable.Rows.Clear();
+            InfoTable.Refresh();
         }
 
         public void TriggerInfoTableReload()
         {
-            OnControlLoad?.Invoke(this, EventArgs.Empty);
+            OnControlLoad?.DynamicInvoke(this, EventArgs.Empty);
         }
 
 
