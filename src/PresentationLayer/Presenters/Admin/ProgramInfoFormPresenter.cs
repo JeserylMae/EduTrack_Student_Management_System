@@ -3,10 +3,6 @@ using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.AdminSubControls;
 using ServiceLayer.Database;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters.Admin
@@ -41,7 +37,7 @@ namespace PresentationLayer.Presenters.Admin
             if (response)
             {
                 DisplayConfirmation("Successfully updated program.", FormRequestType.UPDATE, RequestStatus.SUCCESS);
-                _programControl.InfoTableReload();
+                _programControl.ProgramControl.TriggerInfoTableReload();
             }
             else DisplayConfirmation("Failed to update program.", FormRequestType.UPDATE, RequestStatus.ERROR);
         }
@@ -57,7 +53,7 @@ namespace PresentationLayer.Presenters.Admin
             if (response)
             {
                 DisplayConfirmation("Successfully added new program.", FormRequestType.ADD, RequestStatus.SUCCESS);
-                _programControl.InfoTableReload();
+                _programControl.ProgramControl.TriggerInfoTableReload();
             }
             else DisplayConfirmation("Failed to add program.", FormRequestType.ADD, RequestStatus.ERROR);
         }
