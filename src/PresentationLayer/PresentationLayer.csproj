@@ -152,6 +152,7 @@
       <DependentUpon>ProgramInfoFormControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\General\FilterControl.Config.cs">
+		<DependentUpon>FilterControl.cs</DependentUpon>
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\General\FilterControl.cs">
@@ -160,7 +161,9 @@
     <Compile Include="UserControls\General\FilterControl.Designer.cs">
       <DependentUpon>FilterControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\General\IFilterControl.cs" />
+	  <Compile Include="UserControls\General\IFilterControl.cs">
+		  <DependentUpon>FilterControl.cs</DependentUpon>
+	  </Compile>
     <Compile Include="Views\MainControls\HomePage.Config.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
       <SubType>UserControl</SubType>
