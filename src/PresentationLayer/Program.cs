@@ -36,6 +36,7 @@ namespace PresentationLayer
             }
             catch (Exception ex)
             {
+                Console.WriteLine("====================================================");
                 Console.WriteLine($"Message: {ex.Message}");
                 Console.WriteLine($"StackTrace: {ex.StackTrace}");
                 //Console.WriteLine($"Inner Message: {ex.InnerException.Message}");
