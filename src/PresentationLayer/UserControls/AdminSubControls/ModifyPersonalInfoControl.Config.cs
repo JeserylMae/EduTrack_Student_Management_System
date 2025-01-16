@@ -43,12 +43,13 @@ namespace PresentationLayer.UserControls.AdminSubControls
             FileDropDownButton.Click += delegate { FileDropDownButtonClicked?.Invoke(this, EventArgs.Empty); };
 
             await FileDropDownLayoutCreated.Task;
-            ExitButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty); };
-            CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty); };
-            StudentAcadInfoButton.Click        += delegate { StudAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
-            InstructorAcadInfoButton.Click     += delegate { ItrAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
-            StudentPersonalInfoButton.Click    += delegate { StudPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
-            InstructorPersonalInfoButton.Click += delegate { ItrPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty); };
+            ExitButton.Click                   += delegate { ExitButtonClicked?.Invoke(this, EventArgs.Empty);              };
+            CloseEditorButton.Click            += delegate { CloseEditorButtonClicked?.Invoke(this, EventArgs.Empty);       };
+            ProgramInfoButton.Click            += delegate { ProgramInfoButtonClicked?.Invoke(this, EventArgs.Empty);       };
+            StudentAcadInfoButton.Click        += delegate { StudAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty);      };
+            InstructorAcadInfoButton.Click     += delegate { ItrAcadInfoButtonClicked?.Invoke(this, EventArgs.Empty);       };
+            StudentPersonalInfoButton.Click    += delegate { StudPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty);  };
+            InstructorPersonalInfoButton.Click += delegate { ItrPersonalInfoButtonClicked?.Invoke(this, EventArgs.Empty);   };
 
             await SearchTextBoxCreated.Task;
             SearchUsrCodeTextbox.KeyDown += delegate (object sender, KeyEventArgs e) { SearchTextBoxKeyDown?.Invoke(sender, e); };
