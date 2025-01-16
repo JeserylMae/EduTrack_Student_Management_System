@@ -81,10 +81,12 @@ namespace PresentationLayer.UserControls.AdminSubControls
         public event KeyEventHandler SearchTextBoxKeyDown;
         public event EventHandler CloseEditorButtonClicked;
         public event EventHandler ItrAcadInfoButtonClicked;
+        public event EventHandler ProgramInfoButtonClicked;
         public event EventHandler FileDropDownButtonClicked;
         public event EventHandler StudAcadInfoButtonClicked;
         public event EventHandler ItrPersonalInfoButtonClicked;
         public event EventHandler StudPersonalInfoButtonClicked;
+
 
         private UserControl _addedControl;
         private TaskCompletionSource<bool> InfoTableCreated;
