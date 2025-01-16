@@ -15,11 +15,12 @@ namespace PresentationLayer.UserControls.MainControls
         event EventHandler ExitButtonClicked;
         event EventHandler CloseEditorButtonClicked;
         event EventHandler OpenAddFormButtonClicked;
+        event EventHandler ProgramInfoButtonClicked;
         event EventHandler OpenDropFormButtonClicked;
-        event EventHandler SearchUsrCodeButtonClicked;
         event EventHandler FileDropDownButtonClicked;
         event EventHandler InfoTableSelectionChanged;
         event EventHandler FilterEditorButtonClicked;
+        event EventHandler SearchUsrCodeButtonClicked;
         event EventHandler OpenModifyFormButtonClicked;
         event EventHandler InstructorAcadInfoButtonClicked;
         event EventHandler StudentPersonalInfoButtonClicked;
