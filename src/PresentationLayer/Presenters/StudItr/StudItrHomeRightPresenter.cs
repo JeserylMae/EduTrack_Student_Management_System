@@ -1,5 +1,7 @@
-﻿using PresentationLayer.Presenters.Enumerations;
+﻿using DomainLayer.DataModels;
+using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.HomeSubControls;
+using ServiceLayer.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +47,16 @@ namespace PresentationLayer.Presenters.StudItr
             throw new NotImplementedException();
         }
 
-        private void HandleStudentInformation()
+        private async void HandleStudentInformation()
         {
-            throw new NotImplementedException();
+            _rightControl.AccessInstructorInfoMainPanel.Dispose();
+
+            StudentAcademicInfoServices services = new StudentAcademicInfoServices();
+            List<PStudentAcademicInfoModel<PNameModel>> student = new List<PStudentAcademicInfoModel<PNameModel>>();
+
+            student = await services.GetAll();
+
+
         }
 
         IStudItrHomeRightControl _rightControl;
