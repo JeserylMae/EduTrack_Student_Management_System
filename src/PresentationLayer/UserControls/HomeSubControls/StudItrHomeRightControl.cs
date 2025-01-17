@@ -23,13 +23,15 @@ namespace PresentationLayer.UserControls.HomeSubControls
         public string CurrentUserId         { get; set; }
         public AccessType CurrentUserType   { get; set; }
 
+        public Label AccessFullNameLabel         => NameLabel;
 
         public Label AccessYearText              => YearText;
         public Label AccessSrCodeText            => SrCodeText;
         public Label AccessSectionText           => SectionText;
         public Label AccessProgramText           => ProgramText;
         public Label AccessSemesterText          => SemesterText;
-        public Label AccessStudEmailText         => StudAcadYearText;
+        public Label AccessStudEmailText         => StudEmailText;
+        public Label AccessAcademicYearText      => AcademicYearText;
         public Label AccessStudContactNumberText => StudContactNumberText;
 
         public Label AccessGenderText           => GenderText;
@@ -39,6 +41,7 @@ namespace PresentationLayer.UserControls.HomeSubControls
         public Label AccessBirthDateText        => BirthDateText;
         public Label AccessItrContactNumberText => ItrContactNumberText;
 
+        public FlowLayoutPanel AccessMainInfoPanel           => MainInfoPanel;
         public FlowLayoutPanel AccessStudentInfoMainPanel    => StudentInfoMainPanel;
         public FlowLayoutPanel AccessInstructorInfoMainPanel => InstructorInfoMainPanel;
     }
