@@ -32,10 +32,12 @@
             this.NameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.UserPictureBox = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.MainInfoPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.StudentInfoMainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SrCodeHeader = new System.Windows.Forms.Label();
             this.SrCodeText = new System.Windows.Forms.Label();
+            this.StudEmailHeader = new System.Windows.Forms.Label();
+            this.StudEmailText = new System.Windows.Forms.Label();
             this.YearHeader = new System.Windows.Forms.Label();
             this.YearText = new System.Windows.Forms.Label();
             this.SemesterHeader = new System.Windows.Forms.Label();
@@ -44,8 +46,8 @@
             this.SectionText = new System.Windows.Forms.Label();
             this.ProgramHeader = new System.Windows.Forms.Label();
             this.ProgramText = new System.Windows.Forms.Label();
-            this.StudAcadYearHeader = new System.Windows.Forms.Label();
-            this.StudAcadYearText = new System.Windows.Forms.Label();
+            this.AcademicYearHeader = new System.Windows.Forms.Label();
+            this.AcademicYearText = new System.Windows.Forms.Label();
             this.StudContactNumberHeader = new System.Windows.Forms.Label();
             this.StudContactNumberText = new System.Windows.Forms.Label();
             this.InstructorInfoMainPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -62,7 +64,7 @@
             this.ItrContactNumberHeader = new System.Windows.Forms.Label();
             this.ItrContactNumberText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.MainInfoPanel.SuspendLayout();
             this.StudentInfoMainPanel.SuspendLayout();
             this.InstructorInfoMainPanel.SuspendLayout();
             this.SuspendLayout();
@@ -109,20 +111,22 @@
             this.UserPictureBox.TabIndex = 13;
             this.UserPictureBox.TabStop = false;
             // 
-            // flowLayoutPanel1
+            // MainInfoPanel
             // 
-            this.flowLayoutPanel1.Controls.Add(this.StudentInfoMainPanel);
-            this.flowLayoutPanel1.Controls.Add(this.InstructorInfoMainPanel);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(33, 224);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(286, 444);
-            this.flowLayoutPanel1.TabIndex = 18;
+            this.MainInfoPanel.Controls.Add(this.StudentInfoMainPanel);
+            this.MainInfoPanel.Controls.Add(this.InstructorInfoMainPanel);
+            this.MainInfoPanel.Location = new System.Drawing.Point(33, 224);
+            this.MainInfoPanel.Name = "MainInfoPanel";
+            this.MainInfoPanel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.MainInfoPanel.Size = new System.Drawing.Size(286, 444);
+            this.MainInfoPanel.TabIndex = 18;
             // 
             // StudentInfoMainPanel
             // 
             this.StudentInfoMainPanel.Controls.Add(this.SrCodeHeader);
             this.StudentInfoMainPanel.Controls.Add(this.SrCodeText);
+            this.StudentInfoMainPanel.Controls.Add(this.StudEmailHeader);
+            this.StudentInfoMainPanel.Controls.Add(this.StudEmailText);
             this.StudentInfoMainPanel.Controls.Add(this.YearHeader);
             this.StudentInfoMainPanel.Controls.Add(this.YearText);
             this.StudentInfoMainPanel.Controls.Add(this.SemesterHeader);
@@ -131,13 +135,13 @@
             this.StudentInfoMainPanel.Controls.Add(this.SectionText);
             this.StudentInfoMainPanel.Controls.Add(this.ProgramHeader);
             this.StudentInfoMainPanel.Controls.Add(this.ProgramText);
-            this.StudentInfoMainPanel.Controls.Add(this.StudAcadYearHeader);
-            this.StudentInfoMainPanel.Controls.Add(this.StudAcadYearText);
+            this.StudentInfoMainPanel.Controls.Add(this.AcademicYearHeader);
+            this.StudentInfoMainPanel.Controls.Add(this.AcademicYearText);
             this.StudentInfoMainPanel.Controls.Add(this.StudContactNumberHeader);
             this.StudentInfoMainPanel.Controls.Add(this.StudContactNumberText);
             this.StudentInfoMainPanel.Location = new System.Drawing.Point(8, 3);
             this.StudentInfoMainPanel.Name = "StudentInfoMainPanel";
-            this.StudentInfoMainPanel.Size = new System.Drawing.Size(270, 272);
+            this.StudentInfoMainPanel.Size = new System.Drawing.Size(270, 332);
             this.StudentInfoMainPanel.TabIndex = 18;
             // 
             // SrCodeHeader
@@ -167,11 +171,38 @@
             this.SrCodeText.Text = "00-000-0000";
             this.SrCodeText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // StudEmailHeader
+            // 
+            this.StudEmailHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
+            this.StudEmailHeader.ForeColor = System.Drawing.Color.White;
+            this.StudEmailHeader.Location = new System.Drawing.Point(3, 29);
+            this.StudEmailHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.StudEmailHeader.Name = "StudEmailHeader";
+            this.StudEmailHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.StudEmailHeader.Size = new System.Drawing.Size(90, 24);
+            this.StudEmailHeader.TabIndex = 10;
+            this.StudEmailHeader.Text = "Email";
+            this.StudEmailHeader.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // StudEmailText
+            // 
+            this.StudEmailText.BackColor = System.Drawing.Color.Transparent;
+            this.StudEmailText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.StudEmailText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.StudEmailText.Location = new System.Drawing.Point(99, 29);
+            this.StudEmailText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.StudEmailText.Name = "StudEmailText";
+            this.StudEmailText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.StudEmailText.Size = new System.Drawing.Size(168, 42);
+            this.StudEmailText.TabIndex = 11;
+            this.StudEmailText.Text = "zarrick.mercadejas@gmail.com";
+            this.StudEmailText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // YearHeader
             // 
             this.YearHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
             this.YearHeader.ForeColor = System.Drawing.Color.White;
-            this.YearHeader.Location = new System.Drawing.Point(3, 29);
+            this.YearHeader.Location = new System.Drawing.Point(3, 76);
             this.YearHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.YearHeader.Name = "YearHeader";
             this.YearHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -185,7 +216,7 @@
             this.YearText.BackColor = System.Drawing.Color.Transparent;
             this.YearText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.YearText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.YearText.Location = new System.Drawing.Point(99, 29);
+            this.YearText.Location = new System.Drawing.Point(99, 76);
             this.YearText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.YearText.Name = "YearText";
             this.YearText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -198,7 +229,7 @@
             // 
             this.SemesterHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
             this.SemesterHeader.ForeColor = System.Drawing.Color.White;
-            this.SemesterHeader.Location = new System.Drawing.Point(3, 58);
+            this.SemesterHeader.Location = new System.Drawing.Point(3, 105);
             this.SemesterHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.SemesterHeader.Name = "SemesterHeader";
             this.SemesterHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -212,7 +243,7 @@
             this.SemesterText.BackColor = System.Drawing.Color.Transparent;
             this.SemesterText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SemesterText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SemesterText.Location = new System.Drawing.Point(99, 58);
+            this.SemesterText.Location = new System.Drawing.Point(99, 105);
             this.SemesterText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.SemesterText.Name = "SemesterText";
             this.SemesterText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -225,7 +256,7 @@
             // 
             this.SectionHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
             this.SectionHeader.ForeColor = System.Drawing.Color.White;
-            this.SectionHeader.Location = new System.Drawing.Point(3, 87);
+            this.SectionHeader.Location = new System.Drawing.Point(3, 134);
             this.SectionHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.SectionHeader.Name = "SectionHeader";
             this.SectionHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -239,7 +270,7 @@
             this.SectionText.BackColor = System.Drawing.Color.Transparent;
             this.SectionText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SectionText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SectionText.Location = new System.Drawing.Point(99, 87);
+            this.SectionText.Location = new System.Drawing.Point(99, 134);
             this.SectionText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.SectionText.Name = "SectionText";
             this.SectionText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -252,7 +283,7 @@
             // 
             this.ProgramHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
             this.ProgramHeader.ForeColor = System.Drawing.Color.White;
-            this.ProgramHeader.Location = new System.Drawing.Point(3, 116);
+            this.ProgramHeader.Location = new System.Drawing.Point(3, 163);
             this.ProgramHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.ProgramHeader.Name = "ProgramHeader";
             this.ProgramHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -266,7 +297,7 @@
             this.ProgramText.BackColor = System.Drawing.Color.Transparent;
             this.ProgramText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProgramText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProgramText.Location = new System.Drawing.Point(99, 116);
+            this.ProgramText.Location = new System.Drawing.Point(99, 163);
             this.ProgramText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.ProgramText.Name = "ProgramText";
             this.ProgramText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -275,38 +306,38 @@
             this.ProgramText.Text = "Bachelor of Science in Computer Science";
             this.ProgramText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // StudAcadYearHeader
+            // AcademicYearHeader
             // 
-            this.StudAcadYearHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
-            this.StudAcadYearHeader.ForeColor = System.Drawing.Color.White;
-            this.StudAcadYearHeader.Location = new System.Drawing.Point(3, 190);
-            this.StudAcadYearHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.StudAcadYearHeader.Name = "StudAcadYearHeader";
-            this.StudAcadYearHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.StudAcadYearHeader.Size = new System.Drawing.Size(90, 42);
-            this.StudAcadYearHeader.TabIndex = 10;
-            this.StudAcadYearHeader.Text = "Academic Year";
-            this.StudAcadYearHeader.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.AcademicYearHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
+            this.AcademicYearHeader.ForeColor = System.Drawing.Color.White;
+            this.AcademicYearHeader.Location = new System.Drawing.Point(3, 237);
+            this.AcademicYearHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.AcademicYearHeader.Name = "AcademicYearHeader";
+            this.AcademicYearHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.AcademicYearHeader.Size = new System.Drawing.Size(90, 42);
+            this.AcademicYearHeader.TabIndex = 14;
+            this.AcademicYearHeader.Text = "Academic Year";
+            this.AcademicYearHeader.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // StudAcadYearText
+            // AcademicYearText
             // 
-            this.StudAcadYearText.BackColor = System.Drawing.Color.Transparent;
-            this.StudAcadYearText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.StudAcadYearText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StudAcadYearText.Location = new System.Drawing.Point(99, 190);
-            this.StudAcadYearText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
-            this.StudAcadYearText.Name = "StudAcadYearText";
-            this.StudAcadYearText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.StudAcadYearText.Size = new System.Drawing.Size(168, 42);
-            this.StudAcadYearText.TabIndex = 11;
-            this.StudAcadYearText.Text = "A.Y. 2024-2025";
-            this.StudAcadYearText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AcademicYearText.BackColor = System.Drawing.Color.Transparent;
+            this.AcademicYearText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.AcademicYearText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AcademicYearText.Location = new System.Drawing.Point(99, 237);
+            this.AcademicYearText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
+            this.AcademicYearText.Name = "AcademicYearText";
+            this.AcademicYearText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.AcademicYearText.Size = new System.Drawing.Size(168, 42);
+            this.AcademicYearText.TabIndex = 15;
+            this.AcademicYearText.Text = "A.Y. 2024-2025";
+            this.AcademicYearText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // StudContactNumberHeader
             // 
             this.StudContactNumberHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(139)))), ((int)(((byte)(172)))));
             this.StudContactNumberHeader.ForeColor = System.Drawing.Color.White;
-            this.StudContactNumberHeader.Location = new System.Drawing.Point(3, 237);
+            this.StudContactNumberHeader.Location = new System.Drawing.Point(3, 284);
             this.StudContactNumberHeader.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.StudContactNumberHeader.Name = "StudContactNumberHeader";
             this.StudContactNumberHeader.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -320,7 +351,7 @@
             this.StudContactNumberText.BackColor = System.Drawing.Color.Transparent;
             this.StudContactNumberText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.StudContactNumberText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.StudContactNumberText.Location = new System.Drawing.Point(99, 237);
+            this.StudContactNumberText.Location = new System.Drawing.Point(99, 284);
             this.StudContactNumberText.Margin = new System.Windows.Forms.Padding(3, 0, 3, 5);
             this.StudContactNumberText.Name = "StudContactNumberText";
             this.StudContactNumberText.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -343,7 +374,7 @@
             this.InstructorInfoMainPanel.Controls.Add(this.ItrEmailText);
             this.InstructorInfoMainPanel.Controls.Add(this.ItrContactNumberHeader);
             this.InstructorInfoMainPanel.Controls.Add(this.ItrContactNumberText);
-            this.InstructorInfoMainPanel.Location = new System.Drawing.Point(8, 281);
+            this.InstructorInfoMainPanel.Location = new System.Drawing.Point(8, 341);
             this.InstructorInfoMainPanel.Name = "InstructorInfoMainPanel";
             this.InstructorInfoMainPanel.Size = new System.Drawing.Size(270, 241);
             this.InstructorInfoMainPanel.TabIndex = 19;
@@ -516,7 +547,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.MainInfoPanel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.UserPictureBox);
@@ -528,7 +559,7 @@
             this.Name = "StudItrHomeRightControl";
             this.Size = new System.Drawing.Size(333, 684);
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.MainInfoPanel.ResumeLayout(false);
             this.StudentInfoMainPanel.ResumeLayout(false);
             this.InstructorInfoMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -540,7 +571,7 @@
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.PictureBox UserPictureBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel MainInfoPanel;
         private System.Windows.Forms.FlowLayoutPanel StudentInfoMainPanel;
         private System.Windows.Forms.Label SrCodeHeader;
         private System.Windows.Forms.Label SrCodeText;
@@ -552,8 +583,8 @@
         private System.Windows.Forms.Label SectionText;
         private System.Windows.Forms.Label ProgramHeader;
         private System.Windows.Forms.Label ProgramText;
-        private System.Windows.Forms.Label StudAcadYearHeader;
-        private System.Windows.Forms.Label StudAcadYearText;
+        private System.Windows.Forms.Label StudEmailHeader;
+        private System.Windows.Forms.Label StudEmailText;
         private System.Windows.Forms.Label StudContactNumberHeader;
         private System.Windows.Forms.Label StudContactNumberText;
         private System.Windows.Forms.FlowLayoutPanel InstructorInfoMainPanel;
@@ -569,5 +600,7 @@
         private System.Windows.Forms.Label ItrEmailText;
         private System.Windows.Forms.Label ItrContactNumberHeader;
         private System.Windows.Forms.Label ItrContactNumberText;
+        private System.Windows.Forms.Label AcademicYearHeader;
+        private System.Windows.Forms.Label AcademicYearText;
     }
 }
