@@ -10,7 +10,7 @@ namespace InfrastructureLayer.Database
         
         Task<int> DeleteStudent(PRStudentAcademicInfoParams paramsModel);
         
-        Task<PStudentAcademicInfoModel<PNameModel>> GetByParams(PRStudentAcademicInfoParams paramsModel);
+        Task<List<PStudentAcademicInfoModel<PNameModel>>> GetByParams(PRStudentAcademicInfoParams paramsModel);
         
         void AddDynamicParameters(ref DynamicParameters parameters,
                     PStudentAcademicInfoModel<string> studentModel,
