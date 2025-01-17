@@ -8,6 +8,7 @@ using PresentationLayer.UserControls.HomeSubControls;
 using System.Windows.Forms;
 using PresentationLayer.Presenters.Admin;
 using PresentationLayer.Presenters.Enumerations;
+using PresentationLayer.Presenters.StudItr;
 
 
 namespace PresentationLayer.Presenters.General
@@ -70,6 +71,8 @@ namespace PresentationLayer.Presenters.General
                 StudItrHomeBottomControl bottomControl = new StudItrHomeBottomControl();
 
                 SetHomeRightControlProperties(User, ref rightControl);
+
+                new StudItrHomeRightPresenter(rightControl);
 
                 homePage.RightUserControlPage = (UserControl)rightControl;
                 homePage.BottomUserControlPage = (UserControl)bottomControl;
