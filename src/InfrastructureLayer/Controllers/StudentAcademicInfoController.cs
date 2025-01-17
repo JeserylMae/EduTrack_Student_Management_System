@@ -66,9 +66,9 @@ namespace InfrastructureLayer.Controllers
         {
             if (studentModel == null) return BadRequest(new { Message = "At least one parameter must be filled." });
 
-            PStudentAcademicInfoModel<PNameModel> response = await _studentRepository.GetByParams(studentModel);
+            List<PStudentAcademicInfoModel<PNameModel>> response = await _studentRepository.GetByParams(studentModel);
 
-            if (response != null) return Ok(response);
+            if (response.Count > 0) return Ok(response);
             return NotFound(new { Message = $"Student with Sr-Code {studentModel.SrCode} not found." });
         }
 
