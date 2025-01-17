@@ -15,7 +15,9 @@ namespace PresentationLayer.UserControls.HomeSubControls
 
 
         string CurrentUserId        { get; set; }
-        AccessType CurrentUserType { get; set; }
+        AccessType CurrentUserType  { get; set; }
+
+        Label AccessFullNameLabel           { get; }
 
         Label AccessYearText                { get; }
         Label AccessSrCodeText              { get; }
@@ -23,6 +25,7 @@ namespace PresentationLayer.UserControls.HomeSubControls
         Label AccessSectionText             { get; }
         Label AccessProgramText             { get; }
         Label AccessStudEmailText           { get; }
+        Label AccessAcademicYearText        { get; }
         Label AccessStudContactNumberText   { get; }
 
         Label AccessGenderText              { get; }
@@ -32,6 +35,7 @@ namespace PresentationLayer.UserControls.HomeSubControls
         Label AccessBirthDateText           { get; }
         Label AccessItrContactNumberText    { get; }
 
+        FlowLayoutPanel AccessMainInfoPanel             { get; }
         FlowLayoutPanel AccessStudentInfoMainPanel      { get; }
         FlowLayoutPanel AccessInstructorInfoMainPanel   { get; }
     }
