@@ -57,7 +57,7 @@ namespace ServiceLayer.Database
             }
         }
 
-        public async Task<PStudentAcademicInfoModel<PNameModel>> GetByParams(PRStudentAcademicInfoParams paramsModel)
+        public async Task<List<PStudentAcademicInfoModel<PNameModel>>> GetByParams(PRStudentAcademicInfoParams paramsModel)
         {
             string request = $"{_webAddress}/GetByParams";
             HandleRequestParameter(ref request, paramsModel);
@@ -71,9 +71,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<PStudentAcademicInfoModel<PNameModel>>(jsonResponse);
+                    return JsonConvert.DeserializeObject<List<PStudentAcademicInfoModel<PNameModel>>>(jsonResponse);
                 }
-                return new PStudentAcademicInfoModel<PNameModel>();
+                return new List<PStudentAcademicInfoModel<PNameModel>>();
             }
         }
 
