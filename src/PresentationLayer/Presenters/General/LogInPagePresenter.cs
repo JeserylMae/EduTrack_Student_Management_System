@@ -7,6 +7,7 @@ using ServiceLayer.Database;
 using PresentationLayer.UserControls.HomeSubControls;
 using System.Windows.Forms;
 using PresentationLayer.Presenters.Admin;
+using PresentationLayer.Presenters.Enumerations;
 
 
 namespace PresentationLayer.Presenters.General
@@ -65,8 +66,10 @@ namespace PresentationLayer.Presenters.General
             }
             else if (User.Position == "INSTRUCTOR" || User.Position == "STUDENT")
             {
-                StudItrHomeRightControl rightControl   = new StudItrHomeRightControl();
+                IStudItrHomeRightControl rightControl   = new StudItrHomeRightControl();
                 StudItrHomeBottomControl bottomControl = new StudItrHomeBottomControl();
+
+                SetHomeRightControlProperties(User, ref rightControl);
 
                 homePage.RightUserControlPage = (UserControl)rightControl;
                 homePage.BottomUserControlPage = (UserControl)bottomControl;
@@ -77,6 +80,8 @@ namespace PresentationLayer.Presenters.General
             GeneralPresenter.TriggerWindowControlChange(null, EventArgs.Empty);
         }
 
+
+        #region Helpers
         private void ValidateUser(ref PRUserModel User, ref PRUserModel e_User)
         {
             if (User == null)
@@ -90,6 +95,17 @@ namespace PresentationLayer.Presenters.General
             if (User.EmailAddress != e_User.EmailAddress)
                 throw new Exception("Email address is incorrect.");
         }
+        
+        private void SetHomeRightControlProperties(PRUserModel user, 
+                        ref IStudItrHomeRightControl rightControl)
+        {
+            rightControl.CurrentUserId = user.UserID;
+            rightControl.CurrentUserType = (user.Position == "STUDENT")
+                                         ? AccessType.STUDENT
+                                         : AccessType.INSTRUCTOR;
+        }
+        #endregion
+
 
         ILogInPage _logInPage;
         private IEdutrackMainForm _edutrackMainForm;
