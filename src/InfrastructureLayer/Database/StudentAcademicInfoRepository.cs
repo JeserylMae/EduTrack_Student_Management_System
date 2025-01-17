@@ -50,7 +50,7 @@ namespace InfrastructureLayer.Database
             }
         }
 
-        public async Task<PStudentAcademicInfoModel<PNameModel>> GetByParams(
+        public async Task<List<PStudentAcademicInfoModel<PNameModel>>> GetByParams(
                                      PRStudentAcademicInfoParams paramsModel)
         {
             StudentAcadParams parameterType = HandleParameter(paramsModel);
@@ -73,7 +73,7 @@ namespace InfrastructureLayer.Database
                     param: parameters,
                     commandType: CommandType.Text
                 );
-                return result.SingleOrDefault();
+                return result.ToList();
             }
         }
 
