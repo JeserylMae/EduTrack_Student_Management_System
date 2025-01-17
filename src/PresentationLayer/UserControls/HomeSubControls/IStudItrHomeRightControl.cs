@@ -13,6 +13,8 @@ namespace PresentationLayer.UserControls.HomeSubControls
         void DestroyControl();
         event EventHandler OnControlLoad;
 
+
+        string CurrentUserId        { get; set; }
         AccessType CurrentUserType { get; set; }
 
         Label AccessYearText                { get; }
