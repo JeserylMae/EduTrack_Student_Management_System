@@ -16,18 +16,20 @@ namespace PresentationLayer.UserControls.HomeSubControls
         }
 
 
+        public event EventHandler OnControlLoad;
         public void DestroyControl() { this.Dispose(); }
 
-        public event EventHandler OnControlLoad;
 
-        public AccessType CurrentUserType { get; set; }
+        public string CurrentUserId         { get; set; }
+        public AccessType CurrentUserType   { get; set; }
+
 
         public Label AccessYearText              => YearText;
         public Label AccessSrCodeText            => SrCodeText;
         public Label AccessSectionText           => SectionText;
         public Label AccessProgramText           => ProgramText;
         public Label AccessSemesterText          => SemesterText;
-        public Label AccessStudEmailText         => StudEmailText;
+        public Label AccessStudEmailText         => StudAcadYearText;
         public Label AccessStudContactNumberText => StudContactNumberText;
 
         public Label AccessGenderText           => GenderText;
