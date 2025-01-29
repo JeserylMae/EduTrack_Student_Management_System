@@ -1,4 +1,5 @@
 ﻿using DomainLayer.DataModels;
+using DomainLayer.DataModels.Instructor;
 using PresentationLayer.Presenters.Enumerations;
 using PresentationLayer.UserControls.HomeSubControls;
 using ServiceLayer.Database;
@@ -8,6 +9,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls.WebParts;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Presenters.StudItr
@@ -43,9 +45,14 @@ namespace PresentationLayer.Presenters.StudItr
             }
         }
 
-        private void HandleInstructorInformation()
+        private async void HandleInstructorInformation()
         {
-            throw new NotImplementedException();
+            RemovePanel();
+
+            var academicInfo = await GetInstructorAcademicInformation();
+            var personalInfo = await GetInstructorPersonalInformation();
+
+            DisplayValuesToPanel(ref personalInfo, ref academicInfo);
         }
 
         private async Task HandleStudentInformation()
@@ -60,6 +67,24 @@ namespace PresentationLayer.Presenters.StudItr
 
 
         #region Helpers
+        private async Task<PInstructorAcademicInfoModel<PNameModel>> GetInstructorAcademicInformation()
+        {
+            InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
+            PRInstructorAcademicParams parameters = new PRInstructorAcademicParams();
+            List<PInstructorAcademicInfoModel<PNameModel>> instructor = new List<PInstructorAcademicInfoModel<PNameModel>>();
+
+            parameters.ItrCode = _rightControl.CurrentUserId;
+
+            instructor = await services.GetById(parameters);
+
+            instructor = instructor.Select(row => row)
+                .OrderByDescending(row => row.AcademicYear)
+                .ThenByDescending(row => row.Section)
+                .ToList();
+
+            return instructor[0];
+        }
+
         private async Task<RStudentPersonalInfoModel> GetStudentPersonalInformation()
         {
             StudentPersonalInfoServices services = new StudentPersonalInfoServices();
