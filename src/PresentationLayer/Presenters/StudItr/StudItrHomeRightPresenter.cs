@@ -67,6 +67,13 @@ namespace PresentationLayer.Presenters.StudItr
 
 
         #region Helpers
+        private async Task<RInstructorPersonalInfoModel> GetInstructorPersonalInformation()
+        {
+            InstructorPersonalInfoServices services = new InstructorPersonalInfoServices();
+
+            return await services.GetById(_rightControl.CurrentUserId);
+        }
+
         private async Task<PInstructorAcademicInfoModel<PNameModel>> GetInstructorAcademicInformation()
         {
             InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
