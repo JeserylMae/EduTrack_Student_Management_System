@@ -82,7 +82,7 @@
             // 
             this.NameLabel.Font = new System.Drawing.Font("Candara", 14F, System.Drawing.FontStyle.Bold);
             this.NameLabel.ForeColor = System.Drawing.Color.Black;
-            this.NameLabel.Location = new System.Drawing.Point(30, 161);
+            this.NameLabel.Location = new System.Drawing.Point(30, 168);
             this.NameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(289, 45);
@@ -557,7 +557,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "StudItrHomeRightControl";
-            this.Size = new System.Drawing.Size(333, 684);
+            this.Size = new System.Drawing.Size(333, 577);
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox)).EndInit();
             this.MainInfoPanel.ResumeLayout(false);
             this.StudentInfoMainPanel.ResumeLayout(false);
