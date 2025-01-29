@@ -55,7 +55,7 @@ namespace ServiceLayer.Database
         }
 
 
-        public async Task<PInstructorAcademicInfoModel<PNameModel>> GetById(PRInstructorAcademicParams instructor)
+        public async Task<List<PInstructorAcademicInfoModel<PNameModel>>> GetById(PRInstructorAcademicParams instructor)
         {
             string request = $"{_webAddress}/GetById";
             HandleRequestParameters(ref request, instructor);
@@ -69,9 +69,9 @@ namespace ServiceLayer.Database
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<PInstructorAcademicInfoModel<PNameModel>>(jsonResponse);
+                    return JsonConvert.DeserializeObject<List<PInstructorAcademicInfoModel<PNameModel>>>(jsonResponse);
                 }
-                return new PInstructorAcademicInfoModel<PNameModel>();
+                return new List<PInstructorAcademicInfoModel<PNameModel>>();
             }
         }
 
