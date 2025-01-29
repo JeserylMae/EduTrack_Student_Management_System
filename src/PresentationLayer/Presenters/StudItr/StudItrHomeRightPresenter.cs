@@ -49,10 +49,9 @@ namespace PresentationLayer.Presenters.StudItr
         {
             RemovePanel();
 
-            var academicInfo = await GetInstructorAcademicInformation();
             var personalInfo = await GetInstructorPersonalInformation();
 
-            DisplayValuesToPanel(ref personalInfo, ref academicInfo);
+            DisplayValuesToPanel(ref personalInfo);
         }
 
         private async Task HandleStudentInformation()
@@ -72,24 +71,6 @@ namespace PresentationLayer.Presenters.StudItr
             InstructorPersonalInfoServices services = new InstructorPersonalInfoServices();
 
             return await services.GetById(_rightControl.CurrentUserId);
-        }
-
-        private async Task<PInstructorAcademicInfoModel<PNameModel>> GetInstructorAcademicInformation()
-        {
-            InstructorAcademicInfoServices services = new InstructorAcademicInfoServices();
-            PRInstructorAcademicParams parameters = new PRInstructorAcademicParams();
-            List<PInstructorAcademicInfoModel<PNameModel>> instructor = new List<PInstructorAcademicInfoModel<PNameModel>>();
-
-            parameters.ItrCode = _rightControl.CurrentUserId;
-
-            instructor = await services.GetById(parameters);
-
-            instructor = instructor.Select(row => row)
-                .OrderByDescending(row => row.AcademicYear)
-                .ThenByDescending(row => row.Section)
-                .ToList();
-
-            return instructor[0];
         }
 
         private async Task<RStudentPersonalInfoModel> GetStudentPersonalInformation()
@@ -117,8 +98,7 @@ namespace PresentationLayer.Presenters.StudItr
             return student[0];
         }
 
-        private void DisplayValuesToPanel(ref RInstructorPersonalInfoModel personalInfo,
-                            ref PInstructorAcademicInfoModel<PNameModel> academicInfo)
+        private void DisplayValuesToPanel(ref RInstructorPersonalInfoModel personalInfo)
         {
             _rightControl.AccessFullNameLabel.Text = personalInfo.FirstName  + " "
                                                    + personalInfo.MiddleName + " "
