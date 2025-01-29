@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenters\Admin\AcademicInfoPresenter.cs" />
+    <Compile Include="Presenters\Admin\AdminHomeBottomPresenter.cs" />
     <Compile Include="Presenters\Admin\AdminHomeRightPresenter.cs" />
     <Compile Include="Presenters\Admin\ModifyPersonalInfoPresenter.cs" />
     <Compile Include="Presenters\Admin\ProgramInfoFormPresenter.cs" />
@@ -166,9 +167,13 @@
     <Compile Include="UserControls\General\IFilterControl.cs">
       <DependentUpon>FilterControl.cs</DependentUpon>
     </Compile>
-	  <Compile Include="UserControls\HomeSubControls\IStudItrHomeRightControl.cs">
-		  <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="UserControls\HomeSubControls\IStudItrHomeBottomControl.cs" />
+    <Compile Include="UserControls\HomeSubControls\IStudItrHomeRightControl.cs">
+      <DependentUpon>StudItrHomeRightControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HomeSubControls\StudItrHomeBottomControl.Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Views\MainControls\HomePage.Config.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
       <SubType>UserControl</SubType>
@@ -429,7 +434,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
-    <Folder Include="UserControls\StuItrSubControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
