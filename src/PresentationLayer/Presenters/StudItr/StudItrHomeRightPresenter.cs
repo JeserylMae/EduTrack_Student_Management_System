@@ -117,6 +117,25 @@ namespace PresentationLayer.Presenters.StudItr
             return student[0];
         }
 
+        private void DisplayValuesToPanel(ref RInstructorPersonalInfoModel personalInfo,
+                            ref PInstructorAcademicInfoModel<PNameModel> academicInfo)
+        {
+            _rightControl.AccessFullNameLabel.Text = personalInfo.FirstName  + " "
+                                                   + personalInfo.MiddleName + " "
+                                                   + personalInfo.LastName;
+
+            _rightControl.AccessAddressText.Text = personalInfo.HouseNumber + " "
+                                                 + personalInfo.Barangay + " "
+                                                 + personalInfo.Municipality + " "
+                                                 + personalInfo.Province;
+
+            _rightControl.AccessGenderText.Text           = personalInfo.Gender;
+            _rightControl.AccessItrCodeText.Text          = personalInfo.ItrCode;
+            _rightControl.AccessItrEmailText.Text         = personalInfo.EmailAddress;
+            _rightControl.AccessBirthDateText.Text        = personalInfo.BirthDate;
+            _rightControl.AccessItrContactNumberText.Text = personalInfo.ContactNumber;
+        }
+
         private void DisplayValuesToPanel(ref RStudentPersonalInfoModel personalInfo, 
                               ref PStudentAcademicInfoModel<PNameModel> academicInfo)
         {
